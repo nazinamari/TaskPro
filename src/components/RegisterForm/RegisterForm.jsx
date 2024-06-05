@@ -1,4 +1,4 @@
-import Title from '../Title/Title';
+import Title from '../../shared/Title/Title';
 
 export default function RegisterForm() {
 	return (
