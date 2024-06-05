@@ -1,0 +1,40 @@
+.container {
+  width: 260px;
+  padding: 24px;
+}
+.title {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.wrapper {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 14px;
+  margin-bottom: 206px;
+}
+.addBtn {
+  width: 36px;
+  height: 40px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  background-color: #bedbb0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.helpWrapper {
+  background-color: gray;
+  width: 212px;
+  height: 272px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
