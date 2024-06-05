@@ -1,5 +1,6 @@
 import LoginForm from "../components/LoginForm/LoginForm";
-// import Title from "../components/Title/Title";
+import Title from '../shared/Title/Title';
+
 
 export default function AuthPage() {
   return (
