@@ -1,0 +1,9 @@
+body {
+	font-family: var(--font-family);
+	font-size: var(--font-size-base);
+	color: var(--text-color);
+	background-color: var(--secondary-color);
+	margin: 0;
+	padding: 0;
+	transition: background-color 0.3s, color 0.3s;
+}
