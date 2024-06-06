@@ -1,4 +1,4 @@
-import Title from '../shared/Title/Title';
+import Title from '../../shared/components/Title/Title';
 
 export default function BoardPage() {
 	return (
