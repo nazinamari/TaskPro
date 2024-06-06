@@ -39,12 +39,9 @@ export default function SideBar() {
         <div className={css.helpWrapper}>
           <div className={css.image}></div> {/* Додати image */}
           <p>
-            If you need help with{" "}
-            <a className={css.link} href="#">
-              TaskPro
-            </a>
-            , check out our support resources or reach out to our customer
-            support team.
+            If you need help with <span className={css.span}>TaskPro</span>,
+            check out our support resources or reach out to our customer support
+            team.
           </p>
           <button
             type="button"
