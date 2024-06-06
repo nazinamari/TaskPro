@@ -14,7 +14,7 @@ export default function App() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/welcome" element={<WelcomePage />} />
-          <Route path="auth/:id" element={<AuthPage />}>
+          <Route path="/auth" element={<AuthPage />}>
             <Route path="register" element={<RegisterForm />} />
             <Route path="login" element={<LoginForm />} />
           </Route>
