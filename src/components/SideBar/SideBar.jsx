@@ -26,7 +26,7 @@ export default function SideBar() {
         <LogoComponent />
         <h4 className={css.title}>My boards</h4>
         <div className={css.wrapper}>
-          <p>Create a new board</p>
+          <p className={css.text}>Create a new board</p>
           <button
             type="button"
             onClick={handleCreateModal}
