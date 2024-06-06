@@ -30,7 +30,7 @@ export default function RegisterForm() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <ul>
           <li>
-            <NavLink to="register" className={buildLinkClass}>
+            <NavLink to="/" className={buildLinkClass}>
               Registration
             </NavLink>
           </li>

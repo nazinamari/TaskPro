@@ -1,23 +1,23 @@
 :root {
-	--primary-color: #8bc34a; /* default light theme primary color */
-	--secondary-color: #000000; /* default light theme secondary color */
-	--background-color: #ffffff; /* default light theme background color */
+  --primary-color: #8bc34a; /* default light theme primary color */
+  --secondary-color: #000000; /* default light theme secondary color */
+  --background-color: #ffffff; /* default light theme background color */
 }
 
 .dark-theme {
-	--primary-color: #4caf50;
-	--secondary-color: #ffffff;
-	--background-color: #000000;
+  --primary-color: #4caf50;
+  --secondary-color: #ffffff;
+  --background-color: #000000;
 }
 
 .light-theme {
-	--primary-color: #8bc34a;
-	--secondary-color: #000000;
-	--background-color: #ffffff;
+  --primary-color: #8bc34a;
+  --secondary-color: #000000;
+  --background-color: #ffffff;
 }
 
 .violet-theme {
-	--primary-color: #3f51b5;
-	--secondary-color: #000000;
-	--background-color: #ede7f6;
+  --primary-color: #3f51b5;
+  --secondary-color: #000000;
+  --background-color: #ede7f6;
 }
