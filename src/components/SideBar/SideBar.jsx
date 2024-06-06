@@ -32,7 +32,9 @@ export default function SideBar() {
             onClick={handleCreateModal}
             className={css.addBtn}
           >
-            + {/* Додати icon */}
+            <svg className={css.btnIcon}>
+              <use href="../../../public/sprite.svg#icon-plus"></use>
+            </svg>
           </button>
         </div>
         <BoardNavigation />
@@ -48,6 +50,9 @@ export default function SideBar() {
             onClick={handleHelpModal}
             className={css.helpBtn}
           >
+            <svg className={css.helpIcon}>
+              <use href="../../../public/sprite.svg#icon-pencil-01"></use>
+            </svg>
             Need help? {/* Додати icon */}
           </button>
         </div>
@@ -64,6 +69,9 @@ export default function SideBar() {
             alert("log out");
           }}
         >
+          <svg className={css.helpIcon}>
+            <use href="../../../public/sprite.svg#icon-login"></use>
+          </svg>
           Log out
         </button>
       </aside>

@@ -8,6 +8,9 @@ export default function WorkPlace() {
           alert("log out");
         }}
       >
+        <svg className={css.filterIcon}>
+          <use href="../../../public/sprite.svg#icon-colors"></use>
+        </svg>
         Filters
       </button>
       <div className={css.textContainer}>
