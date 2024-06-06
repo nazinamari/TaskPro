@@ -1,4 +1,15 @@
 .title {
-  margin-bottom: 60px;
   font-size: 16px;
+  text-align: center;
+}
+.icon {
+  width: 32px;
+  height: 32px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  margin-bottom: 60px;
+  gap: 8px;
 }

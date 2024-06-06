@@ -60,9 +60,8 @@
   background-color: #fff;
   margin-bottom: 14px;
 }
-.link {
+.span {
   color: #bedbb0;
-  text-decoration: none;
 }
 .helpBtn {
   background-color: inherit;
@@ -70,16 +69,36 @@
   color: #fff;
   border: none;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 .logoutBtn {
+  width: 96px;
   font-size: 16px;
+  padding: 0;
   cursor: pointer;
   border: none;
   background-color: inherit;
   color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 .text {
   display: block;
   width: 76px;
   font-weight: 900;
+}
+.btnIcon {
+  width: 20px;
+  height: 20px;
+  stroke: #121212;
+}
+.helpIcon {
+  width: 20px;
+  height: 20px;
+  stroke: wheat;
 }

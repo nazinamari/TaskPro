@@ -32,25 +32,27 @@ export default function SideBar() {
             onClick={handleCreateModal}
             className={css.addBtn}
           >
-            + {/* Додати icon */}
+            <svg className={css.btnIcon}>
+              <use href="../../../public/sprite.svg#icon-plus"></use>
+            </svg>
           </button>
         </div>
         <BoardNavigation />
         <div className={css.helpWrapper}>
           <div className={css.image}></div> {/* Додати image */}
           <p>
-            If you need help with{" "}
-            <a className={css.link} href="#">
-              TaskPro
-            </a>
-            , check out our support resources or reach out to our customer
-            support team.
+            If you need help with <span className={css.span}>TaskPro</span>,
+            check out our support resources or reach out to our customer support
+            team.
           </p>
           <button
             type="button"
             onClick={handleHelpModal}
             className={css.helpBtn}
           >
+            <svg className={css.helpIcon}>
+              <use href="../../../public/sprite.svg#icon-pencil-01"></use>
+            </svg>
             Need help? {/* Додати icon */}
           </button>
         </div>
@@ -67,6 +69,9 @@ export default function SideBar() {
             alert("log out");
           }}
         >
+          <svg className={css.helpIcon}>
+            <use href="../../../public/sprite.svg#icon-login"></use>
+          </svg>
           Log out
         </button>
       </aside>
