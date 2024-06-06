@@ -1,10 +1,14 @@
 .container {
   width: 260px;
+  height: calc(100vh - 48px);
   padding: 24px;
   background-color: #121212;
   color: #ffffff;
   font-family: popins serif;
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 .title {
   font-size: 12px;
@@ -43,6 +47,7 @@
   width: 212px;
   padding: 20px;
   border-radius: 8px;
+  margin-top: auto;
   margin-bottom: 24px;
   font-size: 14;
   font-weight: 400;

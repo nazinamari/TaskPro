@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import BoardNavigation from "../BoardNavigation/BoardNavigation";
 import LogoComponent from "../LogoComponent/LogoComponent";
 import css from "./SideBar.module.css";
+import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
 
 export default function SideBar() {
   const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
@@ -18,8 +19,9 @@ export default function SideBar() {
   return (
     <>
       {isOpenCreateModal && <p>MODAL WINDOW</p>}
-      {isOpenHelpModal && <p>Help MODAL</p>}{" "}
       {/* Додати компонент нової таски */}
+
+      {isOpenHelpModal && <NeedHelpModal />}
       <aside className={css.container}>
         <LogoComponent />
         <h4 className={css.title}>My boards</h4>
