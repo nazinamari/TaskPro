@@ -1,6 +1,8 @@
+
 import { Link } from "react-router-dom";
-import Title from "../components/Title/Title";
+import Title from '../shared/Title/Title';
 import css from "./WelcomePage.module.css";
+
 
 export default function WelcomePage() {
   return (
@@ -15,7 +17,7 @@ export default function WelcomePage() {
           <Title className={css.title}>Task Pro</Title>
         </div>
         <p className={css.text}>
-          Supercharge your productivity and take control of your tasks with Task{" "}
+          Supercharge your productivity and take control of your tasks with Task
           <br />
           Pro - Don't wait, start achieving your goals now!
         </p>
