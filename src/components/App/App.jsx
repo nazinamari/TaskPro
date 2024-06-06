@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import WelcomePage from "../../pages/WelcomePage";
-import AuthPage from "../../pages/AuthPage";
+import AuthPage from "../../pages/AuthPage/AuthPage";
+
 import RegisterForm from "../RegisterForm/RegisterForm";
 import LoginForm from "../LoginForm/LoginForm";
 import HomePage from "../../pages/HomePage";
