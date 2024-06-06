@@ -1,0 +1,82 @@
+/* контейнер для всіх елементів login */
+.loginWrapper {
+  width: 335px;
+  height: 300px;
+  margin-top: 256px;
+  margin-bottom: 256px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  background-color: #151515;
+  border-radius: 8px;
+}
+
+.loginListWrapper {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.loginItem + .loginItem {
+  margin-left: 14px;
+}
+
+.loginLink {
+  color: rgba(255, 255, 255, 0.3);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.36px;
+  text-decoration: none;
+}
+
+.linkActive {
+  color: #fff;
+}
+
+.loginForm {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+}
+
+.loginInput {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 14px;
+  letter-spacing: -0.28px;
+
+  display: inline-flex;
+  padding: 14px 160px 14px 18px;
+  align-items: center;
+
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  opacity: 0.4;
+  background: #1f1f1f;
+  box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+}
+
+.loginInput + .loginInput {
+  margin-top: 14px;
+}
+
+.loginButton {
+  width: 287px;
+  height: 49px;
+  padding: 14px 0px;
+  margin-top: 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #bedbb0;
+  color: #161616;
+
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+}

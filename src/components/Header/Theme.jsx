@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./Theme.module.css";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
 
 const ThemeSelector = ({ changeTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,32 +16,32 @@ const ThemeSelector = ({ changeTheme }) => {
 
   return (
     <div className={styles.dropdown}>
-      <DropdownButton
-        id="dropdown-basic-button"
-        title="Theme"
-        show={isOpen}
-        onClick={toggleDropdown}
-        className={styles.themaBtn}
-      >
-        <Dropdown.Item
-          className={styles.themaItem}
-          onClick={() => handleThemeChange("light")}
-        >
-          Light
-        </Dropdown.Item>
-        <Dropdown.Item
-          className={styles.themaItem}
-          onClick={() => handleThemeChange("dark")}
-        >
-          Dark
-        </Dropdown.Item>
-        <Dropdown.Item
-          className={styles.themaItem}
-          onClick={() => handleThemeChange("violet")}
-        >
-          Violet
-        </Dropdown.Item>
-      </DropdownButton>
+      <Dropdown show={isOpen} onToggle={toggleDropdown}>
+        <Dropdown.Toggle id="dropdown-basic-button" className={styles.themeBtn}>
+          Theme
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu className={styles.dropdownMenu}>
+          <Dropdown.Item
+            className={styles.themeItem}
+            onClick={() => handleThemeChange("light")}
+          >
+            Light
+          </Dropdown.Item>
+          <Dropdown.Item
+            className={styles.themeItem}
+            onClick={() => handleThemeChange("dark")}
+          >
+            Dark
+          </Dropdown.Item>
+          <Dropdown.Item
+            className={styles.themeItem}
+            onClick={() => handleThemeChange("violet")}
+          >
+            Violet
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
     </div>
   );
 };

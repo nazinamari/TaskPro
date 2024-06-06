@@ -46,7 +46,7 @@ export default function Header() {
         className={styles.modal}
         overlayClassName={styles.overlay}
       >
-        <h2>Редагування профілю</h2>
+        <h2>Edit profile</h2>
         <form>
           <label>
             Name:

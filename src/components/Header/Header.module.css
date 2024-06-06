@@ -1,6 +1,11 @@
 .header {
-  min-width: 1180px;
+  position: fixed;
+  max-width: 1180px;
   max-height: 68px;
+  top: 0;
+  left: 260px;
+  right: 0;
+  height: 68px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -8,6 +13,7 @@
   background-color: #161616;
   color: #ffffff;
   gap: 14px;
+  z-index: 1000;
 }
 
 .userInfo {

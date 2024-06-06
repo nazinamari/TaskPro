@@ -1,9 +1,42 @@
 .dropdown {
   display: inline-block;
 }
-.themaBtn {
-  display: flex;
+
+.themeBtn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-.themaItem {
+.themeBtn:hover,
+.themeBtn:focus,
+.themeBtn:active {
+  background-color: transparent;
+  color: white;
+}
+
+.themeItem {
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  color: #fff;
+}
+
+.themeItem:hover {
+  background-color: #333;
+}
+
+.dropdownMenu {
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  width: 100px;
+  height: auto;
+  box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+  background: #151515;
+  padding: 0;
 }
