@@ -1,14 +1,20 @@
 .container {
   width: 260px;
   padding: 24px;
+  background-color: #121212;
+  color: #ffffff;
+  font-family: popins serif;
+  font-weight: 600;
 }
 .title {
   font-size: 12px;
   margin-bottom: 8px;
+  color: rgb(255, 255, 255, 0.5);
+  font-weight: 400;
 }
 .wrapper {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid rgb(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgb(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,10 +22,12 @@
   padding-bottom: 14px;
   font-size: 14px;
   margin-bottom: 206px;
+  gap: 96px;
+  font-weight: medium;
 }
 .addBtn {
-  width: 36px;
-  height: 40px;
+  width: 40px;
+  height: 36px;
   padding: 0;
   align-items: center;
   justify-content: center;
@@ -28,13 +36,38 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 16px;
 }
 .helpWrapper {
-  background-color: gray;
+  background-color: #1f1f1f;
   width: 212px;
-  height: 272px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
   border-radius: 8px;
   margin-bottom: 24px;
+  font-size: 14;
+  font-weight: 400;
+}
+.image {
+  width: 54px;
+  height: 78px;
+  background-color: #fff;
+  margin-bottom: 14px;
+}
+.link {
+  color: #bedbb0;
+  text-decoration: none;
+}
+.helpBtn {
+  background-color: inherit;
+  margin-top: 18px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.logoutBtn {
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  color: #ffffff;
 }

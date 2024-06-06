@@ -1,7 +1,7 @@
 import css from "./WorkPlace.module.css";
 export default function WorkPlace() {
   return (
-    <div>
+    <div className={css.wrapper}>
       <button className={css.filterBtn}>Filters</button>
       <p className={css.text}>
         Before starting your project, it is essential
