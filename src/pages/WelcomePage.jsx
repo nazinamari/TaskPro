@@ -1,8 +1,6 @@
-
 import { Link } from "react-router-dom";
-import Title from '../shared/Title/Title';
+import Title from "../shared/Title/Title";
 import css from "./WelcomePage.module.css";
-
 
 export default function WelcomePage() {
   return (
