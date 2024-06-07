@@ -1,0 +1,33 @@
+.icon {
+  width: 18px;
+  height: 18px;
+  --color2: rgb(255, 255, 255, 0.5);
+  --color1: rgb(255, 255, 255, 0.5);
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  color: rgb(255, 255, 255, 0.5);
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btnWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+.iconBtn {
+  width: 16px;
+  height: 16px;
+}
+.btn {
+  padding: 0;
+  background-color: inherit;
+  border: none;
+}
