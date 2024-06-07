@@ -26,7 +26,7 @@ export default function RegisterForm() {
   console.log(errors, formState);
 
   return (
-    <div className={styled.registerContainer}>
+    <section className={styled.registerContainer}>
       <div className={styled.registerWrapper}>
         <form className={styled.formWrapper} onSubmit={handleSubmit(onSubmit)}>
           <ul className={styled.registerList}>
@@ -76,6 +76,6 @@ export default function RegisterForm() {
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
