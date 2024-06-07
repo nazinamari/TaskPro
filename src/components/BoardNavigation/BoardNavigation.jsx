@@ -33,7 +33,12 @@ export default function BoardNavigation() {
               [css.active]: id === activeBoard,
             })}
           >
-            <BoardCard icon={icon} title={title} id={id} />
+            <BoardCard
+              icon={icon}
+              title={title}
+              id={id}
+              isActive={id === activeBoard}
+            />
           </li>
         ))}
       </ul>

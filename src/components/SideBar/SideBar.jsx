@@ -11,7 +11,6 @@ export default function SideBar() {
   const handleCreateModal = useCallback(() => {
     setIsOpenCreateModal((prevState) => !prevState);
   }, []);
-
   const handleHelpModal = useCallback(() => {
     setIsOpenHelpModal((prevState) => !prevState);
   }, []);
@@ -19,7 +18,9 @@ export default function SideBar() {
   return (
     <>
       {isOpenCreateModal && alert("add task")}
-      {isOpenHelpModal && <NeedHelpModal />}
+      {isOpenHelpModal && (
+        <NeedHelpModal handleCreateModal={handleCreateModal} />
+      )}
       <aside className={css.container}>
         <LogoComponent />
         <h4 className={css.title}>My boards</h4>

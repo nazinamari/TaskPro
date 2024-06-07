@@ -39,8 +39,19 @@
   height: 16px;
 }
 .btn {
+  display: none;
+}
+.activeBtn {
+  display: block;
   padding: 0;
   background-color: inherit;
   border: none;
   --color1: rgb(255, 255, 255, 0.5);
+}
+.activeBtn:hover {
+  display: block;
+  padding: 0;
+  background-color: inherit;
+  border: none;
+  --color1: #bedbb0;
 }
