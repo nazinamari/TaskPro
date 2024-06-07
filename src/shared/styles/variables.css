@@ -1,6 +1,6 @@
 :root {
 	--font-family: 'Poppins', sans-serif;
-	--font-size-base: 18px;
+	--font-size-base: 20px;
 	--primary-color: #8bc34a; /* default light theme primary color */
 	--secondary-color: #000000; /* default light theme secondary color */
 	--background-color: #ffffff; /* default light theme background color */
@@ -11,7 +11,7 @@
 	--bg: rgba(255, 255, 255, 0.2);
 }
 
-/* Привіт котики Доброго Hello friends */
+/* Привіт котики Доброго ранку Hello friends */
 
 .dark-theme {
 	--primary-color: #4caf50;
