@@ -1,5 +1,6 @@
 .dropdown {
   display: inline-block;
+  position: relative;
 }
 
 .themeBtn {
@@ -16,27 +17,37 @@
 .themeBtn:focus,
 .themeBtn:active {
   background-color: transparent;
-  color: white;
+  color: #bedbb0;
 }
 
 .themeItem {
-  font-size: 16px;
-  display: block;
-  width: 100%;
-  text-align: left;
-  color: #fff;
+  height: 21px;
+  font-size: 14px;
+  background: #151515;
+  padding: 0px;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .themeItem:hover {
-  background-color: #333;
+  color: #bedbb0;
+  background-color: transparent;
 }
 
 .dropdownMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 71%;
+  /* height: 107px; */
   border: 1px solid #bedbb0;
   border-radius: 8px;
-  width: 100px;
-  height: auto;
   box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
   background: #151515;
-  padding: 0;
+  padding: 18px;
 }

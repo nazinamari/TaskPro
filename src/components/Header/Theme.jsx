@@ -1,13 +1,15 @@
 import { useState } from "react";
+import Dropdown from "react-bootstrap/Dropdown";
 import styles from "./Theme.module.css";
-import { Dropdown } from "react-bootstrap";
 
 const ThemeSelector = ({ changeTheme }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const options = [
+    { value: "light", label: "Light" },
+    { value: "dark", label: "Dark" },
+    { value: "violet", label: "Violet" },
+  ];
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleThemeChange = (theme) => {
     changeTheme(theme);
@@ -16,30 +18,26 @@ const ThemeSelector = ({ changeTheme }) => {
 
   return (
     <div className={styles.dropdown}>
-      <Dropdown show={isOpen} onToggle={toggleDropdown}>
-        <Dropdown.Toggle id="dropdown-basic-button" className={styles.themeBtn}>
+      <Dropdown show={isOpen} onSelect={() => setIsOpen(false)}>
+        <Dropdown.Toggle
+          id="dropdown-basic-button"
+          className={styles.themeBtn}
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Theme
         </Dropdown.Toggle>
 
         <Dropdown.Menu className={styles.dropdownMenu}>
-          <Dropdown.Item
-            className={styles.themeItem}
-            onClick={() => handleThemeChange("light")}
-          >
-            Light
-          </Dropdown.Item>
-          <Dropdown.Item
-            className={styles.themeItem}
-            onClick={() => handleThemeChange("dark")}
-          >
-            Dark
-          </Dropdown.Item>
-          <Dropdown.Item
-            className={styles.themeItem}
-            onClick={() => handleThemeChange("violet")}
-          >
-            Violet
-          </Dropdown.Item>
+          {options.map((option) => (
+            <Dropdown.Item
+              key={option.value}
+              className={styles.themeItem}
+              eventKey={option.value}
+              onSelect={() => handleThemeChange(option.value)}
+            >
+              {option.label}
+            </Dropdown.Item>
+          ))}
         </Dropdown.Menu>
       </Dropdown>
     </div>
