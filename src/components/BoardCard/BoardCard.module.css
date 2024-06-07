@@ -1,15 +1,18 @@
 .icon {
   width: 18px;
   height: 18px;
-  --color2: rgb(255, 255, 255, 0.5);
-  --color1: rgb(255, 255, 255, 0.5);
 }
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  color: rgb(255, 255, 255, 0.5);
+  color: inherit;
+  /* width: 260px; */
+  height: 60px;
+  cursor: pointer;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 .wrapper {
   display: flex;
@@ -30,4 +33,5 @@
   padding: 0;
   background-color: inherit;
   border: none;
+  --color1: rgb(255, 255, 255, 0.5);
 }

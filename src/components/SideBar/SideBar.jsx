@@ -19,8 +19,6 @@ export default function SideBar() {
   return (
     <>
       {isOpenCreateModal && <p>MODAL WINDOW</p>}
-      {/* Додати компонент нової таски */}
-
       {isOpenHelpModal && <NeedHelpModal />}
       <aside className={css.container}>
         <LogoComponent />
@@ -39,7 +37,7 @@ export default function SideBar() {
         </div>
         <BoardNavigation />
         <div className={css.helpWrapper}>
-          <img src="../../../public/2.png" alt="Plant" />{" "}
+          <img src="../../../public/2.png" alt="Plant" />
           <p>
             If you need help with <span className={css.span}>TaskPro</span>,
             check out our support resources or reach out to our customer support
@@ -60,12 +58,6 @@ export default function SideBar() {
           className={css.logoutBtn}
           type="button"
           onClick={() => {
-            // dispatch(logOut())
-            //   .unwrap()
-            //   .then()
-            //   .catch(() => {
-            //     errToast();
-            //   });
             alert("log out");
           }}
         >
