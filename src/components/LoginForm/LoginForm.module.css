@@ -37,9 +37,7 @@
   color: rgba(255, 255, 255, 0.3);
   font-family: Poppins;
   font-size: 18px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
   letter-spacing: -0.36px;
   text-decoration: none;
 }
@@ -53,10 +51,8 @@
   font-family: Poppins;
   display: flex;
   flex-direction: column;
-
   padding: 14px 157px 14px 18px;
   align-items: center;
-
   border-radius: 8px;
   border: 1px solid #bedbb0;
   opacity: 0.4;
@@ -73,6 +69,7 @@
 .loginButton {
   color: #161616;
   background: #bedbb0;
+  margin-top: 24px;
   text-align: center;
   font-family: Poppins;
   font-size: 14px;
@@ -82,8 +79,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-
-  margin-top: 24px;
 }
 
 @media (min-width: 375px) {
