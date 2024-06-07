@@ -1,5 +1,5 @@
 import BoardCard from "../BoardCard/BoardCard";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import css from "./BoardNavigation.module.css";
 import clsx from "clsx";
 
@@ -20,8 +20,8 @@ export default function BoardNavigation() {
 
   const handleBoardClick = (id) => {
     setActiveBoard(id);
+    console.log(id);
   };
-
   return (
     <nav className={css.nav}>
       <ul className={css.list}>

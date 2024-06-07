@@ -18,7 +18,7 @@ export default function SideBar() {
 
   return (
     <>
-      {isOpenCreateModal && <p>MODAL WINDOW</p>}
+      {isOpenCreateModal && alert("add task")}
       {isOpenHelpModal && <NeedHelpModal />}
       <aside className={css.container}>
         <LogoComponent />
