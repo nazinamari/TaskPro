@@ -1,4 +1,5 @@
 import { useState } from "react";
+import sprite from "../../../public/sprite.svg";
 import styles from "./AddCardForm.module.css";
 
 const AddCardForm = ({ onAddCard }) => {
@@ -14,10 +15,16 @@ const AddCardForm = ({ onAddCard }) => {
     setDescription("");
     setLabelColor("");
     setDeadline("");
+    onClose();
   };
 
   return (
     <div className={styles.addCardForm}>
+      <button className={styles.closeButton} onClick={onClose}>
+        <svg className={styles.icon}>
+          <use xlinkHref={`${sprite}#iicon-x-close`} />
+        </svg>
+      </button>
       <h3>Add card</h3>
       <form onSubmit={handleSubmit}>
         <div className={styles.formGroup}>

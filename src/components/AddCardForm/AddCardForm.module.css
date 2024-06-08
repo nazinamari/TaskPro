@@ -1,9 +1,10 @@
 .addCardForm {
-  background-color: #1f1f1f;
-  color: #fff;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
   padding: 20px;
   border-radius: 8px;
   width: 300px;
+  position: relative;
 }
 
 .addCardForm h3 {
@@ -26,7 +27,7 @@
   border: 1px solid #333;
   border-radius: 4px;
   background-color: #2d2d2d;
-  color: #fff;
+  color: var(--secondary-color);
 }
 
 .formGroup textarea {
@@ -64,12 +65,12 @@
 }
 
 .labelColor.selected {
-  border-color: #fff;
+  border-color: var(--secondary-color);
 }
 
 .addButton {
-  background-color: #a2d3b4;
-  color: #1f1f1f;
+  background-color: var(--primary-color);
+  color: var(--background-color);
   padding: 10px;
   border: none;
   border-radius: 4px;
@@ -79,4 +80,19 @@
 
 .addButton:hover {
   background-color: #89c299;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: #ff6666;
 }
