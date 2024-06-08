@@ -25,7 +25,7 @@ export default function LoginForm() {
   console.log(errors, formState);
 
   return (
-    <div className={styled.loginContainer}>
+    <section className={styled.loginContainer}>
       <div className={styled.loginWrapper}>
         <form className={styled.formWrapper} onSubmit={handleSubmit(onSubmit)}>
           <ul className={styled.loginList}>
@@ -65,6 +65,6 @@ export default function LoginForm() {
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 }

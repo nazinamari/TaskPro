@@ -1,28 +1,30 @@
 :root {
-  --primary-color: #8bc34a; /* default light theme primary color */
-  --secondary-color: #000000; /* default light theme secondary color */
-  --background-color: #ffffff; /* default light theme background color */
-  --background: #3aa6b9;
-  --section: #ffd0d0;
-  --accent: #ff9eaa;
-  --text: #092a3d;
-  --bg: rgba(255, 255, 255, 0.2);
+	--font-family: 'Poppins', sans-serif;
+	--font-size-base: 14px;
+	--primary-color: #8bc34a; /* default light theme primary color */
+	--secondary-color: #000000; /* default light theme secondary color */
+	--background-color: #ffffff; /* default light theme background color */
+	--background: #3aa6b9;
+	--section: #ffd0d0;
+	--accent: #ff9eaa;
+	--text: #092a3d;
+	--bg: rgba(255, 255, 255, 0.2);
 }
 
 .dark-theme {
-  --primary-color: #4caf50;
-  --secondary-color: #ffffff;
-  --background-color: #000000;
+	--primary-color: #4caf50;
+	--secondary-color: #ffffff;
+	--background-color: #000000;
 }
 
 .light-theme {
-  --primary-color: #8bc34a;
-  --secondary-color: #000000;
-  --background-color: #ffffff;
+	--primary-color: #8bc34a;
+	--secondary-color: #000000;
+	--background-color: #ffffff;
 }
 
 .violet-theme {
-  --primary-color: #3f51b5;
-  --secondary-color: #000000;
-  --background-color: #ede7f6;
+	--primary-color: #3f51b5;
+	--secondary-color: #000000;
+	--background-color: #ede7f6;
 }

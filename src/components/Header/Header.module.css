@@ -17,17 +17,17 @@
 }
 
 .userInfo {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  gap: 8px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 8px;
 }
 
 .avatar {
-  border-radius: 8px;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
+	border-radius: 8px;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
 }
 
 .modal {
@@ -43,19 +43,15 @@
   border-radius: 4px;
   max-width: 400px;
   width: 100%;
-  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
-  background: #151515;
-  border: 1px solid rgba(190, 219, 176, 0.5);
-  border-radius: 8px;
 }
 
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.75);
 }
 .name {
   font-size: 14px;
