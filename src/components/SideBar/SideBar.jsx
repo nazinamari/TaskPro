@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import BoardNavigation from "../BoardNavigation/BoardNavigation";
-import LogoComponent from "../LogoComponent/LogoComponent";
+import LogoComponent from "../../shared/components/LogoComponent/LogoComponent";
+import img from "../../../public/2.png";
 import css from "./SideBar.module.css";
 import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
 import clsx from "clsx";
@@ -37,7 +38,7 @@ export default function SideBar() {
         </div>
         <BoardNavigation />
         <div className={css.helpWrapper}>
-          <img src="../../../public/2.png" alt="Plant" />
+          <img className={css.img} src={img} alt="Plant" />
           <p>
             If you need help with <span className={css.span}>TaskPro</span>,
             check out our support resources or reach out to our customer support
@@ -61,7 +62,7 @@ export default function SideBar() {
             alert("log out");
           }}
         >
-          <svg className={css.logoutIcon} width="20" height="20">
+          <svg className={css.logoutIcon} width="32" height="32">
             <use
               className={css.logoutIcon}
               href="../../../public/sprite.svg#icon-login"
