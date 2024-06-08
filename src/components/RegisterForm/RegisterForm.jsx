@@ -31,12 +31,12 @@ export default function RegisterForm() {
         <form className={styled.formWrapper} onSubmit={handleSubmit(onSubmit)}>
           <ul className={styled.registerList}>
             <li className={styled.registerItem}>
-              <NavLink to="register" className={buildLinkClass}>
+              <NavLink to="/auth/register" className={buildLinkClass}>
                 Registration
               </NavLink>
             </li>
             <li className={styled.registerItem}>
-              <NavLink to="login" className={buildLinkClass}>
+              <NavLink to="/auth/login" className={buildLinkClass}>
                 Log In
               </NavLink>
             </li>
