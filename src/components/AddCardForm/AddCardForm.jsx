@@ -72,6 +72,9 @@ const AddCardForm = ({ onAddCard }) => {
         </div>
         <button type="submit" className={styles.addButton}>
           Add
+          <svg className={styles.plusIcon}>
+            <use xlinkHref={`${sprite}#icon-plus`} />
+          </svg>
         </button>
       </form>
     </div>
