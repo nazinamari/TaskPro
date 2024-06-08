@@ -36,7 +36,7 @@ export default function Header() {
     <header className={styles.header}>
       <Theme changeTheme={changeTheme} />
       <div className={styles.userInfo} onClick={openModal}>
-        <span>{user.name}</span>
+        <span className={styles.name}>{user.name}</span>
         <img src={user.avatar} alt="Avatar" className={styles.avatar} />
       </div>
       <Modal
@@ -46,10 +46,9 @@ export default function Header() {
         className={styles.modal}
         overlayClassName={styles.overlay}
       >
-        <h2>Edit profile</h2>
+        <h2 className={styles.modalTitle}>Edit profile</h2>
         <form>
           <label>
-            Name:
             <input
               type="text"
               name="name"
@@ -74,6 +73,10 @@ export default function Header() {
               value={user.avatar}
               onChange={handleInputChange}
             />
+          </label>
+          <label>
+            Password:
+            <input type="password" name="password" className={styles.input} />
           </label>
           <button type="button" onClick={closeModal}>
             Save
