@@ -13,7 +13,6 @@ export default function App() {
 		<div>
 			<Suspense fallback={null}>
 				<Routes>
-					<Route path="/" element={<Navigate to="/welcome" />} />
 					<Route path="/welcome" element={<WelcomePage />} />
 					<Route path="/auth" element={<AuthPage />}>
 						<Route path="register" element={<RegisterForm />} />
