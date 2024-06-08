@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import WelcomePage from '../../pages/WelcomePage/WelcomePage';
-import AuthPage from '../../pages/AuthPage/AuthPage';
+import AuthPage from '../../pages/AuthPage';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import LoginForm from '../LoginForm/LoginForm';
-import HomePage from '../../pages/HomePage/HomePage';
-import BoardPage from '../../pages/BoardPage/BoardPage';
+import HomePage from '../../pages/HomePage';
+import BoardPage from '../../pages/BoardPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 
 export default function App() {
