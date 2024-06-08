@@ -3,6 +3,7 @@ import BoardNavigation from "../BoardNavigation/BoardNavigation";
 import LogoComponent from "../LogoComponent/LogoComponent";
 import css from "./SideBar.module.css";
 import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
+import clsx from "clsx";
 
 export default function SideBar() {
   const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
@@ -18,10 +19,8 @@ export default function SideBar() {
   return (
     <>
       {isOpenCreateModal && alert("add task")}
-      {isOpenHelpModal && (
-        <NeedHelpModal handleCreateModal={handleCreateModal} />
-      )}
-      <aside className={css.container}>
+      {isOpenHelpModal && <NeedHelpModal handleHelpModal={handleHelpModal} />}
+      <aside className={clsx(css.container, css.isClosed)}>
         <LogoComponent />
         <h4 className={css.title}>My boards</h4>
         <div className={css.wrapper}>
