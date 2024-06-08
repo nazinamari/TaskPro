@@ -1,9 +1,57 @@
-import { useState } from "react";
+// import { useState } from "react";
+// import styles from "./Theme.module.css";
+
+// const ThemeSelector = ({ changeTheme }) => {
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   const toggleDropdown = () => {
+//     setIsOpen(!isOpen);
+//   };
+
+//   const handleThemeChange = (theme) => {
+//     changeTheme(theme);
+//     setIsOpen(false);
+//   };
+
+//   return (
+//     <div className={styles.dropdown}>
+//       <button onClick={toggleDropdown} className={styles.themeBtn}>
+//         Theme
+//       </button>
+//       {isOpen && (
+//         <div className={styles.dropdownMenu}>
+//           <div
+//             className={styles.themeItem}
+//             onClick={() => handleThemeChange("light")}
+//           >
+//             Light
+//           </div>
+//           <div
+//             className={styles.themeItem}
+//             onClick={() => handleThemeChange("dark")}
+//           >
+//             Dark
+//           </div>
+//           <div
+//             className={styles.themeItem}
+//             onClick={() => handleThemeChange("violet")}
+//           >
+//             Violet
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default ThemeSelector;
+
+import { useState, useEffect, useRef } from "react";
 import styles from "./Theme.module.css";
-import { Dropdown } from "react-bootstrap";
 
 const ThemeSelector = ({ changeTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -14,34 +62,47 @@ const ThemeSelector = ({ changeTheme }) => {
     setIsOpen(false);
   };
 
-  return (
-    <div className={styles.dropdown}>
-      <Dropdown show={isOpen} onToggle={toggleDropdown}>
-        <Dropdown.Toggle id="dropdown-basic-button" className={styles.themeBtn}>
-          Theme
-        </Dropdown.Toggle>
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
 
-        <Dropdown.Menu className={styles.dropdownMenu}>
-          <Dropdown.Item
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <div className={styles.dropdown} ref={dropdownRef}>
+      <button onClick={toggleDropdown} className={styles.themeBtn}>
+        Theme
+      </button>
+      {isOpen && (
+        <div className={styles.dropdownMenu}>
+          <div
             className={styles.themeItem}
             onClick={() => handleThemeChange("light")}
           >
             Light
-          </Dropdown.Item>
-          <Dropdown.Item
+          </div>
+          <div
             className={styles.themeItem}
             onClick={() => handleThemeChange("dark")}
           >
             Dark
-          </Dropdown.Item>
-          <Dropdown.Item
+          </div>
+          <div
             className={styles.themeItem}
             onClick={() => handleThemeChange("violet")}
           >
             Violet
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

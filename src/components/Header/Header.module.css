@@ -1,7 +1,5 @@
 .header {
   display: flex;
-  /* position: fixed; */
-  /* max-width: 1180px; */
   max-height: 68px;
   top: 0;
   left: 260px;
@@ -26,24 +24,19 @@
 
 .avatar {
   border-radius: 8px;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
 }
 
 .modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  right: auto;
-  bottom: auto;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  position: relative;
   max-width: 400px;
-  width: 100%;
+  min-height: 440px;
+  border: 1px solid rgba(190, 219, 176, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  background: #151515;
+  overflow-y: auto;
+  padding: 24px;
+  z-index: 1100;
 }
 
 .overlay {
@@ -53,4 +46,45 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1050; /* Трохи менше, ніж у модального вікна */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto; /* Дозволити прокручування overlay */
+}
+
+.name {
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.boxForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input {
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  width: 352px;
+  height: 49px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.input:hover,
+.input:focus,
+.input:active {
+  border: 1px solid #bedbb0;
+}
+
+.button {
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  width: 352px;
+  height: 49px;
+  background: #bedbb0;
+  padding: 0px;
 }
