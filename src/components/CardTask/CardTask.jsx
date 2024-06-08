@@ -1,4 +1,6 @@
+import sprite from "../../../public/sprite.svg";
 import styles from "./TaskCard.module.css";
+import "../../shared/styles/variables.css";
 
 const TaskCard = ({ theme }) => {
   const getPriorityClass = (priority) => {
@@ -34,9 +36,23 @@ const TaskCard = ({ theme }) => {
           <span className={styles.deadlineValue}>2024-06-10</span>
         </div>
         <div className={styles.actions}>
-          <button className={styles.actionButton}>↻</button>
-          <button className={styles.actionButton}>✏️</button>
-          <button className={styles.actionButton}>🗑️</button>
+          <button className={styles.actionButton}>
+            <svg className={styles.icon}>
+              <use xlinkHref={`${sprite}#icon-arrow-circle-broken-right`} />
+            </svg>
+          </button>
+
+          <button className={styles.actionButton}>
+            <svg className={styles.icon}>
+              <use xlinkHref={`${sprite}#icon-pencil-01`} />
+            </svg>
+          </button>
+
+          <button className={styles.actionButton}>
+            <svg className={styles.icon}>
+              <use xlinkHref={`${sprite}#icon-trash-04`} />
+            </svg>
+          </button>
         </div>
       </div>
     </div>

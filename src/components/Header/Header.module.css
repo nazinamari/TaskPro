@@ -1,0 +1,56 @@
+.header {
+	display: flex;
+	/* position: fixed; */
+	/* max-width: 1180px; */
+	max-height: 68px;
+	top: 0;
+	left: 260px;
+	right: 0;
+	height: 68px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: #161616;
+	color: #ffffff;
+	gap: 14px;
+	z-index: 1000;
+}
+
+.userInfo {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 8px;
+}
+
+.avatar {
+	border-radius: 8px;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	right: auto;
+	bottom: auto;
+	transform: translate(-50%, -50%);
+	background: white;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	max-width: 400px;
+	width: 100%;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.75);
+}

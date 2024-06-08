@@ -28,4 +28,7 @@ export default function App() {
       </Suspense>
     </div>
   );
+
+		</div>
+	);
 }

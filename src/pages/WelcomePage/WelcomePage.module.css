@@ -2,6 +2,11 @@
   width: 100%;
   height: 100vh;
   background: linear-gradient(#fff, #bedbb0);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
 }
 
 .imgTitleTextContainer {
@@ -23,9 +28,16 @@
   height: 124px;
 }
 
+.logotype {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
 .title {
   font-weight: 600;
-  font-size: 28px;
+  font-size: 40px;
   letter-spacing: -0.04em;
   color: #161616;
 }
