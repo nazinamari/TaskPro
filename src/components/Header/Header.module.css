@@ -1,5 +1,6 @@
 .header {
-	position: fixed;
+	display: flex;
+	/* position: fixed; */
 	/* max-width: 1180px; */
 	max-height: 68px;
 	top: 0;
