@@ -1,5 +1,6 @@
 import sprite from "../../../public/sprite.svg";
 import styles from "./TaskCard.module.css";
+import "../../shared/styles/variables.css";
 
 const TaskCard = ({ theme }) => {
   const getPriorityClass = (priority) => {
