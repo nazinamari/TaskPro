@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./AddCardForm.module.css";
+import "../../shared/styles/variables.css";
 
 const AddCardForm = ({ onAddCard }) => {
   const [title, setTitle] = useState("");
