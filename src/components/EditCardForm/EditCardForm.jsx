@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./EditCardForm.module.css";
+import "../../shared/styles/variables.css";
 
 const EditCardForm = ({ cardData, onUpdateCard, onClose }) => {
   const [title, setTitle] = useState(cardData.title);
