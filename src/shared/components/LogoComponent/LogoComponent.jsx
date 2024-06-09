@@ -1,12 +1,11 @@
-import css from "./LogoComponent.module.css";
+import css from './LogoComponent.module.css';
+import Icon from '../Icon/Icon';
 
 export default function LogoComponent() {
-  return (
-    <div className={css.container}>
-      <svg className={css.icon} width="32" height="32">
-        <use href="../../../public/sprite.svg#icon-iconlogo"></use>
-      </svg>
-      <h1 className={css.title}>Task Pro</h1>
-    </div>
-  );
+	return (
+		<div className={css.container}>
+			<Icon id="icon-logo" width="20" height="20" className={css.icon} />
+			<h1 className={css.title}>Task Pro</h1>
+		</div>
+	);
 }
