@@ -1,5 +1,6 @@
+import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
 import css from "./WorkPlace.module.css";
-export default function WorkPlace() {
+export default function WorkPlace({ handleCreateModal, isOpenCreateModal }) {
   return (
     <div className={css.wrapper}>
       <button
@@ -16,10 +17,16 @@ export default function WorkPlace() {
       <div className={css.textContainer}>
         <p className={css.text}>
           Before starting your project, it is essential
-          <span className={css.markText}>to create a board</span> to visualize
-          and track all the necessary tasks and milestones. This board serves as
-          a powerful tool to organize the workflow and ensure effective
-          collaboration among team members.
+          <button
+            type="button"
+            className={css.markText}
+            onClick={handleCreateModal}
+          >
+            to create a board
+          </button>
+          to visualize and track all the necessary tasks and milestones. This
+          board serves as a powerful tool to organize the workflow and ensure
+          effective collaboration among team members.
         </p>
       </div>
     </div>
