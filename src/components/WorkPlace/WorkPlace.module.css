@@ -1,54 +1,52 @@
 .filterBtn {
-  display: flex;
-  margin-right: 20px;
-  margin-left: auto;
-  margin-top: 14px;
-  color: rgb(255, 255, 255, 0.8);
-  background-color: inherit;
-  border: none;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
+	display: flex;
+	margin-right: 20px;
+	margin-left: auto;
+	margin-top: 14px;
+	color: rgb(255, 255, 255, 0.8);
+	background-color: inherit;
+	border: none;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
 }
 .textContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
 
-  /* flex-grow: 1; */
+	/* flex-grow: 1; */
 }
 .text {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 248px;
-  width: 486px;
-  text-align: center;
-  font-size: 14px;
-  color: rgb(255, 255, 255, 0.5);
-  font-weight: 400;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 248px;
+	width: 486px;
+	text-align: center;
+	font-size: 14px;
+	color: rgb(255, 255, 255, 0.5);
+	font-weight: 400;
 }
 .markText {
-  color: #bedbb0;
-  margin-left: 4px;
-  margin-right: 4px;
-  border: none;
-  background-color: inherit;
+	color: #bedbb0;
+	margin-left: 4px;
+	margin-right: 4px;
 }
 .wrapper {
-  flex-grow: 1;
-  background-color: #1f1f1f;
-  height: 100%;
+	flex-grow: 1;
+	background-color: #1f1f1f;
+	height: 100%;
 }
 .filterIcon {
-  width: 16px;
-  height: 16px;
+	width: 16px;
+	height: 16px;
 }
 @media (min-width: 768px) {
-  .filterBtn {
-    display: flex;
-    margin-right: 32px;
-    margin-left: auto;
-    margin-top: 20px;
-  }
+	.filterBtn {
+		display: flex;
+		margin-right: 32px;
+		margin-left: auto;
+		margin-top: 20px;
+	}
 }
