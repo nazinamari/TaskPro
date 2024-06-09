@@ -1,4 +1,6 @@
 import css from "./WorkPlace.module.css";
+import Icon from "../../shared/components/Icon/Icon";
+
 export default function WorkPlace() {
   return (
     <div className={css.wrapper}>
@@ -8,9 +10,12 @@ export default function WorkPlace() {
           alert("log out");
         }}
       >
-        <svg className={css.filterIcon}>
-          <use href="../../../public/sprite.svg#icon-colors"></use>
-        </svg>
+        <Icon
+          id="icon-filter"
+          width="16"
+          height="16"
+          className={css.filterIcon}
+        />
         Filters
       </button>
       <div className={css.textContainer}>
