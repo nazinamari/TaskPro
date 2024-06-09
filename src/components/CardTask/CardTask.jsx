@@ -1,8 +1,14 @@
+import { useState } from "react";
+import axios from "axios";
 import sprite from "../../../public/sprite.svg";
 import styles from "./TaskCard.module.css";
 import "../../shared/styles/variables.css";
+import EditCardForm from "./EditCardForm";
 
-const TaskCard = ({ theme }) => {
+const TaskCard = ({ theme, cardId, cardData, onCardDelete, onCardUpdate }) => {
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+
   const getPriorityClass = (priority) => {
     switch (priority) {
       case "High":
@@ -14,6 +20,35 @@ const TaskCard = ({ theme }) => {
       case "Without":
       default:
         return styles.withoutPriority;
+    }
+  };
+
+  const handleDelete = async () => {
+    if (isDeleting) return;
+    setIsDeleting(true);
+    try {
+      const response = await axios.delete(`/cards/${cardId}`);
+      console.log(response.data);
+      if (onCardDelete) {
+        onCardDelete(cardId);
+      }
+    } catch (error) {
+      console.error("Error when deleting card:", error);
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  const handleUpdateCard = async (updatedCard) => {
+    try {
+      const response = await axios.put(`/cards/${cardId}`, updatedCard);
+      console.log(response.data);
+      if (onCardUpdate) {
+        onCardUpdate(response.data);
+      }
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Ошибка при обновлении карточки:", error);
     }
   };
 
@@ -42,19 +77,36 @@ const TaskCard = ({ theme }) => {
             </svg>
           </button>
 
-          <button className={styles.actionButton}>
+          <button
+            className={styles.actionButton}
+            onClick={() => setIsEditing(true)}
+          >
             <svg className={styles.icon}>
               <use xlinkHref={`${sprite}#icon-pencil-01`} />
             </svg>
           </button>
 
-          <button className={styles.actionButton}>
+          <button
+            className={styles.actionButton}
+            onClick={handleDelete}
+            disabled={isDeleting}
+          >
             <svg className={styles.icon}>
               <use xlinkHref={`${sprite}#icon-trash-04`} />
             </svg>
           </button>
         </div>
       </div>
+
+      {isEditing && (
+        <div className={styles.modal}>
+          <EditCardForm
+            cardData={cardData}
+            onUpdateCard={handleUpdateCard}
+            onClose={() => setIsEditing(false)}
+          />
+        </div>
+      )}
     </div>
   );
 };
