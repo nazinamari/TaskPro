@@ -20,7 +20,7 @@ export default function SideBar({ isSidebarOpen }) {
 
   return (
     <>
-      {isOpenCreateModal && alert("add task")}
+      {isOpenCreateModal && <NeedHelpModal />}
       {isOpenHelpModal && <NeedHelpModal handleHelpModal={handleHelpModal} />}
       <div className={css.backdrop}>
         <aside

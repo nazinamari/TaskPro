@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Layout from "../shared/components/Layout/Layout";
 import MainContent from "../components/MainContent/MainContent";
+import Text from "../components/Text/Text";
 
 export default function HomePage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -14,7 +15,7 @@ export default function HomePage() {
   return (
     <Layout>
       <SideBar isSidebarOpen={isSidebarOpen} />
-      <MainContent toggleSidebar={toggleSidebar} />
+      <MainContent toggleSidebar={toggleSidebar} content={<Text />} />
     </Layout>
   );
 }

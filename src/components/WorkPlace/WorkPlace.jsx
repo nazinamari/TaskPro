@@ -1,7 +1,7 @@
 import css from "./WorkPlace.module.css";
 import Icon from "../../shared/components/Icon/Icon";
 
-export default function WorkPlace() {
+export default function WorkPlace({ children }) {
   return (
     <div className={css.wrapper}>
       <button
@@ -18,15 +18,7 @@ export default function WorkPlace() {
         />
         Filters
       </button>
-      <div className={css.textContainer}>
-        <p className={css.text}>
-          Before starting your project, it is essential
-          <span className={css.markText}>to create a board</span> to visualize
-          and track all the necessary tasks and milestones. This board serves as
-          a powerful tool to organize the workflow and ensure effective
-          collaboration among team members.
-        </p>
-      </div>
+      {children}
     </div>
   );
 }
