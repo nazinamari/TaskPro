@@ -30,12 +30,12 @@ export default function LoginForm() {
         <form className={styled.formWrapper} onSubmit={handleSubmit(onSubmit)}>
           <ul className={styled.loginList}>
             <li className={styled.loginItem}>
-              <NavLink to="register" className={buildLinkClass}>
+              <NavLink to="/auth/register" className={buildLinkClass}>
                 Registration
               </NavLink>
             </li>
             <li className={styled.loginItem}>
-              <NavLink to="login" className={buildLinkClass}>
+              <NavLink to="/auth/login" className={buildLinkClass}>
                 Log In
               </NavLink>
             </li>

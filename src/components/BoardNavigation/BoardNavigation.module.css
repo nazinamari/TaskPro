@@ -1,0 +1,49 @@
+@media (min-width: 375px) {
+  .list {
+    flex: 1;
+    color: rgb(255, 255, 255, 0.5);
+    --color2: rgb(255, 255, 255, 0.5);
+    --color1: rgb(255, 255, 255, 0.5);
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+  }
+  .active {
+    background-color: #1f1f1f;
+    color: #fff;
+    --color2: #fff;
+    --color1: #fff;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    position: relative;
+  }
+  .active::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 60px;
+    background-color: #bedbb0;
+    position: absolute;
+    bottom: 0;
+    left: 221px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+}
+@media (min-width: 768px) {
+  .active::before {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 60px;
+    background-color: #bedbb0;
+    position: absolute;
+    bottom: 0;
+    left: 256px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+}

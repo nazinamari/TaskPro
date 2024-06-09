@@ -1,11 +1,11 @@
-import AppBar from '../../../components/AppBar/AppBar';
-import Container from '../Container/Container';
+import Container from "../Container/Container";
+
+import css from "./Layout.module.css";
 
 export default function Layout({ children }) {
-	return (
-		<Container>
-			<AppBar />
-			{children}
-		</Container>
-	);
+  return (
+    <div>
+      <Container className={css.wrapper}>{children}</Container>
+    </div>
+  );
 }

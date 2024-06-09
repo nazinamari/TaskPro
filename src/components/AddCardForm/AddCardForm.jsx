@@ -1,11 +1,15 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import sprite from "../../../public/sprite.svg";
 import styles from "./AddCardForm.module.css";
+import "../../shared/styles/variables.css";
 
-const AddCardForm = ({ onAddCard }) => {
+const AddCardForm = ({ onAddCard, onClose }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [labelColor, setLabelColor] = useState("");
-  const [deadline, setDeadline] = useState("");
+  const [deadline, setDeadline] = useState(new Date());
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,10 +18,16 @@ const AddCardForm = ({ onAddCard }) => {
     setDescription("");
     setLabelColor("");
     setDeadline("");
+    onClose();
   };
 
   return (
     <div className={styles.addCardForm}>
+      <button className={styles.closeButton} onClick={onClose}>
+        <svg className={styles.icon}>
+          <use xlinkHref={`${sprite}#iicon-x-close`} />
+        </svg>
+      </button>
       <h3>Add card</h3>
       <form onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
@@ -55,16 +65,19 @@ const AddCardForm = ({ onAddCard }) => {
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="deadline">Deadline</label>
-          <input
-            type="date"
+          <DatePicker
             id="deadline"
-            value={deadline}
-            onChange={(e) => setDeadline(e.target.value)}
+            selected={deadline}
+            onChange={(date) => setDeadline(date)}
             required
+            className={styles.datePicker}
           />
         </div>
         <button type="submit" className={styles.addButton}>
           Add
+          <svg className={styles.plusIcon}>
+            <use xlinkHref={`${sprite}#icon-plus`} />
+          </svg>
         </button>
       </form>
     </div>
