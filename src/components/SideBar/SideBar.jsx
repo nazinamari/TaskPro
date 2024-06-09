@@ -43,9 +43,12 @@ export default function SideBar({ isSidebarOpen }) {
 							onClick={handleCreateModal}
 							className={css.addBtn}
 						>
-							<svg className={css.btnIcon} width="20" height="20">
-								<use href="../../../public/sprite.svg#icon-plus"></use>
-							</svg>
+							<Icon
+								id="icon-plus"
+								width="20"
+								height="20"
+								className={css.iconPlus}
+							/>
 						</button>
 					</div>
 					<BoardNavigation />
@@ -77,12 +80,12 @@ export default function SideBar({ isSidebarOpen }) {
 							alert('log out');
 						}}
 					>
-						<svg className={css.logoutIcon} width="32" height="32">
-							<use
-								className={css.logoutIcon}
-								href="../../../public/sprite.svg#icon-login"
-							></use>
-						</svg>
+						<Icon
+							id="icon-login"
+							width="20"
+							height="20"
+							className={css.logoutIcon}
+						/>
 						Log out
 					</button>
 				</aside>

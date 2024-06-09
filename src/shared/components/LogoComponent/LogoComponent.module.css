@@ -1,22 +1,27 @@
 @media (min-width: 375px) {
-  .title {
-    font-size: 16px;
-    text-align: center;
-  }
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: baseline;
-    margin-bottom: 60px;
-    gap: 8px;
-    margin-left: 14px;
-    margin-top: 14px;
-  }
+	.title {
+		font-size: 16px;
+		text-align: center;
+	}
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: baseline;
+		margin-bottom: 60px;
+		gap: 8px;
+		margin-left: 14px;
+		margin-top: 14px;
+	}
 }
 @media (min-width: 768px) {
-  .container {
-    margin-left: 24px;
-    margin-top: 24px;
-    margin-bottom: 70px;
-  }
+	.container {
+		margin-left: 24px;
+		margin-top: 24px;
+		margin-bottom: 70px;
+	}
+}
+
+.icon {
+	fill: none;
+	stroke: #5de618;
 }

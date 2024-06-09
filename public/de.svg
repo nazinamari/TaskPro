@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="icon-bell" viewBox="0 0 32 32">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12.472 28c.94.83 2.175 1.333 3.528 1.333s2.588-.504 3.528-1.333M24 10.667a8 8 0 1 0-16 0c0 4.12-1.039 6.941-2.2 8.807-.979 1.574-1.469 2.361-1.451 2.58.02.243.071.336.267.481.177.131.974.131 2.569.131h17.63c1.595 0 2.392 0 2.569-.131.196-.145.247-.238.267-.481.018-.22-.472-1.006-1.451-2.58-1.161-1.866-2.2-4.687-2.2-8.807z"/>
+    </symbol>
+    <symbol id="icon-arrow-circler" viewBox="0 0 32 32">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" d="M4.45 9.333A13.328 13.328 0 0 1 16 2.666c7.364 0 13.333 5.97 13.333 13.333S23.363 29.332 16 29.332a13.329 13.329 0 0 1-11.55-6.667"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" d="M16 21.333 21.333 16 16 10.667M2.667 16h18.667"/>
+    </symbol>
+    <symbol id="icon-filter" viewBox="0 0 32 32">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M29.334 4H2.667l10.667 12.613v8.72L18.667 28V16.613L29.334 4z"/>
+    </symbol>
+  </defs>
+</svg>

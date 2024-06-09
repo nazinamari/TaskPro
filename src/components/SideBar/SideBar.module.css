@@ -120,7 +120,7 @@
 		width: 76px;
 		font-weight: 900;
 	}
-	.btnIcon {
+	.iconPlus {
 		stroke: #121212;
 	}
 
@@ -133,10 +133,10 @@
 		transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 	}
 	.helpBtn:hover .helpIcon {
-		--color1: #9dc888;
+		stroke: #9dc888;
 	}
 	.logoutBtn:hover .logoutIcon {
-		--color2: #9dc888;
+		stroke: #9dc888;
 	}
 }
 
@@ -188,7 +188,7 @@
 	}
 }
 
-.newIcon {
+/* .newIcon {
 	fill: none;
 	stroke: #5de618;
-}
+} */
