@@ -6,20 +6,24 @@ import css from "./SideBar.module.css";
 import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
 import clsx from "clsx";
 
-export default function SideBar({ isSidebarOpen }) {
-  const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
+export default function SideBar({
+  isSidebarOpen,
+  isOpenCreateModal,
+  handleCreateModal,
+}) {
+  // const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
   const [isOpenHelpModal, setIsOpenHelpModal] = useState(false);
 
-  const handleCreateModal = useCallback(() => {
-    setIsOpenCreateModal((prevState) => !prevState);
-  }, []);
+  // const handleCreateModal = useCallback(() => {
+  //   setIsOpenCreateModal((prevState) => !prevState);
+  // }, []);
   const handleHelpModal = useCallback(() => {
     setIsOpenHelpModal((prevState) => !prevState);
   }, []);
 
   return (
     <>
-      {isOpenCreateModal && alert("add task")}
+      {isOpenCreateModal && <NeedHelpModal />}
       {isOpenHelpModal && <NeedHelpModal handleHelpModal={handleHelpModal} />}
       <div className={css.backdrop}>
         <aside
