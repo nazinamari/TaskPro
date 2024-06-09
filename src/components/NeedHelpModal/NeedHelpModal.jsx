@@ -2,7 +2,7 @@ import css from "./NeedHelpModal.module.css";
 // import * as yup from "yup";
 import { useForm } from "react-hook-form";
 
-export default function NeedHelpModal() {
+export default function NeedHelpModal({ handleHelpModal }) {
   const {
     register,
     handleSubmit,
@@ -14,10 +14,10 @@ export default function NeedHelpModal() {
   };
 
   return (
-    <div className={css.container}>
+    <div className={css.container} onClick={handleHelpModal}>
       <div className={css.modalWindow}>
         <div className={css.modalWindowContent}>
-          <button className={css.closeBtn}>
+          <button className={css.closeBtn} onClick={handleHelpModal}>
             <svg className={css.icon} width="48" height="48" aria-label="logo">
               <use href="/public/sprite.svg#icon-x-close"></use>
             </svg>

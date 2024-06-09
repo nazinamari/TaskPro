@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Title from "../../shared/components/Title/Title";
 import css from "./WelcomePage.module.css";
-import NeedHelpModal from "../../components/NeedHelpModal/NeedHelpModal";
 
 export default function WelcomePage() {
   return (
@@ -34,7 +33,6 @@ export default function WelcomePage() {
           Log In
         </Link>
       </div>
-      <NeedHelpModal />
     </div>
   );
 }
