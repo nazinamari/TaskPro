@@ -18,7 +18,7 @@ export default function NeedHelpModal() {
       <div className={css.modalWindow}>
         <div className={css.modalWindowContent}>
           <button className={css.closeBtn}>
-            <svg className={css.icon} width="48" height="48" aria-label="logo">
+            <svg className={css.icon} width="18" height="18" aria-label="logo">
               <use href="/public/sprite.svg#icon-x-close"></use>
             </svg>
           </button>
