@@ -32,6 +32,8 @@
   color: #bedbb0;
   margin-left: 4px;
   margin-right: 4px;
+  border: none;
+  background-color: inherit;
 }
 .wrapper {
   flex-grow: 1;

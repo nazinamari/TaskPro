@@ -1,6 +1,5 @@
-import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
 import css from "./WorkPlace.module.css";
-export default function WorkPlace({ handleCreateModal, isOpenCreateModal }) {
+export default function WorkPlace({ handleCreateModal }) {
   return (
     <div className={css.wrapper}>
       <button
