@@ -7,6 +7,7 @@
 	--accent-color: #bedbb0;
 	--main-background-color: #161616;
 	--second-background-color: #121212;
+	--active-background-color: #1f1f1f;
 
 	--board-section-primary: #bedbb0;
 	--board-section-secondary: #e09cb5;
@@ -18,22 +19,28 @@
 	--main-text-color: #ffffff;
 	--second-text-color: rgba(255, 255, 255, 0.5);
 	--accent-color: #bedbb0;
-	--main-background-color: #161616;
-	--second-background-color: #121212;
+
+	--main-background-color: #161616; /* Колір хедера */
+	--second-background-color: #121212; /* Колір самого Slide Bar */
+	--active-background-color: #1f1f1f; /* Колір workplace та панелей на слайдбарі */
 }
 
 .light-theme {
 	--main-text-color: #161616;
 	--second-text-color: rgba(22, 22, 22, 0.5);
 	--accent-color: #bedbb0;
-	--main-background-color: #161616;
-	--second-background-color: #121212;
+
+	--main-background-color: #fcfcfc; /* Колір хедера */
+	--second-background-color: #ffffff; /* Колір самого Slide Bar */
+	--active-background-color: #f6f6f7; /* Колір workplace та панелей на слайдбарі */
 }
 
 .violet-theme {
 	--main-text-color: #ffffff;
-	--second-text-color: rgba(255, 255, 255, 0.5);
-	--accent-color: #bedbb0;
-	--main-background-color: #161616;
-	--second-background-color: #121212;
+	--second-text-color: #161616;
+	--accent-color: #5255bc;
+
+	--main-background-color: #ffffff; /* Колір хедера */
+	--second-background-color: #5255bc; /* Колір самого Slide Bar */
+	--active-background-color: #ecedfd; /* Колір workplace та панелей на слайдбарі */
 }
