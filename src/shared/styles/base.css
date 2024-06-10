@@ -1,7 +1,7 @@
 body {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
-  color: var(--text-color);
+  color: var(--main-text-color);
   margin: 0;
   padding: 0;
   transition: background-color 0.3s, color 0.3s;
@@ -10,9 +10,4 @@ body {
 button {
   cursor: pointer;
   font-family: inherit;
-}
-
-.ReactModal__Overlay {
-  backdrop-filter: blur(1px);
-  background-color: transparent;
 }
