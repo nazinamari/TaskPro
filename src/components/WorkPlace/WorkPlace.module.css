@@ -1,5 +1,19 @@
 .container {
-  background-color: red;
+  background-color: inherit;
   width: 100%;
   flex-grow: 1;
+  display: flex;
+  overflow-x: auto;
+
+  gap: 34px;
+}
+.addColumnBtn {
+  width: 334px;
+  height: 56px;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  gap: 34px;
 }
