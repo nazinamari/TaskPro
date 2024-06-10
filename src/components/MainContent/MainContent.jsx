@@ -1,12 +1,19 @@
 import Header from "../../components/Header/Header";
-import WorkPlace from "../../components/WorkPlace/WorkPlace";
+import ScreensPage from "../ScreensPage/ScreensPage";
+import Filter from "../../shared/components/FilterButton/Filter";
 import css from "./MainContent.module.css";
 
-export default function MainContent({ content, toggleSidebar }) {
+export default function MainContent({ content, header, toggleSidebar }) {
   return (
     <div className={css.wrapper}>
       <Header toggleSidebar={toggleSidebar} />
-      <WorkPlace>{content}</WorkPlace>
+      <ScreensPage>
+        <div className={css.headerWrapper}>
+          {header}
+          <Filter />
+        </div>
+        {content}
+      </ScreensPage>
     </div>
   );
 }
