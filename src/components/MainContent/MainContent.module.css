@@ -4,3 +4,20 @@
   flex-grow: 1;
   height: 100vh;
 }
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+@media (min-width: 768px) {
+  .headerWrapper {
+    margin-bottom: 26px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .headerWrapper {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,18 @@
+@media (min-width: 375px) {
+  .title {
+    margin-top: 14px;
+    margin-left: 20px;
+    color: #ffffff;
+    font-size: 14;
+    line-height: 0;
+    font-weight: 500;
+    letter-spacing: 0.2;
+  }
+}
+@media (min-width: 768px) {
+  .title {
+    margin-top: 20px;
+    margin-left: 32px;
+    font-size: 18;
+  }
+}
