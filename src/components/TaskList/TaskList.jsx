@@ -7,15 +7,7 @@ export default function TaskList() {
     <ul className={css.list}>
       {arr.map(({ name }) => (
         <li key={(~~(Math.random() * 1e8)).toString(16)}>
-          <p>{name}</p>
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
-          <TaskCard />
+          <TaskCard name={name} />
         </li>
       ))}
     </ul>
