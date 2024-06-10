@@ -2,33 +2,38 @@
 	--font-family: 'Poppins', sans-serif;
 	--font-size-base: 14px;
 
-	--main-text-color: #FFFFFF;
+	--main-text-color: #ffffff;
 	--second-text-color: rgba(255, 255, 255, 0.5);
-	--accent-color: #BEDBB0;
+	--accent-color: #bedbb0;
 	--main-background-color: #161616;
 	--second-background-color: #121212;
 
-	--board-section-primary: #BEDBB0;
-	--board-section-secondary: #E09CB5;
-	--board-section-tertiary: #8FA1D0;
-	--board-section-quaternary: rgba(255, 255, 255, 0.3); 
+	--board-section-primary: #bedbb0;
+	--board-section-secondary: #e09cb5;
+	--board-section-tertiary: #8fa1d0;
+	--board-section-quaternary: rgba(255, 255, 255, 0.3);
 }
 
-/* .dark-theme {
-	--primary-color: #4caf50;
-	--secondary-color: #ffffff;
-	--background-color: #000000;
-	
+.dark-theme {
+	--main-text-color: #ffffff;
+	--second-text-color: rgba(255, 255, 255, 0.5);
+	--accent-color: #bedbb0;
+	--main-background-color: #161616;
+	--second-background-color: #121212;
 }
 
 .light-theme {
-	--primary-color: #8bc34a;
-	--secondary-color: #000000;
-	--background-color: #ffffff;
+	--main-text-color: #161616;
+	--second-text-color: rgba(22, 22, 22, 0.5);
+	--accent-color: #bedbb0;
+	--main-background-color: #161616;
+	--second-background-color: #121212;
 }
 
 .violet-theme {
-	--primary-color: #3f51b5;
-	--secondary-color: #000000;
-	--background-color: #ede7f6;
-} */
+	--main-text-color: #ffffff;
+	--second-text-color: rgba(255, 255, 255, 0.5);
+	--accent-color: #bedbb0;
+	--main-background-color: #161616;
+	--second-background-color: #121212;
+}
