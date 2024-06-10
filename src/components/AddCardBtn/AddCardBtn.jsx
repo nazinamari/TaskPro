@@ -1,4 +1,4 @@
-import sprite from "../../../public/sprite.svg";
+import sprite from "../../../public/icons.svg";
 import styles from "./AddCardBtn.module.css";
 
 const AddCardBtn = ({ onClick }) => {

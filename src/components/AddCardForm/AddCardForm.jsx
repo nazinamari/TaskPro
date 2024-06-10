@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import sprite from "../../../public/sprite.svg";
+import sprite from "../../../public/icons.svg";
 import styles from "./AddCardForm.module.css";
 import "../../shared/styles/variables.css";
 
