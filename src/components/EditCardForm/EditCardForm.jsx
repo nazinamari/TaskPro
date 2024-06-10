@@ -26,7 +26,7 @@ const EditCardForm = ({ cardData, onUpdateCard, onClose }) => {
     <div className={styles.editCardForm}>
       <button className={styles.closeButton} onClick={onClose}>
         <svg className={styles.icon}>
-          <use xlinkHref={`${sprite}#icon-x-close`} />
+          <use xlinkHref={`${sprite}#icon-plus`} />
         </svg>
       </button>
       <h3>Edit card</h3>
@@ -77,14 +77,14 @@ const EditCardForm = ({ cardData, onUpdateCard, onClose }) => {
         <button type="submit" className={styles.editButton}>
           Edit
           <svg className={styles.icon}>
-            <use xlinkHref={`${sprite}#icon-check`} />
+            <use xlinkHref={`${sprite}#icon-pencil`} />
           </svg>
         </button>
       </form>
       <button onClick={onClose} className={styles.closeButton}>
         Close
         <svg className={styles.icon}>
-          <use xlinkHref={`${sprite}#icon-x-close`} />
+          <use xlinkHref={`${sprite}#icon-plus`} />
         </svg>
       </button>
     </div>

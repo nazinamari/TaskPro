@@ -25,7 +25,7 @@ const AddCardForm = ({ onAddCard, onClose }) => {
     <div className={styles.addCardForm}>
       <button className={styles.closeButton} onClick={onClose}>
         <svg className={styles.icon}>
-          <use xlinkHref={`${sprite}#iicon-x-close`} />
+          <use xlinkHref={`${sprite}#icon-plus`} />
         </svg>
       </button>
       <h3>Add card</h3>
