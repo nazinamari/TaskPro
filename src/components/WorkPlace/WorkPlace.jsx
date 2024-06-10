@@ -1,5 +1,6 @@
 import css from "./WorkPlace.module.css";
 import TaskCard from "../CardTask/CardTask";
+import AddCardBtn from "../AddCardBtn/AddCardBtn";
 
 const arr = [
   { name: "to do" },
@@ -36,6 +37,7 @@ export default function WorkPlace() {
               <TaskCard />
               <TaskCard />
               <TaskCard />
+              <AddCardBtn />
             </li>
           ))}
         </ul>
