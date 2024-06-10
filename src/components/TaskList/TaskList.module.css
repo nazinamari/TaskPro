@@ -1,0 +1,25 @@
+export default function TaskList() {
+  return (
+    <div className={css.container}>
+      <div>
+        <ul className={css.list}>
+          {arr.map(({ name }) => (
+            <li key={(~~(Math.random() * 1e8)).toString(16)}>
+              <p>{name}</p>
+              <TaskCard />
+              <TaskCard />
+              <TaskCard />
+              <TaskCard />
+              <TaskCard />
+              <TaskCard />
+              <TaskCard />
+              <TaskCard />
+              <AddCardBtn />
+            </li>
+          ))}
+        </ul>
+      </div>
+      <button className={css.addColumnBtn}>Add column</button>
+    </div>
+  );
+}

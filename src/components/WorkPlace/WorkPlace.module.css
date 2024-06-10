@@ -1,34 +1,19 @@
-.filterBtn {
-  display: flex;
-  margin-right: 20px;
-  margin-left: auto;
-  margin-top: 14px;
-  color: rgb(255, 255, 255, 0.8);
+.container {
   background-color: inherit;
-  border: none;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  line-height: 0;
-}
-.wrapper {
+  width: 100%;
   flex-grow: 1;
-  background-color: #1f1f1f;
-  height: 100%;
-}
-.filterIcon {
-  stroke: #ffffff;
-  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.filterBtn:hover .filterIcon {
-  stroke: #9dc888;
-}
+  display: flex;
+  overflow-x: auto;
 
-@media (min-width: 768px) {
-  .filterBtn {
-    display: flex;
-    margin-right: 32px;
-    margin-left: auto;
-    margin-top: 20px;
-  }
+  gap: 34px;
+}
+.addColumnBtn {
+  width: 334px;
+  height: 56px;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  gap: 34px;
 }
