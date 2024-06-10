@@ -81,7 +81,7 @@ const ThemeSelector = ({ changeTheme }) => {
       <button onClick={toggleDropdown} className={styles.themeBtn}>
         Theme
         <svg className={styles.icon} width="16" height="16">
-          <use href="../../../public/sprite.svg#icon-chevron-down3"></use>
+          <use href="../../../public/icons.svg#icon-arrow-down"></use>
         </svg>
       </button>
       {isOpen && (

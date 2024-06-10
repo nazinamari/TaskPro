@@ -37,7 +37,7 @@ export default function Header() {
     <header className={styles.header}>
       <Theme changeTheme={changeTheme} />
       <div className={styles.userInfo} onClick={openModal}>
-        <span>{user.name}</span>
+        <span className={styles.nameModel}>{user.name}</span>
         <img src={user.avatar} alt="Avatar" className={styles.avatar} />
       </div>
       <Modal
@@ -47,40 +47,47 @@ export default function Header() {
         className={styles.modal}
         overlayClassName={styles.overlay}
       >
-        <h2 className={styles.name}>Edit profile</h2>
-        <Formik initialValues={user} onSubmit={handleFormSubmit}>
-          {() => (
-            <Form>
-              <label>
-                <img
-                  src={user.avatar}
-                  alt="Avatar"
-                  className={styles.avatar}
-                  width="68"
-                  height="68"
-                />
-              </label>
-              <div className={styles.boxForm}>
-                <label>
-                  <Field type="text" name="name" className={styles.input} />
-                </label>
-                <label>
-                  <Field type="email" name="email" className={styles.input} />
-                </label>
-                <label>
-                  <Field
-                    type="password"
-                    name="password"
-                    className={styles.input}
+        <button onClick={closeModal} className={styles.closeButton}>
+          <svg className={styles.iconModal} width="16" height="16">
+            <use href="../../../public/sprite.svg#icon-x-close"></use>
+          </svg>
+        </button>
+        <div className={styles.wrapper}>
+          <h2 className={styles.name}>Edit profile</h2>
+          <Formik initialValues={user} onSubmit={handleFormSubmit}>
+            {() => (
+              <Form>
+                <label className={styles.avatarForm}>
+                  <img
+                    src={user.avatar}
+                    alt="Avatar"
+                    className={styles.avatarModal}
+                    width="68"
+                    height="68"
                   />
                 </label>
-                <button className={styles.button} type="submit">
-                  Save
-                </button>
-              </div>
-            </Form>
-          )}
-        </Formik>
+                <div className={styles.boxForm}>
+                  <label className={styles.input}>
+                    <Field type="text" name="name" className={styles.field} />
+                  </label>
+                  <label className={styles.input}>
+                    <Field type="email" name="email" className={styles.field} />
+                  </label>
+                  <label className={styles.input}>
+                    <Field
+                      type="password"
+                      name="password"
+                      className={styles.field}
+                    />
+                  </label>
+                  <button className={styles.buttonModal} type="submit">
+                    Send
+                  </button>
+                </div>
+              </Form>
+            )}
+          </Formik>
+        </div>
       </Modal>
     </header>
   );
