@@ -1,6 +1,6 @@
 import css from "./NeedHelpModal.module.css";
-// import * as yup from "yup";
 import { useForm } from "react-hook-form";
+import Icon from "../../shared/components/Icon/Icon";
 
 export default function NeedHelpModal({ handleHelpModal }) {
   const {
@@ -13,14 +13,16 @@ export default function NeedHelpModal({ handleHelpModal }) {
     console.log(data);
   };
 
+  const stopPropagation = (event) => {
+    event.stopPropagation();
+  };
+
   return (
     <div className={css.container} onClick={handleHelpModal}>
-      <div className={css.modalWindow}>
+      <div className={css.modalWindow} onClick={stopPropagation}>
         <div className={css.modalWindowContent}>
           <button className={css.closeBtn} onClick={handleHelpModal}>
-            <svg className={css.icon} width="48" height="48" aria-label="logo">
-              <use href="/public/sprite.svg#icon-x-close"></use>
-            </svg>
+            <Icon id="icon-close" width="18" height="18" className={css.icon} />
           </button>
           <h2 className={css.title}>Need help</h2>
           <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
