@@ -1,4 +1,4 @@
-import sprite from "../../../public/sprite.svg";
+import sprite from "../../../public/icons.svg";
 import styles from "./TaskCard.module.css";
 import "../../shared/styles/variables.css";
 
@@ -38,19 +38,19 @@ const TaskCard = ({ theme }) => {
         <div className={styles.actions}>
           <button className={styles.actionButton}>
             <svg className={styles.icon}>
-              <use xlinkHref={`${sprite}#icon-arrow-circle-broken-right`} />
+              <use xlinkHref={`${sprite}#icon-arrow-circler`} />
             </svg>
           </button>
 
           <button className={styles.actionButton}>
             <svg className={styles.icon}>
-              <use xlinkHref={`${sprite}#icon-pencil-01`} />
+              <use xlinkHref={`${sprite}#icon-pencil`} />
             </svg>
           </button>
 
           <button className={styles.actionButton}>
             <svg className={styles.icon}>
-              <use xlinkHref={`${sprite}#icon-trash-04`} />
+              <use xlinkHref={`${sprite}#icon-trash`} />
             </svg>
           </button>
         </div>

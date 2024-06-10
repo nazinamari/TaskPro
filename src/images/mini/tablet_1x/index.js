@@ -18,6 +18,7 @@ import p15 from "./tablet_15.webp";
 export const pictures_tablet_1x = {
   p0,
   p1,
+  p2,
   p3,
   p4,
   p5,
