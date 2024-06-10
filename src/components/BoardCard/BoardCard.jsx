@@ -1,3 +1,4 @@
+import Icon from "../../shared/components/Icon/Icon";
 import css from "./BoardCard.module.css";
 import clsx from "clsx";
 
@@ -5,9 +6,13 @@ export default function BoardCard({ icon, title, id, isActive }) {
   return (
     <div className={css.container}>
       <div className={css.wrapper}>
-        <svg className={css.icon}>
-          <use href={`../../../public/sprite.svg#${icon}`}></use>
-        </svg>
+        <Icon
+          id={icon}
+          width="18"
+          height="18"
+          // className={css.icon}
+          className={clsx(css.icon, { [css.activeBtn]: isActive })}
+        />
         <h4>{title}</h4>
       </div>
       <div className={css.btnWrapper}>
@@ -18,9 +23,12 @@ export default function BoardCard({ icon, title, id, isActive }) {
             alert("EDIT MODAL");
           }}
         >
-          <svg className={css.iconBtn}>
-            <use href="../../../public/sprite.svg#icon-pencil-01"></use>
-          </svg>
+          <Icon
+            id="icon-pencil"
+            width="16"
+            height="16"
+            className={css.iconBtn}
+          />
         </button>
         <button
           type="button"
@@ -29,9 +37,12 @@ export default function BoardCard({ icon, title, id, isActive }) {
           }}
           className={clsx(css.btn, { [css.activeBtn]: isActive })}
         >
-          <svg className={css.iconBtn}>
-            <use href="../../../public/sprite.svg#icon-trash-04"></use>
-          </svg>
+          <Icon
+            id="icon-trash"
+            width="16"
+            height="16"
+            className={css.iconBtn}
+          />
         </button>
       </div>
     </div>

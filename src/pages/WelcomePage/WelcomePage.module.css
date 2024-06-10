@@ -35,9 +35,25 @@
   align-items: center;
 }
 
+.wrapper {
+  width: 40px;
+  height: 40px;
+  background-color: #161616;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.icon {
+  fill: #fff;
+  width: 15px;
+  height: 20px;
+}
+
 .title {
   font-weight: 600;
-  font-size: 40px;
+  font-size: 28px;
   letter-spacing: -0.04em;
   color: #161616;
 }
@@ -92,6 +108,16 @@
   .image {
     width: 162px;
     height: 162px;
+  }
+
+  .wrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .icon {
+    width: 18px;
+    height: 24px;
   }
 
   .title {

@@ -5,18 +5,15 @@ import img from "../../../public/2.png";
 import css from "./SideBar.module.css";
 import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
 import clsx from "clsx";
+import Icon from "../../shared/components/Icon/Icon";
 
-export default function SideBar({
-  isSidebarOpen,
-  isOpenCreateModal,
-  handleCreateModal,
-}) {
-  // const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
+export default function SideBar({ isSidebarOpen }) {
+  const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
   const [isOpenHelpModal, setIsOpenHelpModal] = useState(false);
 
-  // const handleCreateModal = useCallback(() => {
-  //   setIsOpenCreateModal((prevState) => !prevState);
-  // }, []);
+  const handleCreateModal = useCallback(() => {
+    setIsOpenCreateModal((prevState) => !prevState);
+  }, []);
   const handleHelpModal = useCallback(() => {
     setIsOpenHelpModal((prevState) => !prevState);
   }, []);
@@ -46,9 +43,12 @@ export default function SideBar({
               onClick={handleCreateModal}
               className={css.addBtn}
             >
-              <svg className={css.btnIcon} width="20" height="20">
-                <use href="../../../public/sprite.svg#icon-plus"></use>
-              </svg>
+              <Icon
+                id="icon-plus"
+                width="20"
+                height="20"
+                className={css.iconPlus}
+              />
             </button>
           </div>
           <BoardNavigation />
@@ -64,10 +64,13 @@ export default function SideBar({
               onClick={handleHelpModal}
               className={css.helpBtn}
             >
-              <svg className={css.helpIcon} width="20" height="20">
-                <use href="../../../public/sprite.svg#icon-container"></use>
-              </svg>
-              Need help?
+              <Icon
+                id="icon-help"
+                width="20"
+                height="20"
+                className={css.helpIcon}
+              />
+              <p>Need help?</p>
             </button>
           </div>
           <button
@@ -77,12 +80,12 @@ export default function SideBar({
               alert("log out");
             }}
           >
-            <svg className={css.logoutIcon} width="32" height="32">
-              <use
-                className={css.logoutIcon}
-                href="../../../public/sprite.svg#icon-login"
-              ></use>
-            </svg>
+            <Icon
+              id="icon-login"
+              width="32"
+              height="32"
+              className={css.logoutIcon}
+            />
             Log out
           </button>
         </aside>

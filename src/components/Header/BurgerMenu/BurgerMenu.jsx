@@ -6,7 +6,7 @@ import {
   StyledSVGBurger,
 } from "./BurgerMenu.styled";
 import { Sidebar } from "components/SideBar/SideBar";
-import { DarkBackground } from "components/Sidebar/Sidebar.styled";
+import { DarkBackground } from "components/SideBar/Sidebar.styled";
 
 export const BurgerMenu = () => {
   const [isOpen, setOpen] = useState(false);
