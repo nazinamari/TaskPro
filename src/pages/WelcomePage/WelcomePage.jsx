@@ -1,22 +1,21 @@
 import { Link } from "react-router-dom";
-import Title from "../../shared/components/Title/Title";
 import css from "./WelcomePage.module.css";
+import img from "../../../public/welcome-boy.png";
+import Icon from "../../shared/components/Icon/Icon";
+import NewBoardModal from "../../components/NewBoardModal/NewBoardModal";
 
 export default function WelcomePage() {
   return (
     <div className={css.container}>
       <div className={css.imgTitleTextContainer}>
         <div className={css.imgContainer}>
-          <img
-            className={css.image}
-            src="../../public/welcome-boy.png"
-            alt="Welcome"
-          />
+          <img className={css.image} src={img} alt="Welcome" />
           <div className={css.logotype}>
-            <svg className={css.icon} width="48" height="48" aria-label="logo">
-              <use href="/public/sprite.svg#icon-iconlogo"></use>
-            </svg>
-            <Title className={css.title}>Task Pro</Title>
+            <div className={css.wrapper}>
+              <Icon id="icon-logo" className={css.icon} />
+            </div>
+
+            <h1 className={css.title}>Task Pro</h1>
           </div>
         </div>
         <p className={css.text}>
@@ -33,6 +32,7 @@ export default function WelcomePage() {
           Log In
         </Link>
       </div>
+      <NewBoardModal />
     </div>
   );
 }
