@@ -3,7 +3,7 @@ import {
   StyledUserName,
   StyledUserPhoto,
   StyledUserBtn,
-} from "./UserInfo.styled";
+} from "./UserInfo";
 import { useSelector } from "react-redux";
 
 import Modal from "react-modal";

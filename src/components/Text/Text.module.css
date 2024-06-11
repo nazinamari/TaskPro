@@ -3,8 +3,6 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-
-  /* flex-grow: 1; */
 }
 .text {
   margin-left: auto;
@@ -17,7 +15,7 @@
   font-weight: 400;
 }
 .markText {
-  color: #bedbb0;
+  color: var(--accent-color);
   margin-left: 4px;
   margin-right: 4px;
 }

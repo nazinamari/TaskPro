@@ -1,5 +1,5 @@
 import sprite from "../../../public/icons.svg";
-import styles from "./TaskCard.module.css";
+import styles from "./CardTask.module.css";
 import "../../shared/styles/variables.css";
 
 const TaskCard = ({ theme }) => {

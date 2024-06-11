@@ -1,10 +1,8 @@
-import { useState } from "react";
-import Modal from "react-modal";
-import { Formik, Form, Field } from "formik";
+import { useState, useEffect } from "react";
 import styles from "./Header.module.css";
-import Theme from "./Theme";
-
-Modal.setAppElement("#root");
+import ThemeSwitcher from "./ThemaSwitcher/ThemeSwitcher";
+import EditProfileModal from "./EditProfileModal/EditProfileModal";
+import UserInfo from "./UserInfo/UserInfo";
 
 export default function Header() {
   const [theme, setTheme] = useState("dark");
@@ -15,9 +13,12 @@ export default function Header() {
     avatar: "https://via.placeholder.com/40",
   });
 
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
   const changeTheme = (newTheme) => {
     setTheme(newTheme);
-    document.body.className = newTheme;
   };
 
   const openModal = () => {
@@ -35,53 +36,14 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Theme changeTheme={changeTheme} />
-      <div className={styles.userInfo} onClick={openModal}>
-        <span>{user.name}</span>
-        <img src={user.avatar} alt="Avatar" className={styles.avatar} />
-      </div>
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Edit Profile"
-        className={styles.modal}
-        overlayClassName={styles.overlay}
-      >
-        <h2 className={styles.name}>Edit profile</h2>
-        <Formik initialValues={user} onSubmit={handleFormSubmit}>
-          {() => (
-            <Form>
-              <label>
-                <img
-                  src={user.avatar}
-                  alt="Avatar"
-                  className={styles.avatar}
-                  width="68"
-                  height="68"
-                />
-              </label>
-              <div className={styles.boxForm}>
-                <label>
-                  <Field type="text" name="name" className={styles.input} />
-                </label>
-                <label>
-                  <Field type="email" name="email" className={styles.input} />
-                </label>
-                <label>
-                  <Field
-                    type="password"
-                    name="password"
-                    className={styles.input}
-                  />
-                </label>
-                <button className={styles.button} type="submit">
-                  Save
-                </button>
-              </div>
-            </Form>
-          )}
-        </Formik>
-      </Modal>
+      <ThemeSwitcher changeTheme={changeTheme} theme={theme} />
+      <UserInfo user={user} openModal={openModal} />
+      <EditProfileModal
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+        user={user}
+        handleFormSubmit={handleFormSubmit}
+      />
     </header>
   );
 }
