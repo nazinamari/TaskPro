@@ -1,9 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./ThemeSwitcher.module.css";
+import { useSelector } from "react-redux";
+import { selectThemes } from "../../Theme/reduxThemes/themeSlice";
 
 const ThemeSwitcher = ({ changeTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+
+  const themes = useSelector(selectThemes);
+  console.log(themes);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
