@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header";
+import Header from "../Header/Header";
 import ScreensPage from "../ScreensPage/ScreensPage";
 import Filter from "../../shared/components/FilterButton/Filter";
 import css from "./MainContent.module.css";
