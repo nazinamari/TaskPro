@@ -11,6 +11,7 @@ export default function BoardNavigation() {
   const location = useLocation();
   const [activeBoard, setActiveBoard] = useState(null);
 
+  // const boards = useSelector(selectFilteredContacts); Отримати всі дошки
   const arr = [
     { icon: "icon-container", title: "Project office", id: "1" },
     { icon: "icon-colors", title: "Project pictures", id: "2" },
