@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { Formik, Form, Field } from "formik";
 import styles from "./Header.module.css";
-import Theme from "./Theme";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 Modal.setAppElement("#root");
 
@@ -35,7 +35,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <Theme changeTheme={changeTheme} />
+      <ThemeSwitcher changeTheme={changeTheme} />
       <div className={styles.userInfo} onClick={openModal}>
         <span className={styles.nameModel}>{user.name}</span>
         <img src={user.avatar} alt="Avatar" className={styles.avatar} />
@@ -49,7 +49,7 @@ export default function Header() {
       >
         <button onClick={closeModal} className={styles.closeButton}>
           <svg className={styles.iconModal} width="16" height="16">
-            <use href="../../../public/sprite.svg#icon-x-close"></use>
+            <use href="../../../public/icons.svg#icon-close"></use>
           </svg>
         </button>
         <div className={styles.wrapper}>
