@@ -1,9 +1,10 @@
 .column {
-  background-color: #f4f4f4;
+  /* background-color: #f4f4f4; */
   border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px;
+  /* padding: 10px; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  width: 334px;
+  /* height: 154px; */
   flex-shrink: 0;
 }
 
