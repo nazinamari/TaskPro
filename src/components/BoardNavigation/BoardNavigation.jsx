@@ -1,6 +1,6 @@
 import BoardCard from "../BoardCard/BoardCard";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import css from "./BoardNavigation.module.css";
 import clsx from "clsx";
 
@@ -8,6 +8,7 @@ const makeLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
 };
 export default function BoardNavigation() {
+  const location = useLocation();
   const [activeBoard, setActiveBoard] = useState(null);
 
   const arr = [
@@ -21,6 +22,12 @@ export default function BoardNavigation() {
     { icon: "icon-colors", title: "Project icons", id: "9" },
     { icon: "icon-colors", title: "Project icons", id: "10" },
   ];
+  useEffect(() => {
+    const path = location.pathname.split("/").pop();
+    if (path) {
+      setActiveBoard(path);
+    }
+  }, [location.pathname]);
 
   const handleBoardClick = (id) => {
     setActiveBoard(id);

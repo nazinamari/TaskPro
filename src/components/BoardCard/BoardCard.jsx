@@ -10,10 +10,11 @@ export default function BoardCard({ icon, title, id, isActive }) {
           id={icon}
           width="18"
           height="18"
-          // className={css.icon}
-          className={clsx(css.icon, { [css.activeBtn]: isActive })}
+          className={clsx(css.icon, { [css.activeIcon]: isActive })}
         />
-        <h4>{title}</h4>
+        <h4 className={clsx(css.title, { [css.activeTitle]: isActive })}>
+          {title}
+        </h4>
       </div>
       <div className={css.btnWrapper}>
         <button
