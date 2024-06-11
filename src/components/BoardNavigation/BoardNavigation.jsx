@@ -1,8 +1,12 @@
 import BoardCard from "../BoardCard/BoardCard";
-import { useState, useCallback } from "react";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import css from "./BoardNavigation.module.css";
 import clsx from "clsx";
 
+const makeLinkClass = ({ isActive }) => {
+  return clsx(css.link, isActive && css.isActive);
+};
 export default function BoardNavigation() {
   const [activeBoard, setActiveBoard] = useState(null);
 
@@ -20,7 +24,6 @@ export default function BoardNavigation() {
 
   const handleBoardClick = (id) => {
     setActiveBoard(id);
-    console.log(id);
   };
   return (
     <nav className={css.nav}>
@@ -33,12 +36,14 @@ export default function BoardNavigation() {
               [css.active]: id === activeBoard,
             })}
           >
-            <BoardCard
-              icon={icon}
-              title={title}
-              id={id}
-              isActive={id === activeBoard}
-            />
+            <NavLink className={makeLinkClass} to={`/home/${id}`}>
+              <BoardCard
+                icon={icon}
+                title={title}
+                id={id}
+                isActive={id === activeBoard}
+              />
+            </NavLink>
           </li>
         ))}
       </ul>

@@ -17,10 +17,10 @@
   }
 
   .container:hover {
-    color: #fff;
+    color: var(--main-text-color);
   }
   .container:hover .icon {
-    stroke: #fff;
+    stroke: var(--main-text-color);
   }
 
   .wrapper {
@@ -54,7 +54,7 @@
     padding: 0;
     background-color: inherit;
     border: none;
-    stroke: #fff;
+    stroke: var(--main-text-color);
   }
   .activeBtn:hover {
     display: block;
