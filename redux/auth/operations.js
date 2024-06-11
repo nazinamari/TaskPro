@@ -47,18 +47,11 @@ const logOut = createAsyncThunk("auth/logOut", async (_, thunkApi) => {
 
 //ЗМІНА ТЕМИ
 export const changeTheme = createAsyncThunk(
-  "auth/theme",
-  async (credentials, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
-
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue("Unable to fetch user");
-    }
+  "users/changeTheme",
+  async (theme, thunkAPI) => {
     try {
-      setAuthHeader(persistedToken);
-      const response = await axios.patch("api/users/changeTheme", credentials);
-      return response.data;
+      const { data } = await axios.patch("/users/themes", { theme });
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
