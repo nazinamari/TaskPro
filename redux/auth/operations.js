@@ -44,3 +44,23 @@ const logOut = createAsyncThunk("auth/logOut", async (_, thunkApi) => {
     return thunkApi.rejectWithValue(error.message);
   }
 });
+
+//ЗМІНА ТЕМИ
+export const changeTheme = createAsyncThunk(
+  "auth/theme",
+  async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue("Unable to fetch user");
+    }
+    try {
+      setAuthHeader(persistedToken);
+      const response = await axios.patch("api/users/changeTheme", credentials);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
