@@ -10,7 +10,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
           id={icon}
           width="18"
           height="18"
-          className={clsx(css.icon, { [css.activeIcon]: isActive })}
+          className={clsx(css.icon, isActive && css.activeIcon)}
         />
         <h4 className={clsx(css.title, { [css.activeTitle]: isActive })}>
           {title}
