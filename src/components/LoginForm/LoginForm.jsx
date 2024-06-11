@@ -1,19 +1,51 @@
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import styled from "./LoginForm.module.css";
+import { useState } from "react";
+import Icon from "../../shared/components/Icon/Icon";
+
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Invalid email format")
+    .matches(
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      "Email must include one '@' and one '.' in the host part"
+    )
+    .required("The email field is not filled"),
+  password: yup
+    .string()
+    .matches(
+      /^[A-Za-z0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+$/,
+      "Password can only contain letters, numbers, and special characters"
+    )
+    .min(8, "Password must be at least 8 characters")
+    .max(64, "Password must be at most 64 characters")
+    .required("The password field is not filled")
+    .test(
+      "no-spaces",
+      "Password cannot contain spaces",
+      (value) => !/\s/.test(value)
+    ),
+});
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(styled.loginLink, isActive && styled.linkActive);
 };
 
 export default function LoginForm() {
+  const [showPassword, setShowPassword] = useState(false);
+  const toggleShowPassword = () => setShowPassword(!showPassword);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-    formState,
   } = useForm({
+    resolver: yupResolver(schema),
     mode: "onBlur",
     defaultValues: {
       email: "",
@@ -22,7 +54,6 @@ export default function LoginForm() {
   });
 
   const onSubmit = (data) => console.log(data);
-  console.log(errors, formState);
 
   return (
     <section className={styled.loginContainer}>
@@ -45,20 +76,29 @@ export default function LoginForm() {
             className={styled.loginInput}
             type="text"
             placeholder="Enter your email"
-            {...register("email", {
-              required: "The email field is not filled",
-            })}
+            {...register("email")}
           />
           {errors.email && <div>{errors.email.message}</div>}
-
-          <input
-            className={styled.loginInput}
-            type="password"
-            placeholder="Confirm a password"
-            {...register("password", {
-              required: "The password field is not filled",
-            })}
-          />
+          <div className={styled.passwordWrapper}>
+            <input
+              className={styled.loginInput}
+              type={showPassword ? "text" : "password"}
+              placeholder="Confirm a password"
+              {...register("password")}
+            />
+            <span
+              onClick={toggleShowPassword}
+              className={styled.showPasswordButton}
+            >
+              <Icon
+                className={styled.icon}
+                id="icon-eye"
+                width="18px"
+                height="18px"
+              />
+            </span>
+          </div>
+          {errors.password && <div>{errors.password.message}</div>}
 
           <button className={styled.loginButton} type="submit">
             Log In Now
