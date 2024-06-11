@@ -1,65 +1,31 @@
-import {
-  StyledUserInfo,
-  StyledUserName,
-  StyledUserPhoto,
-  StyledUserBtn,
-} from "./UserInfo.styled";
-import { useSelector } from "react-redux";
+import styled from "styled-components";
 
-import Modal from "react-modal";
-import { useState } from "react";
-import { EditProfileModal } from "components/EditProfileModal/EditProfileModal";
-import "../../EditProfileModal/EditModal.css";
-import { selectAvatar, selectUser } from "redux/auth/selectors";
-import { IconUserInfo } from "components/EditProfileModal/EditProfileModal.styled";
-import sprite from "../../../images/icons.svg";
+export const StyledUserInfo = styled.div`
+  padding: 0;
+  display: flex;
+  gap: ${(p) => p.theme.spacing(2)};
+`;
 
-Modal.setAppElement("#root");
+export const StyledUserBtn = styled.button`
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+  border-radius: ${(p) => p.theme.radius.m};
+  padding: 0;
+`;
 
-export const UserInfo = () => {
-  const userName = useSelector(selectUser);
-  const userAvatar = useSelector(selectAvatar);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export const StyledUserName = styled.p`
+  color: ${(p) => p.theme.currentTheme.mainText};
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  margin: auto 0;
+`;
 
-  const avatarURL = userAvatar && new URL(userAvatar, "https://"); //beckend вписати
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  return (
-    <StyledUserInfo>
-      <StyledUserName>{userName.name}</StyledUserName>
-      <StyledUserBtn type="button" onClick={openModal}>
-        {!userAvatar ? (
-          <StyledUserPhoto
-            src={avatarURL}
-            alt="user_photo"
-            width={32}
-            height={32}
-          />
-        ) : (
-          <IconUserInfo>
-            <use xlinkHref={`${sprite}#icon-user`}></use>
-          </IconUserInfo>
-        )}
-      </StyledUserBtn>
-
-      {isModalOpen && (
-        <Modal
-          isOpen={isModalOpen}
-          onRequestClose={closeModal}
-          overlayClassName={"modal-overlay"}
-          className={"modal-content"}
-          closeTimeoutMS={300}
-        >
-          <EditProfileModal onCloseModal={closeModal} avatar={avatarURL} />
-        </Modal>
-      )}
-    </StyledUserInfo>
-  );
-};
+export const StyledUserPhoto = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: ${(p) => p.theme.radius.m};
+`;
