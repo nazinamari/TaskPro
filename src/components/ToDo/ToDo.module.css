@@ -24,8 +24,8 @@
 }
 
 .editing {
-  background-color: var(--primary-color); /* Измените на нужный вам цвет */
-  color: var(--text-color); /* Измените на нужный вам цвет */
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .actions {

@@ -5,13 +5,13 @@
   background-color: #121212;
   border: none;
   border-radius: 8px;
+  width: 335px;
+  height: 56px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
   color: #fff;
   transition: background-color 0.3s ease;
-  width: 335px;
-  height: 56px;
 }
 
 .addButton:hover {
@@ -31,6 +31,6 @@
 
 .icon {
   fill: #121212;
-  width: 14px;
-  height: 14px;
+  /* width: 14px;
+  height: 14px; */
 }
