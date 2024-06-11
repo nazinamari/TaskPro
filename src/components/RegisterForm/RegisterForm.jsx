@@ -90,7 +90,9 @@ export default function RegisterForm() {
             placeholder="Enter your name"
             {...register("name")}
           />
-          {errors.name && <div>{errors.name.message}</div>}
+          {errors.name && (
+            <span className={styled.registerError}>{errors.name.message}</span>
+          )}
 
           <input
             className={styled.registerInput}
@@ -98,7 +100,9 @@ export default function RegisterForm() {
             placeholder="Enter your email"
             {...register("email")}
           />
-          {errors.email && <div>{errors.email.message}</div>}
+          {errors.email && (
+            <span className={styled.registerError}>{errors.email.message}</span>
+          )}
 
           <div className={styled.passwordWrapper}>
             <input
@@ -119,7 +123,11 @@ export default function RegisterForm() {
               />
             </span>
           </div>
-          {errors.password && <div>{errors.password.message}</div>}
+          {errors.password && (
+            <span className={styled.registerError}>
+              {errors.password.message}
+            </span>
+          )}
 
           <button className={styled.registerButton} type="submit">
             Register Now
