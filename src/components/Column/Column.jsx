@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ToDo from "./ToDo";
-import TaskCard from "./CardTask";
-import AddCardBtn from "./AddCardBtn";
+import ToDo from "../ToDo/ToDo";
+import TaskCard from "../CardTask/CardTask";
+import AddCardBtn from "../AddCardBtn/AddCardBtn";
 import styles from "./Column.module.css";
 
 const Column = ({ title, onDelete }) => {
