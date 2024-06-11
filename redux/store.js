@@ -10,7 +10,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { filtersReducer } from "./filters/slice";
+import filtersReducer from "./filters/slice";
+import authReducer from "./auth/slice";
 
 const authPersistConfig = {
   key: "auth",
@@ -18,9 +19,12 @@ const authPersistConfig = {
   whitelist: ["token"],
 };
 
+const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+
 export const store = configureStore({
   reducer: {
     filters: filtersReducer,
+    auth: persistedAuthReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
