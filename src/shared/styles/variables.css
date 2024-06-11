@@ -1,34 +1,56 @@
 :root {
-	--font-family: 'Poppins', sans-serif;
+	--font-family: 'Poppins', sans-serif; /* var(--font-family) */
 	--font-size-base: 14px;
 
-	--main-text-color: #FFFFFF;
-	--second-text-color: rgba(255, 255, 255, 0.5);
-	--accent-color: #BEDBB0;
-	--main-background-color: #161616;
-	--second-background-color: #121212;
+	--main-text-color: #ffffff; /* var(--main-text-color) */
+	/* --second-text-color: rgba(255, 255, 255, 0.5); var(--second-text-color) */
+	--accent-color: #bedbb0; /* var(--accent-color) */
 
-	--board-section-primary: #BEDBB0;
-	--board-section-secondary: #E09CB5;
-	--board-section-tertiary: #8FA1D0;
-	--board-section-quaternary: rgba(255, 255, 255, 0.3); 
+	--main-background-color: #161616; /* var(--main-background-color) */
+	--second-background-color: #121212; /* var(--second-background-color) */
+	--third-background-color: #151515; /* var(--third-background-color) */
+	--active-background-color: #1f1f1f; /* var(--active-background-color) */
+	--color-swagger: rgba(255, 255, 255, 0.1);
+
+	--board-section-high: #bedbb0; /* var(--board-section-high) */
+	--board-section-medium: #e09cb5; /* var(--board-section-medium) */
+	--board-section-low: #8fa1d0; /* var(--board-section-low) */
+	--board-section-without-priority: rgba(
+		255,
+		255,
+		255,
+		0.3
+	); /* var(--board-section-without-priority) chees*/
 }
 
-/* .dark-theme {
-	--primary-color: #4caf50;
-	--secondary-color: #ffffff;
-	--background-color: #000000;
-	
+.dark-theme {
+	--main-text-color: #ffffff;
+	/* --second-text-color: rgba(255, 255, 255, 0.5); */
+	--accent-color: #bedbb0;
+
+	--main-background-color: #161616; /* Колір хедера */
+	--second-background-color: #121212; /* Колір самого Slide Bar */
+	--active-background-color: #1f1f1f; /* Колір workplace та панелей на слайдбарі */
 }
 
 .light-theme {
-	--primary-color: #8bc34a;
-	--secondary-color: #000000;
-	--background-color: #ffffff;
+	--main-text-color: #161616;
+	/* --second-text-color: rgba(22, 22, 22, 0.5); */
+	--accent-color: #bedbb0;
+
+	--main-background-color: #fcfcfc; /* Колір хедера */
+	--second-background-color: #ffffff; /* Колір самого Slide Bar */
+	--active-background-color: #f6f6f7; /* Колір workplace та панелей на слайдбарі */
+	--color-swagger: #e8e8e8;
 }
 
 .violet-theme {
-	--primary-color: #3f51b5;
-	--secondary-color: #000000;
-	--background-color: #ede7f6;
-} */
+	--main-text-color: #ffffff;
+	--second-text-color: #161616;
+	--accent-color: #5255bc;
+
+	--main-background-color: #ffffff; /* Колір хедера */
+	--second-background-color: #5255bc; /* Колір самого Slide Bar */
+	--active-background-color: #ecedfd; /* Колір workplace та панелей на слайдбарі */
+	--color-swagger: #b8bcfd;
+}

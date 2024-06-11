@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { getProjectData } from "./operation";
+import { getProjectData } from "./operations";
 
 const handlePending = (state) => {
   state.isLoadingProject = true;
