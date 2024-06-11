@@ -1,0 +1,20 @@
+.userInfo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  padding: 18px 24px;
+  padding-left: 0px;
+}
+
+.avatar {
+  border-radius: 8px;
+}
+
+.nameModel {
+  color: #ffffff;
+}
+
+.nameModel:hover {
+  color: var(--accent-color);
+}
