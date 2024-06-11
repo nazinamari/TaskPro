@@ -1,8 +1,9 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import clsx from "clsx";
+
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "./RegisterForm.module.css";
 import Icon from "../../shared/components/Icon/Icon";
