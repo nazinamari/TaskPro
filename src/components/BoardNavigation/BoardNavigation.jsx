@@ -1,10 +1,10 @@
 import BoardCard from "../BoardCard/BoardCard";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import css from "./BoardNavigation.module.css";
 import clsx from "clsx";
 
 export default function BoardNavigation() {
-  const [activeBoard, setActiveBoard] = useState(null);
+  const [activeBoard, setActiveBoard] = useState(1);
 
   const arr = [
     { icon: "icon-container", title: "Project office", id: "1" },

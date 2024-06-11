@@ -73,4 +73,49 @@
   .wrapper {
     gap: 8px;
   }
+  /* .modal {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    border: 1px solid rgba(190, 219, 176, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+    background: #151515;
+    overflow-y: auto;
+    z-index: 1100;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+  } */
+  .modalWindow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 300ms ease-in-out, top 100ms ease-in-out,
+      transform 1000ms ease-in-out;
+  }
+  .modalWindowContent {
+    /* position: absolute; */
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    width: 335px;
+    min-height: 433px;
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+    background: var(--third-background-color);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 }
