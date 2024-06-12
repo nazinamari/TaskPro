@@ -1,0 +1,229 @@
+.container {
+  position: fixed;
+  backdrop-filter: blur(1px);
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modalWindow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 300ms ease-in-out, top 100ms ease-in-out,
+    transform 1000ms ease-in-out;
+}
+
+.modalWindowContent {
+  box-sizing: border-box;
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  width: 335px;
+  min-height: 433px;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+  background: var(--third-background-color);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  justify-content: start;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.iconClose {
+  fill: none;
+  stroke: var(--main-text-color);
+  &:hover {
+    stroke: var(--accent-color);
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--main-text-color);
+  margin-top: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.input {
+  border: 1px solid var(--accent-color);
+  border-radius: 8px;
+  width: 100%;
+  height: 49px;
+  opacity: 0.4;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--main-text-color);
+  padding-left: 18px;
+  box-sizing: border-box;
+  margin-bottom: 24px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 287px;
+}
+
+.iconsTitle {
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--main-text-color);
+  margin-bottom: 14px;
+}
+
+.iconsContainer {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.iconImage {
+  cursor: pointer;
+}
+
+.bgList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 252px;
+  justify-content: start;
+  margin-bottom: 40px;
+}
+
+.bgImage {
+  width: 28px;
+  height: 28px;
+}
+
+.iconRadio {
+  display: none;
+}
+
+.customRadio {
+  cursor: pointer;
+}
+
+.customRadio:active {
+  stroke: #fff;
+}
+
+/* .iconRadio:checked + .iconImage {
+  stroke: #fff;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+} */
+
+.iconLabel {
+  position: relative;
+  fill: none;
+  stroke: var(--main-text-color);
+  opacity: 0.5;
+  &:hover {
+    stroke: var(--main-text-color);
+    opacity: 1;
+  }
+  &:active {
+    stroke: var(--main-text-color);
+    opacity: 1;
+  }
+}
+
+.editBtn {
+  border-radius: 8px;
+  width: 100%;
+  height: 49px;
+  background: var(--accent-color);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 28px;
+  height: 28px;
+  background-color: var(--main-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.iconPlus {
+  fill: none;
+  stroke: var(--main-text-color);
+}
+
+.createText {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--main-background-color);
+}
+
+@media (min-width: 768px) {
+  .modalWindowContent {
+    width: 350px;
+  }
+
+  .formContainer {
+    width: 302px;
+  }
+
+  .iconsTitle {
+    font-size: 14px;
+  }
+
+  .createBtn {
+    width: 302px;
+  }
+}
+
+/* .iconLabel {
+  fill: none;
+  stroke: var(--main-text-color);
+  opacity: 0.5;
+  &:hover {
+    stroke: var(--main-text-color);
+    opacity: 1;
+  }
+  &:active {
+		stroke: var(--main-text-color);
+		opacity: 1;
+	}
+} */

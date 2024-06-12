@@ -1,20 +1,21 @@
-import p1 from "./desktop_1.webp";
-import p2 from "./desktop_2.webp";
-import p3 from "./desktop_3.webp";
-import p4 from "./desktop_4.webp";
-import p5 from "./desktop_5.webp";
-import p6 from "./desktop_6.webp";
-import p7 from "./desktop_7.webp";
-import p8 from "./desktop_8.webp";
-import p9 from "./desktop_9.webp";
-import p10 from "./desktop_10.webp";
-import p11 from "./desktop_11.webp";
-import p12 from "./desktop_12.webp";
-import p13 from "./desktop_13.webp";
-import p14 from "./desktop_14.webp";
-import p15 from "./desktop_15.webp";
+import p1 from "./Vector.png";
+import p2 from "./Vector-1.png";
+import p3 from "./Vector-2.png";
+import p4 from "./Vector-3.png";
+import p5 from "./Vector-4.png";
+import p6 from "./Vector-5.png";
+import p7 from "./Vector-6.png";
+import p8 from "./Vector-7.png";
+import p9 from "./Vector-8.png";
+import p10 from "./Vector-9.png";
+import p11 from "./Vector-10.png";
+import p12 from "./Vector-11.png";
+import p13 from "./Vector-12.png";
+import p14 from "./Vector-13.png";
+import p15 from "./Vector-14.png";
+import p16 from "./Vector-15.png";
 
-export const pictures_desktop_1x = {
+const pictures_desktop_1x = [
   p1,
   p2,
   p3,
@@ -30,4 +31,7 @@ export const pictures_desktop_1x = {
   p13,
   p14,
   p15,
-};
+  p16,
+];
+
+export default pictures_desktop_1x;
