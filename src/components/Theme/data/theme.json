@@ -1,0 +1,23 @@
+[
+  {
+    "theme": "dark-theme",
+    "colors": {
+      "main-text-color": "#ffffff",
+      "accent-color": "#bedbb0"
+    }
+  },
+  {
+    "theme": "light-theme",
+    "colors": {
+      "main-text-color": "#161616",
+      "accent-color": "#bedbb0"
+    }
+  },
+  {
+    "theme": "violet-theme",
+    "colors": {
+      "main-text-color": "#ffffff",
+      "accent-color": "#5255bc"
+    }
+  }
+]
