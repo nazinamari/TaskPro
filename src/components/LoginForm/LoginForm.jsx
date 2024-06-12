@@ -78,7 +78,9 @@ export default function LoginForm() {
             placeholder="Enter your email"
             {...register("email")}
           />
-          {errors.email && <div>{errors.email.message}</div>}
+          {errors.email && (
+            <span className={styled.loginError}>{errors.email.message}</span>
+          )}
           <div className={styled.passwordWrapper}>
             <input
               className={styled.loginInput}
@@ -98,7 +100,9 @@ export default function LoginForm() {
               />
             </span>
           </div>
-          {errors.password && <div>{errors.password.message}</div>}
+          {errors.password && (
+            <span className={styled.loginError}>{errors.password.message}</span>
+          )}
 
           <button className={styled.loginButton} type="submit">
             Log In Now

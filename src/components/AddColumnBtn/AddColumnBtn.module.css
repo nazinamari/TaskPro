@@ -1,9 +1,12 @@
 .addButton {
   display: flex;
   align-items: center;
-  background-color: #000;
+  justify-content: center;
+  background-color: #121212;
   border: none;
   border-radius: 8px;
+  width: 335px;
+  height: 56px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
@@ -15,7 +18,19 @@
   background-color: #333;
 }
 
-.icon {
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
+  border-radius: 5px;
   margin-right: 8px;
-  fill: #fff;
+}
+
+.icon {
+  fill: #121212;
+  /* width: 14px;
+  height: 14px; */
 }

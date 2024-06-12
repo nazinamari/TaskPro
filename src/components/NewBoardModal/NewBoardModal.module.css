@@ -1,4 +1,5 @@
 .container {
+  display: none;
   position: fixed;
   backdrop-filter: blur(1px);
   background-color: transparent;
@@ -13,6 +14,7 @@
 }
 
 .modalWindow {
+  display: none;
   position: fixed;
   margin: auto;
   left: -200%;
@@ -127,8 +129,6 @@
   gap: 8px;
   align-items: center;
   justify-content: center;
-  outline: none;
-  border: none;
 }
 
 .wrapper {
@@ -184,7 +184,7 @@
     opacity: 1;
   }
   /* &:active {
-    stroke: var(--main-text-color);
-    opacity: 1;
-  } */
+		stroke: var(--main-text-color);
+		opacity: 1;
+	} */
 }
