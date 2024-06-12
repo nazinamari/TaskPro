@@ -4,9 +4,8 @@ import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import css from "./BoardCard.module.css";
 import clsx from "clsx";
 import Modal from "react-modal";
-// import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
 
-// Modal.setAppElement("#root");
+Modal.setAppElement("#root");
 
 export default function BoardCard({ icon, title, id, isActive }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,22 +59,14 @@ export default function BoardCard({ icon, title, id, isActive }) {
             className={css.iconBtn}
           />
         </button>
-
-        {isModalOpen && (
-          <EditBoardModal
-            boardId={currentBoardId}
-            handleHelpModal={handleCloseModal}
-          />
-        )}
-        {/* <Modal
+        <Modal
           isOpen={isModalOpen}
-          onRequestClose={handleCloseModal}
           contentLabel="Edit Profile"
           className={css.modalWindowContent}
-          overlayClassName={css.Window}
+          overlayClassName={css.overlay}
         >
-          <EditBoardModal boardId={currentBoardId} />
-        </Modal> */}
+          <EditBoardModal onClose={handleCloseModal} boardId={currentBoardId} />
+        </Modal>
       </div>
     </div>
   );
