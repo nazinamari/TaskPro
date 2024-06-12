@@ -102,13 +102,7 @@ export default function EditBoardModal({ onClose }) {
           </button>
           <h2 className={css.title}>Edit board</h2>
           <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-            <input
-              className={css.input}
-              type="text"
-              {...register("title", {
-                required: "Title is required",
-              })}
-            />
+            <input className={css.input} type="text" />
             {errors.Title && <span>This field is required</span>}
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>

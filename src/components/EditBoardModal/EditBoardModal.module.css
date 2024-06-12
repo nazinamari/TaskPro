@@ -136,7 +136,7 @@
   cursor: pointer;
 }
 
-.customRadio.active {
+.customRadio:active {
   stroke: #fff;
 }
 

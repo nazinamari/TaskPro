@@ -4,14 +4,18 @@ import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import css from "./BoardCard.module.css";
 import clsx from "clsx";
 import Modal from "react-modal";
+import { useDispatch } from "react-redux";
+import { editBoard } from "../../../redux/board/operations";
 
 Modal.setAppElement("#root");
 
 export default function BoardCard({ icon, title, id, isActive }) {
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentBoardId, setCurrentBoardId] = useState(null);
 
   const handleOpenModal = (boardId) => {
+    dispatch(editBoard());
     setCurrentBoardId(boardId);
     setIsModalOpen(true);
   };
@@ -27,7 +31,6 @@ export default function BoardCard({ icon, title, id, isActive }) {
           id={icon}
           width="18"
           height="18"
-          // className={css.icon}
           className={clsx(css.icon, { [css.activeBtn]: isActive })}
         />
         <h4>{title}</h4>
