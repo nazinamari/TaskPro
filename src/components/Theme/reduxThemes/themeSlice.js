@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit/toolkit";
 import data from "../data/theme.json";
 import { fetchTheme, updateTheme } from "./operations";
 
