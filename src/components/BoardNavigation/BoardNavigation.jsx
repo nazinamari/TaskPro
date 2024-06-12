@@ -14,17 +14,6 @@ export default function BoardNavigation() {
   const [activeBoard, setActiveBoard] = useState(null);
   const boards = useSelector(selectAllBoards);
 
-  // const arr = [
-  //   { icon: "icon-container", title: "Project office", id: "1" },
-  //   { icon: "icon-colors", title: "Project pictures", id: "2" },
-  //   { icon: "icon-container", title: "Project cartoons", id: "3" },
-  //   { icon: "icon-colors", title: "Project chinaaa", id: "4" },
-  //   { icon: "icon-container", title: "Project sauntres", id: "5" },
-  //   { icon: "icon-colors", title: "Project icons", id: "7" },
-  //   { icon: "icon-container", title: "Project icons", id: "8" },
-  //   { icon: "icon-colors", title: "Project icons", id: "9" },
-  //   { icon: "icon-colors", title: "Project icons", id: "10" },
-  // ];
   useEffect(() => {
     const path = location.pathname.split("/").pop();
     if (path) {

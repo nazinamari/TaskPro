@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import Icon from "../../shared/components/Icon/Icon";
 import bgImages from "../../images/desktop_1x/index";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import clsx from "clsx";
+import { editBoard } from "../../../redux/board/operations";
 
 const icons = [
   {
@@ -67,6 +69,7 @@ const icons = [
 export default function EditBoardModal({ onClose }) {
   const [selectedIcon, setSelectedIcon] = useState("Icon1");
   const [selectedBg, setSelectedBg] = useState("p1");
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -80,7 +83,14 @@ export default function EditBoardModal({ onClose }) {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(editBoard(data))
+      .unwrap()
+      .then(() => {
+        console.log("add board"); // додати тост
+      })
+      .catch(() => {
+        console.error();
+      });
   };
 
   const stopPropagation = (event) => {

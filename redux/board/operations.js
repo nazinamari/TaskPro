@@ -42,10 +42,21 @@ export const deleteBoard = createAsyncThunk(
 
 export const editBoard = createAsyncThunk(
   "boards/editBoard",
-  async (data, thunkApi) => {
+  async (updBoard, thunkApi) => {
     try {
-      const response = await instance.put("boards/:boardId");
-      console.log(response.data);
+      const response = await instance.put(`boards/${updBoard.id}`);
+      return response.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getBoardById = createAsyncThunk(
+  "boards/getBoardById",
+  async (id, thunkApi) => {
+    try {
+      const response = await instance.get(`boards/${id}`);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
