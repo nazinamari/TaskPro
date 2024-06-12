@@ -21,7 +21,7 @@ export default function WelcomePage() {
               srcSet={`${desktopImg} 1x, ${desktopImg2x} 2x`}
               media="(min-width: 768px)"
             />
-            <img className={css.image} src={desktopImg} alt="Welcome" />
+            <img className={css.image} src={mobileImg} alt="Welcome" />
           </picture>
           <div className={css.logotype}>
             <div className={css.wrapper}>
