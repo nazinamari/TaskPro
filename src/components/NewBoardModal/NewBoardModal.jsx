@@ -1,6 +1,9 @@
 import css from "./NewBoardModal.module.css";
 import { useForm } from "react-hook-form";
 import Icon from "../../shared/components/Icon/Icon";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAllBoards } from "../../../redux/board/selectors.js";
+import { addBoard } from "../../../redux/board/operations.js";
 
 const icons = [
   {
@@ -62,6 +65,9 @@ const icons = [
 ];
 
 export default function NewBoardModal({ handleCreateModal }) {
+  const dispatch = useDispatch();
+  const boards = useSelector(selectAllBoards);
+
   const {
     register,
     handleSubmit,
@@ -73,8 +79,19 @@ export default function NewBoardModal({ handleCreateModal }) {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = (values) => {
+    if (boards.find((board) => board.title.trim() === values.title.trim())) {
+      alert("already exist");
+    } else {
+      dispatch(addBoard(values))
+        .unwrap()
+        .then(() => {
+          console.log("add board"); // додати тост
+        })
+        .catch(() => {
+          console.error();
+        });
+    }
   };
 
   const stopPropagation = (event) => {
