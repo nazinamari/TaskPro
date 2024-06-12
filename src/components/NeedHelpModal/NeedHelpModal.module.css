@@ -95,14 +95,21 @@
   border-radius: 8px;
   width: 287px;
   height: 49px;
-  opacity: 0.4;
   background-color: transparent;
+  box-shadow: 0 4px 8px rgba(22, 22, 22, 0.08);
+  transition: all 0.3s ease-in-out;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #fff;
   padding-left: 18px;
   box-sizing: border-box;
+}
+
+input:focus {
+  outline: 1px solid #bedbb0;
+  box-shadow: 0 4px 8px rgba(22, 22, 22, 0.08);
+  color: #fff;
 }
 
 .textarea {
@@ -112,7 +119,8 @@
   border-radius: 8px;
   width: 287px;
   height: 120px;
-  opacity: 0.4;
+  box-shadow: 0 4px 8px rgba(22, 22, 22, 0.08);
+  transition: all 0.3s ease-in-out;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
@@ -120,6 +128,11 @@
   padding-left: 18px;
   padding-top: 14px;
   background-color: transparent;
+}
+
+.textarea:focus {
+  outline: 1px solid #bedbb0;
+  box-shadow: 0 4px 8px rgba(22, 22, 22, 0.08);
 }
 
 .sendBtn {
@@ -131,6 +144,13 @@
   font-size: 14px;
   letter-spacing: -0.02em;
   color: #161616;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  border: none;
+}
+
+.sendBtn:hover {
+  background: #9dc888;
 }
 
 @media (min-width: 768px) {

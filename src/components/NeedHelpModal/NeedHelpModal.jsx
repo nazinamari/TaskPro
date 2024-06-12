@@ -1,13 +1,39 @@
 import css from "./NeedHelpModal.module.css";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import Icon from "../../shared/components/Icon/Icon";
 
 export default function NeedHelpModal({ handleHelpModal }) {
+  const schema = yup.object().shape({
+    email: yup
+      .string()
+      .email("Invalid email format")
+      .matches(
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        "Email must include one '@' and one '.' in the host part"
+      )
+      .required("The email field is not filled"),
+    comment: yup
+      .string()
+      .matches("The comment field is not filled")
+      .min(2, "Comment must be at least 2 characters")
+      .max(100, "Comment must be at most 100 characters")
+      .required("The comment field is not filled"),
+  });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onBlur",
+    defaultValues: {
+      email: "",
+      comment: "",
+    },
+  });
 
   const onSubmit = (data) => {
     console.log(data);
@@ -31,20 +57,14 @@ export default function NeedHelpModal({ handleHelpModal }) {
                 className={css.input}
                 type="email"
                 placeholder="Email address"
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    message: "Invalid email address",
-                  },
-                })}
+                {...register("email")}
               />
               {errors.email && <p>{errors.email.message}</p>}
               <textarea
                 className={css.textarea}
                 type="text"
                 placeholder="Comment"
-                {...register("comment", { required: "Comment is required" })}
+                {...register("comment")}
               />
             </div>
             <button type="submit" className={css.sendBtn}>
