@@ -30,7 +30,20 @@
   margin-right: 8px;
 }
 .icon {
-  /* width: 16px;
-  height: 16px; */
-  fill: #fff;
+  stroke: var(--main-text-color);
+}
+
+/* Модальное окно */
+.Modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Modal .modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  position: relative;
 }

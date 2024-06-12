@@ -8,6 +8,8 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .header {
@@ -21,7 +23,14 @@
   border: none;
   border-radius: 5px;
   width: 100%;
+  /* background: transparent;
+  border: 2px solid transparent; */
 }
+/* 
+.titleInput:focus {
+  border-color: var(--accent-color);
+  outline: none;
+} */
 
 .editing {
   background-color: var(--primary-color);
@@ -30,7 +39,7 @@
 
 .actions {
   display: flex;
-  gap: 8px;
+  margin-right: 20px;
 }
 
 .actionButton {
@@ -46,7 +55,10 @@
 }
 
 .icon {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
+  stroke: #b3b3b3;
+  transition: stroke 0.3s ease;
+}
+
+.icon:hover {
+  stroke: #bedbb0;
 }

@@ -4,9 +4,9 @@ import TaskCard from "../CardTask/CardTask";
 import AddCardBtn from "../AddCardBtn/AddCardBtn";
 import styles from "./Column.module.css";
 
-const Column = ({ onDelete }) => {
+const Column = ({ title: initialTitle, onDelete }) => {
   const [cards, setCards] = useState([]);
-  const [title, setTitle] = useState("Add new title");
+  const [title, setTitle] = useState(initialTitle);
 
   const handleAddCard = () => {
     setCards([...cards, <TaskCard key={cards.length} />]);

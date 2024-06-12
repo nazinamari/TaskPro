@@ -1,5 +1,5 @@
 import { useState } from "react";
-import sprite from "../../../public/icons.svg";
+import Icon from "../../shared/components/Icon/Icon";
 import styles from "./ToDo.module.css";
 import "../../shared/styles/variables.css";
 
@@ -39,19 +39,25 @@ const ToDo = ({ title, onEditTitle, onDelete }) => {
         </form>
       ) : (
         <div className={styles.header}>
-          <h3>{title}</h3>
+          <div>{title}</div>
         </div>
       )}
       <div className={styles.actions}>
         <button onClick={handleEditClick} className={styles.actionButton}>
-          <svg className={styles.icon}>
-            <use xlinkHref={`${sprite}#icon-pencil`} />
-          </svg>
+          <Icon
+            id="icon-pencil"
+            width="16"
+            height="16"
+            className={styles.icon}
+          />
         </button>
         <button onClick={handleDeleteClick} className={styles.actionButton}>
-          <svg className={styles.icon}>
-            <use xlinkHref={`${sprite}#icon-trash`} />
-          </svg>
+          <Icon
+            id="icon-trash"
+            width="16"
+            height="16"
+            className={styles.icon}
+          />
         </button>
       </div>
     </div>
