@@ -1,6 +1,6 @@
-import styles from "./AddCardBtn.module.css";
+import styles from "./AddColumnBtn.module.css";
 
-const AddCardBtn = ({ onClick }) => {
+const AddColumnBtn = ({ onClick }) => {
   return (
     <button className={styles.addButton} onClick={onClick}>
       <div className={styles.iconContainer}>
@@ -8,9 +8,9 @@ const AddCardBtn = ({ onClick }) => {
           <use href="../../../public/icons.svg#icon-colors"></use>
         </svg>
       </div>
-      Add another card
+      Add another column
     </button>
   );
 };
 
-export default AddCardBtn;
+export default AddColumnBtn;

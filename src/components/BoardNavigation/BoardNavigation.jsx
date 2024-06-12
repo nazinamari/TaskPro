@@ -1,11 +1,17 @@
 import BoardCard from "../BoardCard/BoardCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import css from "./BoardNavigation.module.css";
 import clsx from "clsx";
 
+const makeLinkClass = ({ isActive }) => {
+  return clsx(css.link, isActive && css.isActive);
+};
 export default function BoardNavigation() {
-  const [activeBoard, setActiveBoard] = useState(1);
+  const location = useLocation();
+  const [activeBoard, setActiveBoard] = useState(null);
 
+  // const boards = useSelector(selectFilteredContacts); Отримати всі дошки
   const arr = [
     { icon: "icon-container", title: "Project office", id: "1" },
     { icon: "icon-colors", title: "Project pictures", id: "2" },
@@ -17,10 +23,15 @@ export default function BoardNavigation() {
     { icon: "icon-colors", title: "Project icons", id: "9" },
     { icon: "icon-colors", title: "Project icons", id: "10" },
   ];
+  useEffect(() => {
+    const path = location.pathname.split("/").pop();
+    if (path) {
+      setActiveBoard(path);
+    }
+  }, [location.pathname]);
 
   const handleBoardClick = (id) => {
     setActiveBoard(id);
-    console.log(id);
   };
   return (
     <nav className={css.nav}>
@@ -33,12 +44,14 @@ export default function BoardNavigation() {
               [css.active]: id === activeBoard,
             })}
           >
-            <BoardCard
-              icon={icon}
-              title={title}
-              id={id}
-              isActive={id === activeBoard}
-            />
+            <NavLink className={makeLinkClass} to={`/home/${id}`}>
+              <BoardCard
+                icon={icon}
+                title={title}
+                id={id}
+                isActive={id === activeBoard}
+              />
+            </NavLink>
           </li>
         ))}
       </ul>

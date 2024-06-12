@@ -1,19 +1,62 @@
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import clsx from "clsx";
+
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "./RegisterForm.module.css";
+import Icon from "../../shared/components/Icon/Icon";
+
+// Створення схеми валідації за допомогою yup
+const schema = yup.object().shape({
+  name: yup
+    .string()
+    .matches(
+      /^[A-Za-z0-9]+$/,
+      "Name can only contain letters, numbers, and no spaces"
+    )
+    .min(2, "Name must be at least 2 characters")
+    .max(32, "Name must be at most 32 characters")
+    .required("The name field is not filled"),
+  email: yup
+    .string()
+    .email("Invalid email format")
+    .matches(
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      "Email must include one '@' and one '.' in the host part"
+    )
+    .required("The email field is not filled"),
+  password: yup
+    .string()
+    .matches(
+      /^[A-Za-z0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+$/,
+      "Password can only contain letters, numbers, and special characters"
+    )
+    .min(8, "Password must be at least 8 characters")
+    .max(64, "Password must be at most 64 characters")
+    .required("The password field is not filled")
+    .test(
+      "no-spaces",
+      "Password cannot contain spaces",
+      (value) => !/\s/.test(value)
+    ),
+});
 
 const buildLinkClass = ({ isActive }) => {
   return clsx(styled.registerLink, isActive && styled.linkActive);
 };
 
 export default function RegisterForm() {
+  const [showPassword, setShowPassword] = useState(false);
+  const toggleShowPassword = () => setShowPassword(!showPassword);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-    formState,
   } = useForm({
+    resolver: yupResolver(schema), // Додавання yupResolver для валідації
     mode: "onBlur",
     defaultValues: {
       name: "",
@@ -23,7 +66,6 @@ export default function RegisterForm() {
   });
 
   const onSubmit = (data) => console.log(data);
-  console.log(errors, formState);
 
   return (
     <section className={styled.registerContainer}>
@@ -46,30 +88,46 @@ export default function RegisterForm() {
             className={styled.registerInput}
             type="text"
             placeholder="Enter your name"
-            {...register("name", {
-              required: "The name field is not filled",
-            })}
+            {...register("name")}
           />
-          {errors.email && <div>{errors.email.message}</div>}
+          {errors.name && (
+            <span className={styled.registerError}>{errors.name.message}</span>
+          )}
 
           <input
             className={styled.registerInput}
             type="text"
             placeholder="Enter your email"
-            {...register("email", {
-              required: "The email field is not filled",
-            })}
+            {...register("email")}
           />
-          {errors.email && <div>{errors.email.message}</div>}
+          {errors.email && (
+            <span className={styled.registerError}>{errors.email.message}</span>
+          )}
 
-          <input
-            className={styled.registerInput}
-            type="password"
-            placeholder="Confirm a password"
-            {...register("password", {
-              required: "The password field is not filled",
-            })}
-          />
+          <div className={styled.passwordWrapper}>
+            <input
+              className={styled.registerInput}
+              type={showPassword ? "text" : "password"}
+              placeholder="Confirm a password"
+              {...register("password")}
+            />
+            <span
+              onClick={toggleShowPassword}
+              className={styled.showPasswordButton}
+            >
+              <Icon
+                className={styled.icon}
+                id="icon-eye"
+                width="18px"
+                height="18px"
+              />
+            </span>
+          </div>
+          {errors.password && (
+            <span className={styled.registerError}>
+              {errors.password.message}
+            </span>
+          )}
 
           <button className={styled.registerButton} type="submit">
             Register Now
