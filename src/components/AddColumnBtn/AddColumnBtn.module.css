@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #121212;
+  /* background-color: #121212; */
+  background-color: var(--second-background-color);
   border: none;
   border-radius: 8px;
   width: 335px;
@@ -10,12 +11,7 @@
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  color: #fff;
-  transition: background-color 0.3s ease;
-}
-
-.addButton:hover {
-  background-color: #333;
+  color: var(--main-text-color);
 }
 
 .iconContainer {
@@ -24,13 +20,16 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  background-color: #fff;
+  background-color: var(--main-text-color);
   border-radius: 5px;
   margin-right: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.iconContainer:hover {
+  background-color: var(--accent-color);
 }
 
 .icon {
-  fill: #121212;
-  /* width: 14px;
-  height: 14px; */
+  stroke: var(--second-background-color);
 }
