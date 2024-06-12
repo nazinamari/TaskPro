@@ -1,5 +1,4 @@
 .container {
-  display: none;
   position: fixed;
   backdrop-filter: blur(1px);
   background-color: transparent;
@@ -14,7 +13,6 @@
 }
 
 .modalWindow {
-  display: none;
   position: fixed;
   margin: auto;
   left: -200%;
@@ -120,6 +118,35 @@
   gap: 8px;
 }
 
+.iconLabel {
+  fill: none;
+  stroke: var(--main-text-color);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.iconRadio {
+  display: none;
+}
+
+.iconImage {
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s;
+  opacity: 0.5;
+}
+
+.iconRadio:checked + .iconImage {
+  stroke: #fff;
+  opacity: 1;
+}
+
+.iconRadio:hover + .iconImage {
+  stroke: #fff;
+  opacity: 1;
+}
+
 .createBtn {
   border-radius: 8px;
   width: 287px;
@@ -129,6 +156,10 @@
   gap: 8px;
   align-items: center;
   justify-content: center;
+}
+
+.createBtn:hover {
+  background: #9dc888;
 }
 
 .wrapper {
@@ -173,18 +204,4 @@
   .createBtn {
     width: 302px;
   }
-}
-
-.iconLabel {
-  fill: none;
-  stroke: var(--main-text-color);
-  opacity: 0.5;
-  &:hover {
-    stroke: var(--main-text-color);
-    opacity: 1;
-  }
-  /* &:active {
-		stroke: var(--main-text-color);
-		opacity: 1;
-	} */
 }

@@ -32,7 +32,6 @@
 }
 
 .modalWindowContent {
-  /* position: absolute; */
   border: 1px solid rgba(190, 219, 176, 0.5);
   border-radius: 8px;
   width: 335px;
@@ -57,14 +56,14 @@
   cursor: pointer;
   background-color: transparent;
   border: none;
-  /* background-color 250ms cubic-bezier(0.4, 0, 0.2, 1); */
-  /* transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 .icon {
-  fill: #fff;
-  stroke: #fff;
+  fill: none;
+  stroke: var(--main-text-color);
+  &:hover {
+    stroke: var(--accent-color);
+  }
 }
 
 .title {

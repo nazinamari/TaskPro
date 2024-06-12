@@ -3,14 +3,62 @@ import { useForm } from "react-hook-form";
 import Icon from "../../shared/components/Icon/Icon";
 
 const icons = [
-  { value: "Icon1", id: "icon-projects", alt: "icon-projects" },
-  { value: "Icon2", id: "icon-star", alt: "icon-star" },
-  { value: "Icon3", id: "icon-loading", alt: "icon-loading" },
-  { value: "Icon4", id: "icon-puzzle", alt: "icon-puzzle" },
-  { value: "Icon5", id: "icon-container", alt: "icon-container" },
-  { value: "Icon6", id: "icon-lightning", alt: "icon-lightning" },
-  { value: "Icon7", id: "icon-colors", alt: "icon-colors" },
-  { value: "Icon8", id: "icon-hexagon", alt: "icon-hexagon" },
+  {
+    value: "Icon1",
+    id: "icon-projects",
+    alt: "icon-projects",
+    width: "18",
+    height: "18",
+  },
+  {
+    value: "Icon2",
+    id: "icon-star",
+    alt: "icon-star",
+    width: "18",
+    height: "18",
+  },
+  {
+    value: "Icon3",
+    id: "icon-loading",
+    alt: "icon-loading",
+    width: "18",
+    height: "18",
+  },
+  {
+    value: "Icon4",
+    id: "icon-puzzle",
+    alt: "icon-puzzle",
+    width: "18",
+    height: "18",
+  },
+  {
+    value: "Icon5",
+    id: "icon-container",
+    alt: "icon-container",
+    width: "18",
+    height: "18",
+  },
+  {
+    value: "Icon6",
+    id: "icon-lightning",
+    alt: "icon-lightning",
+    width: "18",
+    height: "18",
+  },
+  {
+    value: "Icon7",
+    id: "icon-colors",
+    alt: "icon-colors",
+    width: "18",
+    height: "18",
+  },
+  {
+    value: "Icon8",
+    id: "icon-hexagon",
+    alt: "icon-hexagon",
+    width: "18",
+    height: "18",
+  },
 ];
 
 export default function NewBoardModal({ handleCreateModal }) {
@@ -70,8 +118,8 @@ export default function NewBoardModal({ handleCreateModal }) {
                     />
                     <Icon
                       id={icon.id}
-                      width="18"
-                      height="18"
+                      width={icon.width}
+                      height={icon.height}
                       alt={icon.alt}
                       className={css.iconImage}
                     />
