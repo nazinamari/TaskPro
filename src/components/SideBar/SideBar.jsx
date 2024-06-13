@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { useDispatch } from "react-redux";
 import BoardNavigation from "../BoardNavigation/BoardNavigation";
 import LogoComponent from "../../shared/components/LogoComponent/LogoComponent";
 import img from "../../../public/2.png";
@@ -6,10 +7,14 @@ import css from "./SideBar.module.css";
 import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
 import clsx from "clsx";
 import Icon from "../../shared/components/Icon/Icon";
+import NewBoardModal from "../NewBoardModal/NewBoardModal";
+import { logOut } from "../../../redux/auth/operations";
 
 export default function SideBar({ isSidebarOpen }) {
   const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
   const [isOpenHelpModal, setIsOpenHelpModal] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handleCreateModal = useCallback(() => {
     setIsOpenCreateModal((prevState) => !prevState);
@@ -20,7 +25,9 @@ export default function SideBar({ isSidebarOpen }) {
 
   return (
     <>
-      {isOpenCreateModal && <NeedHelpModal />}
+      {isOpenCreateModal && (
+        <NewBoardModal handleCreateModal={handleCreateModal} />
+      )}
       {isOpenHelpModal && <NeedHelpModal handleHelpModal={handleHelpModal} />}
       <div className={css.backdrop}>
         <aside
@@ -77,7 +84,12 @@ export default function SideBar({ isSidebarOpen }) {
             className={css.logoutBtn}
             type="button"
             onClick={() => {
-              alert("log out");
+              dispatch(logOut())
+                .unwrap()
+                .then()
+                .catch(() => {
+                  console.error;
+                });
             }}
           >
             <Icon

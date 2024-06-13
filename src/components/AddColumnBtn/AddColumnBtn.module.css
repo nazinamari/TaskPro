@@ -1,21 +1,34 @@
 .addButton {
   display: flex;
   align-items: center;
-  background-color: #000;
+  justify-content: center;
+  background-color: var(--second-background-color);
   border: none;
   border-radius: 8px;
+  width: 335px;
+  height: 56px;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  color: #fff;
+  color: var(--main-text-color);
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--main-text-color);
+  border-radius: 5px;
+  margin-right: 8px;
   transition: background-color 0.3s ease;
 }
 
-.addButton:hover {
-  background-color: #333;
+.iconContainer:hover {
+  background-color: var(--accent-color);
 }
 
 .icon {
-  margin-right: 8px;
-  fill: #fff;
+  stroke: var(--second-background-color);
 }

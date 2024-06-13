@@ -17,10 +17,10 @@
   }
 
   .container:hover {
-    color: #fff;
+    color: var(--main-text-color);
   }
   .container:hover .icon {
-    stroke: #fff;
+    stroke: var(--main-text-color);
   }
 
   .wrapper {
@@ -54,14 +54,17 @@
     padding: 0;
     background-color: inherit;
     border: none;
-    stroke: #fff;
+    stroke: var(--main-text-color);
   }
   .activeBtn:hover {
     display: block;
     padding: 0;
     background-color: inherit;
     border: none;
-    stroke: #bedbb0;
+    stroke: var(--accent-color);
+  }
+  .activeIcon {
+    stroke: var(--main-text-color);
   }
 }
 @media (min-width: 768px) {
@@ -72,5 +75,32 @@
   }
   .wrapper {
     gap: 8px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+  }
+
+  .modalWindowContent {
+    /* position: absolute; */
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    width: 335px;
+    min-height: 433px;
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+    background: var(--third-background-color);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 }

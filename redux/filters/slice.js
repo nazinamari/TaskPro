@@ -43,4 +43,4 @@ const filtersSlice = createSlice({
 });
 export const { togglePriority, showAll } = filtersSlice.actions;
 
-export const filtersReducer = filtersSlice.reducer;
+export default filtersSlice.reducer;

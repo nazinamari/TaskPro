@@ -1,18 +1,19 @@
 .card {
-  background-color: var(--background-color);
+  background-color: #121212;
   color: var(--secondary-color);
-  padding: 16px;
+  height: 56px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .header {
-  padding-left: 12px;
+  padding-left: 30px;
   flex-grow: 1;
 }
 
@@ -22,11 +23,23 @@
   border: none;
   border-radius: 5px;
   width: 100%;
+  /* background: transparent;
+  border: 2px solid transparent; */
+}
+/* 
+.titleInput:focus {
+  border-color: var(--accent-color);
+  outline: none;
+} */
+
+.editing {
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 .actions {
   display: flex;
-  gap: 8px;
+  margin-right: 20px;
 }
 
 .actionButton {
@@ -42,7 +55,10 @@
 }
 
 .icon {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
+  stroke: #b3b3b3;
+  transition: stroke 0.3s ease;
+}
+
+.icon:hover {
+  stroke: #bedbb0;
 }

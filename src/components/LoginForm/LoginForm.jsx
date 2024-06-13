@@ -6,6 +6,8 @@ import { NavLink } from "react-router-dom";
 import styled from "./LoginForm.module.css";
 import { useState } from "react";
 import Icon from "../../shared/components/Icon/Icon";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../../redux/auth/operations";
 
 const schema = yup.object().shape({
   email: yup
@@ -37,6 +39,8 @@ const buildLinkClass = ({ isActive }) => {
 };
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
+
   const [showPassword, setShowPassword] = useState(false);
   const toggleShowPassword = () => setShowPassword(!showPassword);
 
@@ -53,7 +57,7 @@ export default function LoginForm() {
     },
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => dispatch(logIn(data));
 
   return (
     <section className={styled.loginContainer}>
@@ -78,7 +82,9 @@ export default function LoginForm() {
             placeholder="Enter your email"
             {...register("email")}
           />
-          {errors.email && <div>{errors.email.message}</div>}
+          {errors.email && (
+            <span className={styled.loginError}>{errors.email.message}</span>
+          )}
           <div className={styled.passwordWrapper}>
             <input
               className={styled.loginInput}
@@ -98,7 +104,9 @@ export default function LoginForm() {
               />
             </span>
           </div>
-          {errors.password && <div>{errors.password.message}</div>}
+          {errors.password && (
+            <span className={styled.loginError}>{errors.password.message}</span>
+          )}
 
           <button className={styled.loginButton} type="submit">
             Log In Now

@@ -15,7 +15,7 @@ import p13 from "./mini_13.webp";
 import p14 from "./mini_14.webp";
 import p15 from "./mini_15.webp";
 
-export const pictures_mini = {
+const pictures_mini = {
   p0,
   p1,
   p2,
@@ -33,3 +33,5 @@ export const pictures_mini = {
   p14,
   p15,
 };
+
+export default pictures_mini;
