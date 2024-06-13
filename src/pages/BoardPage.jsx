@@ -5,9 +5,9 @@ import BoardTittle from "../components/BoardTittle/BoardTittle";
 import { useState, useEffect } from "react";
 import WorkPlace from "../components/WorkPlace/WorkPlace";
 import { useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getBoardById } from "../../redux/board/operations";
-import { selectBoard } from "../../redux/board/selectors";
+// import { selectBoard } from "../../redux/board/selectors";
 
 export default function BoardPage() {
   const [id, setId] = useState(null);
@@ -25,7 +25,7 @@ export default function BoardPage() {
     dispatch(getBoardById(id));
   }, [dispatch, id]);
 
-  const board = useSelector(selectBoard);
+  // const board = useSelector(selectBoard);
 
   return (
     <Layout>

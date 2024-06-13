@@ -52,7 +52,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
         <button
           type="button"
           onClick={() => {
-            dispatch(deleteBoard());
+            dispatch(deleteBoard(id));
           }}
           className={clsx(css.btn, { [css.activeBtn]: isActive })}
         >

@@ -16,14 +16,15 @@ const slice = createSlice({
       { icon: "icon-colors", title: "Project pictures", id: "2" },
       { icon: "icon-container", title: "Project cartoons", id: "3" },
     ],
-    board: {
-      background: null,
-      title: "",
-      owner: null,
-      icon: null,
-    },
+    // board: {
+    //   background: null,
+    //   title: "",
+    //   owner: null,
+    //   icon: null,
+    // },
     loading: false,
     error: null,
+    currentBoard: null,
   },
   extraReducers: (builder) =>
     builder
@@ -56,7 +57,7 @@ const slice = createSlice({
       })
       .addCase(getBoardById.fulfilled, (state, action) => {
         state.loading = false;
-        state.board = action.payload;
+        state.currentBoard = action.payload;
       })
       .addCase(getBoardById.rejected, (state) => {
         state.loading = false;
