@@ -79,7 +79,6 @@ export default function EditBoardModal({ onClose, title }) {
       icon: selectedIcon,
       background: selectedBg,
     };
-
     dispatch(editBoard(data))
       .unwrap()
       .then(() => {
