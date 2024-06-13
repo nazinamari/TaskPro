@@ -5,6 +5,8 @@
   border-radius: 8px;
   width: 300px;
   position: relative;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .addCardForm h3 {

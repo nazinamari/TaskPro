@@ -1,8 +1,30 @@
+import { useState } from "react";
 import Icon from "../../shared/components/Icon/Icon";
+import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import css from "./BoardCard.module.css";
 import clsx from "clsx";
+import Modal from "react-modal";
+import { deleteBoard } from "../../../redux/board/operations";
+import { useDispatch } from "react-redux";
+// import { editBoard } from "../../../redux/board/operations";
+
+Modal.setAppElement("#root");
 
 export default function BoardCard({ icon, title, id, isActive }) {
+  const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentBoardId, setCurrentBoardId] = useState(null);
+
+  const handleOpenModal = (boardId) => {
+    // dispatch(editBoard());
+    setCurrentBoardId(boardId);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className={css.container}>
       <div className={css.wrapper}>
@@ -20,9 +42,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
         <button
           type="button"
           className={clsx(css.btn, { [css.activeBtn]: isActive })}
-          onClick={() => {
-            alert("EDIT MODAL");
-          }}
+          onClick={() => handleOpenModal(id)}
         >
           <Icon
             id="icon-pencil"
@@ -34,7 +54,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
         <button
           type="button"
           onClick={() => {
-            alert("DELETE CONTACT");
+            dispatch(deleteBoard());
           }}
           className={clsx(css.btn, { [css.activeBtn]: isActive })}
         >
@@ -45,6 +65,14 @@ export default function BoardCard({ icon, title, id, isActive }) {
             className={css.iconBtn}
           />
         </button>
+        <Modal
+          isOpen={isModalOpen}
+          contentLabel="Edit Profile"
+          className={css.modalWindowContent}
+          overlayClassName={css.overlay}
+        >
+          <EditBoardModal onClose={handleCloseModal} boardId={currentBoardId} />
+        </Modal>
       </div>
     </div>
   );
