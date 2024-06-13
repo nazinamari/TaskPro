@@ -3,6 +3,7 @@ import styles from "./Header.module.css";
 import ThemeSwitcher from "./ThemaSwitcher/ThemeSwitcher";
 import EditProfileModal from "./EditProfileModal/EditProfileModal";
 import UserInfo from "./UserInfo/UserInfo";
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
 
 export default function Header() {
   const [theme, setTheme] = useState("dark");
@@ -36,8 +37,11 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <ThemeSwitcher changeTheme={changeTheme} theme={theme} />
-      <UserInfo user={user} openModal={openModal} />
+      <BurgerMenu />
+      <div className={styles.rightSection}>
+        <ThemeSwitcher changeTheme={changeTheme} theme={theme} />
+        <UserInfo user={user} openModal={openModal} />
+      </div>
       <EditProfileModal
         isModalOpen={isModalOpen}
         closeModal={closeModal}

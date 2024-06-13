@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import styles from "./ThemeSwitcher.module.css";
-
 const ThemeSwitcher = ({ changeTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
