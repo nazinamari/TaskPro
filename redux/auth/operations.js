@@ -2,22 +2,23 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: "https://taskpro-api-59hg.onrender.com",
+  baseURL: "https://taskpro-api-nmqb.onrender.com/",
 });
 
 const setAuthHeader = (token) => {
   instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 };
 
-const clearAuthHEader = () => {
+const clearAuthHeader = () => {
   instance.defaults.headers.common["Authorization"] = "";
 };
 
-export const register = createAsyncThunk(
+export const registerUser = createAsyncThunk(
   "auth/register",
   async (userInfo, thunkApi) => {
     try {
       const response = await instance.post("/auth/register", userInfo);
+      setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -40,9 +41,10 @@ export const logIn = createAsyncThunk(
 
 export const logOut = createAsyncThunk("auth/logOut", async (_, thunkApi) => {
   try {
-    const response = await instance.post("/auth/logout");
-    clearAuthHEader();
-    return response.data;
+    // const response = await instance.post("/auth/logout");
+    await instance.post("/auth/logout");
+    clearAuthHeader();
+    // return response.data;
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
