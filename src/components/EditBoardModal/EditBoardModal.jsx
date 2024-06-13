@@ -68,8 +68,10 @@ const icons = [
 
 export default function EditBoardModal({ onClose, title }) {
   const [selectedIcon, setSelectedIcon] = useState("Icon1");
-  const [selectedBg, setSelectedBg] = useState("p1");
+  const [selectedBg, setSelectedBg] = useState("bg-1");
   const dispatch = useDispatch();
+  console.log(selectedIcon);
+  console.log(selectedBg);
 
   const onSubmit = () => {
     const data = {
@@ -119,8 +121,8 @@ export default function EditBoardModal({ onClose, title }) {
             />
           </button>
           <h2 className={css.title}>Edit board</h2>
-          <form className={css.form} onSubmit={onSubmit()}>
-            <input className={css.input} type="text" value={title} />
+          <form className={css.form}>
+            <input className={css.input} type="text" defaultValue={title} />
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
               <ul className={css.iconsContainer}>
@@ -129,7 +131,7 @@ export default function EditBoardModal({ onClose, title }) {
                     <label htmlFor={icon.id} className={css.iconLabel}>
                       <input
                         type="radio"
-                        value={selectedIcon}
+                        defaultValue={selectedIcon}
                         id={icon.id}
                         className={css.iconRadio}
                         onChange={() => setSelectedIcon(icon.value)}
@@ -155,25 +157,25 @@ export default function EditBoardModal({ onClose, title }) {
                   <label htmlFor={`bg-${index}`} className={css.bgLabel}>
                     <input
                       type="radio"
-                      value={selectedBg}
+                      defaultValue={selectedBg}
                       id={`bg-${index}`}
                       className={css.iconRadio}
-                      onChange={() => setSelectedBg(imageSrc.src)}
-                      checked={selectedBg === imageSrc.src}
+                      onChange={() => setSelectedBg(imageSrc.value)}
+                      checked={selectedBg === imageSrc.value}
                     />
                     <Background
                       className={css.bgImage}
                       width={imageSrc.width}
                       height={imageSrc.height}
                       src={imageSrc.src}
-                      alt={imageSrc.index}
+                      alt={imageSrc.value}
                     />
                   </label>
                 </li>
               ))}
             </ul>
 
-            <button type="submit" className={css.editBtn}>
+            <button type="submit" className={css.editBtn} onSubmit={onSubmit()}>
               <div className={css.wrapper}>
                 <Icon
                   id="icon-plus"
