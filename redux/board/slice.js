@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addBoard, deleteBoard, editBoard, fetchBoards } from "./operations";
+import {
+  addBoard,
+  deleteBoard,
+  editBoard,
+  fetchBoards,
+  getBoardById,
+} from "./operations";
 import { logOut } from "../auth/operations";
 
 const slice = createSlice({
@@ -10,6 +16,12 @@ const slice = createSlice({
       { icon: "icon-colors", title: "Project pictures", id: "2" },
       { icon: "icon-container", title: "Project cartoons", id: "3" },
     ],
+    board: {
+      background: null,
+      title: "",
+      owner: null,
+      icon: null,
+    },
     loading: false,
     error: null,
   },
@@ -39,6 +51,16 @@ const slice = createSlice({
         state.error = true;
         state.loading = false;
       })
+      .addCase(getBoardById.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getBoardById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.board = action.payload;
+      })
+      .addCase(getBoardById.rejected, (state) => {
+        state.loading = false;
+      })
       .addCase(deleteBoard.pending, (state) => {
         state.error = false;
         state.loading = true;
@@ -58,10 +80,10 @@ const slice = createSlice({
         state.loading = true;
       })
       .addCase(editBoard.fulfilled, (state, action) => {
+        state.loading = false;
         state.items = state.items.map((item) =>
           item.id === action.payload.id ? action.payload : item
         );
-        state.loading = false;
       })
       .addCase(editBoard.rejected, (state) => {
         state.error = true;
