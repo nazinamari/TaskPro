@@ -42,9 +42,9 @@ export const deleteBoard = createAsyncThunk(
 
 export const editBoard = createAsyncThunk(
   "boards/editBoard",
-  async (updBoard, thunkApi) => {
+  async (boardId, thunkApi) => {
     try {
-      const response = await instance.put(`boards/${updBoard.id}`);
+      const response = await instance.put(`boards/${boardId.id}`);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

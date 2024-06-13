@@ -4,20 +4,18 @@ import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import css from "./BoardCard.module.css";
 import clsx from "clsx";
 import Modal from "react-modal";
-import { deleteBoard } from "../../../redux/board/operations";
+import { deleteBoard, getBoardById } from "../../../redux/board/operations";
 import { useDispatch } from "react-redux";
-// import { editBoard } from "../../../redux/board/operations";
 
 Modal.setAppElement("#root");
 
 export default function BoardCard({ icon, title, id, isActive }) {
-  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentBoardId, setCurrentBoardId] = useState(null);
+
+  const dispatch = useDispatch();
 
   const handleOpenModal = (boardId) => {
-    // dispatch(editBoard());
-    setCurrentBoardId(boardId);
+    dispatch(getBoardById(boardId));
     setIsModalOpen(true);
   };
 
@@ -71,7 +69,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
           className={css.modalWindowContent}
           overlayClassName={css.overlay}
         >
-          <EditBoardModal onClose={handleCloseModal} boardId={currentBoardId} />
+          <EditBoardModal onClose={handleCloseModal} />
         </Modal>
       </div>
     </div>
