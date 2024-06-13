@@ -1,11 +1,11 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import sprite from "../../../public/icons.svg";
-import styles from "./AddCardForm.module.css";
+import Icon from "../../shared/components/Icon/Icon";
+import styles from "./AddCardModal.module.css";
 import "../../shared/styles/variables.css";
 
-const AddCardForm = ({ onAddCard, onClose }) => {
+const AddCardModal = ({ onAddCard, onClose }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [labelColor, setLabelColor] = useState("");
@@ -23,47 +23,52 @@ const AddCardForm = ({ onAddCard, onClose }) => {
 
   return (
     <div className={styles.addCardForm}>
-      <button className={styles.closeButton} onClick={onClose}>
-        <svg className={styles.icon}>
-          <use xlinkHref={`${sprite}#icon-plus`} />
-        </svg>
+      <button onClick={onClose} className={styles.closeButton}>
+        <Icon id="icon-close" width="16" height="16" className={styles.icon} />
       </button>
-      <h3>Add card</h3>
+      <div className={styles.title}>Add card</div>
       <form onSubmit={handleSubmit}>
-        <div className={styles.formGroup}>
-          <label htmlFor="title">Title</label>
+        <div className={styles.formGroupTitle}>
           <input
             type="text"
             id="title"
+            placeholder="Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
         </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="description">Description</label>
+        <div className={styles.formGroupDescription}>
           <textarea
             id="description"
+            placeholder="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
-        <div className={styles.formGroup}>
+        <div className={styles.formGroupLabelcolor}>
           <label>Label color</label>
           <div className={styles.labelColors}>
             {["blue", "pink", "green", "gray"].map((color) => (
-              <span
+              <label
                 key={color}
                 className={`${styles.labelColor} ${styles[color]} ${
                   labelColor === color ? styles.selected : ""
                 }`}
-                onClick={() => setLabelColor(color)}
-              />
+              >
+                <input
+                  type="radio"
+                  name="labelColor"
+                  value={color}
+                  checked={labelColor === color}
+                  onChange={() => setLabelColor(color)}
+                />
+              </label>
             ))}
           </div>
         </div>
-        <div className={styles.formGroup}>
+        <div className={styles.formGroupDeadline}>
           <label htmlFor="deadline">Deadline</label>
           <DatePicker
             id="deadline"
@@ -74,14 +79,19 @@ const AddCardForm = ({ onAddCard, onClose }) => {
           />
         </div>
         <button type="submit" className={styles.addButton}>
+          <div className={styles.iconContainer}>
+            <Icon
+              id="icon-plus"
+              width="16"
+              height="16"
+              className={styles.icon}
+            />
+          </div>
           Add
-          <svg className={styles.plusIcon}>
-            <use xlinkHref={`${sprite}#icon-plus`} />
-          </svg>
         </button>
       </form>
     </div>
   );
 };
 
-export default AddCardForm;
+export default AddCardModal;
