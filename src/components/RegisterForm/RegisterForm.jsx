@@ -7,8 +7,9 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "./RegisterForm.module.css";
 import Icon from "../../shared/components/Icon/Icon";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../../redux/auth/operations";
 
-// Створення схеми валідації за допомогою yup
 const schema = yup.object().shape({
   name: yup
     .string()
@@ -48,6 +49,8 @@ const buildLinkClass = ({ isActive }) => {
 };
 
 export default function RegisterForm() {
+  const dispatch = useDispatch();
+
   const [showPassword, setShowPassword] = useState(false);
   const toggleShowPassword = () => setShowPassword(!showPassword);
 
@@ -65,7 +68,7 @@ export default function RegisterForm() {
     },
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => dispatch(registerUser(data));
 
   return (
     <section className={styled.registerContainer}>
