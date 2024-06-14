@@ -1,9 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-export const instance = axios.create({
-  baseURL: "https://taskpro-api-nmqb.onrender.com/",
-});
+import instance from "../../axios/apiInstance";
 
 const setAuthHeader = (token) => {
   instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -57,7 +53,7 @@ export const refreshUser = createAsyncThunk(
     const savedToken = reduxState.auth.token;
     setAuthHeader(savedToken);
     try {
-      const response = await instance.get("/auth/refresh");
+      const response = await instance.get("/users/current");
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
