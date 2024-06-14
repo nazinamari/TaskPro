@@ -34,6 +34,7 @@ const AddColumnModal = ({ isOpen, onClose, onAddColumn }) => {
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
         className={styles.input}
+        autoFocus
       />
       <button onClick={handleAddColumn} className={styles.addButton}>
         <div className={styles.iconContainer}>

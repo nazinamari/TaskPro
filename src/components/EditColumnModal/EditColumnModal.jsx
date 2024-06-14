@@ -41,6 +41,7 @@ const EditColumnModal = ({ isOpen, onClose, title, onEditTitle }) => {
         onChange={handleTitleChange}
         placeholder="New Title"
         className={styles.input}
+        autoFocus
       />
       <button onClick={handleSave} className={styles.addButton}>
         <div className={styles.iconContainer}>
