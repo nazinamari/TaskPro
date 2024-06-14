@@ -10,7 +10,7 @@ import Icon from "../../shared/components/Icon/Icon";
 import NewBoardModal from "../NewBoardModal/NewBoardModal";
 import { logOut } from "../../../redux/auth/operations";
 
-export default function SideBar({ isSidebarOpen }) {
+export default function SideBar({ isSidebarOpen, toggleSidebar }) {
   const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
   const [isOpenHelpModal, setIsOpenHelpModal] = useState(false);
 
@@ -58,7 +58,7 @@ export default function SideBar({ isSidebarOpen }) {
               />
             </button>
           </div>
-          <BoardNavigation />
+          <BoardNavigation toggleSidebar={toggleSidebar} />
           <div className={css.helpWrapper}>
             <img className={css.img} src={img} alt="Plant" />
             <p>

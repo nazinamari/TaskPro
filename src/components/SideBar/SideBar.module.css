@@ -1,4 +1,4 @@
-@media (min-width: 375px) {
+@media (min-width: 320px) {
   .container {
     width: 225px;
     height: 100vh;
@@ -9,7 +9,7 @@
     flex-direction: column;
     box-sizing: border-box;
     position: absolute;
-    z-index: 9999999;
+    z-index: 2;
   }
   .isClosed {
     display: none;

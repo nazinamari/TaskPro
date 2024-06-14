@@ -24,7 +24,7 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <SideBar isSidebarOpen={isSidebarOpen} />
+      <SideBar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <MainContent toggleSidebar={toggleSidebar} content={<Text />} />
     </Layout>
   );

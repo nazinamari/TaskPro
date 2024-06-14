@@ -9,7 +9,7 @@ import clsx from "clsx";
 const makeLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
 };
-export default function BoardNavigation() {
+export default function BoardNavigation({ toggleSidebar }) {
   const location = useLocation();
   const [activeBoard, setActiveBoard] = useState(null);
   const boards = useSelector(selectAllBoards);
@@ -35,7 +35,11 @@ export default function BoardNavigation() {
               [css.active]: id === activeBoard,
             })}
           >
-            <NavLink className={makeLinkClass} to={`/home/${id}`}>
+            <NavLink
+              className={makeLinkClass}
+              to={`/home/${id}`}
+              onClick={toggleSidebar}
+            >
               <BoardCard
                 icon={icon}
                 title={title}
