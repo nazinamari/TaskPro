@@ -1,5 +1,9 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { refreshUser } from "../../../redux/auth/operations";
+// import { selectIsRefreshing } from "../../../redux/auth/selectors";
+import { RestrictedRoute } from "../Routes/RestrictedRoute";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage"));
@@ -12,6 +16,13 @@ const NotFoundPage = lazy(() =>
 );
 
 export default function App() {
+  //const isRefreshing = useSelector(selectIsRefreshing);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <div>
       <Suspense fallback={null}>
@@ -19,8 +30,14 @@ export default function App() {
           <Route path="/" element={<Navigate to="/welcome" />} />
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/auth" element={<AuthPage />}>
-            <Route path="register" element={<RegisterForm />} />
-            <Route path="login" element={<LoginForm />} />
+            <Route
+              path="register"
+              element={<RestrictedRoute component={<RegisterForm />} />}
+            />
+            <Route
+              path="login"
+              element={<RestrictedRoute component={<LoginForm />} />}
+            />
           </Route>
           <Route path="/home" element={<HomePage />} />
           <Route path="/home/:boardName" element={<BoardPage />} />
