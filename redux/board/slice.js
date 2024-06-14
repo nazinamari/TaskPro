@@ -12,9 +12,9 @@ const slice = createSlice({
   name: "boards",
   initialState: {
     items: [
-      { icon: "icon-container", title: "Project office", id: "1" },
-      { icon: "icon-colors", title: "Project pictures", id: "2" },
-      { icon: "icon-container", title: "Project cartoons", id: "3" },
+      // { icon: "icon-container", title: "Project office", id: "1" },
+      // { icon: "icon-colors", title: "Project pictures", id: "2" },
+      // { icon: "icon-container", title: "Project cartoons", id: "3" },
     ],
     loading: false,
     error: null,

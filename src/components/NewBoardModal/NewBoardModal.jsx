@@ -91,14 +91,15 @@ export default function NewBoardModal({ handleCreateModal }) {
     } else {
       const newBoard = {
         title: values.title,
-        icon: values.icon,
-        bgImage: values.bgImage,
+        icon: selectedIcon,
+        bgImage: selectedBg,
       };
 
       dispatch(addBoard(newBoard))
         .unwrap()
         .then(() => {
           console.log("add board"); // додати тост
+          handleCreateModal();
         })
         .catch(() => {
           console.error(); // додати тост

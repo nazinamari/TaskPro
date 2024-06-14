@@ -27,20 +27,20 @@ export default function BoardNavigation() {
   return (
     <nav className={css.nav}>
       <ul className={css.list}>
-        {boards.map(({ icon, title, id }) => (
+        {boards.map(({ icon, title, _id }) => (
           <li
-            key={id}
-            onClick={() => handleBoardClick(id)}
+            key={_id}
+            onClick={() => handleBoardClick(_id)}
             className={clsx(css.boardItem, {
-              [css.active]: id === activeBoard,
+              [css.active]: _id === activeBoard,
             })}
           >
-            <NavLink className={makeLinkClass} to={`/home/${id}`}>
+            <NavLink className={makeLinkClass} to={`/home/${_id}`}>
               <BoardCard
                 icon={icon}
                 title={title}
-                id={id}
-                isActive={id === activeBoard}
+                id={_id}
+                isActive={_id === activeBoard}
               />
             </NavLink>
           </li>
