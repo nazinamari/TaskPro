@@ -18,6 +18,7 @@ const slice = createSlice({
     ],
     loading: false,
     error: null,
+    currentBoard: null,
   },
   extraReducers: (builder) =>
     builder
@@ -50,7 +51,7 @@ const slice = createSlice({
       })
       .addCase(getBoardById.fulfilled, (state, action) => {
         state.loading = false;
-        state.board = action.payload;
+        state.currentBoard = action.payload;
       })
       .addCase(getBoardById.rejected, (state) => {
         state.loading = false;
