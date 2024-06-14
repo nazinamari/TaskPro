@@ -77,7 +77,7 @@ const slice = createSlice({
       .addCase(editBoard.fulfilled, (state, action) => {
         state.loading = false;
         state.items = state.items.map((item) =>
-          item.id === action.payload.id ? action.payload : item
+          item._id === action.payload._id ? action.payload : item
         );
       })
       .addCase(editBoard.rejected, (state) => {
