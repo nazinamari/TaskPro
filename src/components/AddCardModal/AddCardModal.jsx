@@ -17,7 +17,7 @@ const AddCardModal = ({ onAddCard, onClose }) => {
     setTitle("");
     setDescription("");
     setLabelColor("");
-    setDeadline("");
+    setDeadline(new Date());
     onClose();
   };
 
@@ -50,7 +50,7 @@ const AddCardModal = ({ onAddCard, onClose }) => {
         <div className={styles.formGroupLabelcolor}>
           <label>Label color</label>
           <div className={styles.labelColors}>
-            {["blue", "pink", "green", "gray"].map((color) => (
+            {["Low", "Medium", "High", "Without"].map((color) => (
               <label
                 key={color}
                 className={`${styles.labelColor} ${styles[color]} ${

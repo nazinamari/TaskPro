@@ -23,14 +23,16 @@ const pictures_desktop_1x = [
   { value: "bg-5", src: p5, width: "28px", height: "28px" },
   { value: "bg-6", src: p6, width: "28px", height: "28px" },
   { value: "bg-7", src: p7, width: "28px", height: "28px" },
-  { value: "bg-8", src: p9, width: "28px", height: "28px" },
-  { value: "bg-9", src: p10, width: "28px", height: "28px" },
-  { value: "bg-10", src: p11, width: "28px", height: "28px" },
-  { value: "bg-11", src: p12, width: "28px", height: "28px" },
-  { value: "bg-12", src: p13, width: "28px", height: "28px" },
-  { value: "bg-13", src: p14, width: "28px", height: "28px" },
-  { value: "bg-14", src: p15, width: "28px", height: "28px" },
-  { value: "bg-15", src: p16, width: "28px", height: "28px" },
+  { value: "bg-8", src: p8, width: "28px", height: "28px" },
+  { value: "bg-9", src: p9, width: "28px", height: "28px" },
+  { value: "bg-10", src: p10, width: "28px", height: "28px" },
+  { value: "bg-11", src: p11, width: "28px", height: "28px" },
+  { value: "bg-12", src: p12, width: "28px", height: "28px" },
+  { value: "bg-13", src: p13, width: "28px", height: "28px" },
+  { value: "bg-14", src: p14, width: "28px", height: "28px" },
+  { value: "bg-15", src: p15, width: "28px", height: "28px" },
+  { value: "bg-16", src: p16, width: "28px", height: "28px" },
+
 ];
 
 export default pictures_desktop_1x;
