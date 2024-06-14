@@ -1,11 +1,11 @@
 import css from "./EditBoardModal.module.css";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import Icon from "../../shared/components/Icon/Icon";
 import bgImages from "../../images/desktop_1x/index";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import clsx from "clsx";
 import { editBoard } from "../../../redux/board/operations";
+import Background from "../../shared/components/Background/Background";
 
 const icons = [
   {
@@ -66,36 +66,45 @@ const icons = [
   },
 ];
 
-export default function EditBoardModal({ onClose }) {
+export default function EditBoardModal({ onClose, title }) {
   const [selectedIcon, setSelectedIcon] = useState("Icon1");
-  const [selectedBg, setSelectedBg] = useState("p1");
+  const [selectedBg, setSelectedBg] = useState("bg-1");
   const dispatch = useDispatch();
+  console.log(selectedIcon);
+  console.log(selectedBg);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      Icon: selectedIcon,
-      Background: selectedBg,
-    },
-  });
-
-  const onSubmit = (data) => {
+  const onSubmit = () => {
+    const data = {
+      title: title,
+      icon: selectedIcon,
+      background: selectedBg,
+    };
     dispatch(editBoard(data))
       .unwrap()
       .then(() => {
-        console.log("add board"); // додати тост
+        console.log("update successfully"); // додати тост
       })
-      .catch(() => {
-        console.error();
+      .catch((error) => {
+        console.error(error.message);
       });
   };
 
   const stopPropagation = (event) => {
     event.stopPropagation();
   };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
 
   return (
     <div className={css.container} onClick={onClose}>
@@ -111,29 +120,23 @@ export default function EditBoardModal({ onClose }) {
             />
           </button>
           <h2 className={css.title}>Edit board</h2>
-          <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-            <input className={css.input} type="text" />
-            {errors.Title && <span>This field is required</span>}
+          <form className={css.form}>
+            <input className={css.input} type="text" defaultValue={title} />
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
               <ul className={css.iconsContainer}>
                 {icons.map((icon) => (
                   <li key={icon.value} className={css.iconLabel}>
-                    <input
-                      type="radio"
-                      value={icon.value}
-                      id={icon.id}
-                      {...register("Icon")}
-                      className={css.iconRadio}
-                      onChange={() => setSelectedIcon(icon.value)}
-                      checked={selectedIcon === icon.value}
-                    />
-                    <label
-                      htmlFor={icon.id}
-                      className={clsx(css.customRadio, {
-                        active: selectedIcon === icon.value,
-                      })}
-                    >
+                    <label htmlFor={icon.id} className={css.iconLabel}>
+                      <input
+                        type="radio"
+                        defaultValue={selectedIcon}
+                        id={icon.id}
+                        className={css.iconRadio}
+                        onChange={() => setSelectedIcon(icon.value)}
+                        checked={selectedIcon === icon.value}
+                      />
+
                       <Icon
                         id={icon.id}
                         alt={icon.alt}
@@ -145,37 +148,33 @@ export default function EditBoardModal({ onClose }) {
                   </li>
                 ))}
               </ul>
-              {errors.Icon && <span>{errors.Icon.message}</span>}
             </div>
             <h3 className={css.iconsTitle}>Background</h3>
             <ul className={css.bgList}>
               {bgImages.map((imageSrc, index) => (
                 <li key={index}>
-                  <input
-                    type="radio"
-                    value={imageSrc.value}
-                    id={`bg-${index}`}
-                    className={css.iconRadio}
-                    onChange={() => setSelectedBg(imageSrc.value)}
-                    checked={selectedBg === imageSrc.value}
-                  />
-                  <label
-                    htmlFor={`bg-${index}`}
-                    className={clsx(css.customRadio, {
-                      active: selectedBg === imageSrc.value,
-                    })}
-                  >
-                    <img
+                  <label htmlFor={`bg-${index}`} className={css.bgLabel}>
+                    <input
+                      type="radio"
+                      defaultValue={selectedBg}
+                      id={`bg-${index}`}
+                      className={css.iconRadio}
+                      onChange={() => setSelectedBg(imageSrc.value)}
+                      checked={selectedBg === imageSrc.value}
+                    />
+                    <Background
                       className={css.bgImage}
-                      src={imageSrc}
-                      alt={`Image ${index + 1}`}
+                      width={imageSrc.width}
+                      height={imageSrc.height}
+                      src={imageSrc.src}
+                      alt={imageSrc.value}
                     />
                   </label>
                 </li>
               ))}
             </ul>
 
-            <button type="submit" className={css.editBtn}>
+            <button type="submit" className={css.editBtn} onSubmit={onSubmit()}>
               <div className={css.wrapper}>
                 <Icon
                   id="icon-plus"

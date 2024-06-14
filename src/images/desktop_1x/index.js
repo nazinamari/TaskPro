@@ -16,22 +16,21 @@ import p15 from "./Vector-14.png";
 import p16 from "./Vector-15.png";
 
 const pictures_desktop_1x = [
-  p1,
-  p2,
-  p3,
-  p4,
-  p5,
-  p6,
-  p7,
-  p8,
-  p9,
-  p10,
-  p11,
-  p12,
-  p13,
-  p14,
-  p15,
-  p16,
+  { value: "bg-1", src: p1, width: "28px", height: "28px" },
+  { value: "bg-2", src: p2, width: "28px", height: "28px" },
+  { value: "bg-3", src: p3, width: "28px", height: "28px" },
+  { value: "bg-4", src: p4, width: "28px", height: "28px" },
+  { value: "bg-5", src: p5, width: "28px", height: "28px" },
+  { value: "bg-6", src: p6, width: "28px", height: "28px" },
+  { value: "bg-7", src: p7, width: "28px", height: "28px" },
+  { value: "bg-8", src: p9, width: "28px", height: "28px" },
+  { value: "bg-9", src: p10, width: "28px", height: "28px" },
+  { value: "bg-10", src: p11, width: "28px", height: "28px" },
+  { value: "bg-11", src: p12, width: "28px", height: "28px" },
+  { value: "bg-12", src: p13, width: "28px", height: "28px" },
+  { value: "bg-13", src: p14, width: "28px", height: "28px" },
+  { value: "bg-14", src: p15, width: "28px", height: "28px" },
+  { value: "bg-15", src: p16, width: "28px", height: "28px" },
 ];
 
 export default pictures_desktop_1x;
