@@ -12,7 +12,7 @@
 //   const [isModalOpen, setIsModalOpen] = useState(false);
 
 //   const handleAddCard = (newCard) => {
-//     setCards([...cards, <TaskCard key={cards.length} {...newCard} />]);
+//     setCards([...cards, { ...newCard, id: cards.length }]);
 //     setIsModalOpen(false);
 //   };
 
@@ -31,7 +31,11 @@
 //   return (
 //     <div className={styles.column}>
 //       <ToDo title={title} onEditTitle={handleEditTitle} onDelete={onDelete} />
-//       <div className={styles.cards}>{cards}</div>
+//       <div className={styles.cards}>
+//         {cards.map((card) => (
+//           <TaskCard key={card.id} {...card} />
+//         ))}
+//       </div>
 //       <AddCardBtn onClick={openModal} />
 //       <Modal
 //         isOpen={isModalOpen}
@@ -47,7 +51,6 @@
 // };
 
 // export default Column;
-
 import { useState } from "react";
 import Modal from "react-modal";
 import ToDo from "../ToDo/ToDo";
@@ -64,6 +67,10 @@ const Column = ({ title: initialTitle, onDelete }) => {
   const handleAddCard = (newCard) => {
     setCards([...cards, { ...newCard, id: cards.length }]);
     setIsModalOpen(false);
+  };
+
+  const handleRemoveCard = (id) => {
+    setCards(cards.filter((card) => card.id !== id));
   };
 
   const handleEditTitle = (newTitle) => {
@@ -83,7 +90,7 @@ const Column = ({ title: initialTitle, onDelete }) => {
       <ToDo title={title} onEditTitle={handleEditTitle} onDelete={onDelete} />
       <div className={styles.cards}>
         {cards.map((card) => (
-          <TaskCard key={card.id} {...card} />
+          <TaskCard key={card.id} {...card} onRemove={handleRemoveCard} />
         ))}
       </div>
       <AddCardBtn onClick={openModal} />
