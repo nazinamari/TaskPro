@@ -80,20 +80,45 @@
   border-radius: 8px 0 0 8px;
 }
 
-.highPriority::before {
-  background-color: #bedbb0;
+.priority {
+  display: flex;
+  align-items: center;
 }
 
-.mediumPriority::before {
-  background-color: #e09cb5;
+.priorityLabel {
+  margin-right: 8px;
 }
 
-.lowPriority::before {
-  background-color: #8fa1d0;
+.priorityColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
 }
 
-.withoutPriority::before {
-  background-color: rgba(255, 255, 255, 0.3);
+.priorityText {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.blue::before,
+.priorityColor.blue {
+  background-color: blue;
+}
+
+.pink::before,
+.priorityColor.pink {
+  background-color: pink;
+}
+
+.green::before,
+.priorityColor.green {
+  background-color: green;
+}
+
+.gray::before,
+.priorityColor.gray {
+  background-color: gray;
 }
 
 .icon {

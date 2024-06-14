@@ -95,3 +95,102 @@ const AddCardModal = ({ onAddCard, onClose }) => {
 };
 
 export default AddCardModal;
+
+//-----
+// import { useState } from "react";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
+// import Icon from "../../shared/components/Icon/Icon";
+// import styles from "./AddCardModal.module.css";
+// import "../../shared/styles/variables.css";
+
+// const AddCardModal = ({ onAddCard, onClose }) => {
+//   const [title, setTitle] = useState("");
+//   const [description, setDescription] = useState("");
+//   const [priority, setPriority] = useState("without");
+//   const [deadline, setDeadline] = useState(new Date());
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     onAddCard({ title, description, priority, deadline });
+//     setTitle("");
+//     setDescription("");
+//     setPriority("without");
+//     setDeadline(new Date());
+//     onClose();
+//   };
+
+//   return (
+//     <div className={styles.addCardForm}>
+//       <button onClick={onClose} className={styles.closeButton}>
+//         <Icon id="icon-close" width="16" height="16" className={styles.icon} />
+//       </button>
+//       <div className={styles.title}>Add card</div>
+//       <form onSubmit={handleSubmit}>
+//         <div className={styles.formGroupTitle}>
+//           <input
+//             type="text"
+//             id="title"
+//             placeholder="Title"
+//             value={title}
+//             onChange={(e) => setTitle(e.target.value)}
+//             required
+//           />
+//         </div>
+//         <div className={styles.formGroupDescription}>
+//           <textarea
+//             id="description"
+//             placeholder="Description"
+//             value={description}
+//             onChange={(e) => setDescription(e.target.value)}
+//             required
+//           />
+//         </div>
+//         <div className={styles.formGroupLabelcolor}>
+//           <label>Label color</label>
+//           <div className={styles.priority}>
+//             {["low", "medium", "high", "without"].map((p) => (
+//               <label
+//                 key={p}
+//                 className={`${styles.labelColor} ${styles[p]} ${
+//                   priority === p ? styles.selected : ""
+//                 }`}
+//               >
+//                 <input
+//                   type="radio"
+//                   name="labelColor"
+//                   value={p}
+//                   checked={priority === p}
+//                   onChange={() => setPriority(p)}
+//                 />
+//               </label>
+//             ))}
+//           </div>
+//         </div>
+//         <div className={styles.formGroupDeadline}>
+//           <label htmlFor="deadline">Deadline</label>
+//           <DatePicker
+//             id="deadline"
+//             selected={deadline}
+//             onChange={(date) => setDeadline(date)}
+//             required
+//             className={styles.datePicker}
+//           />
+//         </div>
+//         <button type="submit" className={styles.addButton}>
+//           <div className={styles.iconContainer}>
+//             <Icon
+//               id="icon-plus"
+//               width="16"
+//               height="16"
+//               className={styles.icon}
+//             />
+//           </div>
+//           Add
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default AddCardModal;
