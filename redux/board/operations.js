@@ -1,10 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { instance } from "../auth/operations";
-// import axios from "axios";
+import axios from "axios";
 
-// export const instance = axios.create({
-//   baseURL: "https://taskpro-api-nmqb.onrender.com",
-// });
+export const instance = axios.create({
+  baseURL: "https://taskpro-api-nmqb.onrender.com",
+});
 
 export const fetchBoards = createAsyncThunk(
   "boards/fetchAll",
