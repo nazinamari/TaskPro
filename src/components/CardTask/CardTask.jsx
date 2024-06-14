@@ -6,10 +6,11 @@ const TaskCard = ({
   id,
   title,
   description,
-  labelColor,
+  labelColor = "Without",
   deadline,
   onRemove,
   onEdit,
+  onMove,
 }) => {
   return (
     <div className={`${styles.card} ${styles[labelColor]}`}>
@@ -37,7 +38,7 @@ const TaskCard = ({
           </div>
         </div>
         <div className={styles.actions}>
-          <button className={styles.actionButton}>
+          <button className={styles.actionButton} onClick={onMove}>
             <Icon
               id="icon-arrow-circler"
               width="16"

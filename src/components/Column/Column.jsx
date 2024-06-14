@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import ToDo from "../ToDo/ToDo";
 import TaskCard from "../CardTask/CardTask";
@@ -7,20 +8,37 @@ import AddCardModal from "../AddCardModal/AddCardModal";
 import EditCardModal from "../EditCardModal/EditCardModal";
 import styles from "./Column.module.css";
 
-const Column = ({ title: initialTitle, onDelete }) => {
-  const [cards, setCards] = useState([]);
+const getRandomId = () => Math.floor(Math.random() * 100000);
+
+const Column = ({
+  id,
+  title: initialTitle,
+  cards: initialCards,
+  onDelete,
+  onAddCard,
+  onRemoveCard,
+  onMoveCard,
+}) => {
+  const [cards, setCards] = useState(initialCards);
   const [title, setTitle] = useState(initialTitle);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [currentCard, setCurrentCard] = useState(null);
 
+  useEffect(() => {
+    setCards(initialCards);
+  }, [initialCards]);
+
   const handleAddCard = (newCard) => {
-    setCards([...cards, { ...newCard, id: cards.length }]);
+    const newCardWithId = { ...newCard, id: getRandomId() };
+    setCards([...cards, newCardWithId]);
+    onAddCard(id, newCardWithId);
     setIsModalOpen(false);
   };
 
-  const handleRemoveCard = (id) => {
-    setCards(cards.filter((card) => card.id !== id));
+  const handleRemoveCard = (cardId) => {
+    setCards(cards.filter((card) => card.id !== cardId));
+    onRemoveCard(id, cardId);
   };
 
   const handleEditCard = (updatedCard) => {
@@ -58,10 +76,11 @@ const Column = ({ title: initialTitle, onDelete }) => {
       <div className={styles.cards}>
         {cards.map((card) => (
           <TaskCard
-            key={card.id}
+            key={`${getRandomId()}`}
             {...card}
-            onRemove={handleRemoveCard}
-            onEdit={openEditModal}
+            onRemove={() => handleRemoveCard(card.id)}
+            onEdit={() => openEditModal(card)}
+            onMove={() => onMoveCard(id, card.id)}
           />
         ))}
       </div>
