@@ -2,22 +2,18 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Icon from "../../shared/components/Icon/Icon";
-import styles from "./AddCardModal.module.css";
+import styles from "./EditCardModal.module.css";
 import "../../shared/styles/variables.css";
 
-const AddCardModal = ({ onAddCard, onClose }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [labelColor, setLabelColor] = useState("");
-  const [deadline, setDeadline] = useState(new Date());
+const EditCardModal = ({ card, onEditCard, onClose }) => {
+  const [title, setTitle] = useState(card.title);
+  const [description, setDescription] = useState(card.description);
+  const [labelColor, setLabelColor] = useState(card.labelColor);
+  const [deadline, setDeadline] = useState(new Date(card.deadline));
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddCard({ title, description, labelColor, deadline });
-    setTitle("");
-    setDescription("");
-    setLabelColor("");
-    setDeadline(new Date());
+    onEditCard({ ...card, title, description, labelColor, deadline });
     onClose();
   };
 
@@ -26,7 +22,7 @@ const AddCardModal = ({ onAddCard, onClose }) => {
       <button onClick={onClose} className={styles.closeButton}>
         <Icon id="icon-close" width="16" height="16" className={styles.icon} />
       </button>
-      <div className={styles.title}>Add card</div>
+      <div className={styles.title}>Edit card</div>
       <form onSubmit={handleSubmit}>
         <div className={styles.formGroupTitle}>
           <input
@@ -87,11 +83,11 @@ const AddCardModal = ({ onAddCard, onClose }) => {
               className={styles.icon}
             />
           </div>
-          Add
+          Edit
         </button>
       </form>
     </div>
   );
 };
 
-export default AddCardModal;
+export default EditCardModal;

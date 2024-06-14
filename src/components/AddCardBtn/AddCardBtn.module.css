@@ -13,6 +13,7 @@
   font-weight: 500;
   color: #000;
   transition: background-color 0.3s ease;
+  margin-top: 14px;
 }
 
 .addButton:hover {

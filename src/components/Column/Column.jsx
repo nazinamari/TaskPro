@@ -1,48 +1,51 @@
-// import { useState } from "react";
-// import ToDo from "../ToDo/ToDo";
-// import TaskCard from "../CardTask/CardTask";
-// import AddCardBtn from "../AddCardBtn/AddCardBtn";
-// import styles from "./Column.module.css";
 
-// const Column = ({ title: initialTitle, onDelete }) => {
-//   const [cards, setCards] = useState([]);
-//   const [title, setTitle] = useState(initialTitle);
-
-//   const handleAddCard = () => {
-//     setCards([...cards, <TaskCard key={cards.length} />]);
-//   };
-
-//   const handleEditTitle = (newTitle) => {
-//     setTitle(newTitle);
-//   };
-
-//   return (
-//     <div className={styles.column}>
-//       <ToDo title={title} onEditTitle={handleEditTitle} onDelete={onDelete} />
-//       <div className={styles.cards}>{cards}</div>
-//       <AddCardBtn onClick={handleAddCard} />
-//     </div>
-//   );
-// };
-
-// export default Column;
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import ToDo from "../ToDo/ToDo";
 import TaskCard from "../CardTask/CardTask";
 import AddCardBtn from "../AddCardBtn/AddCardBtn";
 import AddCardModal from "../AddCardModal/AddCardModal";
+import EditCardModal from "../EditCardModal/EditCardModal";
 import styles from "./Column.module.css";
 
-const Column = ({ title: initialTitle, onDelete }) => {
-  const [cards, setCards] = useState([]);
+const getRandomId = () => Math.floor(Math.random() * 100000);
+
+const Column = ({
+  id,
+  title: initialTitle,
+  cards: initialCards,
+  onDelete,
+  onAddCard,
+  onRemoveCard,
+  onMoveCard,
+}) => {
+  const [cards, setCards] = useState(initialCards);
   const [title, setTitle] = useState(initialTitle);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [currentCard, setCurrentCard] = useState(null);
+
+  useEffect(() => {
+    setCards(initialCards);
+  }, [initialCards]);
 
   const handleAddCard = (newCard) => {
-    setCards([...cards, <TaskCard key={cards.length} {...newCard} />]);
+    const newCardWithId = { ...newCard, id: getRandomId() };
+    setCards([...cards, newCardWithId]);
+    onAddCard(id, newCardWithId);
     setIsModalOpen(false);
+  };
+
+  const handleRemoveCard = (cardId) => {
+    setCards(cards.filter((card) => card.id !== cardId));
+    onRemoveCard(id, cardId);
+  };
+
+  const handleEditCard = (updatedCard) => {
+    setCards(
+      cards.map((card) => (card.id === updatedCard.id ? updatedCard : card))
+    );
+    setIsEditModalOpen(false);
   };
 
   const handleEditTitle = (newTitle) => {
@@ -57,10 +60,30 @@ const Column = ({ title: initialTitle, onDelete }) => {
     setIsModalOpen(false);
   };
 
+  const openEditModal = (card) => {
+    setCurrentCard(card);
+    setIsEditModalOpen(true);
+  };
+
+  const closeEditModal = () => {
+    setIsEditModalOpen(false);
+    setCurrentCard(null);
+  };
+
   return (
     <div className={styles.column}>
       <ToDo title={title} onEditTitle={handleEditTitle} onDelete={onDelete} />
-      <div className={styles.cards}>{cards}</div>
+      <div className={styles.cards}>
+        {cards.map((card) => (
+          <TaskCard
+            key={`${getRandomId()}`}
+            {...card}
+            onRemove={() => handleRemoveCard(card.id)}
+            onEdit={() => openEditModal(card)}
+            onMove={() => onMoveCard(id, card.id)}
+          />
+        ))}
+      </div>
       <AddCardBtn onClick={openModal} />
       <Modal
         isOpen={isModalOpen}
@@ -71,6 +94,21 @@ const Column = ({ title: initialTitle, onDelete }) => {
       >
         <AddCardModal onAddCard={handleAddCard} onClose={closeModal} />
       </Modal>
+      {currentCard && (
+        <Modal
+          isOpen={isEditModalOpen}
+          onRequestClose={closeEditModal}
+          contentLabel="Edit Card Modal"
+          className={styles.modal}
+          overlayClassName={styles.overlay}
+        >
+          <EditCardModal
+            card={currentCard}
+            onEditCard={handleEditCard}
+            onClose={closeEditModal}
+          />
+        </Modal>
+      )}
     </div>
   );
 };
