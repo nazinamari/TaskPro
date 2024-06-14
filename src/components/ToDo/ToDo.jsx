@@ -1,47 +1,38 @@
 import { useState } from "react";
 import Icon from "../../shared/components/Icon/Icon";
+import EditColumnModal from "../EditColumnModal/EditColumnModal";
 import styles from "./ToDo.module.css";
 import "../../shared/styles/variables.css";
 
 const ToDo = ({ title, onEditTitle, onDelete }) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [newTitle, setNewTitle] = useState(title);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleSave = (newTitle) => {
+    onEditTitle(newTitle);
+    closeModal();
+  };
 
   const handleEditClick = () => {
-    setIsEditing(true);
+    openModal();
   };
 
   const handleDeleteClick = () => {
     onDelete();
   };
 
-  const handleTitleChange = (e) => {
-    setNewTitle(e.target.value);
-  };
-
-  const handleTitleSubmit = (e) => {
-    e.preventDefault();
-    onEditTitle(newTitle);
-    setIsEditing(false);
-  };
-
   return (
     <div className={styles.card}>
-      {isEditing ? (
-        <form onSubmit={handleTitleSubmit} className={styles.header}>
-          <input
-            type="text"
-            value={newTitle}
-            onChange={handleTitleChange}
-            className={styles.titleInput}
-            autoFocus
-          />
-        </form>
-      ) : (
-        <div className={styles.header}>
-          <div>{title}</div>
-        </div>
-      )}
+      <div className={styles.header}>
+        <div>{title}</div>
+      </div>
       <div className={styles.actions}>
         <button onClick={handleEditClick} className={styles.actionButton}>
           <Icon
@@ -60,6 +51,12 @@ const ToDo = ({ title, onEditTitle, onDelete }) => {
           />
         </button>
       </div>
+      <EditColumnModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        title={title}
+        onEditTitle={handleSave}
+      />
     </div>
   );
 };
