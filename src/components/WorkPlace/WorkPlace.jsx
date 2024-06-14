@@ -73,6 +73,14 @@ export default function WorkPlace() {
     }
   };
 
+  const handleEditColumnTitle = (columnId, newTitle) => {
+    setColumns(
+      columns.map((column) =>
+        column.id === columnId ? { ...column, title: newTitle } : column
+      )
+    );
+  };
+
   return (
     <div className={css.container}>
       <div className={css.columns}>
@@ -86,6 +94,7 @@ export default function WorkPlace() {
             onAddCard={handleAddCard}
             onRemoveCard={handleRemoveCard}
             onMoveCard={handleMoveCard}
+            onEditTitle={handleEditColumnTitle} //
           />
         ))}
         <AddColumnBtn onAddColumn={handleAddColumn} />
