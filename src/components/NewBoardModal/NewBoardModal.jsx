@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import Icon from "../../shared/components/Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllBoards } from "../../../redux/board/selectors.js";
+import bgImages from "../../images/desktop_1x/index";
 import { addBoard } from "../../../redux/board/operations.js";
+import { useState } from "react";
 
 const icons = [
   {
@@ -67,6 +69,8 @@ const icons = [
 export default function NewBoardModal({ handleCreateModal }) {
   const dispatch = useDispatch();
   const boards = useSelector(selectAllBoards);
+  const [selectedIcon, setSelectedIcon] = useState("Icon1");
+  const [selectedBg, setSelectedBg] = useState("p1");
 
   const {
     register,
@@ -74,8 +78,8 @@ export default function NewBoardModal({ handleCreateModal }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      Icon: "Icon1",
-      Background: "bgc 1",
+      Icon: selectedIcon,
+      Background: setSelectedBg,
     },
   });
 
@@ -124,27 +128,54 @@ export default function NewBoardModal({ handleCreateModal }) {
             {errors.Title && <span>This field is required</span>}
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
-              <div className={css.iconsContainer}>
+              <ul className={css.iconsContainer}>
                 {icons.map((icon) => (
-                  <label key={icon.value} className={css.iconLabel}>
+                  <li key={icon.value} className={css.iconLabel}>
                     <input
                       type="radio"
                       value={icon.value}
+                      id={icon.id}
                       {...register("Icon")}
                       className={css.iconRadio}
+                      onChange={() => setSelectedIcon(icon.value)}
+                      checked={selectedIcon === icon.value}
                     />
-                    <Icon
-                      id={icon.id}
-                      width={icon.width}
-                      height={icon.height}
-                      alt={icon.alt}
-                      className={css.iconImage}
-                    />
-                  </label>
+                    <label htmlFor={icon.id} className={css.iconImage}>
+                      <Icon
+                        id={icon.id}
+                        alt={icon.alt}
+                        width={icon.width}
+                        height={icon.height}
+                      />
+                    </label>
+                  </li>
                 ))}
-              </div>
+              </ul>
               {errors.Icon && <span>{errors.Icon.message}</span>}
             </div>
+
+            <h3 className={css.iconsTitle}>Background</h3>
+            <ul className={css.bgList}>
+              {bgImages.map((imageSrc, index) => (
+                <li key={index} className={css.iconLabel}>
+                  <input
+                    type="radio"
+                    value={imageSrc.value}
+                    id={`bg-${index}`}
+                    className={css.iconRadio}
+                    onChange={() => setSelectedBg(imageSrc.value)}
+                    checked={selectedBg === imageSrc.value}
+                  />
+                  <label htmlFor={`bg-${index}`} className={css.bgImage}>
+                    <img
+                      className={css.bgImage}
+                      src={imageSrc}
+                      alt={`Image ${index + 1}`}
+                    />
+                  </label>
+                </li>
+              ))}
+            </ul>
 
             <button type="submit" className={css.createBtn}>
               <div className={css.wrapper}>

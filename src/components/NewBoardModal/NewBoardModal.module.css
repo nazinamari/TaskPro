@@ -13,16 +13,6 @@
 }
 
 .modalWindow {
-  position: fixed;
-  margin: auto;
-  left: -200%;
-  top: -200%;
-  transform: translate(-50%, -50%) scale(0.1);
-  transition: opacity 300ms ease-in-out, top 100ms ease-in-out,
-    transform 1000ms ease-in-out;
-}
-
-.modalWindow {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -32,7 +22,7 @@
 }
 
 .modalWindowContent {
-  /* position: absolute; */
+  box-sizing: border-box;
   border: 1px solid var(--accent-color);
   border-radius: 8px;
   width: 335px;
@@ -42,6 +32,8 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding: 24px;
+  justify-content: start;
 }
 
 .closeBtn {
@@ -73,23 +65,20 @@
   letter-spacing: -0.02em;
   color: var(--main-text-color);
   margin-top: 24px;
-  padding-left: 24px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
   justify-content: center;
-  align-items: center;
+  align-items: start;
 }
 
 .input {
   border: 1px solid var(--accent-color);
   border-radius: 8px;
-  width: 287px;
+  width: 100%;
   height: 49px;
-  opacity: 0.4;
   background-color: transparent;
   font-weight: 400;
   font-size: 14px;
@@ -97,12 +86,18 @@
   color: var(--main-text-color);
   padding-left: 18px;
   box-sizing: border-box;
+  margin-bottom: 24px;
+}
+
+input:focus {
+  outline: 1px solid var(--accent-color);
+  box-shadow: 0 4px 8px rgba(22, 22, 22, 0.08);
+  color: var(--main-text-color);
 }
 
 .formContainer {
   display: flex;
   flex-direction: column;
-  gap: 14px;
   width: 287px;
 }
 
@@ -111,14 +106,17 @@
   font-size: 18px;
   letter-spacing: -0.02em;
   color: var(--main-text-color);
+  margin-bottom: 14px;
 }
 
 .iconsContainer {
   display: flex;
   gap: 8px;
+  margin-bottom: 24px;
 }
 
 .iconLabel {
+  position: relative;
   fill: none;
   stroke: var(--main-text-color);
   display: flex;
@@ -135,27 +133,56 @@
   position: relative;
   transition: all 0.3s;
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .iconRadio:checked + .iconImage {
-  stroke: #fff;
+  stroke: var(--main-text-color);
   opacity: 1;
 }
 
 .iconRadio:hover + .iconImage {
-  stroke: #fff;
+  stroke: var(--main-text-color);
   opacity: 1;
 }
 
+.bgList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 252px;
+  justify-content: start;
+  margin-bottom: 40px;
+}
+
+.bgImage {
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+}
+
+/* .iconRadio:checked + .bgImage {
+  border: solid var(--main-text-color);
+}
+
+.iconRadio:hover + .bgImage {
+  border: solid var(--main-text-color);
+} */
+
 .createBtn {
   border-radius: 8px;
-  width: 287px;
+  width: 100%;
   height: 49px;
   background: var(--accent-color);
   display: flex;
   gap: 8px;
   align-items: center;
   justify-content: center;
+  outline: none;
+  border: none;
 }
 
 .createBtn:hover {
@@ -187,10 +214,6 @@
 @media (min-width: 768px) {
   .modalWindowContent {
     width: 350px;
-  }
-
-  .input {
-    width: 302px;
   }
 
   .formContainer {
