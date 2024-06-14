@@ -9,7 +9,7 @@
     flex-direction: column;
     box-sizing: border-box;
     position: absolute;
-    z-index: 9999999;
+    z-index: 3;
   }
   .isClosed {
     display: none;
