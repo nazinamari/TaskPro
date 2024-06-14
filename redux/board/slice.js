@@ -16,12 +16,6 @@ const slice = createSlice({
       { icon: "icon-colors", title: "Project pictures", id: "2" },
       { icon: "icon-container", title: "Project cartoons", id: "3" },
     ],
-    board: {
-      background: null,
-      title: "",
-      owner: null,
-      icon: null,
-    },
     loading: false,
     error: null,
   },
