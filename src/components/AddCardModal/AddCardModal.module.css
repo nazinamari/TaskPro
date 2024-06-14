@@ -132,19 +132,19 @@
   position: absolute;
 }
 
-.labelColor.blue {
+.labelColor.Low {
   background-color: var(--board-section-low);
 }
 
-.labelColor.pink {
+.labelColor.Medium {
   background-color: var(--board-section-medium);
 }
 
-.labelColor.green {
+.labelColor.High {
   background-color: var(--board-section-high);
 }
 
-.labelColor.gray {
+.labelColor.Without {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
