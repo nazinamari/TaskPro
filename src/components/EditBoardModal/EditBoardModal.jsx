@@ -73,7 +73,9 @@ export default function EditBoardModal({ onClose, title }) {
   console.log(selectedIcon);
   console.log(selectedBg);
 
-  const onSubmit = () => {
+  const onSubmit = (event) => {
+    event.preventDefault();
+
     const data = {
       title: title,
       icon: selectedIcon,
@@ -120,7 +122,9 @@ export default function EditBoardModal({ onClose, title }) {
             />
           </button>
           <h2 className={css.title}>Edit board</h2>
-          <form className={css.form}>
+
+          <form className={css.form} onSubmit={onSubmit}>
+
             <input className={css.input} type="text" defaultValue={title} />
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
@@ -151,7 +155,7 @@ export default function EditBoardModal({ onClose, title }) {
             </div>
             <h3 className={css.iconsTitle}>Background</h3>
             <ul className={css.bgList}>
-              {bgImages.map((imageSrc, index) => (
+              {bgImages.map((image, index) => (
                 <li key={index}>
                   <label htmlFor={`bg-${index}`} className={css.bgLabel}>
                     <input
@@ -159,15 +163,17 @@ export default function EditBoardModal({ onClose, title }) {
                       defaultValue={selectedBg}
                       id={`bg-${index}`}
                       className={css.iconRadio}
-                      onChange={() => setSelectedBg(imageSrc.value)}
-                      checked={selectedBg === imageSrc.value}
+
+                      onChange={() => setSelectedBg(image.value)}
+                      checked={selectedBg === image.value}
                     />
                     <Background
                       className={css.bgImage}
-                      width={imageSrc.width}
-                      height={imageSrc.height}
-                      src={imageSrc.src}
-                      alt={imageSrc.value}
+                      width={image.width}
+                      height={image.height}
+                      src={image.src}
+                      alt={image.index}
+
                     />
                   </label>
                 </li>
