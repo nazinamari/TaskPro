@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Icon from "../../shared/components/Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllBoards } from "../../../redux/board/selectors.js";
-import bgImages from "../../images/desktop_1x/index";
+import bgImages from "../../images/mini/dt_1x/index.js";
 import { addBoard } from "../../../redux/board/operations.js";
 import { useState } from "react";
 import Background from "../../shared/components/Background/Background.jsx";
