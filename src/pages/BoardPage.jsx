@@ -13,6 +13,7 @@ export default function BoardPage() {
   const [id, setId] = useState(null);
   const dispatch = useDispatch();
   const location = useLocation();
+  const board = useSelector(selectBoard);
 
   useEffect(() => {
     const path = location.pathname.split("/").pop();
@@ -27,7 +28,6 @@ export default function BoardPage() {
     }
   }, [dispatch, id]);
 
-  const board = useSelector(selectBoard);
   const title = board?.board?.title || "Loading...";
 
   return (

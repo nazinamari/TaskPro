@@ -6,6 +6,7 @@ import clsx from "clsx";
 import Modal from "react-modal";
 import { deleteBoard, getBoardById } from "../../../redux/board/operations";
 import { useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
@@ -49,8 +50,8 @@ export default function BoardCard({ icon, title, id, isActive }) {
             className={css.iconBtn}
           />
         </button>
-        <button
-          type="button"
+        <NavLink
+          to="/home"
           onClick={() => {
             dispatch(deleteBoard(id));
           }}
@@ -62,7 +63,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
             height="16"
             className={css.iconBtn}
           />
-        </button>
+        </NavLink>
         <Modal
           isOpen={isModalOpen}
           contentLabel="Edit Profile"

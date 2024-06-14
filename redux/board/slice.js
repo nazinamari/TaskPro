@@ -16,9 +16,9 @@ const slice = createSlice({
       // { icon: "icon-colors", title: "Project pictures", id: "2" },
       // { icon: "icon-container", title: "Project cartoons", id: "3" },
     ],
+    currentBoard: null,
     loading: false,
     error: null,
-    currentBoard: null,
   },
   extraReducers: (builder) =>
     builder
@@ -65,6 +65,7 @@ const slice = createSlice({
           (item) => item._id !== action.payload._id
         );
         state.loading = false;
+        state.currentBoard = null;
       })
       .addCase(deleteBoard.rejected, (state) => {
         state.error = true;
