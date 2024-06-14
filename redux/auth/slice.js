@@ -54,14 +54,22 @@ const authSlice = createSlice({
       .addCase(logOut.rejected, (state) => {
         state.isLoading = false;
       })
+
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.isRefreshing = false;
-        // state.user = action.payload.user;
-        state.token = action.payload.accessToken;
+        state.user = action.payload;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
+
+        // ???
+        // state.token = action.payload.accessToken;
+
+        // якщо новий токен повертається у відповіді
+        // if (action.payload.accessToken) {
+        //   state.token = action.payload.accessToken;
+        // }
       })
       .addCase(refreshUser.rejected, (state) => {
         state.isLoading = false;

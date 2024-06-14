@@ -56,9 +56,8 @@ export const refreshUser = createAsyncThunk(
     const reduxState = thunkApi.getState();
     const savedToken = reduxState.auth.token;
     setAuthHeader(savedToken);
-
     try {
-      const response = await instance.post("/auth/refresh");
+      const response = await instance.get("/auth/refresh");
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -66,9 +65,16 @@ export const refreshUser = createAsyncThunk(
   },
   {
     condition: (_, { getState }) => {
-      const reduxState = thunkApi.getState();
+      const reduxState = getState();
       const savedToken = reduxState.auth.token;
       return savedToken !== null;
     },
   }
 );
+
+// більш детальна обробка помилок
+//   if (error.response && error.response.data) {
+//     return thunkApi.rejectWithValue(error.response.data.message);
+//   }
+//   return thunkApi.rejectWithValue(error.message);
+// }
