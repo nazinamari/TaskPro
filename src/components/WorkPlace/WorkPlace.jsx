@@ -10,6 +10,7 @@ export default function WorkPlace() {
     const newColumn = {
       id: columns.length,
       title: title,
+      cards: [],
     };
     setColumns([...columns, newColumn]);
   };
@@ -18,14 +19,73 @@ export default function WorkPlace() {
     setColumns(columns.filter((column) => column.id !== id));
   };
 
+  const handleAddCard = (columnId, newCard) => {
+    setColumns(
+      columns.map((column) =>
+        column.id === columnId
+          ? { ...column, cards: [...column.cards, newCard] }
+          : column
+      )
+    );
+  };
+
+  const handleRemoveCard = (columnId, cardId) => {
+    setColumns(
+      columns.map((column) =>
+        column.id === columnId
+          ? {
+              ...column,
+              cards: column.cards.filter((card) => card.id !== cardId),
+            }
+          : column
+      )
+    );
+  };
+
+  const handleMoveCard = (currentColumnId, cardId) => {
+    const currentColumnIndex = columns.findIndex(
+      (column) => column.id === currentColumnId
+    );
+    if (currentColumnIndex < 0 || currentColumnIndex === columns.length - 1)
+      return;
+
+    const card = columns[currentColumnIndex].cards.find(
+      (card) => card.id === cardId
+    );
+    if (card) {
+      setColumns(
+        columns.map((column, index) => {
+          if (index === currentColumnIndex) {
+            return {
+              ...column,
+              cards: column.cards.filter((card) => card.id !== cardId),
+            };
+          } else if (index === currentColumnIndex + 1) {
+            return {
+              ...column,
+              cards: [...column.cards, card],
+            };
+          } else {
+            return column;
+          }
+        })
+      );
+    }
+  };
+
   return (
     <div className={css.container}>
       <div className={css.columns}>
-        {columns.map(({ id, title }) => (
+        {columns.map(({ id, title, cards }) => (
           <Column
             key={id}
+            id={id}
             title={title}
+            cards={cards}
             onDelete={() => handleDeleteColumn(id)}
+            onAddCard={handleAddCard}
+            onRemoveCard={handleRemoveCard}
+            onMoveCard={handleMoveCard}
           />
         ))}
         <AddColumnBtn onAddColumn={handleAddColumn} />
