@@ -62,7 +62,7 @@ const slice = createSlice({
       })
       .addCase(deleteBoard.fulfilled, (state, action) => {
         state.items = state.items.filter(
-          (item) => item.id !== action.payload.id
+          (item) => item._id !== action.payload._id
         );
         state.loading = false;
       })
