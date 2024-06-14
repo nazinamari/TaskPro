@@ -6,6 +6,7 @@ import { selectAllBoards } from "../../../redux/board/selectors.js";
 import bgImages from "../../images/desktop_1x/index";
 import { addBoard } from "../../../redux/board/operations.js";
 import { useState } from "react";
+import Background from "../../shared/components/Background/Background.jsx";
 
 const icons = [
   {
@@ -75,6 +76,7 @@ export default function NewBoardModal({ handleCreateModal }) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -83,18 +85,26 @@ export default function NewBoardModal({ handleCreateModal }) {
     },
   });
 
-  const onSubmit = (values) => {
+  const onSubmit = (values, actions) => {
     if (boards.find((board) => board.title.trim() === values.title.trim())) {
       alert("already exist");
     } else {
-      dispatch(addBoard(values))
+      const newBoard = {
+        title: values.title,
+        icon: values.icon,
+        bgImage: values.bgImage,
+      };
+
+      dispatch(addBoard(newBoard))
         .unwrap()
         .then(() => {
           console.log("add board"); // додати тост
         })
         .catch(() => {
-          console.error();
+          console.error(); // додати тост
         });
+      actions.preventDefault();
+      reset();
     }
   };
 
@@ -157,20 +167,23 @@ export default function NewBoardModal({ handleCreateModal }) {
             <h3 className={css.iconsTitle}>Background</h3>
             <ul className={css.bgList}>
               {bgImages.map((imageSrc, index) => (
-                <li key={index} className={css.iconLabel}>
-                  <input
-                    type="radio"
-                    value={imageSrc.value}
-                    id={`bg-${index}`}
-                    className={css.iconRadio}
-                    onChange={() => setSelectedBg(imageSrc.value)}
-                    checked={selectedBg === imageSrc.value}
-                  />
-                  <label htmlFor={`bg-${index}`} className={css.bgImage}>
-                    <img
+                <li key={index}>
+                  <label htmlFor={`bg-${index}`} className={css.iconLabel}>
+                    <input
+                      type="radio"
+                      value={imageSrc.value}
+                      id={`bg-${index}`}
+                      className={css.iconRadio}
+                      onChange={() => setSelectedBg(imageSrc.value)}
+                      checked={selectedBg === imageSrc.value}
+                    />
+
+                    <Background
                       className={css.bgImage}
-                      src={imageSrc}
-                      alt={`Image ${index + 1}`}
+                      width={imageSrc.width}
+                      height={imageSrc.height}
+                      src={imageSrc.src}
+                      alt={imageSrc.value}
                     />
                   </label>
                 </li>
