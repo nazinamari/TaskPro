@@ -70,6 +70,8 @@ export default function EditBoardModal({ onClose, title }) {
   const [selectedIcon, setSelectedIcon] = useState("Icon1");
   const [selectedBg, setSelectedBg] = useState("bg-1");
   const dispatch = useDispatch();
+  console.log(selectedIcon);
+  console.log(selectedBg);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -79,7 +81,6 @@ export default function EditBoardModal({ onClose, title }) {
       icon: selectedIcon,
       background: selectedBg,
     };
-
     dispatch(editBoard(data))
       .unwrap()
       .then(() => {
@@ -121,7 +122,9 @@ export default function EditBoardModal({ onClose, title }) {
             />
           </button>
           <h2 className={css.title}>Edit board</h2>
+
           <form className={css.form} onSubmit={onSubmit}>
+
             <input className={css.input} type="text" defaultValue={title} />
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
@@ -131,7 +134,7 @@ export default function EditBoardModal({ onClose, title }) {
                     <label htmlFor={icon.id} className={css.iconLabel}>
                       <input
                         type="radio"
-                        value={selectedIcon}
+                        defaultValue={selectedIcon}
                         id={icon.id}
                         className={css.iconRadio}
                         onChange={() => setSelectedIcon(icon.value)}
@@ -157,9 +160,10 @@ export default function EditBoardModal({ onClose, title }) {
                   <label htmlFor={`bg-${index}`} className={css.bgLabel}>
                     <input
                       type="radio"
-                      value={selectedBg}
+                      defaultValue={selectedBg}
                       id={`bg-${index}`}
                       className={css.iconRadio}
+
                       onChange={() => setSelectedBg(image.value)}
                       checked={selectedBg === image.value}
                     />
@@ -169,13 +173,14 @@ export default function EditBoardModal({ onClose, title }) {
                       height={image.height}
                       src={image.src}
                       alt={image.index}
+
                     />
                   </label>
                 </li>
               ))}
             </ul>
 
-            <button type="submit" className={css.editBtn}>
+            <button type="submit" className={css.editBtn} onSubmit={onSubmit()}>
               <div className={css.wrapper}>
                 <Icon
                   id="icon-plus"

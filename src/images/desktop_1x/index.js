@@ -32,6 +32,7 @@ const pictures_desktop_1x = [
   { value: "bg-14", src: p14, width: "28px", height: "28px" },
   { value: "bg-15", src: p15, width: "28px", height: "28px" },
   { value: "bg-16", src: p16, width: "28px", height: "28px" },
+
 ];
 
 export default pictures_desktop_1x;
