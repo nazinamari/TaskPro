@@ -23,7 +23,7 @@ export default function BoardPage() {
   }, [location.pathname]);
 
   useEffect(() => {
-    if (id) {
+    if (id !== null) {
       dispatch(getBoardById(id));
     }
   }, [dispatch, id]);
