@@ -16,7 +16,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
   const dispatch = useDispatch();
 
   const handleOpenModal = (boardId) => {
-    // dispatch(getBoardById(boardId));
+    dispatch(getBoardById(boardId));
     setIsModalOpen(true);
   };
 

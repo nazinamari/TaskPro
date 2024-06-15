@@ -79,6 +79,12 @@ export default function EditBoardModal({ onClose, title }) {
   );
   const [boardTitle, setBoardTitle] = useState(title);
 
+  useEffect(() => {
+    setSelectedIcon(board.board.icon || icons[0].value);
+    setSelectedBg(board.board.background || "bg-1");
+    setBoardTitle(board.board.title);
+  }, [board]);
+
   const dispatch = useDispatch();
 
   const onSubmit = (event) => {

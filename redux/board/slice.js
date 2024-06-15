@@ -48,6 +48,7 @@ const slice = createSlice({
       .addCase(getBoardById.fulfilled, (state, action) => {
         state.loading = false;
         state.currentBoard = action.payload;
+        console.log(action.payload);
       })
       .addCase(getBoardById.rejected, (state) => {
         state.loading = false;
