@@ -13,7 +13,6 @@ export default function BoardNavigation() {
   const location = useLocation();
   const [activeBoard, setActiveBoard] = useState(null);
   const boards = useSelector(selectAllBoards);
-  console.log(boards);
 
   useEffect(() => {
     const path = location.pathname.split("/").pop();

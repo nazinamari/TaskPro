@@ -3,9 +3,10 @@ import css from "./EditBoardModal.module.css";
 import Icon from "../../shared/components/Icon/Icon";
 import bgImages from "../../images/mini/dt_1x/index";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editBoard } from "../../../redux/board/operations";
 import Background from "../../shared/components/Background/Background";
+import { selectBoard } from "../../../redux/board/selectors";
 
 const icons = [
   {
@@ -69,19 +70,21 @@ const icons = [
 export default function EditBoardModal({ onClose, title }) {
   const [selectedIcon, setSelectedIcon] = useState("Icon1");
   const [selectedBg, setSelectedBg] = useState("bg-1");
+  const [boardTitle, setBoardTitle] = useState(title);
+
+  const board = useSelector(selectBoard);
   const dispatch = useDispatch();
-  console.log(selectedIcon);
-  console.log(selectedBg);
 
   const onSubmit = (event) => {
     event.preventDefault();
-
+    const id = board.board._id;
     const data = {
-      title: title,
+      title: boardTitle,
       icon: selectedIcon,
       background: selectedBg,
     };
-    dispatch(editBoard(data))
+    console.log(data);
+    dispatch(editBoard(id, data))
       .unwrap()
       .then(() => {
         console.log("update successfully"); // додати тост
@@ -124,7 +127,12 @@ export default function EditBoardModal({ onClose, title }) {
           <h2 className={css.title}>Edit board</h2>
 
           <form className={css.form} onSubmit={onSubmit}>
-            <input className={css.input} type="text" defaultValue={title} />
+            <input
+              className={css.input}
+              type="text"
+              value={boardTitle}
+              onChange={(e) => setBoardTitle(e.target.value)}
+            />
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
               <ul className={css.iconsContainer}>
@@ -133,7 +141,7 @@ export default function EditBoardModal({ onClose, title }) {
                     <label htmlFor={icon.id} className={css.iconLabel}>
                       <input
                         type="radio"
-                        defaultValue={selectedIcon}
+                        value={icon.value}
                         id={icon.id}
                         className={css.iconRadio}
                         onChange={() => setSelectedIcon(icon.value)}
@@ -159,7 +167,7 @@ export default function EditBoardModal({ onClose, title }) {
                   <label htmlFor={`bg-${index}`} className={css.bgLabel}>
                     <input
                       type="radio"
-                      defaultValue={selectedBg}
+                      value={image.value}
                       id={`bg-${index}`}
                       className={css.iconRadio}
                       onChange={() => setSelectedBg(image.value)}
@@ -177,7 +185,7 @@ export default function EditBoardModal({ onClose, title }) {
               ))}
             </ul>
 
-            <button type="submit" className={css.editBtn} onSubmit={onSubmit()}>
+            <button type="submit" className={css.editBtn}>
               <div className={css.wrapper}>
                 <Icon
                   id="icon-plus"

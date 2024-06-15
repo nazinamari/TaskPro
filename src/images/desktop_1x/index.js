@@ -1,4 +1,4 @@
-import p1 from "./Vector.png";
+import bg1 from "./Vector.png";
 import p2 from "./Vector-1.png";
 import p3 from "./Vector-2.png";
 import p4 from "./Vector-3.png";
@@ -16,7 +16,7 @@ import p15 from "./Vector-14.png";
 import p16 from "./Vector-15.png";
 
 const pictures_desktop_1x = {
-  p1,
+  bg1,
   p2,
   p3,
   p4,
