@@ -9,56 +9,56 @@ import Background from "../../shared/components/Background/Background";
 
 const icons = [
   {
-    value: "Icon1",
+    value: "icon-projects",
     id: "icon-projects",
     alt: "icon-projects",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon2",
+    value: "icon-star",
     id: "icon-star",
     alt: "icon-star",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon3",
+    value: "icon-loading",
     id: "icon-loading",
     alt: "icon-loading",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon4",
+    value: "icon-puzzle",
     id: "icon-puzzle",
     alt: "icon-puzzle",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon5",
+    value: "icon-container",
     id: "icon-container",
     alt: "icon-container",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon6",
+    value: "icon-lightning",
     id: "icon-lightning",
     alt: "icon-lightning",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon7",
+    value: "icon-colors",
     id: "icon-colors",
     alt: "icon-colors",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon8",
+    value: "icon-hexagon",
     id: "icon-hexagon",
     alt: "icon-hexagon",
     width: "18px",
@@ -124,7 +124,6 @@ export default function EditBoardModal({ onClose, title }) {
           <h2 className={css.title}>Edit board</h2>
 
           <form className={css.form} onSubmit={onSubmit}>
-
             <input className={css.input} type="text" defaultValue={title} />
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
@@ -163,7 +162,6 @@ export default function EditBoardModal({ onClose, title }) {
                       defaultValue={selectedBg}
                       id={`bg-${index}`}
                       className={css.iconRadio}
-
                       onChange={() => setSelectedBg(image.value)}
                       checked={selectedBg === image.value}
                     />
@@ -173,7 +171,6 @@ export default function EditBoardModal({ onClose, title }) {
                       height={image.height}
                       src={image.src}
                       alt={image.index}
-
                     />
                   </label>
                 </li>
