@@ -7,6 +7,7 @@ import bgImages from "../../images/mini/dt_1x/index.js";
 import { addBoard } from "../../../redux/board/operations.js";
 import { useEffect, useState } from "react";
 import Background from "../../shared/components/Background/Background.jsx";
+import { useNavigate } from "react-router-dom";
 
 const icons = [
   {
@@ -69,6 +70,8 @@ const icons = [
 
 export default function NewBoardModal({ handleCreateModal }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const boards = useSelector(selectAllBoards);
   const [selectedIcon, setSelectedIcon] = useState("icon-projects");
   const [selectedBg, setSelectedBg] = useState("bg-1");
@@ -80,11 +83,9 @@ export default function NewBoardModal({ handleCreateModal }) {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      Icon: selectedIcon,
-      Background: setSelectedBg,
-      title: "",
       icon: selectedIcon,
       background: selectedBg,
+      title: "",
     },
   });
 
@@ -105,12 +106,14 @@ export default function NewBoardModal({ handleCreateModal }) {
 
       dispatch(addBoard(newBoard))
         .unwrap()
-        .then(() => {
+        .then((createdBoard) => {
+          console.log(createdBoard);
+          navigate(`/home/${createdBoard._id}`);
           console.log("add board"); // додати тост
           handleCreateModal();
         })
-        .catch(() => {
-          console.error(); // додати тост
+        .catch((error) => {
+          console.error("Failed to add board:", error); // додати тост
         });
       reset();
     }
@@ -141,7 +144,7 @@ export default function NewBoardModal({ handleCreateModal }) {
               placeholder="Title"
               {...register("title", { required: "Title is required" })}
             />
-            {errors.title && <span>{errors.title.message}</span>}{" "}
+            {errors.title && <span>{errors.title.message}</span>}
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
               <ul className={css.iconsContainer}>
@@ -167,7 +170,7 @@ export default function NewBoardModal({ handleCreateModal }) {
                   </li>
                 ))}
               </ul>
-              {errors.icon && <span>{errors.icon.message}</span>}{" "}
+              {errors.icon && <span>{errors.icon.message}</span>}
             </div>
             <h3 className={css.iconsTitle}>Background</h3>
             <ul className={css.bgList}>
@@ -182,7 +185,6 @@ export default function NewBoardModal({ handleCreateModal }) {
                       onChange={() => setSelectedBg(imageSrc.value)}
                       checked={selectedBg === imageSrc.value}
                     />
-
                     <Background
                       className={css.bgImage}
                       width={imageSrc.width}

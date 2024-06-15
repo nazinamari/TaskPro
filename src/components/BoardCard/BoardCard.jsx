@@ -6,14 +6,14 @@ import clsx from "clsx";
 import Modal from "react-modal";
 import { deleteBoard, getBoardById } from "../../../redux/board/operations";
 import { useDispatch } from "react-redux";
-// import { NavLink } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 Modal.setAppElement("#root");
 
 export default function BoardCard({ icon, title, id, isActive }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleOpenModal = (boardId) => {
     dispatch(getBoardById(boardId));
@@ -22,6 +22,16 @@ export default function BoardCard({ icon, title, id, isActive }) {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleBoardDelete = () => {
+    dispatch(deleteBoard(id))
+      .then(() => {
+        navigate("/home");
+      })
+      .catch((error) => {
+        console.error("Failed to delete board:", error);
+      });
   };
 
   return (
@@ -53,7 +63,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
         <button
           type="button"
           onClick={() => {
-            dispatch(deleteBoard(id));
+            handleBoardDelete();
           }}
           className={clsx(css.btn, { [css.activeBtn]: isActive })}
         >
