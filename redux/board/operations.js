@@ -39,8 +39,6 @@ export const editBoard = createAsyncThunk(
   "boards/editBoard",
   async ({ boardId, data }, thunkApi) => {
     try {
-      console.log(data);
-
       const response = await instance.put(`boards/${boardId}`, data);
 
       return response.data;

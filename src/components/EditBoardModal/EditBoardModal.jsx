@@ -69,7 +69,6 @@ const icons = [
 
 export default function EditBoardModal({ onClose, title }) {
   const board = useSelector(selectBoard);
-  console.log(board);
 
   const [selectedIcon, setSelectedIcon] = useState(
     board.board.icon || icons[0].value
