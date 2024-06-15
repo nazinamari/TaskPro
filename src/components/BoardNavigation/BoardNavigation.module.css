@@ -1,4 +1,4 @@
-@media (min-width: 375px) {
+@media (min-width: 320px) {
   .list {
     flex: 1;
     color: var(--second-text-color);

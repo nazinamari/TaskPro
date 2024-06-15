@@ -15,7 +15,7 @@ import p14 from "./Vector-13.png";
 import p15 from "./Vector-14.png";
 import p16 from "./Vector-15.png";
 
-const pictures_desktop_1x = [
+const pictures_desktop_1x = {
   p1,
   p2,
   p3,
@@ -32,6 +32,6 @@ const pictures_desktop_1x = [
   p14,
   p15,
   p16,
-];
+};
 
 export default pictures_desktop_1x;

@@ -4,20 +4,19 @@ import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import css from "./BoardCard.module.css";
 import clsx from "clsx";
 import Modal from "react-modal";
-import { deleteBoard } from "../../../redux/board/operations";
+import { deleteBoard, getBoardById } from "../../../redux/board/operations";
 import { useDispatch } from "react-redux";
-// import { editBoard } from "../../../redux/board/operations";
+import { NavLink } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
 export default function BoardCard({ icon, title, id, isActive }) {
-  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentBoardId, setCurrentBoardId] = useState(null);
+
+  const dispatch = useDispatch();
 
   const handleOpenModal = (boardId) => {
-    // dispatch(editBoard());
-    setCurrentBoardId(boardId);
+    // dispatch(getBoardById(boardId));
     setIsModalOpen(true);
   };
 
@@ -51,10 +50,10 @@ export default function BoardCard({ icon, title, id, isActive }) {
             className={css.iconBtn}
           />
         </button>
-        <button
-          type="button"
+        <NavLink
+          to="/home"
           onClick={() => {
-            dispatch(deleteBoard());
+            dispatch(deleteBoard(id));
           }}
           className={clsx(css.btn, { [css.activeBtn]: isActive })}
         >
@@ -64,14 +63,14 @@ export default function BoardCard({ icon, title, id, isActive }) {
             height="16"
             className={css.iconBtn}
           />
-        </button>
+        </NavLink>
         <Modal
           isOpen={isModalOpen}
           contentLabel="Edit Profile"
           className={css.modalWindowContent}
           overlayClassName={css.overlay}
         >
-          <EditBoardModal onClose={handleCloseModal} boardId={currentBoardId} />
+          <EditBoardModal onClose={handleCloseModal} title={title} />
         </Modal>
       </div>
     </div>

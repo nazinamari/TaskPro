@@ -13,6 +13,7 @@ export default function BoardPage() {
   const [id, setId] = useState(null);
   const dispatch = useDispatch();
   const location = useLocation();
+  const board = useSelector(selectBoard);
 
   useEffect(() => {
     const path = location.pathname.split("/").pop();
@@ -22,16 +23,18 @@ export default function BoardPage() {
   }, [location.pathname]);
 
   useEffect(() => {
-    dispatch(getBoardById(id));
+    if (id !== null) {
+      dispatch(getBoardById(id));
+    }
   }, [dispatch, id]);
 
-  const board = useSelector(selectBoard);
+  const title = board?.board?.title || "Loading...";
 
   return (
     <Layout>
       <SideBar />
       <MainContent
-        header={<BoardTittle title={id || "Loading..."} />} // Передати board.title
+        header={<BoardTittle title={title} />}
         content={<WorkPlace />}
       />
     </Layout>

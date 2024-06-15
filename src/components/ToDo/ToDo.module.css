@@ -55,7 +55,7 @@
 }
 
 .icon {
-  stroke: #b3b3b3;
+  stroke: rgba(255, 255, 255, 0.5);
   transition: stroke 0.3s ease;
 }
 
