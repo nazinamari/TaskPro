@@ -8,7 +8,7 @@ import "../../shared/styles/variables.css";
 const AddCardModal = ({ onAddCard, onClose }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [labelColor, setLabelColor] = useState("");
+  const [labelColor, setLabelColor] = useState("Without");
   const [deadline, setDeadline] = useState(new Date());
 
   const handleSubmit = (e) => {
@@ -36,6 +36,7 @@ const AddCardModal = ({ onAddCard, onClose }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
+            autoFocus
           />
         </div>
         <div className={styles.formGroupDescription}>

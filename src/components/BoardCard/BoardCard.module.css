@@ -66,6 +66,18 @@
   .activeIcon {
     stroke: var(--main-text-color);
   }
+
+  .modalWindowContent {
+    /* position: absolute; */
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    width: 335px;
+    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
+    background: var(--third-background-color);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 @media (min-width: 768px) {
   .container {
@@ -92,15 +104,6 @@
   }
 
   .modalWindowContent {
-    /* position: absolute; */
-    border: 1px solid var(--accent-color);
-    border-radius: 8px;
-    width: 335px;
-    min-height: 433px;
-    box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
-    background: var(--third-background-color);
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    width: 350px;
   }
 }

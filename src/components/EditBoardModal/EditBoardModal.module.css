@@ -79,7 +79,7 @@
   border-radius: 8px;
   width: 100%;
   height: 49px;
-  opacity: 0.4;
+  opacity: 1;
   background-color: transparent;
   font-weight: 400;
   font-size: 14px;
@@ -139,12 +139,12 @@
 }
 
 .iconRadio:checked + .iconImage {
-  stroke: #fff;
+  stroke: var(--main-text-color);
   opacity: 1;
 }
 
 .iconRadio:hover + .iconImage {
-  stroke: #fff;
+  stroke: var(--main-text-color);
   opacity: 1;
 }
 

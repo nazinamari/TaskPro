@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import ToDo from "../ToDo/ToDo";
@@ -18,6 +17,7 @@ const Column = ({
   onAddCard,
   onRemoveCard,
   onMoveCard,
+  onEditTitle,
 }) => {
   const [cards, setCards] = useState(initialCards);
   const [title, setTitle] = useState(initialTitle);
@@ -28,6 +28,10 @@ const Column = ({
   useEffect(() => {
     setCards(initialCards);
   }, [initialCards]);
+
+  useEffect(() => {
+    setTitle(initialTitle);
+  }, [initialTitle]);
 
   const handleAddCard = (newCard) => {
     const newCardWithId = { ...newCard, id: getRandomId() };
@@ -50,6 +54,7 @@ const Column = ({
 
   const handleEditTitle = (newTitle) => {
     setTitle(newTitle);
+    onEditTitle(id, newTitle);
   };
 
   const openModal = () => {
@@ -76,7 +81,7 @@ const Column = ({
       <div className={styles.cards}>
         {cards.map((card) => (
           <TaskCard
-            key={`${getRandomId()}`}
+            key={card.id}
             {...card}
             onRemove={() => handleRemoveCard(card.id)}
             onEdit={() => openEditModal(card)}

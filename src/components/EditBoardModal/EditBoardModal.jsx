@@ -1,7 +1,7 @@
 import css from "./EditBoardModal.module.css";
 // import { useForm } from "react-hook-form";
 import Icon from "../../shared/components/Icon/Icon";
-import bgImages from "../../images/desktop_1x/index";
+import bgImages from "../../images/mini/dt_1x/index";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { editBoard } from "../../../redux/board/operations";
