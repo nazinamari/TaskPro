@@ -16,9 +16,9 @@ const slice = createSlice({
       // { icon: "icon-colors", title: "Project pictures", id: "2" },
       // { icon: "icon-container", title: "Project cartoons", id: "3" },
     ],
+    currentBoard: null,
     loading: false,
     error: null,
-    currentBoard: null,
   },
   extraReducers: (builder) =>
     builder
@@ -62,9 +62,10 @@ const slice = createSlice({
       })
       .addCase(deleteBoard.fulfilled, (state, action) => {
         state.items = state.items.filter(
-          (item) => item.id !== action.payload.id
+          (item) => item._id !== action.payload._id
         );
         state.loading = false;
+        state.currentBoard = null;
       })
       .addCase(deleteBoard.rejected, (state) => {
         state.error = true;
@@ -77,7 +78,7 @@ const slice = createSlice({
       .addCase(editBoard.fulfilled, (state, action) => {
         state.loading = false;
         state.items = state.items.map((item) =>
-          item.id === action.payload.id ? action.payload : item
+          item._id === action.payload._id ? action.payload : item
         );
       })
       .addCase(editBoard.rejected, (state) => {

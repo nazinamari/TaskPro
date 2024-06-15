@@ -5,14 +5,15 @@ import BoardTittle from "../components/BoardTittle/BoardTittle";
 import { useState, useEffect } from "react";
 import WorkPlace from "../components/WorkPlace/WorkPlace";
 import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getBoardById } from "../../redux/board/operations";
-// import { selectBoard } from "../../redux/board/selectors";
+import { selectBoard } from "../../redux/board/selectors";
 
 export default function BoardPage() {
   const [id, setId] = useState(null);
   const dispatch = useDispatch();
   const location = useLocation();
+  const board = useSelector(selectBoard);
 
   useEffect(() => {
     const path = location.pathname.split("/").pop();
@@ -27,13 +28,13 @@ export default function BoardPage() {
     }
   }, [dispatch, id]);
 
-  // const board = useSelector(selectBoard);
+  const title = board?.board?.title || "Loading...";
 
   return (
     <Layout>
       <SideBar />
       <MainContent
-        header={<BoardTittle title={id || "Loading..."} />} // Передати board.title
+        header={<BoardTittle title={title} />}
         content={<WorkPlace />}
       />
     </Layout>
