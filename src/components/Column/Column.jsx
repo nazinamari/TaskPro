@@ -137,7 +137,7 @@ const Column = ({
   onDelete,
   onAddCard,
   onRemoveCard,
-  onMoveCard,
+  // onMoveCard,
   onEditTitle,
 }) => {
   const [cards, setCards] = useState(initialCards);

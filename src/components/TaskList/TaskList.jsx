@@ -42,8 +42,8 @@ const TaskList = ({ onEdit, onRemove }) => {
     onEdit(card);
   };
 
-  const handleMove = (id) => {
-    // Реализовать функцию перемещения карточки
+  const handleMove = () => {
+    // Реализовать функцию перемещения карточки   const handleMove = (id) => {
   };
 
   if (loading) return <div>Loading...</div>;
