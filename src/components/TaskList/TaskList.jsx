@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-	fetchAllCards,
 	selectAllCards,
 	selectLoading,
 	selectError,
 } from '../../../redux/cards/selectors';
 import TaskCard from '../CardTask/CardTask';
 import styles from './TaskList.module.css';
+import { fetchAllCards } from '../../../redux/cards/operations';
 
 const TaskList = ({ onEdit, onRemove }) => {
 	const dispatch = useDispatch();
