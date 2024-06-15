@@ -1,21 +1,28 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../../axios/apiInstance";
+
 export const fetchColumns = createAsyncThunk(
   "columns/fetchAll",
-  async (_, thunkAPI) => {
+  async ({ workplaceId }, thunkAPI) => {
     try {
-      const response = await instance.get("/columns");
+      const response = await instance.post("/columns/fetchAll", {
+        workplaceId,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
 export const addColumn = createAsyncThunk(
   "columns/addColumn",
-  async (newColumn, thunkAPI) => {
+  async ({ workplaceId, newColumn }, thunkAPI) => {
     try {
-      const response = await instance.post("/columns", newColumn);
+      const response = await instance.post("/columns", {
+        workplaceId,
+        newColumn,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -25,9 +32,12 @@ export const addColumn = createAsyncThunk(
 
 export const deleteColumn = createAsyncThunk(
   "columns/deleteColumn",
-  async (id, thunkAPI) => {
+  async ({ workplaceId, columnId }, thunkAPI) => {
     try {
-      const response = await instance.delete(`/columns/${id}`);
+      const response = await instance.post(`/columns/delete`, {
+        workplaceId,
+        columnId,
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -37,9 +47,13 @@ export const deleteColumn = createAsyncThunk(
 
 export const editColumn = createAsyncThunk(
   "columns/editColumn",
-  async ({ columnId, data }, thunkApi) => {
+  async ({ workplaceId, columnId, data }, thunkApi) => {
     try {
-      const response = await instance.put(`columns/${columnId}`, data);
+      const response = await instance.put(`columns/edit`, {
+        workplaceId,
+        columnId,
+        data,
+      });
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -49,9 +63,12 @@ export const editColumn = createAsyncThunk(
 
 export const getColumnById = createAsyncThunk(
   "columns/getColumnById",
-  async (id, thunkApi) => {
+  async ({ workplaceId, columnId }, thunkApi) => {
     try {
-      const response = await instance.get(`columns/${id}`);
+      const response = await instance.post(`columns/get`, {
+        workplaceId,
+        columnId,
+      });
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

@@ -6,10 +6,9 @@ import {
   fetchColumns,
   getColumnById,
 } from "./operations";
-// import { logOut } from "../auth/operations";
 
 const slice = createSlice({
-  name: "Columns",
+  name: "columns",
   initialState: {
     items: [],
     currentColumn: null,
@@ -61,7 +60,7 @@ const slice = createSlice({
           (item) => item._id !== action.payload._id
         );
         state.loading = false;
-        state.currentBoard = null;
+        state.currentColumn = null;
       })
       .addCase(deleteColumn.rejected, (state) => {
         state.error = true;
@@ -81,11 +80,6 @@ const slice = createSlice({
         state.error = true;
         state.loading = false;
       }),
-  // .addCase(logOut.fulfilled, (state) => {
-  //   state.items = [];
-  //   state.error = null;
-  //   state.loading = false;
-  // }),
 });
 
 export default slice.reducer;
