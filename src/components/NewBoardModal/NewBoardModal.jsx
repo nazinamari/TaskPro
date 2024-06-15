@@ -71,7 +71,7 @@ export default function NewBoardModal({ handleCreateModal }) {
   const dispatch = useDispatch();
   const boards = useSelector(selectAllBoards);
   const [selectedIcon, setSelectedIcon] = useState("Icon1");
-  const [selectedBg, setSelectedBg] = useState("p1");
+  const [selectedBg, setSelectedBg] = useState("bg-1");
 
   const {
     register,

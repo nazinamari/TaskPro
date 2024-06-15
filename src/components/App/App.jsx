@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { refreshUser } from "../../../redux/auth/operations";
 // import { selectIsRefreshing } from "../../../redux/auth/selectors";
 import { RestrictedRoute } from "../Routes/RestrictedRoute";
+import { PrivateRoute } from "../Routes/PrivateRoute";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage"));
@@ -32,15 +33,36 @@ export default function App() {
           <Route path="/auth" element={<AuthPage />}>
             <Route
               path="register"
-              element={<RestrictedRoute component={<RegisterForm />} />}
+              element={
+                <RestrictedRoute
+                  component={<RegisterForm />}
+                  redirectTo="/home"
+                />
+              }
             />
             <Route
               path="login"
-              element={<RestrictedRoute component={<LoginForm />} />}
+              element={
+                <RestrictedRoute component={<LoginForm />} redirectTo="/home" />
+              }
             />
           </Route>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/home/:boardName" element={<BoardPage />} />
+
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute component={<HomePage />} redirectTo="/welcome" />
+            }
+          />
+          <Route
+            path="/home/:boardName"
+            element={
+              <PrivateRoute component={<BoardPage />} redirectTo="/welcome" />
+            }
+          />
+
+          {/* <Route path="/home" element={<HomePage />} />
+          <Route path="/home/:boardName" element={<BoardPage />} /> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
