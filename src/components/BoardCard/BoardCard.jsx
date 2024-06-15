@@ -4,7 +4,7 @@ import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import css from "./BoardCard.module.css";
 import clsx from "clsx";
 import Modal from "react-modal";
-import { deleteBoard } from "../../../redux/board/operations";
+import { deleteBoard, getBoardById } from "../../../redux/board/operations";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -15,7 +15,8 @@ export default function BoardCard({ icon, title, id, isActive }) {
 
   const dispatch = useDispatch();
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (boardId) => {
+    dispatch(getBoardById(boardId));
     setIsModalOpen(true);
   };
 

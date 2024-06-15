@@ -11,11 +11,7 @@ import { logOut } from "../auth/operations";
 const slice = createSlice({
   name: "boards",
   initialState: {
-    items: [
-      // { icon: "icon-container", title: "Project office", id: "1" },
-      // { icon: "icon-colors", title: "Project pictures", id: "2" },
-      // { icon: "icon-container", title: "Project cartoons", id: "3" },
-    ],
+    items: [],
     currentBoard: null,
     loading: false,
     error: null,

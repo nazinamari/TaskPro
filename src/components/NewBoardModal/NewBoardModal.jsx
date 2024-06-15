@@ -1,65 +1,65 @@
 import css from "./NewBoardModal.module.css";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Icon from "../../shared/components/Icon/Icon";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllBoards } from "../../../redux/board/selectors.js";
 import bgImages from "../../images/mini/dt_1x/index.js";
 import { addBoard } from "../../../redux/board/operations.js";
-import { useState } from "react";
 import Background from "../../shared/components/Background/Background.jsx";
 
 const icons = [
   {
-    value: "Icon1",
+    value: "icon-projects",
     id: "icon-projects",
     alt: "icon-projects",
     width: "18",
     height: "18",
   },
   {
-    value: "Icon2",
+    value: "icon-star",
     id: "icon-star",
     alt: "icon-star",
     width: "18",
     height: "18",
   },
   {
-    value: "Icon3",
+    value: "icon-loading",
     id: "icon-loading",
     alt: "icon-loading",
     width: "18",
     height: "18",
   },
   {
-    value: "Icon4",
+    value: "icon-puzzle",
     id: "icon-puzzle",
     alt: "icon-puzzle",
     width: "18",
     height: "18",
   },
   {
-    value: "Icon5",
+    value: "icon-container",
     id: "icon-container",
     alt: "icon-container",
     width: "18",
     height: "18",
   },
   {
-    value: "Icon6",
+    value: "icon-lightning",
     id: "icon-lightning",
     alt: "icon-lightning",
     width: "18",
     height: "18",
   },
   {
-    value: "Icon7",
+    value: "icon-colors",
     id: "icon-colors",
     alt: "icon-colors",
     width: "18",
     height: "18",
   },
   {
-    value: "Icon8",
+    value: "icon-hexagon",
     id: "icon-hexagon",
     alt: "icon-hexagon",
     width: "18",
@@ -70,36 +70,43 @@ const icons = [
 export default function NewBoardModal({ handleCreateModal }) {
   const dispatch = useDispatch();
   const boards = useSelector(selectAllBoards);
-  const [selectedIcon, setSelectedIcon] = useState("Icon1");
+  const [selectedIcon, setSelectedIcon] = useState("icon-projects");
   const [selectedBg, setSelectedBg] = useState("bg-1");
-
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm({
     defaultValues: {
       Icon: selectedIcon,
       Background: setSelectedBg,
+      title: "",
+      icon: selectedIcon,
+      background: selectedBg,
     },
   });
+  useEffect(() => {
+    setValue("icon", selectedIcon);
+    setValue("background", selectedBg);
+  }, [selectedIcon, setValue, selectedBg]);
 
   const onSubmit = (values, actions) => {
     if (boards.find((board) => board.title.trim() === values.title.trim())) {
-      alert("already exist");
+      alert("Board with this title already exists");
     } else {
       const newBoard = {
         title: values.title,
         icon: selectedIcon,
-        bgImage: selectedBg,
+        background: selectedBg,
       };
 
       dispatch(addBoard(newBoard))
         .unwrap()
         .then(() => {
-          console.log("add board"); // додати тост
           handleCreateModal();
+          reset();
         })
         .catch(() => {
           console.error(); // додати тост
@@ -146,7 +153,7 @@ export default function NewBoardModal({ handleCreateModal }) {
                       type="radio"
                       value={icon.value}
                       id={icon.id}
-                      {...register("Icon")}
+                      {...register("icon")}
                       className={css.iconRadio}
                       onChange={() => setSelectedIcon(icon.value)}
                       checked={selectedIcon === icon.value}
@@ -162,7 +169,7 @@ export default function NewBoardModal({ handleCreateModal }) {
                   </li>
                 ))}
               </ul>
-              {errors.Icon && <span>{errors.Icon.message}</span>}
+              {errors.icon && <span>{errors.icon.message}</span>}{" "}
             </div>
 
             <h3 className={css.iconsTitle}>Background</h3>
