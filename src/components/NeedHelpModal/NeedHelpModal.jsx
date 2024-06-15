@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Icon from "../../shared/components/Icon/Icon";
+import instance from "../../../axios/apiInstance.js";
 
 export default function NeedHelpModal({ handleHelpModal }) {
   const schema = yup.object().shape({
@@ -16,7 +17,6 @@ export default function NeedHelpModal({ handleHelpModal }) {
       .required("The email field is not filled"),
     comment: yup
       .string()
-      .matches("The comment field is not filled")
       .min(2, "Comment must be at least 2 characters")
       .max(100, "Comment must be at most 100 characters")
       .required("The comment field is not filled"),
@@ -25,6 +25,7 @@ export default function NeedHelpModal({ handleHelpModal }) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -35,12 +36,24 @@ export default function NeedHelpModal({ handleHelpModal }) {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
   const stopPropagation = (event) => {
     event.stopPropagation();
+  };
+
+  const onSubmit = async (values) => {
+    const message = {
+      sender: values.email,
+      comment: values.comment,
+    };
+
+    try {
+      await instance.post("users/help", message);
+      console.log("Message sent successfully"); // додати тост
+      reset();
+      handleHelpModal();
+    } catch (error) {
+      console.error("Error sending message:", error); // додати тост
+    }
   };
 
   return (
@@ -54,6 +67,7 @@ export default function NeedHelpModal({ handleHelpModal }) {
           <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={css.formContainer}>
               <input
+                name="email"
                 className={css.input}
                 type="email"
                 placeholder="Email address"
@@ -61,11 +75,13 @@ export default function NeedHelpModal({ handleHelpModal }) {
               />
               {errors.email && <p>{errors.email.message}</p>}
               <textarea
+                name="comment"
                 className={css.textarea}
                 type="text"
                 placeholder="Comment"
                 {...register("comment")}
               />
+              {errors.comment && <p>{errors.comment.message}</p>}
             </div>
             <button type="submit" className={css.sendBtn}>
               Send

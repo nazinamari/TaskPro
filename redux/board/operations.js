@@ -1,21 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../../axios/apiInstance";
-export const fetchBoards = createAsyncThunk(
-  "boards/fetchAll",
+import axios from "axios";
+
+export const instance = axios.create({
+  baseURL: "https://taskpro-api-nmqb.onrender.com",
+});
+
+export const fetchAllCards = createAsyncThunk(
+  "cards/fetchAll",
   async (_, thunkAPI) => {
     try {
-      const response = await instance.get("/boards");
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-export const addBoard = createAsyncThunk(
-  "boards/addBoard",
-  async (newBoard, thunkAPI) => {
-    try {
-      const response = await instance.post("/boards", newBoard);
+      const response = await instance.get("/cards");
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -23,11 +18,23 @@ export const addBoard = createAsyncThunk(
   }
 );
 
-export const deleteBoard = createAsyncThunk(
-  "boards/deleteBoard",
+export const addCard = createAsyncThunk(
+  "cards/addCard",
+  async (newCard, thunkAPI) => {
+    try {
+      const response = await instance.post("/cards", newCard);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteCard = createAsyncThunk(
+  "cards/deleteCard",
   async (id, thunkAPI) => {
     try {
-      const response = await instance.delete(`/boards/${id}`);
+      const response = await instance.delete(`/cards/${id}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -35,12 +42,11 @@ export const deleteBoard = createAsyncThunk(
   }
 );
 
-export const editBoard = createAsyncThunk(
-  "boards/editBoard",
-  async ({ boardId, data }, thunkApi) => {
+export const editCard = createAsyncThunk(
+  "cards/editCards",
+  async ({ cardId, data }, thunkApi) => {
     try {
-      const response = await instance.put(`boards/${boardId}`, data);
-
+      const response = await instance.put(`/cards/${cardId}`, data);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -48,12 +54,11 @@ export const editBoard = createAsyncThunk(
   }
 );
 
-export const getBoardById = createAsyncThunk(
-  "boards/getBoardById",
-  async (id, thunkApi) => {
+export const getCardById = createAsyncThunk(
+  "cards/getCardById",
+  async (cardId, thunkApi) => {
     try {
-      const response = await instance.get(`boards/${id}`);
-      console.log(response.data);
+      const response = await instance.get(`boards/${cardId}`);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

@@ -24,6 +24,7 @@ const slice = createSlice({
       })
       .addCase(fetchBoards.fulfilled, (state, action) => {
         state.loading = false;
+        console.log(action.payload);
         state.items = action.payload;
       })
       .addCase(fetchBoards.rejected, (state) => {

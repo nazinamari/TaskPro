@@ -82,6 +82,13 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+
+  &:hover {
+    background-color: #9dc888;
+  }
 }
 
 @media (min-width: 375px) {
