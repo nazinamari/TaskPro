@@ -22,7 +22,9 @@ export default function BoardPage() {
   }, [location.pathname]);
 
   useEffect(() => {
-    dispatch(getBoardById(id));
+    if (id !== null) {
+      dispatch(getBoardById(id));
+    }
   }, [dispatch, id]);
 
   // const board = useSelector(selectBoard);
