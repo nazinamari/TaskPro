@@ -58,7 +58,6 @@ export const getCardById = createAsyncThunk(
   async (cardId, thunkApi) => {
     try {
       const response = await instance.get(`boards/${cardId}`);
-      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
