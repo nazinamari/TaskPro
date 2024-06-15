@@ -68,11 +68,17 @@ const icons = [
 ];
 
 export default function EditBoardModal({ onClose, title }) {
-  const [selectedIcon, setSelectedIcon] = useState("Icon1");
-  const [selectedBg, setSelectedBg] = useState("bg-1");
+  const board = useSelector(selectBoard);
+  console.log(board);
+
+  const [selectedIcon, setSelectedIcon] = useState(
+    board.board.icon || icons[0].value
+  );
+  const [selectedBg, setSelectedBg] = useState(
+    board.board.background || "bg-1"
+  );
   const [boardTitle, setBoardTitle] = useState(title);
 
-  const board = useSelector(selectBoard);
   const dispatch = useDispatch();
 
   const onSubmit = (event) => {
@@ -83,8 +89,7 @@ export default function EditBoardModal({ onClose, title }) {
       icon: selectedIcon,
       background: selectedBg,
     };
-    console.log(data);
-    dispatch(editBoard(id, data))
+    dispatch(editBoard({ boardId: id, data }))
       .unwrap()
       .then(() => {
         console.log("update successfully"); // додати тост
@@ -92,6 +97,8 @@ export default function EditBoardModal({ onClose, title }) {
       .catch((error) => {
         console.error(error.message);
       });
+    console.log(data);
+    onClose();
   };
 
   const stopPropagation = (event) => {
@@ -110,7 +117,6 @@ export default function EditBoardModal({ onClose, title }) {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [onClose]);
-
   return (
     <div className={css.container} onClick={onClose}>
       <div className={css.modalWindow} onClick={stopPropagation}>

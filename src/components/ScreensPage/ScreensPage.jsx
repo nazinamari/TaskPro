@@ -1,12 +1,13 @@
 import css from "./ScreensPage.module.css";
-// import { useState } from "react";
-// import { useSelector } from "react-redux";
-// import { selectBoard } from "../../redux/board/selectors";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectBoard } from "../../../redux/board/selectors";
 
 export default function ScreensPage({ children }) {
-  // const [backgroundUrl, setBackgroundUrl] = useState(null);
+  const [backgroundUrl, setBackgroundUrl] = useState(null);
   // const board = useSelector(selectBoard);
-  // setBackgroundUrl(board.backgroundImage)
+  // setBackgroundUrl(board.board.background);
+  // console.log(board);
 
   const style = {
     // backgroundImage: `url(../../images/desktop_1x/${backgroundUrl})`,

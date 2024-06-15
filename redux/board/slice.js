@@ -73,7 +73,6 @@ const slice = createSlice({
       })
       .addCase(editBoard.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(action.payload);
         state.items = state.items.map((item) =>
           item._id === action.payload._id ? action.payload : item
         );
