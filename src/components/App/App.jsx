@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { refreshUser } from "../../../redux/auth/operations";
 // import { selectIsRefreshing } from "../../../redux/auth/selectors";
 import { RestrictedRoute } from "../Routes/RestrictedRoute";
+import { PrivateRoute } from "../Routes/PrivateRoute";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage"));
@@ -39,8 +40,18 @@ export default function App() {
               element={<RestrictedRoute component={<LoginForm />} />}
             />
           </Route>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/home/:boardName" element={<BoardPage />} />
+
+          <Route
+            path="/home"
+            element={<PrivateRoute component={<HomePage />} />}
+          />
+          <Route
+            path="/home/:boardName"
+            element={<PrivateRoute component={<BoardPage />} />}
+          />
+
+          {/* <Route path="/home" element={<HomePage />} />
+          <Route path="/home/:boardName" element={<BoardPage />} /> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
