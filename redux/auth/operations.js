@@ -77,7 +77,7 @@ export const fetchtUserTheme = createAsyncThunk(
 	'auth/fetchUserTheme',
 	async (_, thunkAPI) => {
 		try {
-			const response = await instance.get(`/users/current/`);
+			const response = await instance.get(`/users/current`);
 			return response.data;
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message);
