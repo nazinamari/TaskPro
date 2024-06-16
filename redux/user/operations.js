@@ -11,3 +11,27 @@ export const needHelp = createAsyncThunk(
     }
   }
 );
+
+export const fetchUser = createAsyncThunk(
+  "users/fetchUser",
+  async (_, thunkAPI) => {
+    try {
+      const response = await instance.get("/users/current");
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUserProfile = createAsyncThunk(
+  "users/updateUserProfile",
+  async (userData, thunkAPI) => {
+    try {
+      const response = await instance.put("/users/update", userData);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
