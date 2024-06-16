@@ -85,6 +85,7 @@ const slice = createSlice({
         state.items = [];
         state.error = null;
         state.loading = false;
+        state.currentBoard = null;
       }),
 });
 
