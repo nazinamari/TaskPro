@@ -5,6 +5,7 @@ import {
 	logOut,
 	refreshUser,
 	updateUserTheme,
+	fetchtUserTheme,
 } from './operations';
 
 const authSlice = createSlice({
@@ -79,6 +80,18 @@ const authSlice = createSlice({
 			})
 			.addCase(refreshUser.rejected, (state) => {
 				state.isLoading = false;
+			})
+			.addCase(fetchtUserTheme.pending, (state) => {
+				state.error = false;
+				state.isLoading = true;
+			})
+			.addCase(fetchtUserTheme.fulfilled, (state, action) => {
+				state.isLoading = false;
+				state.user.theme = action.payload;
+			})
+			.addCase(fetchtUserTheme.rejected, (state) => {
+				state.isLoading = false;
+				state.error = true;
 			})
 			.addCase(updateUserTheme.pending, (state) => {
 				state.isLoading = true;

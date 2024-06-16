@@ -69,16 +69,22 @@ export const refreshUser = createAsyncThunk(
 	}
 );
 
+export const fetchtUserTheme = createAsyncThunk(
+	'auth/fetchUserTheme',
+	async (_, thunkAPI) => {
+		try {
+			const response = await instance.get(`/users/current/`);
+			return response.data;
+		} catch (error) {
+			return thunkAPI.rejectWithValue(error.message);
+		}
+	}
+);
+
 export const updateUserTheme = createAsyncThunk(
 	'auth/updateUserTheme',
 	async (theme, thunkAPI) => {
 		try {
-			// const state = thunkAPI.getState();
-			// const persistedToken = state.auth.token;
-			// if (persistedToken === null) {
-			// 	return thunkAPI.rejectWithValue('Unable to fetch user');
-			// }
-
 			const response = await instance.patch(`/theme`, theme);
 			return response.data;
 		} catch (error) {
@@ -86,3 +92,21 @@ export const updateUserTheme = createAsyncThunk(
 		}
 	}
 );
+
+// export const updateUserTheme = createAsyncThunk(
+// 	'auth/updateUserTheme',
+// 	async (theme, thunkAPI) => {
+// 		try {
+// 			const state = thunkAPI.getState();
+// 			const persistedToken = state.auth.token;
+// 			if (persistedToken === null) {
+// 				return thunkAPI.rejectWithValue('Unable to fetch user');
+// 			}
+
+// 			const response = await instance.patch(`/theme`, theme);
+// 			return response.data;
+// 		} catch (error) {
+// 			return thunkAPI.rejectWithValue(error.message);
+// 		}
+// 	}
+// );
