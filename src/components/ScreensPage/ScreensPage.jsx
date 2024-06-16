@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 export default function ScreensPage({ children }) {
   const [background, setBackground] = useState("bg-1");
   const board = useSelector(selectBoard);
-  console.log(board);
 
   useEffect(() => {
     if (board) {
