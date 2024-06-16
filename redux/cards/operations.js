@@ -124,13 +124,14 @@ export const getCardById = createAsyncThunk(
   "cards/getById",
   async ({ columnId, cardId }, thunkAPI) => {
     try {
-      const response = await axios.post("/api/cards/getById", {
-        columnId,
-        cardId,
-      });
+      const response = await instance.get(`boards/${cardId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+//       const response = await axios.post("/api/cards/getById", {
+//         columnId,
+//         cardId,
+//       });
