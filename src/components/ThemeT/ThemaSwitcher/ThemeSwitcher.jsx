@@ -2,10 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import styles from './ThemeSwitcher.module.css';
 import Icon from '../../../shared/components/Icon/Icon';
 import List from '../../../shared/components/List/List';
+import data from '../data/theme.json';
+import Theme from './Theme';
 
 const ThemeSwitcher = ({ changeTheme }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const dropdownRef = useRef(null);
+	const themes = [...data];
 
 	const toggleDropdown = () => {
 		setIsOpen(!isOpen);
@@ -44,7 +47,13 @@ const ThemeSwitcher = ({ changeTheme }) => {
 			{isOpen && (
 				<div className={styles.dropdownMenu}>
 					<List className={styles.ThemeList}>
-						<li
+						{themes.map((item) => (
+							<li key={item}>
+								<Theme data={item} className={styles.themeItem} />
+							</li>
+						))}
+
+						{/* <li
 							className={styles.themeItem}
 							onClick={() => handleThemeChange('light')}
 						>
@@ -61,7 +70,7 @@ const ThemeSwitcher = ({ changeTheme }) => {
 							onClick={() => handleThemeChange('violet')}
 						>
 							Violet
-						</li>
+						</li> */}
 					</List>
 				</div>
 			)}
