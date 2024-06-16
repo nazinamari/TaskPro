@@ -26,7 +26,7 @@ export default function ScreensPage({ children }) {
           postfix += "@2x";
         }
 
-        return `../../../public/backgrounds/${suffix}/${board.board.background}${postfix}.webp`;
+        return `/backgrounds/${suffix}/${board.board.background}${postfix}.webp`;
       };
 
       setBackground(determineBackground());
