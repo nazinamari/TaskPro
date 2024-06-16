@@ -9,12 +9,42 @@ export default function ScreensPage({ children }) {
 
   useEffect(() => {
     if (board) {
-      setBackground(board.board.background);
+      const determineBackground = () => {
+        const screenWidth = window.innerWidth;
+        const isRetina = window.devicePixelRatio > 1;
+        let suffix = "desktop";
+        let postfix = "";
+
+        if (screenWidth < 768) {
+          suffix = "mobile";
+        } else if (screenWidth < 1024) {
+          suffix = "tablet";
+        }
+
+        if (isRetina) {
+          suffix += "@2x";
+          postfix += "@2x";
+        }
+
+        return `../../../public/backgrounds/${suffix}/${board.board.background}${postfix}.webp`;
+      };
+
+      setBackground(determineBackground());
+
+      const handleResize = () => {
+        setBackground(determineBackground());
+      };
+
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
     }
   }, [board]);
-  console.log(background);
+
   const style = {
-    backgroundImage: `url(../../../../../public/backgrounds/desktop_1x/${background}.webp)`,
+    backgroundImage: `url(${background}`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "100vh",
