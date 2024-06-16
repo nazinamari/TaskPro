@@ -13,6 +13,7 @@ import {
 import filtersReducer from "./filters/slice";
 import authReducer from "./auth/slice";
 import boardReducer from "./board/slice";
+import {userReducer} from './user/slice'
 
 const authPersistConfig = {
   key: "auth",
@@ -27,6 +28,8 @@ export const store = configureStore({
     filters: filtersReducer,
     auth: persistedAuthReducer,
     boards: boardReducer,
+    user: userReducer,
+
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
