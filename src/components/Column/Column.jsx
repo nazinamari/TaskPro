@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-modal";
 import ToDo from "../ToDo/ToDo";
-import TaskCard from "../CardTask/CardTask";
+import CardTask from "../CardTask/CardTask";
 import AddCardBtn from "../AddCardBtn/AddCardBtn";
 import AddCardModal from "../AddCardModal/AddCardModal";
 import EditCardModal from "../EditCardModal/EditCardModal";
@@ -80,7 +80,7 @@ const Column = ({
       <ToDo title={title} onEditTitle={handleEditTitle} onDelete={onDelete} />
       <div className={styles.cards}>
         {cards.map((card) => (
-          <TaskCard
+          <CardTask
             key={card.id}
             {...card}
             onRemove={() => handleRemoveCard(card.id)}

@@ -2,7 +2,7 @@ import Icon from "../../shared/components/Icon/Icon";
 import styles from "./CardTask.module.css";
 import "../../shared/styles/variables.css";
 
-const TaskCard = ({
+const CardTask = ({
   title,
   description,
   labelColor = "Without",
@@ -58,4 +58,4 @@ const TaskCard = ({
   );
 };
 
-export default TaskCard;
+export default CardTask;
