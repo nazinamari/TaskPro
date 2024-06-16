@@ -51,10 +51,16 @@ export const refreshUser = createAsyncThunk(
 	async (_, thunkApi) => {
 		const reduxState = thunkApi.getState();
 		const savedToken = reduxState.auth.token;
+		if (!savedToken) {
+			return thunkApi.rejectWithValue('Token is missing');
+		}
 		setAuthHeader(savedToken);
+
 		try {
 			const response = await instance.get('/users/current');
-			console.log(response.data);
+
+			console.log('User data:', response.data);
+
 			return response.data;
 		} catch (error) {
 			return thunkApi.rejectWithValue(error.message);
@@ -63,8 +69,8 @@ export const refreshUser = createAsyncThunk(
 	{
 		condition: (_, { getState }) => {
 			const reduxState = getState();
-			const savedToken = reduxState.auth.token;
-			return savedToken !== null;
+			const savedToken = reduxState.auth.user.token;
+			return savedToken != null;
 		},
 	}
 );
@@ -85,28 +91,10 @@ export const updateUserTheme = createAsyncThunk(
 	'auth/updateUserTheme',
 	async (theme, thunkAPI) => {
 		try {
-			const response = await instance.patch(`/theme`, theme);
+			const response = await instance.patch(`/theme`, { theme });
 			return response.data;
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error.message);
 		}
 	}
 );
-
-// export const updateUserTheme = createAsyncThunk(
-// 	'auth/updateUserTheme',
-// 	async (theme, thunkAPI) => {
-// 		try {
-// 			const state = thunkAPI.getState();
-// 			const persistedToken = state.auth.token;
-// 			if (persistedToken === null) {
-// 				return thunkAPI.rejectWithValue('Unable to fetch user');
-// 			}
-
-// 			const response = await instance.patch(`/theme`, theme);
-// 			return response.data;
-// 		} catch (error) {
-// 			return thunkAPI.rejectWithValue(error.message);
-// 		}
-// 	}
-// );

@@ -36,6 +36,7 @@ const authSlice = createSlice({
 				state.user = action.payload.user;
 				state.token = action.payload.token;
 				state.isLoggedIn = true;
+				state.isLoading = false;
 				state.status = 'succeeded';
 			})
 			.addCase(registerUser.rejected, (state) => {
@@ -79,7 +80,7 @@ const authSlice = createSlice({
 				state.isRefreshing = false;
 			})
 			.addCase(refreshUser.rejected, (state) => {
-				state.isLoading = false;
+				state.isRefreshing = false;
 			})
 			.addCase(fetchtUserTheme.pending, (state) => {
 				state.error = false;
