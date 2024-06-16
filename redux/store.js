@@ -17,7 +17,7 @@ import boardReducer from "./board/slice";
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["token"],
+  whitelist: ["token", "isLoggedIn"],
 };
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
