@@ -14,7 +14,7 @@ export default function ScreensPage({ children }) {
   }, [board]);
   console.log(background);
   const style = {
-    // backgroundImage: `url(../../images/desktop_1x/${backgroundUrl})`,
+    backgroundImage: `url(../../../../../public/backgrounds/desktop_1x/${background}.webp)`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     height: "100vh",
