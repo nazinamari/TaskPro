@@ -13,11 +13,13 @@ import {
 import filtersReducer from "./filters/slice";
 import authReducer from "./auth/slice";
 import boardReducer from "./board/slice";
+import columnsReducer from "./column/slice";
+import cardsReducer from "./cards/slice";
 
 const authPersistConfig = {
   key: "auth",
   storage,
-  whitelist: ["token"],
+  whitelist: ["token", "isLoggedIn"],
 };
 
 const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
@@ -27,6 +29,8 @@ export const store = configureStore({
     filters: filtersReducer,
     auth: persistedAuthReducer,
     boards: boardReducer,
+    columns: columnsReducer,
+    cards: cardsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

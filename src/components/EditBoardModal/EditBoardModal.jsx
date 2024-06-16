@@ -2,62 +2,63 @@ import css from "./EditBoardModal.module.css";
 import Icon from "../../shared/components/Icon/Icon";
 import bgImages from "../../images/mini/dt_1x/index";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { editBoard } from "../../../redux/board/operations";
 import Background from "../../shared/components/Background/Background";
+import { useDispatch, useSelector } from "react-redux";
+import { selectBoard } from "../../../redux/board/selectors";
 
 const icons = [
   {
-    value: "Icon1",
+    value: "icon-projects",
     id: "icon-projects",
     alt: "icon-projects",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon2",
+    value: "icon-star",
     id: "icon-star",
     alt: "icon-star",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon3",
+    value: "icon-loading",
     id: "icon-loading",
     alt: "icon-loading",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon4",
+    value: "icon-puzzle",
     id: "icon-puzzle",
     alt: "icon-puzzle",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon5",
+    value: "icon-container",
     id: "icon-container",
     alt: "icon-container",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon6",
+    value: "icon-lightning",
     id: "icon-lightning",
     alt: "icon-lightning",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon7",
+    value: "icon-colors",
     id: "icon-colors",
     alt: "icon-colors",
     width: "18px",
     height: "18px",
   },
   {
-    value: "Icon8",
+    value: "icon-hexagon",
     id: "icon-hexagon",
     alt: "icon-hexagon",
     width: "18px",
@@ -66,19 +67,33 @@ const icons = [
 ];
 
 export default function EditBoardModal({ onClose, title }) {
-  const [selectedIcon, setSelectedIcon] = useState("Icon1");
-  const [selectedBg, setSelectedBg] = useState("bg-1");
+  const board = useSelector(selectBoard);
+  console.log(board);
+  const [selectedIcon, setSelectedIcon] = useState(
+    board.board.icon || icons[0].value
+  );
+  const [selectedBg, setSelectedBg] = useState(
+    board.board.background || "bg-1"
+  );
+  const [boardTitle, setBoardTitle] = useState(title);
+
+  useEffect(() => {
+    setSelectedIcon(board.board.icon || icons[0].value);
+    setSelectedBg(board.board.background || "bg-1");
+    setBoardTitle(board.board.title);
+  }, [board]);
+
   const dispatch = useDispatch();
 
   const onSubmit = (event) => {
     event.preventDefault();
-
+    const id = board.board._id;
     const data = {
-      title: title,
+      title: boardTitle,
       icon: selectedIcon,
       background: selectedBg,
     };
-    dispatch(editBoard(data))
+    dispatch(editBoard({ boardId: id, data }))
       .unwrap()
       .then(() => {
         console.log("update successfully"); // додати тост
@@ -86,6 +101,7 @@ export default function EditBoardModal({ onClose, title }) {
       .catch((error) => {
         console.error(error.message);
       });
+    onClose();
   };
 
   const stopPropagation = (event) => {
@@ -120,8 +136,13 @@ export default function EditBoardModal({ onClose, title }) {
           </button>
           <h2 className={css.title}>Edit board</h2>
 
-          <form className={css.form}>
-            <input className={css.input} type="text" defaultValue={title} />
+          <form className={css.form} onSubmit={onSubmit}>
+            <input
+              className={css.input}
+              type="text"
+              value={boardTitle}
+              onChange={(e) => setBoardTitle(e.target.value)}
+            />{" "}
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
               <ul className={css.iconsContainer}>
@@ -130,7 +151,7 @@ export default function EditBoardModal({ onClose, title }) {
                     <label htmlFor={icon.id} className={css.iconLabel}>
                       <input
                         type="radio"
-                        value={selectedIcon}
+                        value={icon.value}
                         id={icon.id}
                         className={css.iconRadio}
                         onChange={() => setSelectedIcon(icon.value)}
@@ -156,7 +177,7 @@ export default function EditBoardModal({ onClose, title }) {
                   <label htmlFor={`bg-${index}`} className={css.bgLabel}>
                     <input
                       type="radio"
-                      value={selectedBg}
+                      value={image.value}
                       id={`bg-${index}`}
                       className={css.iconRadio}
                       onChange={() => setSelectedBg(image.value)}
@@ -173,8 +194,7 @@ export default function EditBoardModal({ onClose, title }) {
                 </li>
               ))}
             </ul>
-
-            <button type="submit" className={css.editBtn} onSubmit={onSubmit}>
+            <button type="submit" className={css.editBtn}>
               <div className={css.wrapper}>
                 <Icon
                   id="icon-plus"
