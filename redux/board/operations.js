@@ -1,5 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../../axios/apiInstance";
+import { setAuthHeader } from "../auth/operations";
+
 export const fetchBoards = createAsyncThunk(
   "boards/fetchAll",
   async (_, thunkAPI) => {
