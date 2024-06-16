@@ -68,10 +68,3 @@ export const refreshUser = createAsyncThunk(
     },
   }
 );
-
-// більш детальна обробка помилок
-//   if (error.response && error.response.data) {
-//     return thunkApi.rejectWithValue(error.response.data.message);
-//   }
-//   return thunkApi.rejectWithValue(error.message);
-// }

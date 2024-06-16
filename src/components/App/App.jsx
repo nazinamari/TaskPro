@@ -65,9 +65,6 @@ export default function App() {
               <PrivateRoute component={<BoardPage />} redirectTo="/welcome" />
             }
           />
-
-          {/* <Route path="/home" element={<HomePage />} />
-          <Route path="/home/:boardName" element={<BoardPage />} /> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
