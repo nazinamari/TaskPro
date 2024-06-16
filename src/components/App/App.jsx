@@ -29,7 +29,12 @@ export default function App() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Navigate to="/welcome" />} />
-          <Route path="/welcome" element={<WelcomePage />} />
+          <Route
+            path="/welcome"
+            element={
+              <RestrictedRoute component={<WelcomePage />} redirectTo="/home" />
+            }
+          />
           <Route path="/auth" element={<AuthPage />}>
             <Route
               path="register"
@@ -51,7 +56,7 @@ export default function App() {
           <Route
             path="/home"
             element={
-              <PrivateRoute component={<HomePage />} redirectTo="/welcome" />
+              <PrivateRoute component={<HomePage />} redirectTo="/auth/login" />
             }
           />
           <Route
