@@ -1,3 +1,70 @@
+// import { createAsyncThunk } from "@reduxjs/toolkit";
+// import axios from "axios";
+
+// export const instance = axios.create({
+//   baseURL: "https://taskpro-api-nmqb.onrender.com",
+// });
+
+// export const fetchAllCards = createAsyncThunk(
+//   "cards/fetchAll",
+//   async (_, thunkAPI) => {
+//     try {
+//       const response = await instance.get("/cards");
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+// export const addCard = createAsyncThunk(
+//   "cards/addCard",
+//   async (newCard, thunkAPI) => {
+//     try {
+//       const response = await instance.post("/cards", newCard);
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+// export const deleteCard = createAsyncThunk(
+//   "cards/deleteCard",
+//   async (id, thunkAPI) => {
+//     try {
+//       const response = await instance.delete(`/cards/${id}`);
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+// export const editCard = createAsyncThunk(
+//   "cards/editCards",
+//   async ({ cardId, data }, thunkApi) => {
+//     try {
+//       const response = await instance.put(`/cards/${cardId}`, data);
+//       return response.data;
+//     } catch (error) {
+//       return thunkApi.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
+// export const getCardById = createAsyncThunk(
+//   "cards/getCardById",
+//   async (cardId, thunkApi) => {
+//     try {
+//       const response = await instance.get(`boards/${cardId}`);
+//       console.log(response.data);
+//       return response.data;
+//     } catch (error) {
+//       return thunkApi.rejectWithValue(error.message);
+//     }
+//   }
+// );
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -7,9 +74,9 @@ export const instance = axios.create({
 
 export const fetchAllCards = createAsyncThunk(
   "cards/fetchAll",
-  async (_, thunkAPI) => {
+  async ({ columnId }, thunkAPI) => {
     try {
-      const response = await instance.get("/cards");
+      const response = await axios.post("/api/cards/fetchAll", { columnId });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -18,10 +85,10 @@ export const fetchAllCards = createAsyncThunk(
 );
 
 export const addCard = createAsyncThunk(
-  "cards/addCard",
-  async (newCard, thunkAPI) => {
+  "cards/add",
+  async ({ columnId, card }, thunkAPI) => {
     try {
-      const response = await instance.post("/cards", newCard);
+      const response = await axios.post("/api/cards/add", { columnId, card });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -30,11 +97,11 @@ export const addCard = createAsyncThunk(
 );
 
 export const deleteCard = createAsyncThunk(
-  "cards/deleteCard",
-  async (id, thunkAPI) => {
+  "cards/delete",
+  async ({ columnId, cardId }, thunkAPI) => {
     try {
-      const response = await instance.delete(`/cards/${id}`);
-      return response.data;
+      await axios.post("/api/cards/delete", { columnId, cardId });
+      return { cardId };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -42,25 +109,29 @@ export const deleteCard = createAsyncThunk(
 );
 
 export const editCard = createAsyncThunk(
-  "cards/editCards",
-  async ({ cardId, data }, thunkApi) => {
+  "cards/edit",
+  async ({ columnId, card }, thunkAPI) => {
     try {
-      const response = await instance.put(`/cards/${cardId}`, data);
+      const response = await axios.post("/api/cards/edit", { columnId, card });
       return response.data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const getCardById = createAsyncThunk(
-  "cards/getCardById",
-  async (cardId, thunkApi) => {
+  "cards/getById",
+  async ({ cardId }, thunkAPI) => {
     try {
       const response = await instance.get(`boards/${cardId}`);
       return response.data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+//       const response = await axios.post("/api/cards/getById", {
+//         columnId,
+//         cardId,
+//       });

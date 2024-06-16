@@ -74,20 +74,17 @@
 // };
 
 // export default TaskCard;
-
 import Icon from "../../shared/components/Icon/Icon";
 import styles from "./CardTask.module.css";
-// import "../../shared/styles/variables.css";
+import "../../shared/styles/variables.css";
 
 const TaskCard = ({
-  id,
   title,
   description,
   labelColor = "Without",
   deadline,
   onRemove,
   onEdit,
-  onMove,
 }) => {
   return (
     <div className={`${styles.card} ${styles[labelColor]}`}>
@@ -115,20 +112,7 @@ const TaskCard = ({
           </div>
         </div>
         <div className={styles.actions}>
-          <button className={styles.actionButton} onClick={onMove}>
-            <Icon
-              id="icon-arrow-circler"
-              width="16"
-              height="16"
-              className={styles.icon}
-            />
-          </button>
-          <button
-            className={styles.actionButton}
-            onClick={() =>
-              onEdit({ id, title, description, labelColor, deadline })
-            }
-          >
+          <button className={styles.actionButton} onClick={onEdit}>
             <Icon
               id="icon-pencil"
               width="16"
@@ -136,7 +120,7 @@ const TaskCard = ({
               className={styles.icon}
             />
           </button>
-          <button className={styles.actionButton} onClick={() => onRemove(id)}>
+          <button className={styles.actionButton} onClick={onRemove}>
             <Icon
               id="icon-trash"
               width="16"
