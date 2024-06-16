@@ -25,7 +25,6 @@ export default function BoardPage() {
   useEffect(() => {
     if (id !== null) {
       dispatch(getBoardById(id));
-    } else {
     }
   }, [dispatch, id]);
 
