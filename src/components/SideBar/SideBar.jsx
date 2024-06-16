@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import BoardNavigation from "../BoardNavigation/BoardNavigation";
 import LogoComponent from "../../shared/components/LogoComponent/LogoComponent";
 import img from "../../../public/2.png";
+import img_2x from "../../../public/2@2x.png";
 import css from "./SideBar.module.css";
 import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
 import clsx from "clsx";
@@ -60,7 +61,12 @@ export default function SideBar({ isSidebarOpen }) {
           </div>
           <BoardNavigation />
           <div className={css.helpWrapper}>
-            <img className={css.img} src={img} alt="Plant" />
+            <img
+              className={css.img}
+              srcSet={`${img} 1x, ${img_2x} 2x`}
+              src={img}
+              alt="Plant"
+            />
             <p>
               If you need help with <span className={css.span}>TaskPro</span>,
               check out our support resources or reach out to our customer
