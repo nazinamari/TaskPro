@@ -76,8 +76,7 @@ const authSlice = createSlice({
         const savedToken = JSON.parse(
           window.localStorage.getItem("persist:auth")
         ).token;
-        console.log(savedToken);
-        state.token = savedToken;
+        state.token = JSON.parse(savedToken);
         state.user = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
