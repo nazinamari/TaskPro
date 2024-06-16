@@ -1,18 +1,22 @@
 import BoardCard from "../BoardCard/BoardCard";
-import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { selectAllBoards } from "../../../redux/board/selectors.js";
 import css from "./BoardNavigation.module.css";
 import clsx from "clsx";
+import { getBoardById } from "../../../redux/board/operations.js";
 
 const makeLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
 };
+
 export default function BoardNavigation() {
   const location = useLocation();
   const [activeBoard, setActiveBoard] = useState(null);
   const boards = useSelector(selectAllBoards);
+  const navRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const path = location.pathname.split("/").pop();
@@ -21,11 +25,25 @@ export default function BoardNavigation() {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (navRef.current) {
+      const activeItem = navRef.current.querySelector(`.${css.active}`);
+      if (activeItem) {
+        activeItem.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+    }
+  }, [activeBoard]);
+
   const handleBoardClick = (id) => {
     setActiveBoard(id);
+    dispatch(getBoardById(id));
   };
+
   return (
-    <nav className={css.nav}>
+    <nav className={css.nav} ref={navRef}>
       <ul className={css.list}>
         {boards.map(({ icon, title, _id }) => (
           <li
