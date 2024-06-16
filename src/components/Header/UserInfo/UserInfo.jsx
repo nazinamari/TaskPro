@@ -18,6 +18,7 @@ const getGravatarUrl = (email) => {
 const UserInfo = ({ openModal }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  console.log(user);
   const tempAvatarUrl = useSelector(selectTempAvatarUrl);
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectError);

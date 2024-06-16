@@ -4,7 +4,7 @@ export const selectLoading = (state) => state.boards.loading;
 
 export const selectError = (state) => state.boards.error;
 
-export const selectUser = (state) => state.user;
+export const selectUser = (state) => state.users.user;
 
 export const selectTempAvatarUrl = (state) => state.tempAvatarUrl;
 

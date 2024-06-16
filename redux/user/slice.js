@@ -3,7 +3,12 @@ import { needHelp, fetchUser, updateUserProfile } from "./operations";
 import md5 from "md5";
 
 const initialState = {
-  user: null,
+  user: {
+    name: null,
+    email: null,
+    avatarURL: null,
+    theme: null,
+  },
   tempAvatarUrl: null,
   loading: false,
   error: null,
@@ -62,6 +67,7 @@ const slice = createSlice({
         state.user = action.payload;
         state.user.avatarURL = action.payload.avatar;
         state.tempAvatarUrl = action.payload.avatar;
+        console.log("slice", action.payload.avatar);
       })
       .addCase(updateUserProfile.rejected, (state, action) => {
         state.loading = false;
