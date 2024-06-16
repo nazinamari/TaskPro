@@ -1,5 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser, logIn, logOut, refreshUser } from "./operations";
+import {
+  registerUser,
+  logIn,
+  logOut,
+  refreshUser,
+  sendHelpRequest,
+  changeTheme,
+} from "./operations";
 
 const authSlice = createSlice({
   name: "auth",
@@ -66,6 +73,33 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, (state) => {
         state.isLoading = false;
+      })
+      .addCase(sendHelpRequest.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.errorMessage = null;
+      })
+      .addCase(sendHelpRequest.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(sendHelpRequest.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.errorMessage = action.payload;
+      })
+      .addCase(changeTheme.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.errorMessage = null;
+      })
+      .addCase(changeTheme.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user.theme = action.payload.theme;
+      })
+      .addCase(changeTheme.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.user.errorMessage = action.payload;
       }),
 });
 

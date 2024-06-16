@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../../axios/apiInstance";
+import axios from "axios";
 
 const setAuthHeader = (token) => {
   instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -75,3 +76,33 @@ export const refreshUser = createAsyncThunk(
 //   }
 //   return thunkApi.rejectWithValue(error.message);
 // }
+
+export const changeTheme = createAsyncThunk(
+  "auth/theme",
+  async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue("Unable to fetch user");
+    }
+    try {
+      setAuthHeader(persistedToken);
+      const response = await axios.patch("api/users/changeTheme", credentials);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+//Need help
+export const sendHelpRequest = createAsyncThunk(
+  "user/help",
+  async (needHelpData, thunkAPI) => {
+    try {
+      await axios.post("/api/users/needHelp", needHelpData);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+  }
+);
