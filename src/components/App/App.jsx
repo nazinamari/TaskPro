@@ -1,8 +1,7 @@
 import { Suspense, lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { refreshUser } from "../../../redux/auth/operations";
-// import { selectIsRefreshing } from "../../../redux/auth/selectors";
+import { refreshUser } from "../../../redux/auth/operations.js";
 import { RestrictedRoute } from "../Routes/RestrictedRoute";
 import { PrivateRoute } from "../Routes/PrivateRoute";
 
@@ -17,7 +16,6 @@ const NotFoundPage = lazy(() =>
 );
 
 export default function App() {
-  //const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
 
   useEffect(() => {

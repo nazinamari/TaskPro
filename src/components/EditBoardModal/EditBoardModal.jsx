@@ -2,7 +2,7 @@ import css from "./EditBoardModal.module.css";
 import Icon from "../../shared/components/Icon/Icon";
 import bgImages from "../../images/mini/dt_1x/index";
 import { useEffect, useState } from "react";
-import { editBoard } from "../../../redux/board/operations";
+import { editBoard, getBoardById } from "../../../redux/board/operations";
 import Background from "../../shared/components/Background/Background";
 import { useDispatch, useSelector } from "react-redux";
 import { selectBoard } from "../../../redux/board/selectors";
@@ -102,6 +102,7 @@ export default function EditBoardModal({ onClose, title }) {
         console.error(error.message);
       });
     onClose();
+    dispatch(getBoardById(id));
   };
 
   const stopPropagation = (event) => {
