@@ -34,7 +34,6 @@
   stroke: var(--main-text-color);
 }
 
-/* Модальное окно */
 .Modal {
   display: flex;
   justify-content: center;

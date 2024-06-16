@@ -23,14 +23,7 @@
   border: none;
   border-radius: 5px;
   width: 100%;
-  /* background: transparent;
-  border: 2px solid transparent; */
 }
-/* 
-.titleInput:focus {
-  border-color: var(--accent-color);
-  outline: none;
-} */
 
 .editing {
   background-color: var(--primary-color);
