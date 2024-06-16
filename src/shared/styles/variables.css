@@ -23,7 +23,7 @@
 	); /* var(--board-section-without-priority) chees*/
 }
 
-.dark-theme {
+.dark {
 	--main-text-color: #ffffff;
 	/* --second-text-color: rgba(255, 255, 255, 0.5); */
 	--accent-color: #bedbb0;
@@ -33,7 +33,7 @@
 	--active-background-color: #1f1f1f; /* Колір workplace та панелей на слайдбарі */
 }
 
-.light-theme {
+.light {
 	--main-text-color: #161616;
 	/* --second-text-color: rgba(22, 22, 22, 0.5); */
 	--accent-color: #bedbb0;
@@ -44,7 +44,7 @@
 	--color-swagger: #e8e8e8;
 }
 
-.violet-theme {
+.violet {
 	--main-text-color: #ffffff;
 	--second-text-color: #161616;
 	--accent-color: #5255bc;
