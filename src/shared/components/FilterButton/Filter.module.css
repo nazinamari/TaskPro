@@ -10,11 +10,16 @@
   align-items: center;
   gap: 4px;
   line-height: 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filterIcon {
   stroke: #ffffff;
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.filterBtn:hover {
+  color: #9dc888;
+}
+
 .filterBtn:hover .filterIcon {
   stroke: #9dc888;
 }
@@ -25,5 +30,171 @@
     margin-right: 32px;
     margin-left: auto;
     margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 320px) {
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .dropdownMenu {
+    padding: 24px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border: 1px solid #bedbb080;
+    border-radius: 8px;
+    width: 300px;
+    min-height: 186px;
+    background: #151515;
+    box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+    z-index: 1;
+  }
+
+  .h2 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+
+  .line {
+    border: 1px solid #ffffff1a;
+    margin-bottom: 14px;
+  }
+
+  .resetBtnWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+  }
+
+  .filterName {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+  }
+
+  .showAll {
+    text-decoration: underline;
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: #ffffff80;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .showAll:hover {
+    color: #ffffff;
+  }
+
+  .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+
+  .customRadio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #9dc888;
+    border-radius: 50%;
+    padding: 0px;
+  }
+
+  .customRadioDot {
+    background-color: #9dc888;
+    border: none;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    transition: width 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      height 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .checkedRadioDot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .withoutPriority {
+    border-color: #ffffff4d;
+  }
+
+  .withoutPriority > .customRadioDot {
+    background-color: #ffffff4d;
+  }
+
+  .lowPriority {
+    border-color: #8fa1d0;
+  }
+
+  .lowPriority > .customRadioDot {
+    background-color: #8fa1d0;
+  }
+
+  .mediumPriority {
+    border-color: #e09cb5;
+  }
+
+  .mediumPriority > .customRadioDot {
+    background-color: #e09cb5;
+  }
+
+  .highPriority {
+    border-color: #bedbb0;
+  }
+
+  .highPriority > .customRadioDot {
+    background-color: #bedbb0;
+  }
+
+  .radioLabel {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: -0.02em;
+    color: #ffffff80;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .radioLabel:hover {
+    color: #ffffff;
+  }
+
+  .checkedRadioLabel {
+    color: #ffffff;
+  }
+
+  .radioInput {
+    margin-right: 10px;
+    display: none;
+    position: absolute;
   }
 }
