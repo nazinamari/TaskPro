@@ -19,7 +19,6 @@ const slice = createSlice({
     builder
       .addCase(fetchAllCards.pending, (state) => {
         state.loading = true;
-        state.error = null;
       })
       .addCase(fetchAllCards.fulfilled, (state, action) => {
         state.loading = false;
@@ -31,7 +30,6 @@ const slice = createSlice({
       })
       .addCase(addCard.pending, (state) => {
         state.loading = true;
-        state.error = null;
       })
       .addCase(addCard.fulfilled, (state, action) => {
         state.loading = false;
@@ -43,7 +41,6 @@ const slice = createSlice({
       })
       .addCase(deleteCard.pending, (state) => {
         state.loading = true;
-        state.error = null;
       })
       .addCase(deleteCard.fulfilled, (state, action) => {
         state.loading = false;
@@ -57,7 +54,6 @@ const slice = createSlice({
       })
       .addCase(editCard.pending, (state) => {
         state.loading = true;
-        state.error = null;
       })
       .addCase(editCard.fulfilled, (state, action) => {
         state.loading = false;
@@ -71,15 +67,14 @@ const slice = createSlice({
       })
       .addCase(getCardById.pending, (state) => {
         state.loading = true;
-        state.error = null;
       })
       .addCase(getCardById.fulfilled, (state, action) => {
         state.loading = false;
         state.selectedCard = action.payload;
       })
-      .addCase(getCardById.rejected, (state) => {
+      .addCase(getCardById.rejected, (state, action) => {
         state.loading = false;
-        state.error = true;
+        state.error = action.error.message;
       }),
 });
 

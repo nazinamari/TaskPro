@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { refreshUser } from "../../../redux/auth/operations";
 // import { selectIsRefreshing } from "../../../redux/auth/selectors";
 import { RestrictedRoute } from "../Routes/RestrictedRoute";
+import { Toaster } from "react-hot-toast";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage"));
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+      <Toaster position="top-center" />
     </div>
   );
 }
