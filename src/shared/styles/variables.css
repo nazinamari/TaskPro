@@ -1,6 +1,7 @@
 :root {
 	--font-family: 'Poppins', sans-serif; /* var(--font-family) */
 	--font-size-base: 14px;
+	--transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 	--main-text-color: #ffffff; /* var(--main-text-color) */
 	--second-text-color: rgba(255, 255, 255, 0.5); /* var(--second-text-color) */
@@ -30,7 +31,8 @@
 	--eye-color: #ffffff;
 	--logo: #1f1f1f;
 	--logo-fill: #ffffff;
-	--board-title-wrap: rgba(255, 255, 255, 0.15);
+	--board-title-wrap: rgba(255, 255, 255, 0.2);
+	--border-title: #ffffff;
 }
 
 .light {
@@ -53,6 +55,8 @@
 	--eye-color: #161616;
 	--logo: #1f1f1f;
 	--logo-fill: #ffffff;
+	--board-title-wrap: rgba(255, 255, 255, 0.4);
+	--border-title: #161616;
 }
 
 .violet {
@@ -80,6 +84,8 @@
 	--eye-color: #b8bcfd;
 	--logo: #ecedfd;
 	--logo-fill: #5255bc;
+	--board-title-wrap: rgba(255, 255, 255, 0.4);
+	--border-title: #979cea;
 }
 
 .dark {
