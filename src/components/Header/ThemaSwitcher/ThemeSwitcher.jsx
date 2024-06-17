@@ -1,66 +1,77 @@
-import { useState, useEffect, useRef } from "react";
-import styles from "./ThemeSwitcher.module.css";
-const ThemeSwitcher = ({ changeTheme }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
+import { useState, useEffect, useRef } from 'react';
+import styles from './ThemeSwitcher.module.css';
+import Icon from '../../../shared/components/Icon/Icon';
+import List from '../../../shared/components/List/List';
+import data from './data/theme.json';
+import Theme from './Theme';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUserTheme } from '../../../redux/user/operations';
+import { selectUser } from '../../../redux/user/selectors';
+import { setTheme } from '../../../redux/user/slice';
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+const ThemeSwitcher = () => {
+	const dispatch = useDispatch();
+	const [isOpen, setIsOpen] = useState(false);
+	const dropdownRef = useRef(null);
+	const themes = [...data];
+	const user = useSelector(selectUser);
+	const currentTheme = user.theme; // 'light'
 
-  const handleThemeChange = (theme) => {
-    changeTheme(theme);
-    setIsOpen(false);
-  };
+	const toggleDropdown = () => {
+		setIsOpen(!isOpen);
+	};
 
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsOpen(false);
-    }
-  };
+	const handleClickOutside = (event) => {
+		if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+			setIsOpen(false);
+		}
+	};
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+	useEffect(() => {
+		document.addEventListener('mousedown', handleClickOutside);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside);
+		};
+	}, []);
 
-  return (
-    <div className={styles.dropdown} ref={dropdownRef}>
-      <button onClick={toggleDropdown} className={styles.themeBtn}>
-        Theme
-        <svg className={styles.icon} width="16" height="16">
-          <use href="../../../public/icons.svg#icon-arrow-down"></use>
-        </svg>
-      </button>
-      {isOpen && (
-        <div className={styles.dropdownMenu}>
-          <ul className={styles.ThemeList}>
-            <li
-              className={styles.themeItem}
-              onClick={() => handleThemeChange("light")}
-            >
-              Light
-            </li>
-            <li
-              className={styles.themeItem}
-              onClick={() => handleThemeChange("dark")}
-            >
-              Dark
-            </li>
-            <li
-              className={styles.themeItem}
-              onClick={() => handleThemeChange("violet")}
-            >
-              Violet
-            </li>
-          </ul>
-        </div>
-      )}
-    </div>
-  );
+	useEffect(() => {
+		if (currentTheme) {
+			document.body.classList.remove(...themes);
+			document.body.classList.add(currentTheme);
+		}
+	}, [currentTheme, themes]);
+
+	const handleThemeChange = (theme) => {
+		dispatch(setTheme(theme));
+		dispatch(updateUserTheme(theme));
+		setIsOpen(false);
+	};
+
+	return (
+		<div className={styles.dropdown} ref={dropdownRef}>
+			<button onClick={toggleDropdown} className={styles.themeBtn}>
+				<p>Theme</p>
+				<Icon
+					id="icon-arrow-down"
+					width="16"
+					height="16"
+					className={styles.icon}
+				/>
+			</button>
+			{isOpen && (
+				<div className={styles.dropdownMenu}>
+					<List className={styles.ThemeList}>
+						{themes.map((item) => (
+							<li key={item} onClick={() => handleThemeChange(item)}>
+								<Theme data={item} className={styles.themeItem} />
+							</li>
+						))}
+					</List>
+				</div>
+			)}
+		</div>
+	);
 };
 
 export default ThemeSwitcher;
