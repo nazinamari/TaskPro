@@ -9,7 +9,7 @@ import NeedHelpModal from "../NeedHelpModal/NeedHelpModal";
 import clsx from "clsx";
 import Icon from "../../shared/components/Icon/Icon";
 import NewBoardModal from "../NewBoardModal/NewBoardModal";
-import { logOut } from "../../../redux/auth/operations";
+import { logOut } from "../../redux/auth/operations";
 
 export default function SideBar({ isSidebarOpen }) {
   const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);

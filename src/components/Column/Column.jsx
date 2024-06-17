@@ -12,7 +12,7 @@ import {
   addCard,
   deleteCard,
   editCard,
-} from "../../../redux/cards/operations";
+} from "../../redux/cards/operations";
 
 const Column = ({
   id: columnId,

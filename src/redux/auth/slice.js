@@ -1,30 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  registerUser,
-  logIn,
-  logOut,
-  refreshUser,
-  updateUserTheme,
-} from "./operations";
+import { registerUser, logIn, logOut, refreshToken } from "./operations";
 
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: {
-      name: null,
-      email: null,
-      avatarURL: null,
-      theme: null,
-    },
     token: null,
     isLoggedIn: false,
     isRefreshing: false,
     isLoading: false,
-  },
-  reducers: {
-    setTheme: (state, action) => {
-      state.user.theme = action.payload;
-    },
   },
   extraReducers: (builder) =>
     builder
@@ -69,35 +52,17 @@ const authSlice = createSlice({
         state.isLoading = false;
       })
 
-      .addCase(refreshUser.pending, (state) => {
+      .addCase(refreshToken.pending, (state) => {
         state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (state, action) => {
-        const savedToken = JSON.parse(
-          window.localStorage.getItem("persist:auth")
-        ).token;
-        console.log(savedToken);
-        state.token = savedToken;
-        state.user = action.payload;
+      .addCase(refreshToken.fulfilled, (state, action) => {
+        state.token = action.payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(refreshUser.rejected, (state) => {
+      .addCase(refreshToken.rejected, (state) => {
         state.isRefreshing = false;
-      })
-      .addCase(updateUserTheme.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(updateUserTheme.fulfilled, (state, action) => {
-        state.isLoading = false;
-        console.log(action.payload);
-        // state.user.theme = action.payload;
-      })
-      .addCase(updateUserTheme.rejected, (state) => {
-        state.isLoading = false;
       }),
 });
-
-export const { setTheme } = authSlice.actions;
 
 export default authSlice.reducer;

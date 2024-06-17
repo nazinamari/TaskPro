@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Layout from "../shared/components/Layout/Layout";
 import MainContent from "../components/MainContent/MainContent";
 import Text from "../components/Text/Text";
-import { fetchBoards } from "../../redux/board/operations.js";
-import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
+import { fetchBoards } from "../redux/board/operations.js";
+import { selectIsLoggedIn } from "../redux/auth/selectors";
 
 export default function HomePage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
