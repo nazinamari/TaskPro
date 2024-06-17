@@ -8,8 +8,6 @@ export const selectUser = (state) => state.user.user;
 
 // export const selectUser = (state) => state.user;
 
-export const selectTempAvatarUrl = (state) => state.user.user.tempAvatarUrl;
-
 export const selectAvatarUrl = (state) => state.user.user.avatarUrl;
 
 export const selectIsLoading = (state) => state.user.loading;
