@@ -8,7 +8,7 @@ import AddCardModal from "../AddCardModal/AddCardModal";
 import EditCardModal from "../EditCardModal/EditCardModal";
 import styles from "./Column.module.css";
 import {
-  fetchAllCards,
+  // fetchAllCards,
   addCard,
   deleteCard,
   editCard,
@@ -27,9 +27,9 @@ const Column = ({
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [currentCard, setCurrentCard] = useState(null);
 
-  useEffect(() => {
-    dispatch(fetchAllCards({ columnId }));
-  }, [dispatch, columnId]);
+  // useEffect(() => {
+  //   dispatch(fetchAllCards({ columnId }));
+  // }, [dispatch, columnId]);
 
   useEffect(() => {
     setTitle(initialTitle);
