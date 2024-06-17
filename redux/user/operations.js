@@ -28,6 +28,7 @@ export const updateUserProfile = createAsyncThunk(
   "users/updateUserProfile",
   async (userData, thunkAPI) => {
     try {
+      console.log("uaserdata", userData);
       const response = await instance.put("/users/update", userData);
       return response.data;
     } catch (error) {

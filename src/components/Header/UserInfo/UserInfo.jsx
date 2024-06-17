@@ -3,23 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../../../../redux/user/operations";
 import {
   selectUser,
-  selectTempAvatarUrl,
   selectIsLoading,
   selectError,
+  selectAvatarUrl,
 } from "../../../../redux/user/selectors";
 import styles from "./UserInfo.module.css";
-import md5 from "md5";
+// import md5 from "md5";
 
-const getGravatarUrl = (email) => {
-  const hash = email ? md5(email.trim().toLowerCase()) : "";
-  return `https://www.gravatar.com/avatar/${hash}?d=identicon`;
-};
+// const getGravatarUrl = (email) => {
+//   const hash = email ? md5(email.trim().toLowerCase()) : "";
+//   return `https://www.gravatar.com/avatar/${hash}?d=identicon`;
+// };
 
 const UserInfo = ({ openModal }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   console.log(user);
-  const tempAvatarUrl = useSelector(selectTempAvatarUrl);
+  const userAvatarUrl = useSelector(selectAvatarUrl);
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -31,19 +31,24 @@ const UserInfo = ({ openModal }) => {
   if (error) return <div>Error: {error}</div>;
 
   const renderAvatar = () => {
-    if (tempAvatarUrl) {
-      return <img src={tempAvatarUrl} alt="Avatar" className={styles.avatar} />;
-    } else if (user && user.avatar) {
-      return <img src={user.avatar} alt="Avatar" className={styles.avatar} />;
-    } else if (user) {
-      const avatarUrl = getGravatarUrl(user.email);
-      return <img src={avatarUrl} alt="Avatar" className={styles.avatar} />;
+    if (userAvatarUrl) {
+      return <img src={userAvatarUrl} alt="Avatar" className={styles.avatar} />;
+    } else {
+      return (
+        <img
+          src="../../../img/user.png"
+          alt="Black"
+          className={styles.avatar}
+        />
+      );
+      // const avatarUrl = getGravatarUrl(user.email);
+      // return <img src={avatarUrl} alt="Avatar" className={styles.avatar} />;
     }
-    return null;
   };
+  // в src закинути фото,
 
   const handleOpenModal = () => {
-    openModal(user, tempAvatarUrl);
+    openModal(user, userAvatarUrl);
   };
 
   return (
