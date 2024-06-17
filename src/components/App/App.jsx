@@ -1,9 +1,10 @@
 import { Suspense, lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { refreshUser } from "../../../redux/auth/operations.js";
+import { refreshToken } from "../../../redux/auth/operations.js";
 import { RestrictedRoute } from "../Routes/RestrictedRoute";
 import { PrivateRoute } from "../Routes/PrivateRoute";
+import { refreshUser } from "../../../redux/user/operations.js";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage"));
@@ -19,6 +20,7 @@ export default function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(refreshToken());
     dispatch(refreshUser());
   }, [dispatch]);
 

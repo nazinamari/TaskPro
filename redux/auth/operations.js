@@ -44,7 +44,7 @@ export const logOut = createAsyncThunk("/auth/logout", async (_, thunkApi) => {
   }
 });
 
-export const refreshUser = createAsyncThunk(
+export const refreshToken = createAsyncThunk(
   "auth/refreshUser",
   async (_, thunkApi) => {
     console.log("refresh");
@@ -55,9 +55,10 @@ export const refreshUser = createAsyncThunk(
         return thunkApi.rejectWithValue("Token is missing");
       }
       setAuthHeader(savedToken);
-      const response = await instance.get("/users/current");
-
-      return response.data;
+      const persistedToken = JSON.parse(
+        JSON.parse(window.localStorage.getItem("persist:auth")).token
+      );
+      return persistedToken;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
@@ -69,17 +70,5 @@ export const refreshUser = createAsyncThunk(
       console.log(savedToken !== null);
       return savedToken !== null;
     },
-  }
-);
-
-export const updateUserTheme = createAsyncThunk(
-  "auth/updateUserTheme",
-  async (theme, thunkAPI) => {
-    try {
-      const response = await instance.patch(`/theme`, { theme });
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
   }
 );

@@ -1,12 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { needHelp } from "./operations";
+import { needHelp, updateUserTheme, refreshUser } from "./operations";
 
-const slice = createSlice({
-  name: "users",
+const userSlice = createSlice({
+  name: "user",
   initialState: {
+    user: {
+      name: null,
+      email: null,
+      avatarUrl: null,
+      theme: null,
+    },
     loading: false,
     error: null,
     success: false,
+  },
+  reducers: {
+    setTheme: (state, action) => {
+      state.user.theme = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -20,8 +31,29 @@ const slice = createSlice({
       .addCase(needHelp.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(updateUserTheme.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateUserTheme.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(updateUserTheme.rejected, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(refreshUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(refreshUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(refreshUser.rejected, (state) => {
+        state.isLoading = false;
+        state.error = true;
       });
   },
 });
 
-export default slice.reducer;
+export default userSlice.reducer;
+export const { setTheme } = userSlice.actions;

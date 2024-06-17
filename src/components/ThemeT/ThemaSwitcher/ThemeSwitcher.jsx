@@ -5,9 +5,9 @@ import List from "../../../shared/components/List/List";
 import data from "../data/theme.json";
 import Theme from "./Theme";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserTheme } from "../../../../redux/auth/operations";
-import { selectUser } from "../../../../redux/auth/selectors";
-import { setTheme } from "../../../../redux/auth/slice";
+import { updateUserTheme } from "../../../../redux/user/operations";
+import { selectUser } from "../../../../redux/user/selectors";
+import { setTheme } from "../../../../redux/user/slice";
 
 const ThemeSwitcher = ({ changeTheme }) => {
   const dispatch = useDispatch();
