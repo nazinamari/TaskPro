@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { refreshToken } from "../../redux/auth/operations.js";
 import { RestrictedRoute } from "../Routes/RestrictedRoute";
+import { Toaster } from "react-hot-toast";
 import { PrivateRoute } from "../Routes/PrivateRoute";
 import { refreshUser } from "../../redux/user/operations.js";
 
@@ -68,6 +69,7 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+      <Toaster position="top-center" />
     </div>
   );
 }

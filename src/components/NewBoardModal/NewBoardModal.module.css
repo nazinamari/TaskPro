@@ -30,7 +30,7 @@
   width: 335px;
   min-height: 433px;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
-  background: var(--third-background-color);
+  background: var(--main-background-color);
   display: flex;
   flex-direction: column;
   gap: 24px;

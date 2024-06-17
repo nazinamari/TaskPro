@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../../axios/apiInstance";
+import toast from "react-hot-toast";
 import { setAuthHeader } from "../auth/operations";
 
 export const fetchBoards = createAsyncThunk(
@@ -18,6 +19,7 @@ export const addBoard = createAsyncThunk(
   async (newBoard, thunkAPI) => {
     try {
       const response = await instance.post("/boards", newBoard);
+      toast.success("New board added");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -30,6 +32,7 @@ export const deleteBoard = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await instance.delete(`/boards/${id}`);
+      toast.success("Board was deleted");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -42,6 +45,7 @@ export const editBoard = createAsyncThunk(
   async ({ boardId, data }, thunkApi) => {
     try {
       const response = await instance.put(`boards/${boardId}`, data);
+      toast.success("Changes successfully added");
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

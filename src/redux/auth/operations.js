@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "../../axios/apiInstance";
+import toast from "react-hot-toast";
 
 export const setAuthHeader = (token) => {
   instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -15,6 +16,7 @@ export const registerUser = createAsyncThunk(
     try {
       const response = await instance.post("/auth/register", userInfo);
       setAuthHeader(response.data.token);
+      toast.success("Registration successful");
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -28,8 +30,10 @@ export const logIn = createAsyncThunk(
     try {
       const response = await instance.post("/auth/login", logInInfo);
       setAuthHeader(response.data.token);
+      toast.success("Login successful");
       return response.data;
     } catch (error) {
+      toast.error("Your enter wrong email or password");
       return thunkApi.rejectWithValue(error.message);
     }
   }
