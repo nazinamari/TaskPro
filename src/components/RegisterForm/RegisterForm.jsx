@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import styled from "./RegisterForm.module.css";
 import Icon from "../../shared/components/Icon/Icon";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../../../redux/auth/operations";
+import { registerUser } from "../../redux/auth/operations";
 
 const schema = yup.object().shape({
   name: yup
