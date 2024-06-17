@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "../../../redux/user/operations";
 import { selectUser, selectIsLoading } from "../../../redux/user/selectors";
 import styles from "./UserInfo.module.css";
+// import icon from "../../../img/user.png";
 import md5 from "md5";
 
 const getGravatarUrl = (email) => {
@@ -13,6 +14,10 @@ const getGravatarUrl = (email) => {
 const UserInfo = ({ openModal }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  console.log("UserInfo", user);
+
+  //user.avatarUrl - сюди нічого не приходить
+
   const loading = useSelector(selectIsLoading);
 
   useEffect(() => {
