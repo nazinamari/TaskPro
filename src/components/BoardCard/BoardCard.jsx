@@ -4,7 +4,7 @@ import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import css from "./BoardCard.module.css";
 import clsx from "clsx";
 import Modal from "react-modal";
-import { deleteBoard, getBoardById } from "../../../redux/board/operations";
+import { deleteBoard, getBoardById } from "../../redux/board/operations";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 Modal.setAppElement("#root");

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
-import { needHelp } from "../../../redux/user/operations.js";
+import { needHelp } from "../../redux/user/operations.js";
 import Icon from "../../shared/components/Icon/Icon";
 
 export default function NeedHelpModal({ handleHelpModal }) {

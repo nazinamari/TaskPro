@@ -47,7 +47,6 @@ export const logOut = createAsyncThunk("/auth/logout", async (_, thunkApi) => {
 export const refreshToken = createAsyncThunk(
   "auth/refreshUser",
   async (_, thunkApi) => {
-    console.log("refresh");
     try {
       const reduxState = thunkApi.getState();
       const savedToken = reduxState.auth.token;
@@ -67,7 +66,6 @@ export const refreshToken = createAsyncThunk(
     condition: (_, { getState }) => {
       const reduxState = getState();
       const savedToken = reduxState.auth.token;
-      console.log(savedToken !== null);
       return savedToken !== null;
     },
   }
