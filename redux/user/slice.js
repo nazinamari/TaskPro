@@ -66,6 +66,7 @@ const slice = createSlice({
         state.loading = false;
         state.user = action.payload;
         state.user.avatarURL = action.payload.avatar;
+        console.log("slice2", action.payload.avatar);
         state.tempAvatarUrl = action.payload.avatar;
         console.log("slice", action.payload.avatar);
       })

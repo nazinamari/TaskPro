@@ -31,7 +31,6 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const tempAvatarUrl = useSelector(selectTempAvatarUrl);
-  console.log("tempo", tempAvatarUrl);
   const [showPassword, setShowPassword] = useState(false);
   const [initialValues, setInitialValues] = useState({
     name: "",

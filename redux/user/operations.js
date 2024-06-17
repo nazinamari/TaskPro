@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../../axios/apiInstance";
+import instance from "../../src/axios/apiInstance";
 
 export const needHelp = createAsyncThunk(
   "users/needHelp",

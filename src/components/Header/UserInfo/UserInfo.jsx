@@ -8,17 +8,16 @@ import {
   selectAvatarUrl,
 } from "../../../../redux/user/selectors";
 import styles from "./UserInfo.module.css";
-// import md5 from "md5";
+import md5 from "md5";
 
-// const getGravatarUrl = (email) => {
-//   const hash = email ? md5(email.trim().toLowerCase()) : "";
-//   return `https://www.gravatar.com/avatar/${hash}?d=identicon`;
-// };
+const getGravatarUrl = (email) => {
+  const hash = email ? md5(email.trim().toLowerCase()) : "";
+  return `https://www.gravatar.com/avatar/${hash}?d=identicon`;
+};
 
 const UserInfo = ({ openModal }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  console.log(user);
   const userAvatarUrl = useSelector(selectAvatarUrl);
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -34,21 +33,13 @@ const UserInfo = ({ openModal }) => {
     if (userAvatarUrl) {
       return <img src={userAvatarUrl} alt="Avatar" className={styles.avatar} />;
     } else {
-      return (
-        <img
-          src="../../../img/user.png"
-          alt="Black"
-          className={styles.avatar}
-        />
-      );
-      // const avatarUrl = getGravatarUrl(user.email);
-      // return <img src={avatarUrl} alt="Avatar" className={styles.avatar} />;
+      const avatarUrl = getGravatarUrl(user.email);
+      return <img src={avatarUrl} alt="Avatar" className={styles.avatar} />;
     }
   };
-  // в src закинути фото,
 
   const handleOpenModal = () => {
-    openModal(user, userAvatarUrl);
+    openModal();
   };
 
   return (
