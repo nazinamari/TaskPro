@@ -10,6 +10,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import usersReducer from "./user/slice";
 import filtersReducer from "./filters/slice";
 import authReducer from "./auth/slice";
 import boardReducer from "./board/slice";
@@ -28,6 +29,7 @@ export const store = configureStore({
   reducer: {
     filters: filtersReducer,
     auth: persistedAuthReducer,
+    user: usersReducer,
     boards: boardReducer,
     columns: columnsReducer,
     cards: cardsReducer,
