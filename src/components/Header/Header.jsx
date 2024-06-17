@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './Header.module.css';
 import ThemeSwitcher from './ThemeSwitcher/ThemeSwitcher';
 import EditProfileModal from './EditProfileModal/EditProfileModal';
