@@ -3,14 +3,17 @@
 	--font-size-base: 14px;
 
 	--main-text-color: #ffffff; /* var(--main-text-color) */
-	/* --second-text-color: rgba(255, 255, 255, 0.5); var(--second-text-color) */
+	--second-text-color: rgba(255, 255, 255, 0.5); /* var(--second-text-color) */
+
 	--accent-color: #bedbb0; /* var(--accent-color) */
+	--accent-color-hover: #9dc888;
 
 	--main-background-color: #161616; /* var(--main-background-color) */
-	--second-background-color: #121212; /* var(--second-background-color) */
-	--third-background-color: #151515; /* var(--third-background-color) */
-	--active-background-color: #1f1f1f; /* var(--active-background-color) */
-	--color-swagger: rgba(255, 255, 255, 0.1);
+	--active-background-color: #1f1f1f; /* light dark and work place */
+	--hover-background-color: #151515; /* dark */
+	--second-background-color: #121212; /* very dark var(--second-background-color)  */
+
+	--color-swiper: rgba(255, 255, 255, 0.1);
 
 	--board-section-high: #bedbb0; /* var(--board-section-high) */
 	--board-section-medium: #e09cb5; /* var(--board-section-medium) */
@@ -21,36 +24,63 @@
 		255,
 		0.3
 	); /* var(--board-section-without-priority) chees*/
+
+	--grey-text: rgba(255, 255, 255, 0.5);
 }
 
-.dark-theme {
-	--main-text-color: #ffffff;
-	/* --second-text-color: rgba(255, 255, 255, 0.5); */
-	--accent-color: #bedbb0;
-
-	--main-background-color: #161616; /* Колір хедера */
-	--second-background-color: #121212; /* Колір самого Slide Bar */
-	--active-background-color: #1f1f1f; /* Колір workplace та панелей на слайдбарі */
-}
-
-.light-theme {
+.light {
 	--main-text-color: #161616;
-	/* --second-text-color: rgba(22, 22, 22, 0.5); */
+	--second-text-color: rgba(69, 69, 69, 0.5);
+
 	--accent-color: #bedbb0;
+	--accent-color-hover: #9dc888;
 
 	--main-background-color: #fcfcfc; /* Колір хедера */
-	--second-background-color: #ffffff; /* Колір самого Slide Bar */
 	--active-background-color: #f6f6f7; /* Колір workplace та панелей на слайдбарі */
-	--color-swagger: #e8e8e8;
+
+	--hover-background-color: #f6f6f7;
+	--second-background-color: #fdfdfd;
+
+	--color-swiper: #e8e8e8;
+
+	--grey-text: rgba(69, 69, 69, 0.5);
 }
 
-.violet-theme {
+.violet {
 	--main-text-color: #ffffff;
-	--second-text-color: #161616;
-	--accent-color: #5255bc;
+	--second-text-color: rgba(22, 22, 22, 0.7);
 
-	--main-background-color: #ffffff; /* Колір хедера */
+	--accent-color: #b8bcfd;
+	--accent-color-hover: #979cea;
+
+	--main-background-color: #fcfcfc; /* Колір хедера */
+	--active-background-color: rgba(
+		236,
+		237,
+		253,
+		0.4
+	); /* Колір workplace та панелей на слайдбарі */
+
+	--hover-background-color: #ffffff;
 	--second-background-color: #5255bc; /* Колір самого Slide Bar */
-	--active-background-color: #ecedfd; /* Колір workplace та панелей на слайдбарі */
-	--color-swagger: #b8bcfd;
+
+	--color-swiper: #b8bcfd;
+
+	--grey-text: rgba(255, 255, 255, 0.5);
+}
+
+.dark {
+	--main-text-color: #ffffff; /* var(--main-text-color) */
+	--second-text-color: rgba(255, 255, 255, 0.5); /* var(--second-text-color) */
+
+	--accent-color: #bedbb0; /* var(--accent-color) */
+	--accent-color-hover: #9dc888;
+
+	--main-background-color: #161616; /* var(--main-background-color) */
+	--active-background-color: #1f1f1f; /* light dark and work place */
+
+	--hover-background-color: #151515; /* dark */
+	--second-background-color: #121212;
+
+	--color-swiper: rgba(255, 255, 255, 0.1);
 }

@@ -1,10 +1,11 @@
 import { Suspense, lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { refreshUser } from "../../../redux/auth/operations";
-// import { selectIsRefreshing } from "../../../redux/auth/selectors";
+import { refreshToken } from "../../redux/auth/operations.js";
 import { RestrictedRoute } from "../Routes/RestrictedRoute";
 import { Toaster } from "react-hot-toast";
+import { PrivateRoute } from "../Routes/PrivateRoute";
+import { refreshUser } from "../../redux/user/operations.js";
 
 const WelcomePage = lazy(() => import("../../pages/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../pages/AuthPage"));
@@ -17,10 +18,10 @@ const NotFoundPage = lazy(() =>
 );
 
 export default function App() {
-  //const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(refreshToken());
     dispatch(refreshUser());
   }, [dispatch]);
 
@@ -29,19 +30,42 @@ export default function App() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Navigate to="/welcome" />} />
-          <Route path="/welcome" element={<WelcomePage />} />
+          <Route
+            path="/welcome"
+            element={
+              <RestrictedRoute component={<WelcomePage />} redirectTo="/home" />
+            }
+          />
           <Route path="/auth" element={<AuthPage />}>
             <Route
               path="register"
-              element={<RestrictedRoute component={<RegisterForm />} />}
+              element={
+                <RestrictedRoute
+                  component={<RegisterForm />}
+                  redirectTo="/home"
+                />
+              }
             />
             <Route
               path="login"
-              element={<RestrictedRoute component={<LoginForm />} />}
+              element={
+                <RestrictedRoute component={<LoginForm />} redirectTo="/home" />
+              }
             />
           </Route>
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/home/:boardName" element={<BoardPage />} />
+
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute component={<HomePage />} redirectTo="/auth/login" />
+            }
+          />
+          <Route
+            path="/home/:boardName"
+            element={
+              <PrivateRoute component={<BoardPage />} redirectTo="/welcome" />
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

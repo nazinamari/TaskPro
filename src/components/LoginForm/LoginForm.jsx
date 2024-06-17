@@ -7,7 +7,7 @@ import styled from "./LoginForm.module.css";
 import { useState } from "react";
 import Icon from "../../shared/components/Icon/Icon";
 import { useDispatch } from "react-redux";
-import { logIn } from "../../../redux/auth/operations";
+import { logIn } from "../../redux/auth/operations";
 
 const schema = yup.object().shape({
   email: yup

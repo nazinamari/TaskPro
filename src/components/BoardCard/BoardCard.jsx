@@ -4,23 +4,34 @@ import EditBoardModal from "../EditBoardModal/EditBoardModal";
 import css from "./BoardCard.module.css";
 import clsx from "clsx";
 import Modal from "react-modal";
-import { deleteBoard } from "../../../redux/board/operations";
+import { deleteBoard, getBoardById } from "../../redux/board/operations";
 import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 Modal.setAppElement("#root");
 
 export default function BoardCard({ icon, title, id, isActive }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleOpenModal = () => {
+  const handleOpenModal = (boardId) => {
+    dispatch(getBoardById(boardId));
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleBoardDelete = () => {
+    dispatch(deleteBoard(id))
+      .then(() => {
+        navigate("/home");
+      })
+      .catch((error) => {
+        console.error("Failed to delete board:", error);
+      });
   };
 
   return (
@@ -49,10 +60,10 @@ export default function BoardCard({ icon, title, id, isActive }) {
             className={css.iconBtn}
           />
         </button>
-        <NavLink
-          to="/home"
+        <button
+          type="button"
           onClick={() => {
-            dispatch(deleteBoard(id));
+            handleBoardDelete();
           }}
           className={clsx(css.btn, { [css.activeBtn]: isActive })}
         >
@@ -62,7 +73,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
             height="16"
             className={css.iconBtn}
           />
-        </NavLink>
+        </button>
         <Modal
           isOpen={isModalOpen}
           contentLabel="Edit Profile"
