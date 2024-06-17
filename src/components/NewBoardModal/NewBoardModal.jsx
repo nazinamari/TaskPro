@@ -8,65 +8,7 @@ import { addBoard } from "../../redux/board/operations.js";
 import { useEffect, useState } from "react";
 import Background from "../../shared/components/Background/Background.jsx";
 import { useNavigate } from "react-router-dom";
-
-const icons = [
-  {
-    value: "icon-projects",
-    id: "icon-projects",
-    alt: "icon-projects",
-    width: "18",
-    height: "18",
-  },
-  {
-    value: "icon-star",
-    id: "icon-star",
-    alt: "icon-star",
-    width: "18",
-    height: "18",
-  },
-  {
-    value: "icon-loading",
-    id: "icon-loading",
-    alt: "icon-loading",
-    width: "18",
-    height: "18",
-  },
-  {
-    value: "icon-puzzle",
-    id: "icon-puzzle",
-    alt: "icon-puzzle",
-    width: "18",
-    height: "18",
-  },
-  {
-    value: "icon-container",
-    id: "icon-container",
-    alt: "icon-container",
-    width: "18",
-    height: "18",
-  },
-  {
-    value: "icon-lightning",
-    id: "icon-lightning",
-    alt: "icon-lightning",
-    width: "18",
-    height: "18",
-  },
-  {
-    value: "icon-colors",
-    id: "icon-colors",
-    alt: "icon-colors",
-    width: "18",
-    height: "18",
-  },
-  {
-    value: "icon-hexagon",
-    id: "icon-hexagon",
-    alt: "icon-hexagon",
-    width: "18",
-    height: "18",
-  },
-];
+import icons from "../../images/mini/icons.json";
 
 export default function NewBoardModal({ handleCreateModal }) {
   const dispatch = useDispatch();
