@@ -2,10 +2,12 @@ import css from "./NeedHelpModal.module.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useDispatch } from "react-redux";
+import { needHelp } from "../../redux/user/operations.js";
 import Icon from "../../shared/components/Icon/Icon";
-import instance from "../../../axios/apiInstance.js";
 
 export default function NeedHelpModal({ handleHelpModal }) {
+  const dispatch = useDispatch();
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -46,14 +48,16 @@ export default function NeedHelpModal({ handleHelpModal }) {
       comment: values.comment,
     };
 
-    try {
-      await instance.post("users/help", message);
-      console.log("Message sent successfully"); // додати тост
-      reset();
-      handleHelpModal();
-    } catch (error) {
-      console.error("Error sending message:", error); // додати тост
-    }
+    dispatch(needHelp(message))
+      .unwrap()
+      .then(() => {
+        console.log("Message sent successfully"); // додати тост
+        handleHelpModal();
+      })
+      .catch((error) => {
+        console.error("Error sending message:", error); // додати тост
+      });
+    reset();
   };
 
   return (
