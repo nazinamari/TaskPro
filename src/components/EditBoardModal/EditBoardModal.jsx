@@ -1,14 +1,14 @@
-import css from './EditBoardModal.module.css';
-import Icon from '../../shared/components/Icon/Icon';
-import bgImages from '../../images/mini/dt_1x/index';
-import { useEffect, useState } from 'react';
-import { editBoard, getBoardById } from '../../redux/board/operations';
-import Background from '../../shared/components/Background/Background';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectBoard } from '../../redux/board/selectors';
-import data from './data/icons.json';
 
-const icons = [...data];
+import css from "./EditBoardModal.module.css";
+import Icon from "../../shared/components/Icon/Icon";
+import bgImages from "../../images/mini/dt_1x/index";
+import { useEffect, useState } from "react";
+import { editBoard, getBoardById } from "../../redux/board/operations";
+import Background from "../../shared/components/Background/Background";
+import { useDispatch, useSelector } from "react-redux";
+import { selectBoard } from "../../redux/board/selectors";
+import icons from "../../images/mini/icons.json";
+
 
 export default function EditBoardModal({ onClose, title }) {
 	const board = useSelector(selectBoard);
