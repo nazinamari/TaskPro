@@ -16,11 +16,11 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  fetchAllCards,
   selectAllCards,
   selectLoading,
   selectError,
-} from "../../../redux/cards/slice";
+} from "../../../redux/cards/selectors";
+import { fetchAllCards } from "../../../redux/cards/operations";
 import TaskCard from "../CardTask/CardTask";
 import styles from "./TaskList.module.css";
 
