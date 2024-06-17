@@ -28,13 +28,13 @@
 
 .light {
 	--main-text-color: #161616;
-	--second-text-color: #161616;
+	--second-text-color: rgba(255, 255, 255, 0.5);
 
 	--accent-color: #bedbb0;
 	--accent-color-hover: #9dc888;
 
 	--main-background-color: #fcfcfc; /* Колір хедера */
-	--active-background-color: #fdfdfd; /* Колір workplace та панелей на слайдбарі */
+	--active-background-color: #f6f6f7; /* Колір workplace та панелей на слайдбарі */
 
 	--hover-background-color: #f6f6f7;
 	--second-background-color: #fdfdfd;
@@ -60,7 +60,7 @@
 
 .dark {
 	--main-text-color: #ffffff; /* var(--main-text-color) */
-	--second-text-color: #161616; /* var(--second-text-color) */
+	--second-text-color: rgba(255, 255, 255, 0.5); /* var(--second-text-color) */
 
 	--accent-color: #bedbb0; /* var(--accent-color) */
 	--accent-color-hover: #9dc888;
