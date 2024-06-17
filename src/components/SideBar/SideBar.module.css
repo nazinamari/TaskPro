@@ -51,7 +51,7 @@
 		cursor: pointer;
 		font-size: 16px;
 		line-height: 0;
-		transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+		transition: background-color var(--transition);
 	}
 	.addBtn:hover {
 		background-color: var(--accent-color-hover);
@@ -106,7 +106,7 @@
 		font-weight: 500;
 		margin-left: 24px;
 		margin-bottom: 24px;
-		transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+		transition: stroke var(--transition);
 		line-height: 0;
 	}
 	.text {
@@ -125,7 +125,7 @@
 	.helpIcon {
 		fill: none;
 		stroke: var(--main-text-color);
-		transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+		transition: stroke var(--transition);
 		justify-content: center;
 		align-items: center;
 	}
