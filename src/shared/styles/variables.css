@@ -24,43 +24,54 @@
 		255,
 		0.3
 	); /* var(--board-section-without-priority) chees*/
+
+	--grey-text: rgba(255, 255, 255, 0.5);
 }
 
 .light {
 	--main-text-color: #161616;
-	--second-text-color: #161616;
+	--second-text-color: rgba(69, 69, 69, 0.5);
 
 	--accent-color: #bedbb0;
 	--accent-color-hover: #9dc888;
 
 	--main-background-color: #fcfcfc; /* Колір хедера */
-	--active-background-color: #fdfdfd; /* Колір workplace та панелей на слайдбарі */
+	--active-background-color: #f6f6f7; /* Колір workplace та панелей на слайдбарі */
 
 	--hover-background-color: #f6f6f7;
 	--second-background-color: #fdfdfd;
 
 	--color-swiper: #e8e8e8;
+
+	--grey-text: rgba(69, 69, 69, 0.5);
 }
 
 .violet {
 	--main-text-color: #ffffff;
-	--second-text-color: #161616;
+	--second-text-color: rgba(22, 22, 22, 0.7);
 
 	--accent-color: #b8bcfd;
 	--accent-color-hover: #979cea;
 
-	--main-background-color: #d6d8ff; /* Колір хедера */
-	--active-background-color: #ecedfd; /* Колір workplace та панелей на слайдбарі */
+	--main-background-color: #fcfcfc; /* Колір хедера */
+	--active-background-color: rgba(
+		236,
+		237,
+		253,
+		0.4
+	); /* Колір workplace та панелей на слайдбарі */
 
 	--hover-background-color: #ffffff;
 	--second-background-color: #5255bc; /* Колір самого Slide Bar */
 
 	--color-swiper: #b8bcfd;
+
+	--grey-text: rgba(255, 255, 255, 0.5);
 }
 
 .dark {
 	--main-text-color: #ffffff; /* var(--main-text-color) */
-	--second-text-color: #161616; /* var(--second-text-color) */
+	--second-text-color: rgba(255, 255, 255, 0.5); /* var(--second-text-color) */
 
 	--accent-color: #bedbb0; /* var(--accent-color) */
 	--accent-color-hover: #9dc888;
