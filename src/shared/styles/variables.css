@@ -28,6 +28,9 @@
 	--grey-text: rgba(255, 255, 255, 0.5);
 	--title-reg-log: #ffffff;
 	--eye-color: #ffffff;
+	--logo: #1f1f1f;
+	--logo-fill: #ffffff;
+	--board-title-wrap: rgba(255, 255, 255, 0.15);
 }
 
 .light {
@@ -48,6 +51,8 @@
 	--grey-text: rgba(69, 69, 69, 0.5);
 	--title-reg-log: #9dc888;
 	--eye-color: #161616;
+	--logo: #1f1f1f;
+	--logo-fill: #ffffff;
 }
 
 .violet {
@@ -73,6 +78,8 @@
 	--grey-text: rgba(255, 255, 255, 0.5);
 	--title-reg-log: #5255bc;
 	--eye-color: #b8bcfd;
+	--logo: #ecedfd;
+	--logo-fill: #5255bc;
 }
 
 .dark {
@@ -91,4 +98,6 @@
 	--color-swiper: rgba(255, 255, 255, 0.1);
 	--title-reg-log: #ffffff;
 	--eye-color: #ffffff;
+	--logo: #1f1f1f;
+	--logo-fill: #ffffff;
 }
