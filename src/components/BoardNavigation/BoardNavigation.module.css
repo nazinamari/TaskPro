@@ -1,64 +1,64 @@
 @media (min-width: 320px) {
-  .list {
-    flex: 1;
-    color: var(--second-text-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Додаємо вирівнювання по центру */
-  }
-  .nav {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow-y: auto;
-  }
-  .boardItem {
-    width: 100%; /* Задаємо ширину на 100% */
-    display: flex;
-    justify-content: center; /* Центруємо елементи всередині */
-  }
-  .active {
-    background-color: var(--active-background-color);
-    color: var(--main-text-color);
-    stroke: var(--main-text-color);
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    position: relative;
-  }
-  .active::before {
-    content: "";
-    display: block;
-    width: 4px;
-    height: 60px;
-    background-color: var(--accent-color);
-    position: absolute;
-    bottom: 0;
-    left: 0; /* Змінюємо ліву позицію на 0 */
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
-  .link {
-    color: rgb(255, 255, 255, 0.5);
-    text-decoration: none;
-    width: 100%; /* Задаємо ширину на 100% */
-    display: flex;
-    justify-content: center; /* Центруємо елементи всередині */
-  }
-  .isActive {
-    color: var(--main-text-color);
-  }
+	.list {
+		flex: 1;
+		color: var(--second-text-color);
+		display: flex;
+		flex-direction: column;
+		align-items: center; /* Додаємо вирівнювання по центру */
+	}
+	.nav {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		overflow-y: auto;
+	}
+	.boardItem {
+		width: 100%; /* Задаємо ширину на 100% */
+		display: flex;
+		justify-content: center; /* Центруємо елементи всередині */
+	}
+	.active {
+		background-color: var(--active-background-color);
+		color: var(--main-text-color);
+		stroke: var(--main-text-color);
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+		position: relative;
+	}
+	.active::before {
+		content: '';
+		display: block;
+		width: 4px;
+		height: 60px;
+		background-color: var(--accent-color);
+		position: absolute;
+		bottom: 0;
+		left: 0; /* Змінюємо ліву позицію на 0 */
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
+	.link {
+		color: rgb(255, 255, 255, 0.5);
+		text-decoration: none;
+		width: 100%; /* Задаємо ширину на 100% */
+		display: flex;
+		justify-content: center; /* Центруємо елементи всередині */
+	}
+	.isActive {
+		color: var(--main-text-color);
+	}
 }
 @media (min-width: 768px) {
-  .active::before {
-    content: "";
-    display: block;
-    width: 4px;
-    height: 60px;
-    background-color: var(--accent-color);
-    position: absolute;
-    bottom: 0;
-    left: 0; /* Змінюємо ліву позицію на 0 */
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
+	.active::before {
+		content: '';
+		display: block;
+		width: 4px;
+		height: 60px;
+		background-color: var(--accent-color);
+		position: absolute;
+		bottom: 0;
+		left: 0; /* Змінюємо ліву позицію на 0 */
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
 }

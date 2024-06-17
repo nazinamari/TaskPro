@@ -16,8 +16,8 @@
 
   .nameModel {
     color: #ffffff;
-    width: 39px;
-    height: 21px;
+    flex: 1;
+    min-width: 0;
   }
 
   .nameModel:hover {
