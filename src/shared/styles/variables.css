@@ -26,6 +26,8 @@
 	); /* var(--board-section-without-priority) chees*/
 
 	--grey-text: rgba(255, 255, 255, 0.5);
+	--title-reg-log: #ffffff;
+	--eye-color: #ffffff;
 }
 
 .light {
@@ -44,6 +46,8 @@
 	--color-swiper: #e8e8e8;
 
 	--grey-text: rgba(69, 69, 69, 0.5);
+	--title-reg-log: #9dc888;
+	--eye-color: #161616;
 }
 
 .violet {
@@ -67,6 +71,8 @@
 	--color-swiper: #b8bcfd;
 
 	--grey-text: rgba(255, 255, 255, 0.5);
+	--title-reg-log: #5255bc;
+	--eye-color: #b8bcfd;
 }
 
 .dark {
@@ -83,4 +89,6 @@
 	--second-background-color: #121212;
 
 	--color-swiper: rgba(255, 255, 255, 0.1);
+	--title-reg-log: #ffffff;
+	--eye-color: #ffffff;
 }
