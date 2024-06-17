@@ -1,4 +1,4 @@
-import { selectBoard } from "../../../redux/board/selectors";
+import { selectBoard } from "../../redux/board/selectors";
 import css from "./ScreensPage.module.css";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";

@@ -2,10 +2,10 @@ import BoardCard from "../BoardCard/BoardCard";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { selectAllBoards } from "../../../redux/board/selectors.js";
+import { selectAllBoards } from "../../redux/board/selectors.js";
 import css from "./BoardNavigation.module.css";
 import clsx from "clsx";
-import { getBoardById } from "../../../redux/board/operations.js";
+import { getBoardById } from "../../redux/board/operations.js";
 
 const makeLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
