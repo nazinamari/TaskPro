@@ -16,7 +16,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
   const navigate = useNavigate();
 
   const handleOpenModal = (boardId) => {
-    dispatch(getBoardById(boardId));
+    dispatch(getBoardById(id));
     setIsModalOpen(true);
   };
 
@@ -26,6 +26,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
 
   const handleBoardDelete = () => {
     dispatch(deleteBoard(id))
+      .unwrap()
       .then(() => {
         navigate("/home");
       })
@@ -51,7 +52,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
         <button
           type="button"
           className={clsx(css.btn, { [css.activeBtn]: isActive })}
-          onClick={() => handleOpenModal(id)}
+          onClick={handleOpenModal}
         >
           <Icon
             id="icon-pencil"
