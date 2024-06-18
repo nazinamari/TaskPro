@@ -1,7 +1,6 @@
 import css from "./Filter.module.css";
 import Icon from "../Icon/Icon";
 import { useState, useEffect, useRef } from "react";
-import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import clsx from "clsx";
@@ -57,21 +56,30 @@ export default function Filter() {
       {isOpen && (
         <div className={css.dropdownMenu}>
           <Formik
-            initialValues={{ priority: null }}
+            initialValues={{ priority: "all_priority" }}
             validationSchema={validationSchema}
             onSubmit={(values) => {
               console.log(values);
             }}
           >
-            {({ setFieldValue, submitForm, values }) => (
+            {({ submitForm, values }) => (
               <Form className={css.formContainer}>
                 <h2 className={css.h2}>Filters</h2>
                 <hr className={css.line} />
                 <div className={css.resetBtnWrapper}>
                   <h3 className={css.filterName}>Label color</h3>
-                  <button className={css.showAll} type="button">
+                  <label className={clsx(css.showAll)}>
                     Show all
-                  </button>
+                    <Field
+                      type="radio"
+                      name="priority"
+                      value="all_priority"
+                      className={css.radioInput}
+                      onClick={() => {
+                        submitForm();
+                      }}
+                    />
+                  </label>
                 </div>
                 <div role="group" aria-labelledby="priority-radio-group">
                   {priorityOptions.map((option) => (
@@ -107,7 +115,6 @@ export default function Filter() {
                         value={option.value}
                         className={css.radioInput}
                         onClick={() => {
-                          setFieldValue("priority", option.value);
                           submitForm();
                         }}
                       />
