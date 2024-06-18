@@ -57,6 +57,10 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
       password: values.password,
       avatarURL: avatarIcon,
     };
+
+    if (values.password) {
+      updatedProfile.password = values.password;
+    }
     dispatch(updateUserProfile(updatedProfile));
     closeModal();
   };
