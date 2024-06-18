@@ -22,11 +22,7 @@ const AddColumnBtn = ({ onAddColumn }) => {
         </div>
         Add another column
       </button>
-      <AddColumnModal
-        isOpen={modalIsOpen}
-        onClose={handleModalClose}
-        onAddColumn={onAddColumn}
-      />
+      <AddColumnModal isOpen={modalIsOpen} onClose={handleModalClose} />
     </>
   );
 };

@@ -17,20 +17,12 @@ export default function WorkPlace() {
   const boardId = useSelector(selectBoard);
   const columns = useSelector(selectAllColumns);
 
-  const id = boardId.board._id;
+  const id = boardId;
   useEffect(() => {
     if (id) {
       dispatch(fetchColumns(id));
     }
   }, [dispatch, id]);
-
-  const handleAddColumn = (title) => {
-    const newColumn = {
-      title,
-      boardId: id,
-    };
-    dispatch(addColumn(newColumn));
-  };
 
   const handleDeleteColumn = (id) => {
     dispatch(deleteColumn(id));
@@ -57,7 +49,7 @@ export default function WorkPlace() {
             onEditTitle={() => handleEditColumnTitle(_id)}
           />
         ))}
-        <AddColumnBtn onAddColumn={handleAddColumn} />
+        <AddColumnBtn />
       </div>
     </div>
   );

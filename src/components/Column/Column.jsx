@@ -9,12 +9,7 @@ import EditCardModal from "../EditCardModal/EditCardModal";
 import styles from "./Column.module.css";
 import { addCard, deleteCard, editCard } from "../../redux/cards/operations";
 
-const Column = ({
-  id: columnId,
-  title: initialTitle,
-  onDelete,
-  onEditTitle,
-}) => {
+const Column = ({ id: columnId, title: initialTitle, onDelete }) => {
   const dispatch = useDispatch();
   const { items: cards } = useSelector((state) => state.cards);
   const [title, setTitle] = useState(initialTitle);
@@ -40,11 +35,6 @@ const Column = ({
     setIsEditModalOpen(false);
   };
 
-  const handleEditTitle = (newTitle) => {
-    setTitle(newTitle);
-    onEditTitle(columnId, newTitle);
-  };
-
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -62,10 +52,9 @@ const Column = ({
     setIsEditModalOpen(false);
     setCurrentCard(null);
   };
-
   return (
     <div className={styles.column}>
-      <ToDo title={title} onEditTitle={handleEditTitle} onDelete={onDelete} />
+      <ToDo id={columnId} title={title} onDelete={onDelete} />
       <div className={styles.cards}>
         {cards.map((card) => (
           <CardTask

@@ -15,9 +15,12 @@ export const fetchColumns = createAsyncThunk(
 
 export const addColumn = createAsyncThunk(
   "columns/addColumn",
-  async (newColumn, thunkApi) => {
+  async ({ boardId, columnTitle }, thunkApi) => {
     try {
-      const response = await instance.post("/columns", newColumn);
+      const response = await instance.post("/columns", {
+        boardId,
+        columnTitle,
+      });
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -41,9 +44,7 @@ export const editColumn = createAsyncThunk(
   "columns/editColumn",
   async ({ columnId, data }, thunkApi) => {
     try {
-      const response = await instance.put(`columns/${columnId}`, {
-        data,
-      });
+      const response = await instance.put(`columns/${columnId}`, data);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
