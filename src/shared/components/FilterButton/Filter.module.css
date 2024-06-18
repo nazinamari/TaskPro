@@ -48,7 +48,7 @@
     padding: 24px;
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 32px;
     border: 1px solid #bedbb080;
     border-radius: 8px;
     width: 300px;

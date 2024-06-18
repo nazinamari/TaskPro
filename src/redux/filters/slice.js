@@ -41,6 +41,6 @@ const filtersSlice = createSlice({
       .addCase(getProjectData.rejected, handleRejected);
   },
 });
-export const { togglePriority, showAll } = filtersSlice.actions;
+export const {} = filtersSlice.actions;
 
 export default filtersSlice.reducer;
