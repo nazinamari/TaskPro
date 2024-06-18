@@ -16,15 +16,21 @@ const UserInfo = ({ openModal }) => {
 
   if (loading) return <div>Loading...</div>;
 
-  const getUserAvatar = (user) => {
-    console.log(user.avatarURL);
-    if (!user.avatarURL) {
-      const newGravatar = getGravatarUrl(user.email);
-      dispatch(updateUserProfile({ avatarURL: newGravatar }));
-      return user.avatarURL;
-    }
-    return user.avatarURL;
-  };
+  // const getUserAvatar = (user) => {
+  //   console.log(user.avatarURL);
+  //   if (!user.avatarURL) {
+  //     const newGravatar = getGravatarUrl(user.email);
+  //     dispatch(updateUserProfile({ avatarURL: newGravatar }));
+  //     return user.avatarURL;
+  //   }
+  //   return user.avatarURL;
+  // };
+
+  const userAvatar = getGravatarUrl(user.email) || user.avatarURL;
+  if (!user.avatarURL && user.email) {
+    const newGravatar = getGravatarUrl(user.email);
+    dispatch(updateUserProfile({ avatarURL: newGravatar }));
+  }
 
   const handleOpenModal = () => {
     openModal();
@@ -35,11 +41,7 @@ const UserInfo = ({ openModal }) => {
       {user && (
         <>
           <span className={styles.nameModel}>{user.name}</span>
-          <img
-            src={getUserAvatar(user)}
-            alt="Avatar"
-            className={styles.avatar}
-          />
+          <img src={userAvatar} alt="Avatar" className={styles.avatar} />
         </>
       )}
     </div>

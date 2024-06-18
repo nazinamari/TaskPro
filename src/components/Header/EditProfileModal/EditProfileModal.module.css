@@ -33,7 +33,7 @@
     padding: 0px;
     border: none;
     font-size: 18px;
-    color: #fff;
+    color: var(--main-text-color);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -67,7 +67,7 @@
     font-weight: 500;
     font-size: 18px;
     letter-spacing: -0.02em;
-    color: #fff;
+    color: var(--main-text-color);
     width: 96px;
     height: 27px;
   }
@@ -107,7 +107,7 @@
     min-width: 287px;
     height: 49px;
     background-color: transparent;
-    color: #fff;
+    color: var(--main-text-color);
     opacity: 0.5;
     transition: border-color 0.3s ease, opacity 0.3s ease;
     display: flex;
@@ -151,11 +151,11 @@
   }
 
   .buttonModal:hover {
-    background: #9dc888;
+    background: var(--accent-color-hover);
   }
 
   .buttonPlus:hover {
-    background: #9dc888;
+    background: var(--accent-color-hover);
   }
 
   .iconModal {
