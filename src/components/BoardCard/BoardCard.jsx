@@ -1,22 +1,21 @@
-import { useState } from "react";
-import Icon from "../../shared/components/Icon/Icon";
-import EditBoardModal from "../EditBoardModal/EditBoardModal";
-import css from "./BoardCard.module.css";
-import clsx from "clsx";
-import Modal from "react-modal";
-import { deleteBoard, getBoardById } from "../../redux/board/operations";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-Modal.setAppElement("#root");
+import { useState } from 'react';
+import Icon from '../../shared/components/Icon/Icon';
+import EditBoardModal from '../EditBoardModal/EditBoardModal';
+import css from './BoardCard.module.css';
+import clsx from 'clsx';
+import Modal from 'react-modal';
+import { deleteBoard, getBoardById } from '../../redux/board/operations';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+Modal.setAppElement('#root');
 
 export default function BoardCard({ icon, title, id, isActive }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleOpenModal = (boardId) => {
-    dispatch(getBoardById(id));
+  const handleOpenModal = boardId => {
+    dispatch(getBoardById(boardId));
     setIsModalOpen(true);
   };
 
@@ -28,10 +27,10 @@ export default function BoardCard({ icon, title, id, isActive }) {
     dispatch(deleteBoard(id))
       .unwrap()
       .then(() => {
-        navigate("/home");
+        navigate('/home');
       })
-      .catch((error) => {
-        console.error("Failed to delete board:", error);
+      .catch(error => {
+        console.error('Failed to delete board:', error);
       });
   };
 
@@ -52,7 +51,7 @@ export default function BoardCard({ icon, title, id, isActive }) {
         <button
           type="button"
           className={clsx(css.btn, { [css.activeBtn]: isActive })}
-          onClick={handleOpenModal}
+          onClick={() => handleOpenModal(id)}
         >
           <Icon
             id="icon-pencil"
