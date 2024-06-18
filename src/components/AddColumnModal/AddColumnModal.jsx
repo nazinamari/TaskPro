@@ -1,9 +1,9 @@
-import Modal from "react-modal";
-import Icon from "../../shared/components/Icon/Icon";
-import styles from "./AddColumnModal.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { addColumn } from "../../redux/column/operations";
-import { selectBoard } from "../../redux/board/selectors";
+import Modal from 'react-modal';
+import Icon from '../../shared/components/Icon/Icon';
+import styles from './AddColumnModal.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { addColumn } from '../../redux/column/operations';
+import { selectBoard } from '../../redux/board/selectors';
 
 const AddColumnModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
@@ -28,14 +28,14 @@ const AddColumnModal = ({ isOpen, onClose }) => {
         </button>
         <div className={styles.title}>Add column</div>
         <form
-          onSubmit={(e) => {
+          onSubmit={e => {
             e.preventDefault();
             const columnTitle = e.target[0].value;
             dispatch(
               addColumn({
                 boardId: currentBoard.board._id,
-                columnTitle,
-              })
+                title: columnTitle,
+              }),
             );
             onClose();
           }}

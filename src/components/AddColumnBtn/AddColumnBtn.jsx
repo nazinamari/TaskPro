@@ -1,9 +1,9 @@
-import { useState } from "react";
-import AddColumnModal from "../AddColumnModal/AddColumnModal";
-import Icon from "../../shared/components/Icon/Icon";
-import styles from "./AddColumnBtn.module.css";
+import { useState } from 'react';
+import AddColumnModal from '../AddColumnModal/AddColumnModal';
+import Icon from '../../shared/components/Icon/Icon';
+import styles from './AddColumnBtn.module.css';
 
-const AddColumnBtn = ({ onAddColumn }) => {
+const AddColumnBtn = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleModalOpen = () => {
