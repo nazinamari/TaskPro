@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { needHelp, updateUserTheme, refreshUser } from "./operations";
+import {
+  needHelp,
+  updateUserTheme,
+  refreshUser,
+  setAvatarUrl,
+} from "./operations.js";
 
 const userSlice = createSlice({
   name: "user",
@@ -7,7 +12,7 @@ const userSlice = createSlice({
     user: {
       name: null,
       email: null,
-      avatarUrl: null,
+      avatarURL: null,
       theme: null,
     },
     loading: false,
@@ -17,9 +22,6 @@ const userSlice = createSlice({
   reducers: {
     setTheme: (state, action) => {
       state.user.theme = action.payload;
-    },
-    setAvatarUrl: (state, action) => {
-      state.user.avatarUrl = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -55,9 +57,19 @@ const userSlice = createSlice({
       .addCase(refreshUser.rejected, (state) => {
         state.loading = false;
         state.error = true;
+      })
+      .addCase(setAvatarUrl.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(setAvatarUrl.fulfilled, (state, action) => {
+        state.user.avatarURL = action.payload;
+        state.loading = false;
+      })
+      .addCase(setAvatarUrl.rejected, (state) => {
+        state.loading = false;
       });
   },
 });
 
 export default userSlice.reducer;
-export const { setTheme, setAvatarUrl } = userSlice.actions;
+export const { setTheme } = userSlice.actions;
