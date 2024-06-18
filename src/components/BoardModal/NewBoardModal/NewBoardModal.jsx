@@ -1,22 +1,22 @@
-import css from "./NewBoardModal.module.css";
-import { useForm } from "react-hook-form";
-import Icon from "../../shared/components/Icon/Icon";
-import { useDispatch, useSelector } from "react-redux";
-import { selectAllBoards } from "../../redux/board/selectors.js";
-import bgImages from "../../images/mini/dt_1x/index.js";
-import { addBoard } from "../../redux/board/operations.js";
-import { useEffect, useState } from "react";
-import Background from "../../shared/components/Background/Background.jsx";
-import { useNavigate } from "react-router-dom";
-import icons from "../../images/mini/icons.json";
+import css from './NewBoardModal.module.css';
+import { useForm } from 'react-hook-form';
+import Icon from '../../../shared/components/Icon/Icon.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllBoards } from '../../../redux/board/selectors.js';
+// import bgImages from '../../images/mini/dt_1x/index.js';
+import { addBoard } from '../../../redux/board/operations.js';
+import { useEffect, useState } from 'react';
+// import Background from '../../shared/components/Background/Background.jsx';
+import { useNavigate } from 'react-router-dom';
+import icons from '../../../images/mini/icons.json';
 
 export default function NewBoardModal({ handleCreateModal }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const boards = useSelector(selectAllBoards);
-  const [selectedIcon, setSelectedIcon] = useState("icon-projects");
-  const [selectedBg, setSelectedBg] = useState("bg-1");
+  const [selectedIcon, setSelectedIcon] = useState('icon-projects');
+  const [selectedBg, setSelectedBg] = useState('bg-1');
   const {
     register,
     handleSubmit,
@@ -27,18 +27,18 @@ export default function NewBoardModal({ handleCreateModal }) {
     defaultValues: {
       icon: selectedIcon,
       background: selectedBg,
-      title: "",
+      title: '',
     },
   });
 
   useEffect(() => {
-    setValue("icon", selectedIcon);
-    setValue("background", selectedBg);
+    setValue('icon', selectedIcon);
+    setValue('background', selectedBg);
   }, [selectedIcon, setValue, selectedBg]);
 
-  const onSubmit = (values) => {
-    if (boards.find((board) => board.title.trim() === values.title.trim())) {
-      alert("Board with this title already exists");
+  const onSubmit = values => {
+    if (boards.find(board => board.title.trim() === values.title.trim())) {
+      alert('Board with this title already exists');
     } else {
       const newBoard = {
         title: values.title,
@@ -48,20 +48,20 @@ export default function NewBoardModal({ handleCreateModal }) {
 
       dispatch(addBoard(newBoard))
         .unwrap()
-        .then((createdBoard) => {
+        .then(createdBoard => {
           console.log(createdBoard);
           navigate(`/home/${createdBoard._id}`);
-          console.log("add board"); // додати тост
+          console.log('add board'); // додати тост
           handleCreateModal();
         })
-        .catch((error) => {
-          console.error("Failed to add board:", error); // додати тост
+        .catch(error => {
+          console.error('Failed to add board:', error); // додати тост
         });
       reset();
     }
   };
 
-  const stopPropagation = (event) => {
+  const stopPropagation = event => {
     event.stopPropagation();
   };
 
@@ -84,19 +84,19 @@ export default function NewBoardModal({ handleCreateModal }) {
               className={css.input}
               type="text"
               placeholder="Title"
-              {...register("title", { required: "Title is required" })}
+              {...register('title', { required: 'Title is required' })}
             />
             {errors.title && <span>{errors.title.message}</span>}
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
               <ul className={css.iconsContainer}>
-                {icons.map((icon) => (
+                {icons.map(icon => (
                   <li key={icon.value} className={css.iconLabel}>
                     <input
                       type="radio"
                       value={icon.value}
                       id={icon.id}
-                      {...register("icon")}
+                      {...register('icon')}
                       className={css.iconRadio}
                       onChange={() => setSelectedIcon(icon.value)}
                       checked={selectedIcon === icon.value}
@@ -116,7 +116,7 @@ export default function NewBoardModal({ handleCreateModal }) {
             </div>
             <h3 className={css.iconsTitle}>Background</h3>
             <ul className={css.bgList}>
-              {bgImages.map((imageSrc, index) => (
+              {/* {bgImages.map((imageSrc, index) => (
                 <li key={index}>
                   <label htmlFor={`bg-${index}`} className={css.iconLabel}>
                     <input
@@ -136,7 +136,7 @@ export default function NewBoardModal({ handleCreateModal }) {
                     />
                   </label>
                 </li>
-              ))}
+              ))} */}
             </ul>
             <button type="submit" className={css.createBtn}>
               <div className={css.wrapper}>

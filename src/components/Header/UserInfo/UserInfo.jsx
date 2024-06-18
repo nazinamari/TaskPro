@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import { updateUserProfile } from "../../../redux/user/operations";
-import { selectUser, selectIsLoading } from "../../../redux/user/selectors";
-import styles from "./UserInfo.module.css";
-import md5 from "md5";
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUserProfile } from '../../../redux/user/operations';
+import { selectUser, selectIsLoading } from '../../../redux/user/selectors';
+import styles from './UserInfo.module.css';
+import md5 from 'md5';
 
-const getGravatarUrl = (email) => {
-  const hash = email ? md5(email.trim().toLowerCase()) : "";
+const getGravatarUrl = email => {
+  const hash = email ? md5(email.trim().toLowerCase()) : '';
   return `https://www.gravatar.com/avatar/${hash}?d=identicon`;
 };
 
@@ -16,8 +16,8 @@ const UserInfo = ({ openModal }) => {
 
   if (loading) return <div>Loading...</div>;
 
-  const getUserAvatar = (user) => {
-    console.log(user.avatarURL);
+  const getUserAvatar = user => {
+    // console.log(user.avatarURL);
     if (!user.avatarURL) {
       const newGravatar = getGravatarUrl(user.email);
       dispatch(updateUserProfile({ avatarURL: newGravatar }));
