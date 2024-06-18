@@ -1,10 +1,6 @@
 const Picture = ({
-	urlDesktop,
-	urlDesktop2x,
-	urlTablet,
-	urlTablet2x,
-	urlMobile,
-	urlMobile2x,
+	url,
+	url2x,
 	alt = '',
 	width = '',
 	height = '',
@@ -15,17 +11,17 @@ const Picture = ({
 		<picture className={pictureClassName}>
 			<source
 				media="(min-width: 1440px)"
-				srcSet={`${urlDesktop} 1x, ${urlDesktop2x} 2x`}
+				srcSet={`${url} 1x, ${url2x} 2x`}
 				type="image/jpg"
 			/>
 			<source
 				media="(min-width: 768px)"
-				srcSet={`${urlTablet} 1x, ${urlTablet2x} 2x`}
+				srcSet={`${url} 1x, ${url2x} 2x`}
 				type="image/jpg"
 			/>
 			<img
-				srcSet={`${urlMobile} 1x, ${urlMobile2x} 2x`}
-				src={`${urlMobile}`}
+				srcSet={`${url} 1x, ${url2x} 2x`}
+				src={`${url}`}
 				alt={alt}
 				width={width}
 				height={height}
