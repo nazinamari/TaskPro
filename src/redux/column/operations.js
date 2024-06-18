@@ -3,26 +3,24 @@ import instance from "../../axios/apiInstance";
 
 export const fetchColumns = createAsyncThunk(
   "columns/fetchColumns",
-  async (boardId, thunkAPI) => {
+  async (boardId, thunkApi) => {
     try {
       const response = await instance.get("/columns", boardId);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
 
 export const addColumn = createAsyncThunk(
   "columns/addColumn",
-  async (newColumn, thunkAPI) => {
-    console.log(newColumn);
+  async (newColumn, thunkApi) => {
     try {
       const response = await instance.post("/columns", newColumn);
-      console.log("addColumn", response.data);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );
@@ -58,7 +56,6 @@ export const getColumnById = createAsyncThunk(
   async (columnId, thunkApi) => {
     try {
       const response = await instance.get(`columns/${columnId}`);
-      console.log("getColumnById-response.data:", response.data);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

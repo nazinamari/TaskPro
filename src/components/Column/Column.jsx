@@ -7,12 +7,7 @@ import AddCardBtn from "../AddCardBtn/AddCardBtn";
 import AddCardModal from "../AddCardModal/AddCardModal";
 import EditCardModal from "../EditCardModal/EditCardModal";
 import styles from "./Column.module.css";
-import {
-  // fetchAllCards,
-  addCard,
-  deleteCard,
-  editCard,
-} from "../../redux/cards/operations";
+import { addCard, deleteCard, editCard } from "../../redux/cards/operations";
 
 const Column = ({
   id: columnId,
@@ -21,15 +16,11 @@ const Column = ({
   onEditTitle,
 }) => {
   const dispatch = useDispatch();
-  const { items: cards, loading, error } = useSelector((state) => state.cards);
+  const { items: cards } = useSelector((state) => state.cards);
   const [title, setTitle] = useState(initialTitle);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [currentCard, setCurrentCard] = useState(null);
-
-  // useEffect(() => {
-  //   dispatch(fetchAllCards({ columnId }));
-  // }, [dispatch, columnId]);
 
   useEffect(() => {
     setTitle(initialTitle);
@@ -71,9 +62,6 @@ const Column = ({
     setIsEditModalOpen(false);
     setCurrentCard(null);
   };
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error loading cards</div>;
 
   return (
     <div className={styles.column}>
