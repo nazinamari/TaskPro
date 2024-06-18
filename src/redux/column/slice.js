@@ -13,13 +13,13 @@ const slice = createSlice({
     items: [],
     currentColumn: null,
     loading: false,
-    error: null,
+    error: false,
   },
   extraReducers: (builder) =>
     builder
       .addCase(fetchColumns.pending, (state) => {
-        state.error = false;
         state.loading = true;
+        state.error = false;
       })
       .addCase(fetchColumns.fulfilled, (state, action) => {
         state.loading = false;
@@ -30,19 +30,20 @@ const slice = createSlice({
         state.error = true;
       })
       .addCase(addColumn.pending, (state) => {
-        state.error = false;
         state.loading = true;
+        state.error = false;
       })
       .addCase(addColumn.fulfilled, (state, action) => {
         state.items.push(action.payload);
         state.loading = false;
       })
       .addCase(addColumn.rejected, (state) => {
-        state.error = true;
         state.loading = false;
+        state.error = true;
       })
       .addCase(getColumnById.pending, (state) => {
         state.loading = true;
+        state.error = false;
       })
       .addCase(getColumnById.fulfilled, (state, action) => {
         state.loading = false;
@@ -50,10 +51,11 @@ const slice = createSlice({
       })
       .addCase(getColumnById.rejected, (state) => {
         state.loading = false;
+        state.error = true;
       })
       .addCase(deleteColumn.pending, (state) => {
-        state.error = false;
         state.loading = true;
+        state.error = false;
       })
       .addCase(deleteColumn.fulfilled, (state, action) => {
         state.items = state.items.filter(
@@ -63,12 +65,12 @@ const slice = createSlice({
         state.currentColumn = null;
       })
       .addCase(deleteColumn.rejected, (state) => {
-        state.error = true;
         state.loading = false;
+        state.error = true;
       })
       .addCase(editColumn.pending, (state) => {
-        state.error = false;
         state.loading = true;
+        state.error = false;
       })
       .addCase(editColumn.fulfilled, (state, action) => {
         state.loading = false;
@@ -77,8 +79,8 @@ const slice = createSlice({
         );
       })
       .addCase(editColumn.rejected, (state) => {
-        state.error = true;
         state.loading = false;
+        state.error = true;
       }),
 });
 

@@ -4,9 +4,8 @@ import EditColumnModal from "../EditColumnModal/EditColumnModal";
 import styles from "./ToDo.module.css";
 import "../../shared/styles/variables.css";
 
-const ToDo = ({ title, onEditTitle, onDelete }) => {
+const ToDo = ({ id, title, onEditTitle, onDelete }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -52,6 +51,7 @@ const ToDo = ({ title, onEditTitle, onDelete }) => {
         </button>
       </div>
       <EditColumnModal
+        columnId={id}
         isOpen={isModalOpen}
         onClose={closeModal}
         title={title}
