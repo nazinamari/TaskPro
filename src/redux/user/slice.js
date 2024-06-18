@@ -62,6 +62,8 @@ const userSlice = createSlice({
         state.loading = true;
       })
       .addCase(setAvatarUrl.fulfilled, (state, action) => {
+        console.log(state.user.avatarURL);
+        console.log(action.payload);
         state.user.avatarURL = action.payload;
         state.loading = false;
       })
