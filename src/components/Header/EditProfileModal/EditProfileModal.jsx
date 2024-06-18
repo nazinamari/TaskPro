@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import styles from "./EditProfileModal.module.css";
 import { updateUserProfile } from "../../../redux/user/operations";
 import { selectUser } from "../../../redux/user/selectors";
-import { setAvatarUrl } from "../../../redux/user/slice";
+import { setAvatarUrl } from "../../../redux/user/operations";
 
 Modal.setAppElement("#root");
 
@@ -41,7 +41,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
         name: user.name || "",
         email: user.email || "",
         password: "",
-        avatarUrl: user.avatarUrl || "",
+        avatarURL: user.avatarURL || "",
       });
     }
   }, [user]);
@@ -54,7 +54,6 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
     const updatedProfile = {
       name: values.name,
       email: values.email,
-      password: values.password,
       avatarURL: avatarIcon,
     };
 
@@ -113,7 +112,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
             <div className={styles.avatarBox}>
               <label className={styles.avatarForm}>
                 <img
-                  src={user.avatarUrl}
+                  src={user.avatarURL}
                   alt="Black"
                   className={styles.avatarModal}
                   width="68"

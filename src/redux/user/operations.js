@@ -41,8 +41,25 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await instance.get("/users/current");
-      console.log("data", response.data);
       return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const setAvatarUrl = createAsyncThunk(
+  "user/setAvatarUrl",
+  async (newAvatarURL, thunkAPI) => {
+    try {
+      const dataToUpdate = {
+        avatarUrl: newAvatarURL,
+      };
+
+      // як оновлювати аватарку на бекенди (формат запиту)
+      await instance.put("/users/update", dataToUpdate);
+
+      return newAvatarURL;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
