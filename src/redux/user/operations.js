@@ -41,6 +41,7 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await instance.get("/users/current");
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -65,15 +66,3 @@ export const setAvatarUrl = createAsyncThunk(
     }
   }
 );
-
-// export const fetchUser = createAsyncThunk(
-// 	'users/fetchUser',
-// 	async (_, thunkAPI) => {
-// 		try {
-// 			const response = await instance.get('/users/current');
-// 			return response.data;
-// 		} catch (error) {
-// 			return thunkAPI.rejectWithValue(error.message);
-// 		}
-// 	}
-// );

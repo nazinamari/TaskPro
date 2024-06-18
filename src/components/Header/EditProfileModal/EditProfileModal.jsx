@@ -111,6 +111,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
           <Form>
             <div className={styles.avatarBox}>
               <label className={styles.avatarForm}>
+                {console.log("avatar", user.avatarUrl)}
                 <img
                   src={user.avatarURL}
                   alt="Black"

@@ -5,6 +5,7 @@
 // export const selectError = (state) => state.boards.error;
 
 // export const selectUser = (state) => state.user;
+
 export const selectUser = (state) => state.user.user;
 
 export const selectAvatarUrl = (state) => state.user.avatarUrl;

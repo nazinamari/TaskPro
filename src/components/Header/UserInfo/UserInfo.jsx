@@ -12,13 +12,12 @@ const getGravatarUrl = (email) => {
 const UserInfo = ({ openModal }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  console.log("user", user);
-
   const loading = useSelector(selectIsLoading);
 
   if (loading) return <div>Loading...</div>;
 
   const getUserAvatar = (user) => {
+    console.log(user.avatarURL);
     if (!user.avatarURL) {
       const newGravatar = getGravatarUrl(user.email);
       dispatch(updateUserProfile({ avatarURL: newGravatar }));
