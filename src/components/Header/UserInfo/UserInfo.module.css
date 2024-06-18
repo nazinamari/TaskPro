@@ -15,7 +15,7 @@
   }
 
   .nameModel {
-    color: #ffffff;
+    color: var(--main-text-color);
     flex: 1;
     min-width: 0;
   }

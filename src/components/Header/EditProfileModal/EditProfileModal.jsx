@@ -27,12 +27,14 @@ const validationSchema = Yup.object().shape({
 const EditProfileModal = ({ isModalOpen, closeModal }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  console.log("user", user);
   const avatarIcon = user.avatarURL;
   const [showPassword, setShowPassword] = useState(false);
   const [initialValues, setInitialValues] = useState({
     name: "",
     email: "",
     password: "",
+    avatarURL: "",
   });
 
   useEffect(() => {
@@ -111,7 +113,6 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
           <Form>
             <div className={styles.avatarBox}>
               <label className={styles.avatarForm}>
-                {console.log("avatar", user.avatarUrl)}
                 <img
                   src={user.avatarURL}
                   alt="Black"
