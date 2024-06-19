@@ -5,10 +5,9 @@
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 10;
+  z-index: 99999;
   opacity: 1;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--transition), visibility var(--transition);
 }
 
 .modalWindowContent {
