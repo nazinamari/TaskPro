@@ -13,7 +13,6 @@ import { selectAllColumns } from '../../../src/redux/column/selectors';
 export default function WorkPlace({ id }) {
   const dispatch = useDispatch();
   const columns = useSelector(selectAllColumns);
-
   useEffect(() => {
     dispatch(fetchColumns(id));
   }, [dispatch, id]);

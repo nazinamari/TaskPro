@@ -1,17 +1,18 @@
-import Icon from "../../shared/components/Icon/Icon";
-import styles from "./CardTask.module.css";
-import "../../shared/styles/variables.css";
+import Icon from '../../shared/components/Icon/Icon';
+import styles from './CardTask.module.css';
+import '../../shared/styles/variables.css';
 
 const CardTask = ({
   title,
   description,
-  labelColor = "Without",
+  priority,
   deadline,
   onRemove,
   onEdit,
 }) => {
+  console.log(title, description, priority, deadline, onRemove, onEdit);
   return (
-    <div className={`${styles.card} ${styles[labelColor]}`}>
+    <div className={`${styles.card} ${styles[priority]}`}>
       <p className={styles.header}>{title}</p>
       <p className={styles.description}>{description}</p>
       <div className={styles.separator}></div>
@@ -21,17 +22,17 @@ const CardTask = ({
             <span className={styles.priorityLabel}>Priority</span>
             <div className={styles.priorityContainer}>
               <span
-                className={`${styles.priorityColor} ${styles[labelColor]}`}
+                className={`${styles.priorityColor} ${styles[priority]}`}
               ></span>
-              <span className={styles.priorityText}>{labelColor}</span>
+              <span className={styles.priorityText}>{priority}</span>
             </div>
           </div>
           <div className={styles.deadline}>
             <span className={styles.deadlineLabel}>Deadline</span>
             <span className={styles.deadlineValue}>
               {new Date(deadline)
-                .toLocaleDateString("en-GB")
-                .replace(/\./g, "/")}
+                .toLocaleDateString('en-GB')
+                .replace(/\./g, '/')}
             </span>
           </div>
         </div>

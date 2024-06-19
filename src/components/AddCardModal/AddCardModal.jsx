@@ -1,22 +1,29 @@
-import { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import Icon from "../../shared/components/Icon/Icon";
-import styles from "./AddCardModal.module.css";
-import "../../shared/styles/variables.css";
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import Icon from '../../shared/components/Icon/Icon';
+import styles from './AddCardModal.module.css';
+import '../../shared/styles/variables.css';
 
-const AddCardModal = ({ onAddCard, onClose }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [labelColor, setLabelColor] = useState("Without");
+const AddCardModal = ({ id, onAddCard, onClose }) => {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [labelColor, setLabelColor] = useState('without priority');
+  console.log(labelColor);
   const [deadline, setDeadline] = useState(new Date());
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    onAddCard({ title, description, labelColor, deadline });
-    setTitle("");
-    setDescription("");
-    setLabelColor("");
+    onAddCard({
+      columnId: id,
+      title,
+      description,
+      priority: labelColor,
+      deadline,
+    });
+    setTitle('');
+    setDescription('');
+    setLabelColor('');
     setDeadline(new Date());
     onClose();
   };
@@ -34,7 +41,7 @@ const AddCardModal = ({ onAddCard, onClose }) => {
             id="title"
             placeholder="Title"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={e => setTitle(e.target.value)}
             required
             autoFocus
           />
@@ -44,18 +51,18 @@ const AddCardModal = ({ onAddCard, onClose }) => {
             id="description"
             placeholder="Description"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={e => setDescription(e.target.value)}
             required
           />
         </div>
         <div className={styles.formGroupLabelcolor}>
           <label>Label color</label>
           <div className={styles.labelColors}>
-            {["Low", "Medium", "High", "Without"].map((color) => (
+            {['low', 'medium', 'high', 'without'].map(color => (
               <label
                 key={color}
                 className={`${styles.labelColor} ${styles[color]} ${
-                  labelColor === color ? styles.selected : ""
+                  labelColor === color ? styles.selected : ''
                 }`}
               >
                 <input
@@ -63,7 +70,7 @@ const AddCardModal = ({ onAddCard, onClose }) => {
                   name="labelColor"
                   value={color}
                   checked={labelColor === color}
-                  onChange={() => setLabelColor(color)}
+                  onChange={e => setLabelColor(e.target.value)}
                 />
               </label>
             ))}
@@ -74,7 +81,7 @@ const AddCardModal = ({ onAddCard, onClose }) => {
           <DatePicker
             id="deadline"
             selected={deadline}
-            onChange={(date) => setDeadline(date)}
+            onChange={date => setDeadline(date)}
             required
             className={styles.datePicker}
           />
