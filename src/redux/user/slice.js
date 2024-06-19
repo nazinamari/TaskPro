@@ -4,6 +4,7 @@ import {
   updateUserTheme,
   refreshUser,
   setAvatarUrl,
+  updateUserProfile,
 } from "./operations.js";
 
 const userSlice = createSlice({
@@ -69,6 +70,17 @@ const userSlice = createSlice({
       })
       .addCase(setAvatarUrl.rejected, (state) => {
         state.loading = false;
+      })
+      .addCase(updateUserProfile.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(updateUserProfile.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.loading = false;
+      })
+      .addCase(updateUserProfile.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
       });
   },
 });

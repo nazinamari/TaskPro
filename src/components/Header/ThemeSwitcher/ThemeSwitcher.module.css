@@ -1,126 +1,128 @@
 @media only screen and (min-width: 320px) {
-	.dropdown {
-		display: inline-block;
-		position: relative;
-	}
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
 
-	.themeBtn {
-		display: flex;
-		align-items: center;
-		gap: 4px;
-		background-color: transparent;
-		color: rgba(255, 255, 255, 0.8);
-		border: none;
-		font-size: 14px;
-		cursor: pointer;
-		border-radius: 4px;
-		padding: 0px;
-	}
+  .themeBtn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0px;
+  }
 
-	.themeBtn:hover,
-	.themeBtn:focus,
-	.themeBtn:active {
-		color: var(--accent-color);
-	}
+  .themeBtn:hover,
+  .themeBtn:focus,
+  .themeBtn:active {
+    color: var(--accent-color);
+  }
 
-	.dropdownMenu {
-		position: absolute;
-		top: 100%;
-		left: 0;
-		border: 1px solid var(--accent-color);
-		border-radius: 8px;
-		width: 100px;
-		max-height: 107px;
-		background: #151515;
-		box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
-		z-index: 1;
-	}
+  .titleTheme {
+    color: var(--gray-thema);
+  }
 
-	.ThemeList {
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
-		padding: 18px;
-	}
+  .titleTheme:hover {
+    color: var(--accent-color);
+  }
 
-	.themeItem {
-		font-size: 14px;
-		text-align: left;
-		color: var(--second-text-color);
-		cursor: pointer;
-		width: 32px;
-		height: 21px;
-	}
+  .dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    width: 100px;
+    max-height: 107px;
+    background: var(--hover-background-color);
+    box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+    z-index: 1;
+  }
 
-	.themeItem:hover {
-		color: var(--accent-color);
-	}
+  .ThemeList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px;
+  }
 
-	.icon {
-		width: 16px;
-		height: 16px;
-		stroke: #fff;
-	}
+  .themeItem {
+    font-size: 14px;
+    text-align: left;
+    color: var(--second-text-color);
+    cursor: pointer;
+    width: 32px;
+    height: 21px;
+  }
 
-	.dropdown {
-		display: inline-block;
-		position: relative;
-	}
+  .themeItem:hover {
+    color: var(--accent-color);
+  }
 
-	.themeBtn {
-		display: flex;
-		align-items: center;
-		gap: 4px;
-		background-color: transparent;
-		color: rgba(255, 255, 255, 0.8);
-		border: none;
-		font-size: 14px;
-		cursor: pointer;
-		border-radius: 4px;
-	}
+  .icon {
+    width: 16px;
+    height: 16px;
+    stroke: var(--eye-color);
+    fill: none;
+  }
 
-	.themeBtn:hover,
-	.themeBtn:focus,
-	.themeBtn:active {
-		color: var(--accent-color);
-	}
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
 
-	.dropdownMenu {
-		position: absolute;
-		top: 100%;
-		left: 0;
-		border: 1px solid var(--accent-color);
-		border-radius: 8px;
-		width: 100px;
-		max-height: 107px;
-		background: #151515;
-		box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
-		z-index: 1;
-	}
+  .themeBtn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: transparent;
+    color: var(--grey-text);
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
 
-	.ThemeList {
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
-		padding: 18px;
-	}
+  .themeBtn:hover,
+  .themeBtn:focus,
+  .themeBtn:active {
+    color: var(--accent-color);
+  }
 
-	.themeItem {
-		font-size: 14px;
-		text-align: left;
-		color: var(--second-text-color);
-		cursor: pointer;
-		width: 32px;
-		height: 21px;
-	}
+  .dropdownMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    width: 100px;
+    max-height: 107px;
+    background: var(--hover-background-color);
+    box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
+    z-index: 1;
+  }
 
-	.themeItem:hover {
-		color: var(--accent-color);
-	}
+  .ThemeList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px;
+  }
 
-	.icon {
-		width: 16px;
-		height: 16px;
-		stroke: #fff;
-	}
+  .themeItem {
+    font-size: 14px;
+    text-align: left;
+    color: var(--second-text-color);
+    cursor: pointer;
+    width: 32px;
+    height: 21px;
+  }
+
+  .themeItem:hover {
+    color: var(--accent-color);
+  }
 }

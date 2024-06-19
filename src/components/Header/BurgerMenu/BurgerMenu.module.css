@@ -15,7 +15,7 @@
   }
 
   .burgerMenu {
-    stroke: #fff;
+    stroke: var(--main-text-color);
   }
 
   .backdrop {
@@ -45,7 +45,7 @@
   }
 
   .burgerMenu {
-    stroke: #fff;
+    stroke: var(--main-text-color);
     height: 32px;
     width: 32px;
   }
