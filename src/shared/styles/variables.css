@@ -61,6 +61,7 @@
   --border-title: #161616;
   --gray-thema: rgba(22, 22, 22, 0.8);
   --btn-text: #161616;
+  --item-theme: #161616;
 }
 
 .violet {
@@ -92,6 +93,7 @@
   --border-title: #979cea;
   --gray-thema: rgba(22, 22, 22, 0.8);
   --btn-text: #ffffff;
+  --item-theme: #161616;
 }
 
 .dark {
@@ -113,4 +115,5 @@
   --logo-fill: #ffffff;
   --gray-thema: rgba(255, 255, 255, 0.8);
   --btn-text: #161616;
+  --item-theme: rgba(255, 255, 255, 0.5);
 }

@@ -10,6 +10,7 @@
     overflow-y: auto;
     z-index: 1100;
     outline: none;
+    transition: opacity var(--transition), visibility var(--transition);
   }
   .overlay {
     position: fixed;
@@ -23,6 +24,7 @@
     align-items: center;
     justify-content: center;
     overflow-y: auto;
+    backdrop-filter: blur(1px);
   }
   .closeButton {
     position: absolute;

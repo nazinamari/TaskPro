@@ -9,11 +9,11 @@
     align-items: center;
     gap: 4px;
     background-color: transparent;
+    color: var(--grey-text);
     border: none;
     font-size: 14px;
     cursor: pointer;
     border-radius: 4px;
-    padding: 0px;
   }
 
   .themeBtn:hover,
@@ -24,6 +24,8 @@
 
   .titleTheme {
     color: var(--gray-thema);
+    font-size: 14px;
+    font-weight: 600;
   }
 
   .titleTheme:hover {
@@ -32,8 +34,8 @@
 
   .dropdownMenu {
     position: absolute;
-    top: 100%;
-    left: 0;
+    top: 150%;
+    left: -20%;
     border: 1px solid var(--accent-color);
     border-radius: 8px;
     width: 100px;
@@ -53,7 +55,7 @@
   .themeItem {
     font-size: 14px;
     text-align: left;
-    color: var(--second-text-color);
+    color: var(--item-theme);
     cursor: pointer;
     width: 32px;
     height: 21px;
@@ -68,61 +70,5 @@
     height: 16px;
     stroke: var(--eye-color);
     fill: none;
-  }
-
-  .dropdown {
-    display: inline-block;
-    position: relative;
-  }
-
-  .themeBtn {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    background-color: transparent;
-    color: var(--grey-text);
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-
-  .themeBtn:hover,
-  .themeBtn:focus,
-  .themeBtn:active {
-    color: var(--accent-color);
-  }
-
-  .dropdownMenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    border: 1px solid var(--accent-color);
-    border-radius: 8px;
-    width: 100px;
-    max-height: 107px;
-    background: var(--hover-background-color);
-    box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
-    z-index: 1;
-  }
-
-  .ThemeList {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 18px;
-  }
-
-  .themeItem {
-    font-size: 14px;
-    text-align: left;
-    color: var(--second-text-color);
-    cursor: pointer;
-    width: 32px;
-    height: 21px;
-  }
-
-  .themeItem:hover {
-    color: var(--accent-color);
   }
 }
