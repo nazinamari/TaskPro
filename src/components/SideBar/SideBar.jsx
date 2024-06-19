@@ -83,7 +83,7 @@ export default function SideBar({ isSidebarOpen, toggleSidebar }) {
                 height="20"
                 className={css.helpIcon}
               />
-              <p>Need help?</p>
+              Need help?
             </button>
           </div>
           <button

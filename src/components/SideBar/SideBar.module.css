@@ -147,7 +147,7 @@
   .helpBtn {
     background-color: transparent;
     margin-top: 18px;
-    color: var(--main-text-color);
+    color: var(--side-text);
     border: none;
     cursor: pointer;
     display: flex;
@@ -164,7 +164,7 @@
     cursor: pointer;
     border: none;
     background-color: inherit;
-    color: var(--main-text-color);
+    color: var(--side-text);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -187,12 +187,12 @@
   }
 
   .logoutIcon {
-    stroke: var(--main-text-color);
+    stroke: var(--side-text);
     fill: none;
   }
   .helpIcon {
     fill: none;
-    stroke: var(--main-text-color);
+    stroke: var(--side-text);
     transition: stroke var(--transition);
     justify-content: center;
     align-items: center;
@@ -239,6 +239,7 @@
     height: 102px;
     font-size: 14px;
     line-height: 143%;
+    color: var(--side-text);
   }
 }
 
