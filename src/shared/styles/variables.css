@@ -40,6 +40,9 @@
   --plus-fill-sideBar: #121212;
   --side-text: #ffffff;
   --input-text: #ffffff;
+  --cards-color: #121212;
+  --trash: rgba(100, 100, 100, 0.7);
+  --edit-plus: #151515;
 }
 
 .light {
@@ -70,6 +73,8 @@
   --plus-fill-sideBar: #121212;
   --side-text: #161616;
   --input-text: #161616;
+  --cards-color: #ffffff;
+  --edit-plus: #151515;
 }
 
 .violet {
@@ -98,13 +103,16 @@
   --logo: #ecedfd;
   --logo-fill: #5255bc;
   --board-title-wrap: rgba(255, 255, 255, 0.4);
-  --border-title: #979cea;
+  --border-title: #ffffff;
   --gray-thema: rgba(22, 22, 22, 0.8);
   --btn-text: #ffffff;
   --plus: #b8bcfd;
   --plus-fill-sideBar: #ffffff;
   --side-text: #ffffff;
   --input-text: #161616;
+  --cards-color: #ffffff;
+  --trash: rgba(100, 100, 100, 0.7);
+  --edit-plus: #ffffff;
 }
 
 .dark {
@@ -129,4 +137,6 @@
   --plus: #bedbb0;
   --plus-fill-sideBar: #121212;
   --side-text: #ffffff;
+  --input-text: #ffffff;
+  --cards-color: #121212;
 }
