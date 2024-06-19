@@ -1,3 +1,6 @@
+export { default as pic0 } from './pic0.jpg';
+export { default as pic0x } from './pic0x.jpg';
+
 export { default as pic1 } from './pic1.jpg';
 export { default as pic1x } from './pic1x.jpg';
 

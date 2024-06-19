@@ -3,10 +3,10 @@ import { useForm } from 'react-hook-form';
 import Icon from '../../../shared/components/Icon/Icon.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllBoards } from '../../../redux/board/selectors.js';
-// import bgImages from '../../images/mini/dt_1x/index.js';
+import bgImages from '../../../images/mini/dt_1x/index.js';
 import { addBoard } from '../../../redux/board/operations.js';
 import { useEffect, useState } from 'react';
-// import Background from '../../shared/components/Background/Background.jsx';
+import Background from '../../../shared/components/Background/Background.jsx';
 import { useNavigate } from 'react-router-dom';
 import icons from '../../../images/mini/icons.json';
 
@@ -116,7 +116,7 @@ export default function NewBoardModal({ handleCreateModal }) {
             </div>
             <h3 className={css.iconsTitle}>Background</h3>
             <ul className={css.bgList}>
-              {/* {bgImages.map((imageSrc, index) => (
+              {bgImages.map((imageSrc, index) => (
                 <li key={index}>
                   <label htmlFor={`bg-${index}`} className={css.iconLabel}>
                     <input
@@ -126,6 +126,14 @@ export default function NewBoardModal({ handleCreateModal }) {
                       className={css.iconRadio}
                       onChange={() => setSelectedBg(imageSrc.value)}
                       checked={selectedBg === imageSrc.value}
+                      onClick={() => {
+                        console.log(imageSrc.value);
+                        console.log('Current selectedBg:', selectedBg);
+                        console.log(
+                          'Input checked:',
+                          selectedBg === imageSrc.value,
+                        );
+                      }}
                     />
                     <Background
                       className={css.bgImage}
@@ -136,7 +144,7 @@ export default function NewBoardModal({ handleCreateModal }) {
                     />
                   </label>
                 </li>
-              ))} */}
+              ))}
             </ul>
             <button type="submit" className={css.createBtn}>
               <div className={css.wrapper}>

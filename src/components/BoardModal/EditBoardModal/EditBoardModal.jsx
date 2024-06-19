@@ -12,29 +12,29 @@ import picData from './data/pic.json';
 import Picture from '../../../shared/components/Pic/Pic';
 
 export default function EditBoardModal({ onClose, title }) {
+  const data = picData.map(item => {
+    return {
+      ...item,
+      url: images[item.url],
+      url2x: images[item.url2x],
+    };
+  });
+
   const board = useSelector(selectBoard);
 
   const [selectedIcon, setSelectedIcon] = useState(
     board.board.icon || icons[0].value,
   );
 
-  //   const [selectedBg, setSelectedBg] = useState(
-  //     board.board.background || 'bg-1',
-  //   );
-
   const [selectedBg, setSelectedBg] = useState(
-    board.board.background || 'pic1',
+    board.board.background || 'bg-0',
   );
-
-  console.log(selectedBg);
 
   const [boardTitle, setBoardTitle] = useState(title);
 
   useEffect(() => {
     setSelectedIcon(board.board.icon || icons[0].value);
-    setSelectedBg(board.board.background || 'pic1');
-
-    // setSelectedBg(board.board.background || 'bg-1');
+    setSelectedBg(board.board.background || 'bg-0');
     setBoardTitle(board.board.title);
   }, [board]);
 
@@ -76,14 +76,6 @@ export default function EditBoardModal({ onClose, title }) {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [onClose]);
-
-  const data = picData.map(item => {
-    return {
-      ...item,
-      url: images[item.url],
-      url2x: images[item.url2x],
-    };
-  });
 
   return (
     <div className={css.container} onClick={onClose}>
@@ -136,30 +128,37 @@ export default function EditBoardModal({ onClose, title }) {
             </div>
             <h3 className={css.iconsTitle}>Background</h3>
             <ul className={css.bgList}>
-              <div className={css.imgWrap}>
-                {data.map((item, index) => (
-                  <li key={index}>
-                    <label htmlFor={`pic{index}`} className={css.bgLabel}>
-                      <input
-                        type="radio"
-                        value={item.value}
-                        id={`pic{index}`}
-                        className={css.iconRadio}
-                        onChange={() => setSelectedBg(item.value)}
-                        checked={selectedBg === item.value}
-                      />
-                      <Picture
-                        className={css.bgImage}
-                        url={item.url}
-                        url2x={item.url2x}
-                        height="28px"
-                        width="28px"
-                        alt={item.alt}
-                      />
-                    </label>
-                  </li>
-                ))}
-              </div>
+              {data.map((item, index) => (
+                <li key={item.id}>
+                  <label htmlFor={`bg-${index}`} className={css.bgLabel}>
+                    <input
+                      type="radio"
+                      value={item.value}
+                      id={`bg-${index}`}
+                      className={css.iconRadio}
+                      onChange={() => setSelectedBg(item.value)}
+                      checked={selectedBg === item.value}
+                      onClick={() => {
+                        setSelectedBg(item.value);
+                        console.log(item.value);
+                        console.log('Current selectedBg:', selectedBg);
+                        console.log(
+                          'Input checked:',
+                          selectedBg === item.value,
+                        );
+                      }}
+                    />
+                    <Picture
+                      className={css.bgImage}
+                      url={item.url}
+                      url2x={item.url2x}
+                      width={item.width}
+                      height={item.height}
+                      alt={item.alt}
+                    />
+                  </label>
+                </li>
+              ))}
             </ul>
             <button type="submit" className={css.editBtn}>
               <div className={css.wrapper}>
@@ -180,42 +179,3 @@ export default function EditBoardModal({ onClose, title }) {
     </div>
   );
 }
-
-{
-  /* <div className={css.imgWrap}>
-  {data.map((item, index) => (
-    <Picture
-      className={css.bgImage}
-      key={index}
-      url={item.url}
-      url2x={item.url2x}
-      height="18px"
-      width="18px"
-    />
-  ))}
-</div>; */
-}
-
-// {
-// 	bgImages.map((image, index) => (
-// 		<li key={index}>
-// 			<label htmlFor={`bg-${index}`} className={css.bgLabel}>
-// 				<input
-// 					type="radio"
-// 					value={image.value}
-// 					id={`bg-${index}`}
-// 					className={css.iconRadio}
-// 					onChange={() => setSelectedBg(image.value)}
-// 					checked={selectedBg === image.value}
-// 				/>
-// 				<Background
-// 					className={css.bgImage}
-// 					width={image.width}
-// 					height={image.height}
-// 					src={image.src}
-// 					alt={image.index}
-// 				/>
-// 			</label>
-// 		</li>
-// 	));
-// }

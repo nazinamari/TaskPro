@@ -1,68 +1,68 @@
-import css from "./EditBoardModal.module.css";
-import Icon from "../../shared/components/Icon/Icon";
-import bgImages from "../../images/mini/dt_1x/index";
-import { useEffect, useState } from "react";
-import { editBoard, getBoardById } from "../../redux/board/operations";
-import Background from "../../shared/components/Background/Background";
-import { useDispatch, useSelector } from "react-redux";
-import { selectBoard } from "../../redux/board/selectors";
+import css from './EditBoardModal.module.css';
+import Icon from '../../shared/components/Icon/Icon';
+import bgImages from '../../images/mini/dt_1x/index';
+import { useEffect, useState } from 'react';
+import { editBoard, getBoardById } from '../../redux/board/operations';
+import Background from '../../shared/components/Background/Background';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectBoard } from '../../redux/board/selectors';
 
 const icons = [
   {
-    value: "icon-projects",
-    id: "icon-projects",
-    alt: "icon-projects",
-    width: "18px",
-    height: "18px",
+    value: 'icon-projects',
+    id: 'icon-projects',
+    alt: 'icon-projects',
+    width: '18px',
+    height: '18px',
   },
   {
-    value: "icon-star",
-    id: "icon-star",
-    alt: "icon-star",
-    width: "18px",
-    height: "18px",
+    value: 'icon-star',
+    id: 'icon-star',
+    alt: 'icon-star',
+    width: '18px',
+    height: '18px',
   },
   {
-    value: "icon-loading",
-    id: "icon-loading",
-    alt: "icon-loading",
-    width: "18px",
-    height: "18px",
+    value: 'icon-loading',
+    id: 'icon-loading',
+    alt: 'icon-loading',
+    width: '18px',
+    height: '18px',
   },
   {
-    value: "icon-puzzle",
-    id: "icon-puzzle",
-    alt: "icon-puzzle",
-    width: "18px",
-    height: "18px",
+    value: 'icon-puzzle',
+    id: 'icon-puzzle',
+    alt: 'icon-puzzle',
+    width: '18px',
+    height: '18px',
   },
   {
-    value: "icon-container",
-    id: "icon-container",
-    alt: "icon-container",
-    width: "18px",
-    height: "18px",
+    value: 'icon-container',
+    id: 'icon-container',
+    alt: 'icon-container',
+    width: '18px',
+    height: '18px',
   },
   {
-    value: "icon-lightning",
-    id: "icon-lightning",
-    alt: "icon-lightning",
-    width: "18px",
-    height: "18px",
+    value: 'icon-lightning',
+    id: 'icon-lightning',
+    alt: 'icon-lightning',
+    width: '18px',
+    height: '18px',
   },
   {
-    value: "icon-colors",
-    id: "icon-colors",
-    alt: "icon-colors",
-    width: "18px",
-    height: "18px",
+    value: 'icon-colors',
+    id: 'icon-colors',
+    alt: 'icon-colors',
+    width: '18px',
+    height: '18px',
   },
   {
-    value: "icon-hexagon",
-    id: "icon-hexagon",
-    alt: "icon-hexagon",
-    width: "18px",
-    height: "18px",
+    value: 'icon-hexagon',
+    id: 'icon-hexagon',
+    alt: 'icon-hexagon',
+    width: '18px',
+    height: '18px',
   },
 ];
 
@@ -70,22 +70,22 @@ export default function EditBoardModal({ onClose, title }) {
   const board = useSelector(selectBoard);
   console.log(board);
   const [selectedIcon, setSelectedIcon] = useState(
-    board.board.icon || icons[0].value
+    board.board.icon || icons[0].value,
   );
   const [selectedBg, setSelectedBg] = useState(
-    board.board.background || "bg-1"
+    board.board.background || 'bg-1',
   );
   const [boardTitle, setBoardTitle] = useState(title);
 
   useEffect(() => {
     setSelectedIcon(board.board.icon || icons[0].value);
-    setSelectedBg(board.board.background || "bg-1");
+    setSelectedBg(board.board.background || 'bg-1');
     setBoardTitle(board.board.title);
   }, [board]);
 
   const dispatch = useDispatch();
 
-  const onSubmit = (event) => {
+  const onSubmit = event => {
     event.preventDefault();
     const id = board.board._id;
     const data = {
@@ -96,29 +96,29 @@ export default function EditBoardModal({ onClose, title }) {
     dispatch(editBoard({ boardId: id, data }))
       .unwrap()
       .then(() => {
-        console.log("update successfully"); // додати тост
+        console.log('update successfully'); // додати тост
       })
-      .catch((error) => {
+      .catch(error => {
         console.error(error.message);
       });
     onClose();
     dispatch(getBoardById(id));
   };
 
-  const stopPropagation = (event) => {
+  const stopPropagation = event => {
     event.stopPropagation();
   };
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
+    const handleKeyDown = event => {
+      if (event.key === 'Escape') {
         onClose();
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [onClose]);
 
@@ -142,12 +142,12 @@ export default function EditBoardModal({ onClose, title }) {
               className={css.input}
               type="text"
               value={boardTitle}
-              onChange={(e) => setBoardTitle(e.target.value)}
-            />{" "}
+              onChange={e => setBoardTitle(e.target.value)}
+            />{' '}
             <div className={css.formContainer}>
               <h3 className={css.iconsTitle}>Icons</h3>
               <ul className={css.iconsContainer}>
-                {icons.map((icon) => (
+                {icons.map(icon => (
                   <li key={icon.value} className={css.iconLabel}>
                     <label htmlFor={icon.id} className={css.iconLabel}>
                       <input
