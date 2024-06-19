@@ -11,3 +11,11 @@ button {
   cursor: pointer;
   font-family: inherit;
 }
+.open-btn {
+  margin: 10px 20 px;
+  padding: 20px;
+  font-size: 2rem;
+}
+p {
+  margin: 20 px;
+}
