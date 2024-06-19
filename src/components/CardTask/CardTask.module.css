@@ -12,7 +12,7 @@
 }
 
 .card::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -134,22 +134,22 @@
 .actionButton:active .icon {
   stroke: var(--accent-color);
 }
-.Low::before,
-.priorityColor.Low {
+.low::before,
+.priorityColor.low {
   background-color: var(--board-section-low);
 }
 
-.Medium::before,
-.priorityColor.Medium {
+.medium::before,
+.priorityColor.medium {
   background-color: var(--board-section-medium);
 }
 
-.High::before,
-.priorityColor.High {
+.high::before,
+.priorityColor.high {
   background-color: var(--board-section-high);
 }
 
-.Without::before,
-.priorityColor.Without {
+.withoutpriority::before,
+.priorityColor.withoutpriority {
   background-color: rgba(255, 255, 255, 0.3);
 }
