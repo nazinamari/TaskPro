@@ -1,15 +1,16 @@
-import { useState } from "react";
-import styles from "./BurgerMenu.module.css";
-import SideBar from "../../../components/SideBar/SideBar";
+import { useState } from 'react';
+import styles from './BurgerMenu.module.css';
+import SideBar from '../../../components/SideBar/SideBar';
+import Icon from '../../../shared/components/Icon/Icon';
 
 export default function BurgerMenu() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
-    setIsSidebarOpen((prevState) => !prevState);
+    setIsSidebarOpen(prevState => !prevState);
   };
 
-  const handleBackdropClick = (event) => {
+  const handleBackdropClick = event => {
     if (event.target.classList.contains(styles.backdrop)) {
       setIsSidebarOpen(false);
     }
@@ -18,9 +19,12 @@ export default function BurgerMenu() {
   return (
     <div className={styles.burgerWrapper}>
       <button className={styles.burgerButton} onClick={toggleSidebar}>
-        <svg className={styles.burgerMenu} width="24" height="24">
-          <use href="../../../public/icons.svg#icon-burger"></use>
-        </svg>
+        <Icon
+          id="icon-burger"
+          width="24"
+          height="24"
+          className={styles.burgerMenu}
+        />
       </button>
       {isSidebarOpen && (
         <div className={styles.backdrop} onClick={handleBackdropClick}>
