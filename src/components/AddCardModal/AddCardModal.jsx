@@ -61,7 +61,7 @@ const AddCardModal = ({ id, onAddCard, onClose }) => {
             {['low', 'medium', 'high', 'without'].map(color => (
               <label
                 key={color}
-                className={`${styles.labelColor} ${styles[color]} ${
+                className={`${styles.priority} ${styles[color]} ${
                   labelColor === color ? styles.selected : ''
                 }`}
               >
