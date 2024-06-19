@@ -44,6 +44,11 @@
   padding-top: 20px;
 }
 
+.formGroupTitle input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .formGroupTitle input::placeholder {
   color: #999;
   opacity: 1;
@@ -183,7 +188,7 @@
 .iconContainer {
   width: 28px;
   height: 28px;
-  background-color: #151515;
+  background-color: var(--add-card-con);
   border-radius: 5px;
   margin-right: 8px;
   display: flex;
