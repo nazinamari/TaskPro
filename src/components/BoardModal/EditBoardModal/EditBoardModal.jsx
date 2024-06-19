@@ -135,18 +135,9 @@ export default function EditBoardModal({ onClose, title }) {
                       type="radio"
                       value={item.value}
                       id={`bg-${index}`}
-                      className={css.iconRadio}
+                      className={css.radio}
                       onChange={() => setSelectedBg(item.value)}
                       checked={selectedBg === item.value}
-                      onClick={() => {
-                        setSelectedBg(item.value);
-                        console.log(item.value);
-                        console.log('Current selectedBg:', selectedBg);
-                        console.log(
-                          'Input checked:',
-                          selectedBg === item.value,
-                        );
-                      }}
                     />
                     <Picture
                       className={css.bgImage}

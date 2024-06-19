@@ -143,21 +143,37 @@
 
 .bgLabel {
   cursor: pointer;
+  overflow: hidden;
 }
 
 .bgImage {
   box-sizing: border-box;
   border-radius: 8px;
+  &:hover {
+    border: 1px solid var(--main-text-color);
+  }
 }
 
-.iconRadio:checked + .bgImage {
-  border-radius: 8px;
+.radio:checked + .bgImage {
   border: 1px solid var(--main-text-color);
 }
 
-.iconRadio:hover + .bgImage {
+.radio:hover + .bgImage {
   border: 1px solid var(--main-text-color);
 }
+
+.radio {
+  opacity: 0;
+  position: absolute;
+}
+
+/* .radio:checked + .bgLabel {
+  border: 1px solid var(--main-text-color);
+} */
+
+/* input[type='checkbox']:checked .bgImage {
+  background: lime;
+} */
 
 .editBtn {
   border-radius: 8px;
