@@ -51,34 +51,13 @@ export const refreshUser = createAsyncThunk(
   },
 );
 
-// export const setAvatarUrl = createAsyncThunk(
-//   "user/setAvatarUrl",
-//   async (newAvatarURL, thunkAPI) => {
-//     try {
-//       const dataToUpdate = {
-//         avatarUrl: newAvatarURL,
-//       };
-
-//       // headers: {
-//       //    'Content-Type': 'multipart/form-data'
-//       //  }
-//       await instance.put("/users/update", dataToUpdate);
-
-//       return newAvatarURL;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
-
 export const setAvatarUrl = createAsyncThunk(
   'user/setAvatarUrl',
   async (file, thunkAPI) => {
     try {
       const formData = new FormData();
-      formData.append('avatar', file); // Додає файл до об'єкта FormData з ключем 'avatar'
+      formData.append('avatar', file);
 
-      // Встановлення заголовків вручну
       const response = await instance.put('/users/update', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',

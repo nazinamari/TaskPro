@@ -33,7 +33,6 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
     name: '',
     email: '',
     password: '',
-    avatarURL: '',
   });
 
   useEffect(() => {
@@ -69,7 +68,6 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
     closeModal();
   };
 
-  // Нова функція для обробки вибору файлу
   const handleAvatarChange = event => {
     const file = event.target.files[0];
     if (file) {
@@ -123,7 +121,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
                   id="avatarInput"
                   type="file"
                   accept="image/*"
-                  onChange={handleAvatarChange} // Додаємо onChange для обробки вибору файлу
+                  onChange={handleAvatarChange}
                   style={{ display: 'none' }}
                 />
               </label>
@@ -140,7 +138,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
             </div>
             <div className={styles.boxForm}>
               <div className={styles.inputWrapper}>
-                <label className={styles.input}>
+                <label className={styles.fieldInput}>
                   <Field
                     type="text"
                     name="name"
@@ -156,7 +154,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
               </div>
 
               <div className={styles.inputWrapper}>
-                <label className={styles.input}>
+                <label className={styles.fieldInput}>
                   <Field
                     type="email"
                     name="email"
@@ -172,7 +170,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
               </div>
 
               <div className={styles.inputWrapper}>
-                <label className={styles.input}>
+                <label className={styles.fieldInput}>
                   <Field
                     type={showPassword ? 'text' : 'password'}
                     name="password"
