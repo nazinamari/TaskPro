@@ -1,8 +1,8 @@
-import { useState } from "react";
-import Icon from "../../shared/components/Icon/Icon";
-import EditColumnModal from "../EditColumnModal/EditColumnModal";
-import styles from "./ToDo.module.css";
-import "../../shared/styles/variables.css";
+import { useState } from 'react';
+import Icon from '../../shared/components/Icon/Icon';
+import EditColumnModal from '../EditColumnModal/EditColumnModal';
+import styles from './ToDo.module.css';
+import '../../shared/styles/variables.css';
 
 const ToDo = ({ id, title, onEditTitle, onDelete }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +14,7 @@ const ToDo = ({ id, title, onEditTitle, onDelete }) => {
     setIsModalOpen(false);
   };
 
-  const handleSave = (newTitle) => {
+  const handleSave = newTitle => {
     onEditTitle(newTitle);
     closeModal();
   };
@@ -30,7 +30,7 @@ const ToDo = ({ id, title, onEditTitle, onDelete }) => {
   return (
     <div className={styles.card}>
       <div className={styles.header}>
-        <div>{title}</div>
+        <h3 className={styles.title}>{title}</h3>
       </div>
       <div className={styles.actions}>
         <button onClick={handleEditClick} className={styles.actionButton}>

@@ -17,7 +17,15 @@
   flex-grow: 1;
 }
 
+.title {
+  color: var(--input-text);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
 .titleInput {
+  background-color: var(--primary-color);
   font-size: 1.2em;
   padding: 5px;
   border: none;
@@ -26,7 +34,7 @@
 }
 
 .editing {
-  background-color: var(--primary-color);
+  background: red;
   color: var(--text-color);
 }
 
@@ -53,5 +61,5 @@
 }
 
 .icon:hover {
-  stroke: #bedbb0;
+  stroke: var(--accent-color);
 }

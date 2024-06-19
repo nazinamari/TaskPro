@@ -34,7 +34,12 @@
   --board-title-wrap: rgba(255, 255, 255, 0.2);
   --border-title: #ffffff;
   --gray-thema: rgba(255, 255, 255, 0.8);
+  --btn-text: #161616;
   --black: #161616;
+  --plus: #bedbb0;
+  --plus-fill-sideBar: #121212;
+  --side-text: #ffffff;
+  --input-text: #ffffff;
 }
 
 .light {
@@ -61,6 +66,10 @@
   --border-title: #161616;
   --gray-thema: rgba(22, 22, 22, 0.8);
   --btn-text: #161616;
+  --plus: #bedbb0;
+  --plus-fill-sideBar: #121212;
+  --side-text: #161616;
+  --input-text: #161616;
 }
 
 .violet {
@@ -92,6 +101,10 @@
   --border-title: #979cea;
   --gray-thema: rgba(22, 22, 22, 0.8);
   --btn-text: #ffffff;
+  --plus: #b8bcfd;
+  --plus-fill-sideBar: #ffffff;
+  --side-text: #ffffff;
+  --input-text: #161616;
 }
 
 .dark {
@@ -113,4 +126,7 @@
   --logo-fill: #ffffff;
   --gray-thema: rgba(255, 255, 255, 0.8);
   --btn-text: #161616;
+  --plus: #bedbb0;
+  --plus-fill-sideBar: #121212;
+  --side-text: #ffffff;
 }
