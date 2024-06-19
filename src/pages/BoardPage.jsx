@@ -36,7 +36,7 @@ export default function BoardPage() {
       <SideBar />
       <MainContent
         header={<BoardTittle title={title} />}
-        content={<WorkPlace />}
+        content={<WorkPlace id={id} />}
       />
     </Layout>
   );

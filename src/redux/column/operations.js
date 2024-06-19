@@ -6,7 +6,6 @@ export const fetchColumns = createAsyncThunk(
   async (boardId, thunkApi) => {
     try {
       const response = await instance.get('/columns', boardId);
-      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

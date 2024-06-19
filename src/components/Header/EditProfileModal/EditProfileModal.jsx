@@ -1,26 +1,26 @@
-import { useEffect, useState } from "react";
-import Modal from "react-modal";
-import { useDispatch, useSelector } from "react-redux";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import styles from "./EditProfileModal.module.css";
-import { updateUserProfile } from "../../../redux/user/operations";
-import { selectUser } from "../../../redux/user/selectors";
-import { setAvatarUrl } from "../../../redux/user/operations";
+import { useEffect, useState } from 'react';
+import Modal from 'react-modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import styles from './EditProfileModal.module.css';
+import { updateUserProfile } from '../../../redux/user/operations';
+import { selectUser } from '../../../redux/user/selectors';
+import { setAvatarUrl } from '../../../redux/user/operations';
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, "Name is too short")
-    .max(50, "Name is too long")
-    .required("Name is required"),
+    .min(2, 'Name is too short')
+    .max(50, 'Name is too long')
+    .required('Name is required'),
   email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+    .email('Invalid email address')
+    .required('Email is required'),
   password: Yup.string().min(
     6,
-    "Password is too short - should be 6 chars minimum."
+    'Password is too short - should be 6 chars minimum.',
   ),
 });
 
@@ -30,27 +30,27 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
   const avatarIcon = user.avatarURL;
   const [showPassword, setShowPassword] = useState(false);
   const [initialValues, setInitialValues] = useState({
-    name: "",
-    email: "",
-    password: "",
+    name: '',
+    email: '',
+    password: '',
   });
 
   useEffect(() => {
     if (user) {
       setInitialValues({
-        name: user.name || "",
-        email: user.email || "",
-        password: "",
-        avatarURL: user.avatarURL || "",
+        name: user.name || '',
+        email: user.email || '',
+        password: '',
+        avatarURL: user.avatarURL || '',
       });
     }
   }, [user]);
 
   const toggleShowPassword = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
+    setShowPassword(prevShowPassword => !prevShowPassword);
   };
 
-  const handleFormSubmit = (values) => {
+  const handleFormSubmit = values => {
     const updatedProfile = {
       name: values.name,
       email: values.email,
@@ -68,7 +68,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
     closeModal();
   };
 
-  const handleAvatarChange = (event) => {
+  const handleAvatarChange = event => {
     const file = event.target.files[0];
     if (file) {
       const newAvatarUrl = URL.createObjectURL(file);
@@ -77,7 +77,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
   };
 
   const handleAddPhotoClick = () => {
-    const avatarInput = document.getElementById("avatarInput");
+    const avatarInput = document.getElementById('avatarInput');
     if (avatarInput) {
       avatarInput.click();
     }
@@ -111,7 +111,6 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
           <Form>
             <div className={styles.avatarBox}>
               <label className={styles.avatarForm}>
-                {console.log("avatar", user.avatarUrl)}
                 <img
                   src={user.avatarURL}
                   alt="Black"
@@ -124,7 +123,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
                   type="file"
                   accept="image/*"
                   onChange={handleAvatarChange}
-                  style={{ display: "none" }}
+                  style={{ display: 'none' }}
                 />
               </label>
 
@@ -174,7 +173,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
               <div className={styles.inputWrapper}>
                 <label className={styles.input}>
                   <Field
-                    type={showPassword ? "text" : "password"}
+                    type={showPassword ? 'text' : 'password'}
                     name="password"
                     className={styles.field}
                     autoComplete="current-password"

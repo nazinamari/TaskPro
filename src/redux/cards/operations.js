@@ -1,44 +1,44 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../../axios/apiInstance";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import instance from '../../axios/apiInstance';
 
 export const fetchAllCards = createAsyncThunk(
-  "cards/fetchAllCards",
+  'cards/fetchAllCards',
   async (columnId, thunkApi) => {
     try {
-      const response = await instance.get("/cards", columnId);
+      const response = await instance.get('/cards', columnId);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const addCard = createAsyncThunk(
-  "cards/addCard",
+  'cards/addCard',
   async (newCard, thunkApi) => {
     try {
-      const response = await instance.post("/cards", newCard);
+      const response = await instance.post('/cards', newCard);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const deleteCard = createAsyncThunk(
-  "cards/deleteCard",
+  'cards/deleteCard',
   async (cardId, thunkApi) => {
     try {
-      const response = await instance.delete(`/cards/${cardId}`, cardId);
+      const response = await instance.delete(`/cards/${cardId}`);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const editCard = createAsyncThunk(
-  "cards/editCard",
+  'cards/editCard',
   async ({ cardId, data }, thunkApi) => {
     try {
       const response = await instance.put(`/cards/${cardId}`, {
@@ -48,11 +48,11 @@ export const editCard = createAsyncThunk(
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const getCardById = createAsyncThunk(
-  "cards/getCardById",
+  'cards/getCardById',
   async (cardId, thunkApi) => {
     try {
       const response = await instance.get(`/cards/${cardId}`);
@@ -60,5 +60,5 @@ export const getCardById = createAsyncThunk(
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
