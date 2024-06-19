@@ -148,7 +148,9 @@
     font-weight: 600;
     font-size: 14px;
     letter-spacing: -0.02em;
-    color: var(--main-background-color);
+  }
+  .textBtn {
+    color: var(--btn-text);
   }
 
   .buttonModal:hover {
@@ -165,7 +167,7 @@
 
   .iconPlus {
     stroke-width: 3px;
-    stroke: var(--main-background-color);
+    stroke: var(--black);
   }
 
   .error {
@@ -176,7 +178,7 @@
   }
 
   .showPasswordButton {
-    background: none;
+    background: transparent;
     border: none;
     cursor: pointer;
     position: absolute;
@@ -186,7 +188,8 @@
   }
 
   .iconPassword {
-    stroke: var(--main-text-color);
+    stroke: var(--eye-color);
+    fill: none;
   }
 }
 

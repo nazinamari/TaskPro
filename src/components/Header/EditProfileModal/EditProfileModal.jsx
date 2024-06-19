@@ -195,7 +195,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
               </div>
 
               <button className={styles.buttonModal} type="submit">
-                Send
+                <span className={styles.textBtn}>Send</span>
               </button>
             </div>
           </Form>

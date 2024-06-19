@@ -9,7 +9,6 @@
     align-items: center;
     gap: 4px;
     background-color: transparent;
-    color: var(--grey-text);
     border: none;
     font-size: 14px;
     cursor: pointer;
@@ -20,6 +19,14 @@
   .themeBtn:hover,
   .themeBtn:focus,
   .themeBtn:active {
+    color: var(--accent-color);
+  }
+
+  .titleTheme {
+    color: var(--gray-thema);
+  }
+
+  .titleTheme:hover {
     color: var(--accent-color);
   }
 
@@ -59,7 +66,8 @@
   .icon {
     width: 16px;
     height: 16px;
-    stroke: var(--logo-fill);
+    stroke: var(--eye-color);
+    fill: none;
   }
 
   .dropdown {
@@ -116,11 +124,5 @@
 
   .themeItem:hover {
     color: var(--accent-color);
-  }
-
-  .icon {
-    width: 16px;
-    height: 16px;
-    stroke: var(--logo-fill);
   }
 }
