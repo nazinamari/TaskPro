@@ -12,14 +12,12 @@ import {
   deleteCard,
   editCard,
   fetchAllCards,
-  getCardById,
 } from '../../redux/cards/operations';
-import { selectAllCards } from '../../redux/cards/selectors';
+import { selectFilteredCards } from '../../redux/cards/selectors';
 import { getColumnById } from '../../redux/column/operations';
 
 const Column = ({ id, title: initialTitle, onDelete }) => {
   const dispatch = useDispatch();
-  const allCards = useSelector(selectAllCards);
   const [title, setTitle] = useState(initialTitle);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -30,6 +28,7 @@ const Column = ({ id, title: initialTitle, onDelete }) => {
     setTitle(initialTitle);
   }, [dispatch, id, initialTitle]);
 
+  const filteredCards = useSelector(selectFilteredCards);
   const handleAddCard = newCard => {
     dispatch(addCard(newCard));
     dispatch(getColumnById(id));
@@ -37,7 +36,6 @@ const Column = ({ id, title: initialTitle, onDelete }) => {
   };
 
   const handleRemoveCard = cardId => {
-    // dispatch(getCardById(cardId));
     dispatch(deleteCard(cardId));
   };
 
@@ -67,7 +65,7 @@ const Column = ({ id, title: initialTitle, onDelete }) => {
     <div className={styles.column}>
       <ToDo id={id} title={title} onDelete={onDelete} />
       <div className={styles.cards}>
-        {allCards.map(card => (
+        {filteredCards.map(card => (
           <CardTask
             key={card._id}
             {...card}
