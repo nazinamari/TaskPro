@@ -1,44 +1,49 @@
-import css from "./Filter.module.css";
-import Icon from "../Icon/Icon";
-import { useState, useEffect, useRef } from "react";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
-import clsx from "clsx";
+import css from './Filter.module.css';
+import Icon from '../Icon/Icon';
+import { useState, useEffect, useRef } from 'react';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import clsx from 'clsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilter } from '../../../redux/cards/slice';
+import { selectCurrentFilter } from '../../../redux/cards/selectors';
 
 const priorityOptions = [
   {
-    label: "Without priority",
-    value: "without_priority",
-    className: "withoutPriority",
+    label: 'Without priority',
+    value: 'without_priority',
+    className: 'withoutPriority',
   },
-  { label: "Low", value: "low", className: "lowPriority" },
-  { label: "Medium", value: "medium", className: "mediumPriority" },
-  { label: "High", value: "high", className: "highPriority" },
+  { label: 'Low', value: 'low', className: 'lowPriority' },
+  { label: 'Medium', value: 'medium', className: 'mediumPriority' },
+  { label: 'High', value: 'high', className: 'highPriority' },
 ];
 
 const validationSchema = Yup.object({
-  priority: Yup.string().required("Priority is required"),
+  priority: Yup.string().required('Priority is required'),
 });
 
 export default function Filter() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const dispatch = useDispatch();
+  const currentFilter = useSelector(selectCurrentFilter);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = event => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setIsOpen(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -56,10 +61,10 @@ export default function Filter() {
       {isOpen && (
         <div className={css.dropdownMenu}>
           <Formik
-            initialValues={{ priority: "all_priority" }}
+            initialValues={{ priority: currentFilter }}
             validationSchema={validationSchema}
-            onSubmit={(values) => {
-              console.log(values);
+            onSubmit={values => {
+              dispatch(setFilter(values.priority));
             }}
           >
             {({ submitForm, values }) => (
@@ -82,30 +87,30 @@ export default function Filter() {
                   </label>
                 </div>
                 <div role="group" aria-labelledby="priority-radio-group">
-                  {priorityOptions.map((option) => (
+                  {priorityOptions.map(option => (
                     <label
                       key={option.value}
                       className={clsx(
                         css.radioLabel,
                         option.value === values.priority &&
-                          css.checkedRadioLabel
+                          css.checkedRadioLabel,
                       )}
                     >
                       <div
                         className={clsx(
                           css.customRadio,
-                          priorityOptions.map((currentOption) => {
+                          priorityOptions.map(currentOption => {
                             if (currentOption.value === option.value) {
                               return css[option.className];
                             }
-                          })
+                          }),
                         )}
                       >
                         <span
                           className={clsx(
                             css.customRadioDot,
                             option.value === values.priority &&
-                              css.checkedRadioDot
+                              css.checkedRadioDot,
                           )}
                         ></span>
                       </div>

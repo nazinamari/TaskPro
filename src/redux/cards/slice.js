@@ -14,6 +14,12 @@ const slice = createSlice({
     selectedCard: null,
     loading: false,
     error: false,
+    filterBy: 'all_priority',
+  },
+  reducers: {
+    setFilter: (state, action) => {
+      state.filterBy = action.payload;
+    },
   },
   extraReducers: builder =>
     builder
@@ -84,3 +90,4 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
+export const { setFilter } = slice.actions;
