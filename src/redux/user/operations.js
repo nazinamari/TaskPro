@@ -49,18 +49,41 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
+// export const setAvatarUrl = createAsyncThunk(
+//   "user/setAvatarUrl",
+//   async (newAvatarURL, thunkAPI) => {
+//     try {
+//       const dataToUpdate = {
+//         avatarUrl: newAvatarURL,
+//       };
+
+//       // headers: {
+//       //    'Content-Type': 'multipart/form-data'
+//       //  }
+//       await instance.put("/users/update", dataToUpdate);
+
+//       return newAvatarURL;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
+
 export const setAvatarUrl = createAsyncThunk(
   "user/setAvatarUrl",
-  async (newAvatarURL, thunkAPI) => {
+  async (file, thunkAPI) => {
     try {
-      const dataToUpdate = {
-        avatarUrl: newAvatarURL,
-      };
+      const formData = new FormData();
+      formData.append("avatar", file); // Додає файл до об'єкта FormData з ключем 'avatar'
 
-      // як оновлювати аватарку на бекенди (формат запиту)
-      await instance.put("/users/update", dataToUpdate);
+      // Встановлення заголовків вручну
+      const response = await instance.put("/users/update", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
-      return newAvatarURL;
+      return response.data.avatarURL;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
