@@ -154,25 +154,26 @@
   }
 }
 
-.radio:checked + .bgImage {
+.radio {
+  opacity: 0;
+  position: absolute;
+}
+
+/* .radio:checked + .bgImage {
   border: 1px solid var(--main-text-color);
 }
 
 .radio:hover + .bgImage {
   border: 1px solid var(--main-text-color);
-}
-
-.radio {
-  opacity: 0;
-  position: absolute;
-}
+} */
 
 /* .radio:checked + .bgLabel {
   border: 1px solid var(--main-text-color);
 } */
 
 /* input[type='checkbox']:checked .bgImage {
-  background: lime;
+  display: block;
+  border: 1px solid var(--main-text-color);
 } */
 
 .editBtn {
