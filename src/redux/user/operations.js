@@ -1,19 +1,19 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../../axios/apiInstance";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import instance from '../../axios/apiInstance';
 
 export const needHelp = createAsyncThunk(
-  "user/needHelp",
+  'user/needHelp',
   async (message, thunkAPI) => {
     try {
-      await instance.post("/users/help", message);
+      await instance.post('/users/help', message);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const updateUserTheme = createAsyncThunk(
-  "user/updateUserTheme",
+  'user/updateUserTheme',
   async (theme, thunkAPI) => {
     try {
       const response = await instance.patch(`/theme`, { theme });
@@ -21,36 +21,35 @@ export const updateUserTheme = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const updateUserProfile = createAsyncThunk(
-  "users/updateUserProfile",
+  'users/updateUserProfile',
   async (userData, thunkAPI) => {
     try {
-      const response = await instance.put("/users/update", userData);
+      const response = await instance.put('/users/update', userData);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const refreshUser = createAsyncThunk(
-  "user/refreshUser",
+  'user/refreshUser',
   async (_, thunkAPI) => {
     try {
-      const response = await instance.get("/users/current");
-      console.log(response.data);
+      const response = await instance.get('/users/current');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const setAvatarUrl = createAsyncThunk(
-  "user/setAvatarUrl",
+  'user/setAvatarUrl',
   async (newAvatarURL, thunkAPI) => {
     try {
       const dataToUpdate = {
@@ -58,11 +57,11 @@ export const setAvatarUrl = createAsyncThunk(
       };
 
       // як оновлювати аватарку на бекенди (формат запиту)
-      await instance.put("/users/update", dataToUpdate);
+      await instance.put('/users/update', dataToUpdate);
 
       return newAvatarURL;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );

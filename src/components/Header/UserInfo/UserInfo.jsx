@@ -1,3 +1,4 @@
+
 // import { useDispatch, useSelector } from "react-redux";
 // import { updateUserProfile } from "../../../redux/user/operations";
 // import { selectUser, selectIsLoading } from "../../../redux/user/selectors";
@@ -61,8 +62,9 @@ import { selectUser, selectIsLoading } from "../../../redux/user/selectors";
 import styles from "./UserInfo.module.css";
 import md5 from "md5";
 
-const getGravatarUrl = (email) => {
-  const hash = email ? md5(email.trim().toLowerCase()) : "";
+
+const getGravatarUrl = email => {
+  const hash = email ? md5(email.trim().toLowerCase()) : '';
   return `https://www.gravatar.com/avatar/${hash}?d=identicon`;
 };
 
