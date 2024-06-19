@@ -10,7 +10,6 @@ const CardTask = ({
   onRemove,
   onEdit,
 }) => {
-  console.log(title, description, priority, deadline, onRemove, onEdit);
   return (
     <div className={`${styles.card} ${styles[priority]}`}>
       <p className={styles.header}>{title}</p>

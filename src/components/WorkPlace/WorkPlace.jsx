@@ -13,6 +13,7 @@ import { selectAllColumns } from '../../../src/redux/column/selectors';
 export default function WorkPlace({ id }) {
   const dispatch = useDispatch();
   const columns = useSelector(selectAllColumns);
+
   useEffect(() => {
     dispatch(fetchColumns(id));
   }, [dispatch, id]);
@@ -29,19 +30,25 @@ export default function WorkPlace({ id }) {
     );
   };
 
+  const boardColumns = columns.filter(column => column.boardId === id);
+
   return (
     <div className={css.container}>
       <div className={css.columns}>
-        {columns.map(({ _id, title, cards }) => (
-          <Column
-            key={_id}
-            id={_id}
-            title={title}
-            cards={cards}
-            onDelete={() => handleDeleteColumn(_id)}
-            onEditTitle={() => handleEditColumnTitle(_id)}
-          />
-        ))}
+        {boardColumns.length > 0 ? (
+          boardColumns.map(({ _id, title, cards }) => (
+            <Column
+              key={_id}
+              id={_id}
+              title={title}
+              cards={cards}
+              onDelete={() => handleDeleteColumn(_id)}
+              onEditTitle={newTitle => handleEditColumnTitle(_id, newTitle)}
+            />
+          ))
+        ) : (
+          <AddColumnBtn />
+        )}
         <AddColumnBtn />
       </div>
     </div>
