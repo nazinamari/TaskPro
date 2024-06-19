@@ -1,9 +1,8 @@
 .card {
-  background-color: #121212;
+  background-color: var(--todo-bg);
   color: var(--secondary-color);
   height: 56px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,7 +47,8 @@
 }
 
 .icon {
-  stroke: rgba(255, 255, 255, 0.5);
+  fill: none;
+  stroke: var(--todo-i);
   transition: stroke 0.3s ease;
 }
 

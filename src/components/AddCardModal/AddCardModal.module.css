@@ -44,6 +44,11 @@
   padding-top: 20px;
 }
 
+.formGroupTitle input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 .formGroupTitle input::placeholder {
   color: #999;
   opacity: 1;
@@ -145,7 +150,7 @@
 }
 
 .priority.without {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: var(--board-section-without-priority);
 }
 
 .priority.selected {
@@ -180,14 +185,10 @@
   margin-top: 35px;
 }
 
-.addButton:hover {
-  background-color: var(--accent-color);
-}
-
 .iconContainer {
   width: 28px;
   height: 28px;
-  background-color: #151515;
+  background-color: var(--add-card-con);
   border-radius: 5px;
   margin-right: 8px;
   display: flex;
@@ -195,7 +196,7 @@
   justify-content: center;
 }
 .icon {
-  stroke: var(--main-text-color);
+  stroke: var(--add-card-i);
 }
 .closeButton {
   position: absolute;
@@ -207,6 +208,7 @@
   cursor: pointer;
   color: var(--main-text-color);
 }
+
 /* стили для datepicker */
 .react-datepicker {
   font-family: var(--font-family);
@@ -220,9 +222,9 @@
 .react-datepicker__input-container input {
   width: 100%;
   padding: 8px;
-  border: 1px solid #333;
+  border: 1px solid var(--accent-color);
   border-radius: 4px;
-  background-color: #2d2d2d;
+  background-color: var(--main-background-color);
   color: var(--secondary-color);
 }
 

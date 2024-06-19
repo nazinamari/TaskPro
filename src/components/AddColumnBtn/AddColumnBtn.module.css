@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--second-background-color);
+  background-color: var(--main-background-color);
   border: none;
   border-radius: 8px;
   width: 335px;
@@ -19,16 +19,16 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  background-color: var(--main-text-color);
+  background-color: var(--add-col-btn);
   border-radius: 5px;
   margin-right: 8px;
   transition: background-color 0.3s ease;
 }
 
-.iconContainer:hover {
+/* .iconContainer:hover {
   background-color: var(--accent-color);
-}
+} */
 
 .icon {
-  stroke: var(--second-background-color);
+  stroke: var(--hover-background-color);
 }

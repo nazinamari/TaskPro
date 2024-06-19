@@ -3,7 +3,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--active-background-color);
+  background-color: var(--hover-background-color);
+  border: 1px solid var(--accent-color);
   border-radius: 8px;
   outline: none;
   width: 335px;
@@ -60,14 +61,10 @@
   margin-right: 20px;
 }
 
-.addButton:hover {
-  background-color: var(--accent-color);
-}
-
 .iconContainer {
   width: 28px;
   height: 28px;
-  background-color: #151515;
+  background-color: var(--add-card-con);
   border-radius: 5px;
   margin-right: 8px;
   display: flex;
@@ -75,7 +72,7 @@
   justify-content: center;
 }
 .icon {
-  stroke: var(--main-text-color);
+  stroke: var(--add-card-i);
 }
 
 .title {

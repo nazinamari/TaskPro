@@ -62,6 +62,14 @@
   --gray-thema: rgba(22, 22, 22, 0.8);
   --btn-text: #161616;
   --item-theme: #161616;
+  --add-col-btn: #161616;
+  --add-card-btn: #bedbb0;
+  --add-card-con: #121212;
+  --add-card-i: #ffffff;
+  --todo-bg: #ffffff;
+  --todo-i: rgba(69, 69, 69, 0.5);
+  --separator: rgba(22, 22, 22, 0.1);
+  --board-section-without-priority: rgba(22, 22, 22, 0.3);
 }
 
 .violet {
@@ -94,6 +102,14 @@
   --gray-thema: rgba(22, 22, 22, 0.8);
   --btn-text: #ffffff;
   --item-theme: #161616;
+  --add-col-btn: #5255bc;
+  --add-card-btn: #5255bc;
+  --add-card-con: #ffffff;
+  --add-card-i: #161616;
+  --todo-bg: #ffffff;
+  --todo-i: rgba(69, 69, 69, 0.5);
+  --separator: rgba(22, 22, 22, 0.1);
+  --board-section-without-priority: rgba(22, 22, 22, 0.3);
 }
 
 .dark {
@@ -116,4 +132,12 @@
   --gray-thema: rgba(255, 255, 255, 0.8);
   --btn-text: #161616;
   --item-theme: rgba(255, 255, 255, 0.5);
+  --add-col-btn: #ffffff;
+  --add-card-btn: #bedbb0;
+  --add-card-con: #121212;
+  --add-card-i: #ffffff;
+  --todo-bg: #121212;
+  --todo-i: rgba(255, 255, 255, 0.5);
+  --separator: rgba(255, 255, 255, 0.1);
+  --board-section-without-priority: rgba(255, 255, 255, 0.3);
 }
