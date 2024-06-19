@@ -1,25 +1,25 @@
-import BoardCard from "../BoardCard/BoardCard";
-import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect, useRef } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { selectAllBoards } from "../../redux/board/selectors.js";
-import css from "./BoardNavigation.module.css";
-import clsx from "clsx";
-import { getBoardById } from "../../redux/board/operations.js";
+import BoardCard from '../BoardCard/BoardCard';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect, useRef } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { selectAllBoards } from '../../redux/board/selectors.js';
+import css from './BoardNavigation.module.css';
+import clsx from 'clsx';
+// import { getBoardById } from "../../redux/board/operations.js";
 
 const makeLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
 };
 
-export default function BoardNavigation() {
+export default function BoardNavigation({ toggleSidebar }) {
   const location = useLocation();
   const [activeBoard, setActiveBoard] = useState(null);
   const boards = useSelector(selectAllBoards);
   const navRef = useRef(null);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
-    const path = location.pathname.split("/").pop();
+    const path = location.pathname.split('/').pop();
     if (path) {
       setActiveBoard(path);
     }
@@ -30,14 +30,15 @@ export default function BoardNavigation() {
       const activeItem = navRef.current.querySelector(`.${css.active}`);
       if (activeItem) {
         activeItem.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
+          behavior: 'smooth',
+          block: 'center',
         });
       }
     }
   }, [activeBoard]);
 
-  const handleBoardClick = (id) => {
+  const handleBoardClick = id => {
+    toggleSidebar();
     setActiveBoard(id);
     // dispatch(getBoardById(id));
   };
