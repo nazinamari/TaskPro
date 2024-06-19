@@ -39,7 +39,7 @@ export default function BoardNavigation() {
 
   const handleBoardClick = (id) => {
     setActiveBoard(id);
-    dispatch(getBoardById(id));
+    // dispatch(getBoardById(id));
   };
 
   return (

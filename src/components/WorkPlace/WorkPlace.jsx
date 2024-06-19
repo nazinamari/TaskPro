@@ -1,38 +1,31 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import css from "./WorkPlace.module.css";
-import AddColumnBtn from "../AddColumnBtn/AddColumnBtn";
-import Column from "../Column/Column";
-import { selectBoard } from "../../../src/redux/board/selectors";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import css from './WorkPlace.module.css';
+import AddColumnBtn from '../AddColumnBtn/AddColumnBtn';
+import Column from '../Column/Column';
 import {
   fetchColumns,
-  addColumn,
   deleteColumn,
   editColumn,
-} from "../../../src/redux/column/operations";
-import { selectAllColumns } from "../../../src/redux/column/selectors";
+} from '../../../src/redux/column/operations';
+import { selectAllColumns } from '../../../src/redux/column/selectors';
 
-export default function WorkPlace() {
+export default function WorkPlace({ id }) {
   const dispatch = useDispatch();
-  const boardId = useSelector(selectBoard);
   const columns = useSelector(selectAllColumns);
-
-  const id = boardId;
   useEffect(() => {
-    if (id) {
-      dispatch(fetchColumns(id));
-    }
+    dispatch(fetchColumns(id));
   }, [dispatch, id]);
 
-  const handleDeleteColumn = (id) => {
-    dispatch(deleteColumn(id));
+  const handleDeleteColumn = columnId => {
+    dispatch(deleteColumn(columnId));
   };
 
-  const handleEditColumnTitle = (columnId, newTitle) => {
+  const handleEditColumnTitle = newTitle => {
     dispatch(
       editColumn({
         title: newTitle,
-      })
+      }),
     );
   };
 

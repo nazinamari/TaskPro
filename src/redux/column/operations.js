@@ -1,35 +1,32 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../../axios/apiInstance";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import instance from '../../axios/apiInstance';
 
 export const fetchColumns = createAsyncThunk(
-  "columns/fetchColumns",
+  'columns/fetchColumns',
   async (boardId, thunkApi) => {
     try {
-      const response = await instance.get("/columns", boardId);
+      const response = await instance.get('/columns', boardId);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const addColumn = createAsyncThunk(
-  "columns/addColumn",
-  async ({ boardId, columnTitle }, thunkApi) => {
+  'columns/addColumn',
+  async (columnData, thunkApi) => {
     try {
-      const response = await instance.post("/columns", {
-        boardId,
-        columnTitle,
-      });
+      const response = await instance.post('/columns', columnData);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const deleteColumn = createAsyncThunk(
-  "columns/deleteColumn",
+  'columns/deleteColumn',
   async (columnId, thunkApi) => {
     try {
       const response = await instance.delete(`/columns/${columnId}`);
@@ -37,11 +34,11 @@ export const deleteColumn = createAsyncThunk(
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const editColumn = createAsyncThunk(
-  "columns/editColumn",
+  'columns/editColumn',
   async ({ columnId, data }, thunkApi) => {
     try {
       const response = await instance.put(`columns/${columnId}`, data);
@@ -49,11 +46,11 @@ export const editColumn = createAsyncThunk(
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const getColumnById = createAsyncThunk(
-  "columns/getColumnById",
+  'columns/getColumnById',
   async (columnId, thunkApi) => {
     try {
       const response = await instance.get(`columns/${columnId}`);
@@ -61,5 +58,5 @@ export const getColumnById = createAsyncThunk(
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
-  }
+  },
 );

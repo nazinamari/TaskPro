@@ -1,22 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 import {
   addBoard,
   deleteBoard,
   editBoard,
   fetchBoards,
   getBoardById,
-} from "./operations";
-import { logOut } from "../auth/operations";
+} from './operations';
+import { logOut } from '../auth/operations';
 
 const slice = createSlice({
-  name: "boards",
+  name: 'boards',
   initialState: {
     items: [],
-    currentBoard: null,
+    currentBoard: '',
     loading: false,
     error: null,
   },
-  extraReducers: (builder) =>
+  extraReducers: builder =>
     builder
       .addCase(fetchBoards.pending, (state, action) => {
         state.loading = true;
@@ -40,7 +40,7 @@ const slice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(getBoardById.pending, (state) => {
+      .addCase(getBoardById.pending, state => {
         state.loading = true;
       })
       .addCase(getBoardById.fulfilled, (state, action) => {
@@ -56,7 +56,7 @@ const slice = createSlice({
       })
       .addCase(deleteBoard.fulfilled, (state, action) => {
         state.items = state.items.filter(
-          (item) => item._id !== action.payload._id
+          item => item._id !== action.payload._id,
         );
         state.loading = false;
         state.currentBoard = null;
@@ -65,20 +65,20 @@ const slice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(editBoard.pending, (state) => {
+      .addCase(editBoard.pending, state => {
         state.loading = true;
       })
       .addCase(editBoard.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = state.items.map((item) =>
-          item._id === action.payload._id ? action.payload : item
+        state.items = state.items.map(item =>
+          item._id === action.payload._id ? action.payload : item,
         );
       })
       .addCase(editBoard.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
-      .addCase(logOut.fulfilled, (state) => {
+      .addCase(logOut.fulfilled, state => {
         state.items = [];
         state.error = null;
         state.loading = false;

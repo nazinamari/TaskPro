@@ -1,19 +1,21 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import instance from "../../axios/apiInstance";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import instance from '../../axios/apiInstance';
+import toast from 'react-hot-toast';
 
 export const needHelp = createAsyncThunk(
-  "user/needHelp",
+  'user/needHelp',
   async (message, thunkAPI) => {
     try {
-      await instance.post("/users/help", message);
+      await instance.post('/users/help', message);
+      toast.success('Message sent');
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const updateUserTheme = createAsyncThunk(
-  "user/updateUserTheme",
+  'user/updateUserTheme',
   async (theme, thunkAPI) => {
     try {
       const response = await instance.patch(`/theme`, { theme });
@@ -21,32 +23,32 @@ export const updateUserTheme = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const updateUserProfile = createAsyncThunk(
-  "users/updateUserProfile",
+  'users/updateUserProfile',
   async (userData, thunkAPI) => {
     try {
-      const response = await instance.put("/users/update", userData);
+      const response = await instance.put('/users/update', userData);
+      toast.success('User update');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const refreshUser = createAsyncThunk(
-  "user/refreshUser",
+  'user/refreshUser',
   async (_, thunkAPI) => {
     try {
-      const response = await instance.get("/users/current");
-      console.log(response.data);
+      const response = await instance.get('/users/current');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 // export const setAvatarUrl = createAsyncThunk(
@@ -70,16 +72,16 @@ export const refreshUser = createAsyncThunk(
 // );
 
 export const setAvatarUrl = createAsyncThunk(
-  "user/setAvatarUrl",
+  'user/setAvatarUrl',
   async (file, thunkAPI) => {
     try {
       const formData = new FormData();
-      formData.append("avatar", file); // Додає файл до об'єкта FormData з ключем 'avatar'
+      formData.append('avatar', file); // Додає файл до об'єкта FormData з ключем 'avatar'
 
       // Встановлення заголовків вручну
-      const response = await instance.put("/users/update", formData, {
+      const response = await instance.put('/users/update', formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
         },
       });
 
@@ -87,5 +89,5 @@ export const setAvatarUrl = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
