@@ -40,7 +40,7 @@ const Column = ({ id, title: initialTitle, onDelete }) => {
   };
 
   const handleEditCard = updatedCard => {
-    dispatch(editCard({ cardId, card: updatedCard }));
+    dispatch(editCard({ cardId: updatedCard._id, data: updatedCard }));
     setIsEditModalOpen(false);
   };
 

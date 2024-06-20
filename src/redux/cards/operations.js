@@ -5,7 +5,7 @@ export const fetchAllCards = createAsyncThunk(
   'cards/fetchAllCards',
   async (columnId, thunkApi) => {
     try {
-      const response = await instance.get('/cards', columnId);
+      const response = await instance.get(`/cards/all/${columnId}`);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -41,9 +41,10 @@ export const editCard = createAsyncThunk(
   'cards/editCard',
   async ({ cardId, data }, thunkApi) => {
     try {
-      const response = await instance.put(`/cards/${cardId}`, {
+      const response = await instance.put(`/cards/${cardId}`, 
         data,
-      });
+      );
+      location.reload()
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
