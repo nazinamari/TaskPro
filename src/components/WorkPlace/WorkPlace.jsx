@@ -49,7 +49,7 @@ export default function WorkPlace({ id }) {
         ) : (
           <AddColumnBtn />
         )}
-        <AddColumnBtn />
+        {boardColumns.length > 0 && <AddColumnBtn />}
       </div>
     </div>
   );
