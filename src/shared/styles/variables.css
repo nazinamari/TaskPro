@@ -44,6 +44,7 @@
   --trash: rgba(100, 100, 100, 0.7);
   --edit-plus: #151515;
   --plus-icon: #ffffff;
+  --border-title2: #ffffff;
 }
 
 .light {
@@ -78,6 +79,7 @@
   --edit-plus: #151515;
   --item-theme: #161616;
   --plus-icon: #ffffff;
+  --border-title2: #161616;
 }
 
 .violet {
@@ -118,6 +120,7 @@
   --edit-plus: #ffffff;
   --item-theme: #161616;
   --plus-icon: #161616;
+  --border-title2: #161616;
 }
 
 .dark {
