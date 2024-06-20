@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { updateUserProfile } from '../../../redux/user/operations';
+import { refreshUser } from '../../../redux/user/operations';
 import { selectUser, selectIsLoading } from '../../../redux/user/selectors';
 import styles from './UserInfo.module.css';
 import md5 from 'md5';
+import Loader from '../../../shared/components/Loader/Loader';
 
 const getGravatarUrl = email => {
   const hash = email ? md5(email.trim().toLowerCase()) : '';
@@ -17,16 +18,17 @@ const UserInfo = ({ openModal }) => {
   const [avatar, setAvatar] = useState('');
 
   useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  useEffect(() => {
     if (user && !user.avatarURL) {
       const newGravatar = getGravatarUrl(user.email);
-      dispatch(updateUserProfile({ avatarURL: newGravatar }));
       setAvatar(newGravatar);
     } else if (user) {
       setAvatar(user.avatarURL);
     }
-  }, [user, dispatch]);
-
-  if (loading) return <div>Loading...</div>;
+  }, [user]);
 
   const handleOpenModal = () => {
     openModal();
@@ -34,11 +36,15 @@ const UserInfo = ({ openModal }) => {
 
   return (
     <div className={styles.userInfo} onClick={handleOpenModal}>
-      {user && (
-        <>
-          <span className={styles.nameModel}>{user.name}</span>
-          <img src={avatar} alt="Avatar" className={styles.avatar} />
-        </>
+      {loading ? (
+        <Loader />
+      ) : (
+        user && (
+          <>
+            <span className={styles.nameModel}>{user.name}</span>
+            <img src={avatar} alt="Avatar" className={styles.avatar} />
+          </>
+        )
       )}
     </div>
   );
