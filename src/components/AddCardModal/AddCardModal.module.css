@@ -42,6 +42,9 @@
   letter-spacing: -0.02em;
   padding-left: 20px;
   padding-top: 20px;
+  &:focus {
+    outline: none;
+  }
 }
 
 .formGroupTitle input::placeholder {
@@ -181,13 +184,13 @@
 }
 
 .addButton:hover {
-  background-color: var(--accent-color);
+  background-color: var(--accent-color-hover);
 }
 
 .iconContainer {
   width: 28px;
   height: 28px;
-  background-color: #151515;
+  background-color: var(--edit-plus);
   border-radius: 5px;
   margin-right: 8px;
   display: flex;
@@ -195,7 +198,7 @@
   justify-content: center;
 }
 .icon {
-  stroke: var(--main-text-color);
+  stroke: var(--plus-icon);
 }
 .closeButton {
   position: absolute;
