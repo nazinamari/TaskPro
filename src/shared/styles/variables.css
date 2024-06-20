@@ -43,6 +43,7 @@
   --cards-color: #121212;
   --trash: rgba(100, 100, 100, 0.7);
   --edit-plus: #151515;
+  --plus-icon: #ffffff;
 }
 
 .light {
@@ -76,6 +77,7 @@
   --cards-color: #ffffff;
   --edit-plus: #151515;
   --item-theme: #161616;
+  --plus-icon: #ffffff;
 }
 
 .violet {
@@ -115,6 +117,7 @@
   --trash: rgba(100, 100, 100, 0.7);
   --edit-plus: #ffffff;
   --item-theme: #161616;
+  --plus-icon: #161616;
 }
 
 .dark {

@@ -23,7 +23,7 @@ const AddColumnModal = ({ isOpen, onClose }) => {
             id="icon-close"
             width="16"
             height="16"
-            className={styles.icon}
+            className={styles.iconClose}
           />
         </button>
         <div className={styles.title}>Add column</div>

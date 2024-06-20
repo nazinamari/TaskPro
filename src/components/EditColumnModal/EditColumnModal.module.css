@@ -75,7 +75,7 @@
   justify-content: center;
 }
 .icon {
-  stroke: var(--input-text);
+  stroke: var(--plus-icon);
 }
 
 .title {

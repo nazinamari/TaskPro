@@ -22,9 +22,9 @@
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" d="M4.45 9.333A13.328 13.328 0 0 1 16 2.666c7.364 0 13.333 5.97 13.333 13.333S23.363 29.332 16 29.332a13.329 13.329 0 0 1-11.55-6.667"/>
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6" d="M16 21.333 21.333 16 16 10.667M2.667 16h18.667"/>
     </symbol>
-    
-    <symbol id="icon-filter" viewBox="0 0 32 32">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M29.334 4H2.667l10.667 12.613v8.72L18.667 28V16.613L29.334 4z"/>
+  
+    <symbol id="icon-filter" viewBox="0 0 33 32">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.087" d="M25.971 2.783H7.42l7.42 8.774v6.066l3.71 1.855v-7.921l7.42-8.774z"/>
     </symbol>
 
     <symbol id="icon-pencil" viewBox="0 0 32 32">
