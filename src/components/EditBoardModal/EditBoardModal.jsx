@@ -11,7 +11,7 @@ import icons from '../../images/mini/icons.json';
 // import picData from './data/pic.json';
 // import Picture from '../../shared/components/Pic/Pic';
 
-export default function EditBoardModal({ onClose, title }) {
+export default function EditBoardModal({ onClose, title, toggleSidebar }) {
   const board = useSelector(selectBoard);
   console.log(board);
   const [selectedIcon, setSelectedIcon] = useState(
@@ -48,6 +48,11 @@ export default function EditBoardModal({ onClose, title }) {
       });
     onClose();
     dispatch(getBoardById(id));
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth < 1024) {
+      toggleSidebar();
+    }
   };
 
   const stopPropagation = event => {
