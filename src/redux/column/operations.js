@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import instance from '../../axios/apiInstance';
+import toast from 'react-hot-toast';
 
 export const fetchColumns = createAsyncThunk(
   'columns/fetchColumns',
@@ -20,6 +21,7 @@ export const addColumn = createAsyncThunk(
       const response = await instance.post('/columns', columnData);
       return response.data;
     } catch (error) {
+      toast.error('There is already a column with that name');
       return thunkApi.rejectWithValue(error.message);
     }
   },

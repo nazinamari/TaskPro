@@ -6,9 +6,10 @@ import { editBoard, getBoardById } from '../../redux/board/operations';
 import Background from '../../shared/components/Background/Background';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBoard } from '../../redux/board/selectors';
-import data from './data/icons.json';
-
-const icons = [...data];
+import icons from '../../images/mini/icons.json';
+// import * as images from './img';
+// import picData from './data/pic.json';
+// import Picture from '../../shared/components/Pic/Pic';
 
 export default function EditBoardModal({ onClose, title }) {
   const board = useSelector(selectBoard);
@@ -66,6 +67,16 @@ export default function EditBoardModal({ onClose, title }) {
     };
   }, [onClose]);
 
+  //   const data = picData.map(item => {
+  //     return {
+  //       ...item,
+  //       url: images[item.url],
+  //       url2x: images[item.url2x],
+  //     };
+  //   });
+
+  //   console.log(...data);
+
   return (
     <div className={css.container} onClick={onClose}>
       <div className={css.modalWindow} onClick={stopPropagation}>
@@ -117,23 +128,23 @@ export default function EditBoardModal({ onClose, title }) {
             </div>
             <h3 className={css.iconsTitle}>Background</h3>
             <ul className={css.bgList}>
-              {bgImages.map((image, index) => (
+              {bgImages.map((imageSrc, index) => (
                 <li key={index}>
-                  <label htmlFor={`bg-${index}`} className={css.bgLabel}>
+                  <label htmlFor={`bg-${index}`} className={css.iconLabel}>
                     <input
                       type="radio"
-                      value={image.value}
+                      value={imageSrc.value}
                       id={`bg-${index}`}
                       className={css.iconRadio}
-                      onChange={() => setSelectedBg(image.value)}
-                      checked={selectedBg === image.value}
+                      onChange={() => setSelectedBg(imageSrc.value)}
+                      checked={selectedBg === imageSrc.value}
                     />
                     <Background
                       className={css.bgImage}
-                      width={image.width}
-                      height={image.height}
-                      src={image.src}
-                      alt={image.index}
+                      width={imageSrc.width}
+                      height={imageSrc.height}
+                      src={imageSrc.src}
+                      alt={imageSrc.value}
                     />
                   </label>
                 </li>
