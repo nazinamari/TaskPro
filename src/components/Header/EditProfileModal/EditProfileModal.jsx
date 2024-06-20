@@ -7,6 +7,7 @@ import styles from './EditProfileModal.module.css';
 import { updateUserProfile } from '../../../redux/user/operations';
 import { selectUser } from '../../../redux/user/selectors';
 import { setAvatarUrl } from '../../../redux/user/operations';
+import Icon from '../../../shared/components/Icon/Icon';
 
 Modal.setAppElement('#root');
 
@@ -33,6 +34,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
     name: '',
     email: '',
     password: '',
+    avatarURL: '',
   });
 
   useEffect(() => {
@@ -95,9 +97,13 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
       overlayClassName={styles.overlay}
     >
       <button onClick={handleModalClose} className={styles.closeButton}>
-        <svg className={styles.iconModal} width="16" height="16">
-          <use href="../../../public/icons.svg#icon-close"></use>
-        </svg>
+        <Icon
+          id="icon-close"
+          width="16"
+          height="16"
+          alt="icon-close"
+          className={styles.iconModal}
+        />
       </button>
 
       <div className={styles.wrapper}>
@@ -131,9 +137,13 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
                 className={styles.buttonPlus}
                 onClick={handleAddPhotoClick}
               >
-                <svg className={styles.iconPlus} width="10" height="10">
-                  <use href="../../../public/icons.svg#icon-plus"></use>
-                </svg>
+                <Icon
+                  id="icon-plus"
+                  width="10"
+                  height="10"
+                  className={styles.iconPlus}
+                  alt="icon-plus"
+                />
               </button>
             </div>
             <div className={styles.boxForm}>
@@ -182,9 +192,13 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
                     className={styles.showPasswordButton}
                     onClick={toggleShowPassword}
                   >
-                    <svg className={styles.iconPassword} width="18" height="18">
-                      <use href="../../../public/icons.svg#icon-eye"></use>
-                    </svg>
+                    <Icon
+                      id="icon-eye"
+                      width="18"
+                      height="18"
+                      className={styles.iconPassword}
+                      alt="icon-eye"
+                    />
                   </button>
                 </label>
                 <ErrorMessage

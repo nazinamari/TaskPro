@@ -75,10 +75,6 @@
     height: 27px;
   }
 
-  .name:hover {
-    color: var(--accent-color);
-  }
-
   .avatarForm {
     padding: 24px;
   }
@@ -157,6 +153,7 @@
 
   .buttonModal:hover {
     background: var(--accent-color-hover);
+    border: none;
   }
 
   .buttonPlus:hover {

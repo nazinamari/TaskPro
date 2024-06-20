@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #bedbb0;
+  background-color: var(--accent-color);
   border: none;
   border-radius: 8px;
   width: 335px;
@@ -11,13 +11,16 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
-  color: #000;
+  color: var(--side-text);
   transition: background-color 0.3s ease;
   margin-top: 14px;
 }
 
 .addButton:hover {
-  background-color: #9dc888;
+  background-color: var(--accent-color);
+  &:hover {
+    background-color: var(--accent-color-hover);
+  }
 }
 
 .iconContainer {
@@ -26,12 +29,12 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  background-color: #151515;
+  background-color: var(--edit-plus);
   border-radius: 5px;
   margin-right: 8px;
 }
 .icon {
-  stroke: var(--main-text-color);
+  stroke: var(--plus-icon);
 }
 
 .Modal {

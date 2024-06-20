@@ -38,7 +38,12 @@ export default function BoardNavigation({ toggleSidebar }) {
   }, [activeBoard]);
 
   const handleBoardClick = id => {
-    toggleSidebar();
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth < 1024) {
+      toggleSidebar();
+    }
+
     setActiveBoard(id);
     // dispatch(getBoardById(id));
   };
@@ -60,6 +65,7 @@ export default function BoardNavigation({ toggleSidebar }) {
                 title={title}
                 id={_id}
                 isActive={_id === activeBoard}
+                toggleSidebar={toggleSidebar}
               />
             </NavLink>
           </li>

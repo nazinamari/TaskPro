@@ -8,7 +8,7 @@ import '../../shared/styles/variables.css';
 const AddCardModal = ({ id, onAddCard, onClose }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [labelColor, setLabelColor] = useState('without priority');
+  const [labelColor, setLabelColor] = useState('without');
   console.log(labelColor);
   const [deadline, setDeadline] = useState(new Date());
 

@@ -3,7 +3,7 @@
   margin-right: 20px;
   margin-left: auto;
   margin-top: 14px;
-  color: rgb(255, 255, 255, 0.8);
+  color: var(--input-text);
   background-color: inherit;
   border: none;
   justify-content: center;
@@ -12,16 +12,18 @@
   line-height: 0;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .filterIcon {
-  stroke: #ffffff;
+  stroke: var(--input-text);
   transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: none;
 }
 .filterBtn:hover {
-  color: #9dc888;
+  color: var(--accent-color-hover);
 }
 
 .filterBtn:hover .filterIcon {
-  stroke: #9dc888;
+  stroke: var(--accent-color-hover);
 }
 
 @media (min-width: 768px) {
@@ -49,11 +51,11 @@
     position: absolute;
     top: 100%;
     right: 32px;
-    border: 1px solid #bedbb080;
+    border: 1px solid var(--accent-color);
     border-radius: 8px;
     width: 300px;
     min-height: 186px;
-    background: #151515;
+    background: var(--cards-color);
     box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
     z-index: 1;
   }
@@ -67,7 +69,7 @@
   }
 
   .line {
-    border: 1px solid #ffffff1a;
+    border: 0.5px solid var(--trash);
     margin-bottom: 14px;
   }
 
@@ -90,7 +92,7 @@
     padding: 0;
     background: transparent;
     border: none;
-    color: #ffffff80;
+    color: var(--trash);
     font-size: 12px;
     font-weight: 400;
     line-height: 18px;
@@ -99,7 +101,7 @@
   }
 
   .showAll:hover {
-    color: #ffffff;
+    color: var(--accent-color-hover);
   }
 
   .inputWrapper {
@@ -117,13 +119,13 @@
     background: transparent;
     width: 12px;
     height: 12px;
-    border: 1px solid #9dc888;
+    border: 1px solid var(--accent-color-hover);
     border-radius: 50%;
     padding: 0px;
   }
 
   .customRadioDot {
-    background-color: #9dc888;
+    background-color: var(--accent-color-hover);
     border: none;
     display: inline-block;
     width: 12px;
@@ -139,35 +141,35 @@
   }
 
   .withoutPriority {
-    border-color: #ffffff4d;
+    border-color: var(--trash);
   }
 
   .withoutPriority > .customRadioDot {
-    background-color: #ffffff4d;
+    background-color: var(--trash);
   }
 
   .lowPriority {
-    border-color: #8fa1d0;
+    border-color: var(--board-section-low);
   }
 
   .lowPriority > .customRadioDot {
-    background-color: #8fa1d0;
+    background-color: var(--board-section-low);
   }
 
   .mediumPriority {
-    border-color: #e09cb5;
+    border-color: var(--board-section-medium);
   }
 
   .mediumPriority > .customRadioDot {
-    background-color: #e09cb5;
+    background-color: var(--board-section-medium);
   }
 
   .highPriority {
-    border-color: #bedbb0;
+    border-color: var(--board-section-high);
   }
 
   .highPriority > .customRadioDot {
-    background-color: #bedbb0;
+    background-color: var(--board-section-high);
   }
 
   .radioLabel {
@@ -175,7 +177,7 @@
     font-weight: 400;
     line-height: 18px;
     letter-spacing: -0.02em;
-    color: #ffffff80;
+    color: var(--trash);
     position: relative;
     display: flex;
     align-items: center;

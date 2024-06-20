@@ -1,6 +1,6 @@
 .card {
-  background-color: var(--second-background-color);
-  color: var(--secondary-color);
+  background-color: var(--cards-color);
+  color: var(--border-title);
   height: 126px;
   padding: 14px 20px 14px 24px;
   border-radius: 8px;
@@ -39,12 +39,12 @@
   font-weight: 400;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--trash);
 }
 
 .separator {
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--trash);
   margin: 16px 0 11px;
 }
 
@@ -78,7 +78,7 @@
   font-weight: 400;
   font-size: 8px;
   letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--trash);
   margin-bottom: 4px;
 }
 
@@ -123,8 +123,9 @@
 }
 
 .icon {
-  stroke: rgba(255, 255, 255, 0.5);
+  stroke: var(--trash);
   transition: stroke 0.3s ease;
+  fill: none;
 }
 
 .actionButton:hover .icon {
@@ -149,7 +150,7 @@
   background-color: var(--board-section-high);
 }
 
-.withoutpriority::before,
+.without::before,
 .priorityColor.withoutpriority {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: var(--trash);
 }

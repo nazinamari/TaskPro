@@ -29,7 +29,7 @@
   width: 335px;
   min-height: 355px;
   box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.05);
-  background: var(--second-background-color);
+  background: var(--hover-background-color);
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -93,7 +93,7 @@
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: var(--main-text-color);
+  color: var(--input-text);
   padding-left: 18px;
   box-sizing: border-box;
 }
@@ -101,7 +101,6 @@
 .input:focus {
   outline: 1px solid var(--accent-color);
   box-shadow: 0 4px 8px rgba(22, 22, 22, 0.08);
-  color: var(--main-text-color);
 }
 
 .textarea {
@@ -116,7 +115,7 @@
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: var(--main-text-color);
+  color: var(--input-text);
   padding-left: 18px;
   padding-top: 14px;
   background-color: transparent;
@@ -162,4 +161,8 @@
   .sendBtn {
     width: 352px;
   }
+}
+
+.errorMessage {
+  color: var(--accent-color-hover);
 }

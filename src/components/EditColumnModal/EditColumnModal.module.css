@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--active-background-color);
+  background-color: var(--main-background-color);
   border-radius: 8px;
   outline: none;
   width: 335px;
@@ -61,13 +61,13 @@
 }
 
 .addButton:hover {
-  background-color: var(--accent-color);
+  background-color: var(--accent-color-hover);
 }
 
 .iconContainer {
   width: 28px;
   height: 28px;
-  background-color: #151515;
+  background-color: var(--edit-plus);
   border-radius: 5px;
   margin-right: 8px;
   display: flex;
@@ -75,7 +75,7 @@
   justify-content: center;
 }
 .icon {
-  stroke: var(--main-text-color);
+  stroke: var(--plus-icon);
 }
 
 .title {
@@ -96,5 +96,4 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: var(--main-text-color);
 }

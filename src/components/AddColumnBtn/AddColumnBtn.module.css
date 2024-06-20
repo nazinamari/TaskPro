@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--second-background-color);
   border: none;
   border-radius: 8px;
   width: 335px;
@@ -10,7 +9,12 @@
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  color: var(--main-text-color);
+  background-color: var(--accent-color);
+  color: var(--main-background-color);
+  flex-shrink: 0;
+  &:hover {
+    background-color: var(--accent-color-hover);
+  }
 }
 
 .iconContainer {
@@ -19,16 +23,17 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  background-color: var(--main-text-color);
+  background-color: var(--edit-plus);
   border-radius: 5px;
   margin-right: 8px;
   transition: background-color 0.3s ease;
+  flex-shrink: 0;
 }
 
-.iconContainer:hover {
-  background-color: var(--accent-color);
-}
+/* .iconContainer:hover {
+  stroke: red;
+} */
 
 .icon {
-  stroke: var(--second-background-color);
+  stroke: var(--plus-icon);
 }
