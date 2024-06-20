@@ -9,7 +9,6 @@ const AddCardModal = ({ id, onAddCard, onClose }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [labelColor, setLabelColor] = useState('without');
-  console.log(labelColor);
   const [deadline, setDeadline] = useState(new Date());
 
   const handleSubmit = e => {
@@ -78,13 +77,22 @@ const AddCardModal = ({ id, onAddCard, onClose }) => {
         </div>
         <div className={styles.formGroupDeadline}>
           <label htmlFor="deadline">Deadline</label>
-          <DatePicker
-            id="deadline"
-            selected={deadline}
-            onChange={date => setDeadline(date)}
-            required
-            className={styles.datePicker}
-          />
+          <div className={styles.dateInput}>
+            <DatePicker
+              id="deadline"
+              selected={deadline}
+              onChange={date => setDeadline(date)}
+              required
+              className={styles.input}
+              calendarClassName={styles.datePicker}
+            />
+            <Icon
+              id="icon-arrow-down"
+              width="18"
+              height="18"
+              className={styles.iconArrow}
+            />
+          </div>
         </div>
         <button type="submit" className={styles.addButton}>
           <div className={styles.iconContainer}>
