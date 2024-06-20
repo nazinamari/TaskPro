@@ -51,11 +51,11 @@ export default function NeedHelpModal({ handleHelpModal }) {
     dispatch(needHelp(message))
       .unwrap()
       .then(() => {
-        console.log('Message sent successfully'); // додати тост
+        console.log('Message sent successfully');
         handleHelpModal();
       })
       .catch(error => {
-        console.error('Error sending message:', error); // додати тост
+        console.error('Error sending message:', error);
       });
     reset();
   };
