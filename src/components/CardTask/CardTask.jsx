@@ -10,10 +10,9 @@ const CardTask = ({
   onRemove,
   onEdit,
 }) => {
-  console.log('priority:', priority);
-
+  const stylePriority = priority.replace(/\s+/g, '-');
   return (
-    <div className={`${styles.card} ${styles[priority]}`}>
+    <div className={`${styles.card} ${styles[stylePriority]}`}>
       <p className={styles.header}>{title}</p>
       <p className={styles.description}>{description}</p>
       <div className={styles.separator}></div>
@@ -23,7 +22,7 @@ const CardTask = ({
             <span className={styles.priorityLabel}>Priority</span>
             <div className={styles.priorityContainer}>
               <span
-                className={`${styles.priorityColor} ${styles[priority]}`}
+                className={`${styles.priorityColor} ${styles[stylePriority]}`}
               ></span>
               <span className={styles.priorityText}>{priority}</span>
             </div>

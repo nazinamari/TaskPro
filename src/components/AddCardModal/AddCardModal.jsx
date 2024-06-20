@@ -58,22 +58,25 @@ const AddCardModal = ({ id, onAddCard, onClose }) => {
         <div className={styles.formGroupLabelcolor}>
           <label>Label color</label>
           <div className={styles.labelColors}>
-            {['low', 'medium', 'high', 'without'].map(color => (
-              <label
-                key={color}
-                className={`${styles.priority} ${styles[color]} ${
-                  labelColor === color ? styles.selected : ''
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="labelColor"
-                  value={color}
-                  checked={labelColor === color}
-                  onChange={e => setLabelColor(e.target.value)}
-                />
-              </label>
-            ))}
+            {['low', 'medium', 'high', 'without priority'].map(color => {
+              const className = color.replace(' ', '-');
+              return (
+                <label
+                  key={color}
+                  className={`${styles.priority} ${styles[className]} ${
+                    labelColor === color ? styles.selected : ''
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="labelColor"
+                    value={color}
+                    checked={labelColor === color}
+                    onChange={e => setLabelColor(e.target.value)}
+                  />
+                </label>
+              );
+            })}
           </div>
         </div>
         <div className={styles.formGroupDeadline}>

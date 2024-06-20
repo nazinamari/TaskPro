@@ -149,7 +149,7 @@
   background-color: var(--board-section-high);
 }
 
-.priority.without {
+.priority.without-priority {
   background-color: var(--board-section-without-priority);
 }
 

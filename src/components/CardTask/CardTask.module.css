@@ -149,7 +149,7 @@
   background-color: var(--board-section-high);
 }
 
-.withoutpriority::before,
-.priorityColor.withoutpriority {
-  background-color: rgba(255, 255, 255, 0.3);
+.without-priority::before,
+.priorityColor.without-priority {
+  background-color: var(--board-section-without-priority);
 }
