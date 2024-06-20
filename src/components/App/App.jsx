@@ -18,10 +18,10 @@ const BoardPage = lazy(() => import('../../pages/BoardPage'));
 const NotFoundPage = lazy(() =>
   import('../../pages/NotFoundPage/NotFoundPage'),
 );
-const [modalActive, setModalActive] = useState(true);
 
 export default function App() {
   const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     dispatch(refreshToken());
@@ -29,7 +29,10 @@ export default function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="">
+      <header className="header">
+        <h1>Project Task Pro Sigma</h1>
+      </header>
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Navigate to="/welcome" />} />
@@ -73,27 +76,10 @@ export default function App() {
         </Routes>
       </Suspense>
       <Toaster position="top-center" />
-      <div>
-        <button className="open-btn" onClick={() => setModalActive(true)}>
-          Команда проекту
-        </button>
-        <p>проект</p>
-      </div>
-      <ProjectModal>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab culpa,
-          voluptatem repudiandae vitae molestiae, eveniet totam iusto, nisi
-          assumenda nobis hic officiis aliquid laudantium expedita? Aliquam
-          quisquam facilis rem doloremque!
-        </p>
-      </ProjectModal>
-      <ProjectModal active={modalActive} setActive={setModalActive}>
-        <form action="">
-          <input type="text" />
-          <input type="text" />
-          <button></button>
-        </form>
-      </ProjectModal>
+      <footer className="footer">
+        <button onClick={() => setIsModalOpen(true)}>Meet the Team</button>
+      </footer>
+      <TeamModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 }

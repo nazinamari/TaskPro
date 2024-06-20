@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Marina_Nazina",
+    "photo": "developer1.jpg",
+    "role": "Frontend Developer",
+    "description": "Specializes in React and modern JavaScript frameworks.",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/developer1",
+      "github": "https://github.com/developer1"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Bohdana_Radyk",
+    "photo": "developer2.jpg",
+    "role": "Backend Developer",
+    "description": "Expert in Node.js and database management.",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/developer2",
+      "github": "https://github.com/developer2"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Dmytro_Meshkov",
+    "photo": "developer3.jpg",
+    "role": "Backend Developer",
+    "description": "Expert in Node.js and database management.",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/developer3",
+      "github": "https://github.com/developer3"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Igor Bovt",
+    "photo": "developer4.jpg",
+    "role": "Backend Developer",
+    "description": "Expert in Node.js and database management.",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/developer4",
+      "github": "https://github.com/developer4"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Ivan_Buzin",
+    "photo": "developer5.jpg",
+    "role": "Backend Developer",
+    "description": "Expert in Node.js and database management.",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/developer5",
+      "github": "https://github.com/developer5"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Oleksii_Yarina",
+    "photo": "developer6.jpg",
+    "role": "Backend Developer",
+    "description": "Expert in Node.js and database management.",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/developer6",
+      "github": "https://github.com/developer6"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Roma Boyko",
+    "photo": "developer7.jpg",
+    "role": "Backend Developer",
+    "description": "Expert in Node.js and database management.",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/developer7",
+      "github": "https://github.com/developer7"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Sergey Mironenko",
+    "photo": "developer8.jpg",
+    "role": "Backend Developer",
+    "description": "Expert in Node.js and database management.",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/developer8",
+      "github": "https://github.com/developer8"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Yevhenii_Pozniak",
+    "photo": "developer9.jpg",
+    "role": "Backend Developer",
+    "description": "Expert in Node.js and database management.",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/developer9",
+      "github": "https://github.com/developer9"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Markian_Murdza",
+    "photo": "developer10.jpg",
+    "role": "Full Stack Developer",
+    "description": "Has experience with both frontend and backend technologies.",
+    "socialLinks": {
+      "linkedin": "https://www.linkedin.com/in/developer10",
+      "github": "https://github.com/developer10"
+    }
+  }
+]
