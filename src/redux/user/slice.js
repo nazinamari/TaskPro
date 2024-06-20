@@ -1,14 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 import {
   needHelp,
   updateUserTheme,
   refreshUser,
   setAvatarUrl,
   updateUserProfile,
-} from "./operations.js";
+} from './operations.js';
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState: {
     user: {
       name: null,
@@ -25,12 +25,12 @@ const userSlice = createSlice({
       state.user.theme = action.payload;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(needHelp.pending, (state) => {
+      .addCase(needHelp.pending, state => {
         state.loading = true;
       })
-      .addCase(needHelp.fulfilled, (state) => {
+      .addCase(needHelp.fulfilled, state => {
         state.loading = false;
         state.success = true;
       })
@@ -38,47 +38,45 @@ const userSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      .addCase(updateUserTheme.pending, (state) => {
+      .addCase(updateUserTheme.pending, state => {
         state.loading = true;
       })
-      .addCase(updateUserTheme.fulfilled, (state) => {
+      .addCase(updateUserTheme.fulfilled, state => {
         state.loading = false;
       })
-      .addCase(updateUserTheme.rejected, (state) => {
+      .addCase(updateUserTheme.rejected, state => {
         state.loading = false;
         state.error = true;
       })
-      .addCase(refreshUser.pending, (state) => {
+      .addCase(refreshUser.pending, state => {
         state.loading = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.loading = false;
       })
-      .addCase(refreshUser.rejected, (state) => {
+      .addCase(refreshUser.rejected, state => {
         state.loading = false;
         state.error = true;
       })
-      .addCase(setAvatarUrl.pending, (state) => {
+      .addCase(setAvatarUrl.pending, state => {
         state.loading = true;
       })
       .addCase(setAvatarUrl.fulfilled, (state, action) => {
-        console.log(state.user.avatarURL);
-        console.log(action.payload);
         state.user.avatarURL = action.payload;
         state.loading = false;
       })
-      .addCase(setAvatarUrl.rejected, (state) => {
+      .addCase(setAvatarUrl.rejected, state => {
         state.loading = false;
       })
-      .addCase(updateUserProfile.pending, (state) => {
+      .addCase(updateUserProfile.pending, state => {
         state.loading = true;
       })
       .addCase(updateUserProfile.fulfilled, (state, action) => {
         state.user = action.payload;
         state.loading = false;
       })
-      .addCase(updateUserProfile.rejected, (state) => {
+      .addCase(updateUserProfile.rejected, state => {
         state.loading = false;
         state.error = true;
       });
