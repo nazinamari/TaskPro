@@ -34,6 +34,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
     name: '',
     email: '',
     password: '',
+    avatarURL: '',
   });
 
   useEffect(() => {
