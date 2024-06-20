@@ -1,0 +1,16 @@
+.team-modal {
+  color: red;
+  text-align: center;
+  font-size: larger;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    color: greenyellow;
+  }
+}
+
+.modal-wrapper {
+  text-align: center;
+  padding-bottom: 20px;
+}
