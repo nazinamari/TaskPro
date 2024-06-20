@@ -75,6 +75,7 @@
   --input-text: #161616;
   --cards-color: #ffffff;
   --edit-plus: #151515;
+  --item-theme: #161616;
 }
 
 .violet {
@@ -113,6 +114,7 @@
   --cards-color: #ffffff;
   --trash: rgba(100, 100, 100, 0.7);
   --edit-plus: #ffffff;
+  --item-theme: #161616;
 }
 
 .dark {
@@ -139,4 +141,5 @@
   --side-text: #ffffff;
   --input-text: #ffffff;
   --cards-color: #121212;
+  --item-theme: rgba(255, 255, 255, 0.5);
 }
