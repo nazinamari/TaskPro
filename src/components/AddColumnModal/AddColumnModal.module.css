@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--active-background-color);
+  background-color: var(--main-background-color);
   border-radius: 8px;
   outline: none;
   width: 335px;

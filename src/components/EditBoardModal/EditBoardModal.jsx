@@ -169,27 +169,3 @@ export default function EditBoardModal({ onClose, title }) {
     </div>
   );
 }
-
-// {
-// 	bgImages.map((image, index) => (
-// 		<li key={index}>
-// 			<label htmlFor={`bg-${index}`} className={css.bgLabel}>
-// 				<input
-// 					type="radio"
-// 					value={image.value}
-// 					id={`bg-${index}`}
-// 					className={css.iconRadio}
-// 					onChange={() => setSelectedBg(image.value)}
-// 					checked={selectedBg === image.value}
-// 				/>
-// 				<Background
-// 					className={css.bgImage}
-// 					width={image.width}
-// 					height={image.height}
-// 					src={image.src}
-// 					alt={image.index}
-// 				/>
-// 			</label>
-// 		</li>
-// 	));
-// }

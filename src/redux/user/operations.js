@@ -1,11 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import instance from '../../axios/apiInstance';
+import toast from 'react-hot-toast';
 
 export const needHelp = createAsyncThunk(
   'user/needHelp',
   async (message, thunkAPI) => {
     try {
       await instance.post('/users/help', message);
+      toast.success('Message sent');
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -29,6 +31,7 @@ export const updateUserProfile = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const response = await instance.put('/users/update', userData);
+      toast.success('User update');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -50,16 +53,18 @@ export const refreshUser = createAsyncThunk(
 
 export const setAvatarUrl = createAsyncThunk(
   'user/setAvatarUrl',
-  async (newAvatarURL, thunkAPI) => {
+  async (file, thunkAPI) => {
     try {
-      const dataToUpdate = {
-        avatarUrl: newAvatarURL,
-      };
+      const formData = new FormData();
+      formData.append('avatar', file);
 
-      // як оновлювати аватарку на бекенди (формат запиту)
-      await instance.put('/users/update', dataToUpdate);
+      const response = await instance.put('/users/update', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
 
-      return newAvatarURL;
+      return response.data.avatarURL;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

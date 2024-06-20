@@ -72,8 +72,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
   const handleAvatarChange = event => {
     const file = event.target.files[0];
     if (file) {
-      const newAvatarUrl = URL.createObjectURL(file);
-      dispatch(setAvatarUrl(newAvatarUrl));
+      dispatch(setAvatarUrl(file));
     }
   };
 
@@ -114,7 +113,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
               <label className={styles.avatarForm}>
                 <img
                   src={user.avatarURL}
-                  alt="Black"
+                  alt="Avatar"
                   className={styles.avatarModal}
                   width="68"
                   height="68"
@@ -140,7 +139,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
             </div>
             <div className={styles.boxForm}>
               <div className={styles.inputWrapper}>
-                <label className={styles.input}>
+                <label className={styles.fieldInput}>
                   <Field
                     type="text"
                     name="name"
@@ -156,7 +155,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
               </div>
 
               <div className={styles.inputWrapper}>
-                <label className={styles.input}>
+                <label className={styles.fieldInput}>
                   <Field
                     type="email"
                     name="email"
@@ -172,7 +171,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
               </div>
 
               <div className={styles.inputWrapper}>
-                <label className={styles.input}>
+                <label className={styles.fieldInput}>
                   <Field
                     type={showPassword ? 'text' : 'password'}
                     name="password"
@@ -197,7 +196,7 @@ const EditProfileModal = ({ isModalOpen, closeModal }) => {
               </div>
 
               <button className={styles.buttonModal} type="submit">
-                Send
+                <span className={styles.textBtn}>Send</span>
               </button>
             </div>
           </Form>

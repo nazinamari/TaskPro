@@ -18,6 +18,8 @@
     color: var(--main-text-color);
     flex: 1;
     min-width: 0;
+    font-size: 14px;
+    font-weight: 600;
   }
 
   .nameModel:hover {

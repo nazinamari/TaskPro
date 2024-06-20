@@ -33,7 +33,10 @@ export default function BoardCard({ icon, title, id, isActive }) {
         console.error('Failed to delete board:', error);
       });
   };
-
+  const stopPropagation = event => {
+    event.stopPropagation();
+    event.preventDefault();
+  };
   return (
     <div className={css.container}>
       <div className={css.wrapper}>
@@ -51,7 +54,10 @@ export default function BoardCard({ icon, title, id, isActive }) {
         <button
           type="button"
           className={clsx(css.btn, { [css.activeBtn]: isActive })}
-          onClick={() => handleOpenModal(id)}
+          onClick={e => {
+            stopPropagation(e);
+            handleOpenModal(id);
+          }}
         >
           <Icon
             id="icon-pencil"
@@ -62,7 +68,8 @@ export default function BoardCard({ icon, title, id, isActive }) {
         </button>
         <button
           type="button"
-          onClick={() => {
+          onClick={e => {
+            stopPropagation(e);
             handleBoardDelete();
           }}
           className={clsx(css.btn, { [css.activeBtn]: isActive })}

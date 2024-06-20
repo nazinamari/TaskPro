@@ -9,6 +9,8 @@
     background: var(--main-background-color);
     overflow-y: auto;
     z-index: 1100;
+    outline: none;
+    transition: opacity var(--transition), visibility var(--transition);
   }
   .overlay {
     position: fixed;
@@ -22,6 +24,7 @@
     align-items: center;
     justify-content: center;
     overflow-y: auto;
+    backdrop-filter: blur(1px);
   }
   .closeButton {
     position: absolute;
@@ -100,7 +103,7 @@
     position: relative;
   }
 
-  .input {
+  .fieldInput {
     position: relative;
     border-radius: 8px;
     border: 1px solid var(--accent-color);
@@ -114,9 +117,9 @@
     align-items: center;
   }
 
-  .input:hover,
-  .input:focus,
-  .input:active {
+  .fieldInput:hover,
+  .fieldInput:focus,
+  .fieldInput:active {
     border-color: var(--accent-color);
     opacity: 1;
     outline: none;
@@ -147,11 +150,14 @@
     font-weight: 600;
     font-size: 14px;
     letter-spacing: -0.02em;
-    color: var(--main-background-color);
+  }
+  .textBtn {
+    color: var(--btn-text);
   }
 
   .buttonModal:hover {
     background: var(--accent-color-hover);
+    border: none;
   }
 
   .buttonPlus:hover {
@@ -159,13 +165,12 @@
   }
 
   .iconModal {
-    stroke: #fff;
+    stroke: var(--main-text-color);
   }
 
   .iconPlus {
     stroke-width: 3px;
-    stroke: #161616;
-    stroke: #000;
+    stroke: var(--black);
   }
 
   .error {
@@ -176,7 +181,7 @@
   }
 
   .showPasswordButton {
-    background: none;
+    background: transparent;
     border: none;
     cursor: pointer;
     position: absolute;
@@ -186,7 +191,8 @@
   }
 
   .iconPassword {
-    stroke: #fff;
+    stroke: var(--eye-color);
+    fill: none;
   }
 }
 
@@ -196,7 +202,7 @@
     min-height: 440px;
   }
 
-  .input {
+  .fieldInput {
     min-width: 352px;
     height: 49px;
   }

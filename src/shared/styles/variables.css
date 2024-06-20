@@ -1,39 +1,48 @@
 :root {
+  --font-family: 'Poppins', sans-serif; /* var(--font-family) */
+  --font-size-base: 14px;
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-	--font-family: 'Poppins', sans-serif; /* var(--font-family) */
-	--font-size-base: 14px;
-	--transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --main-text-color: #ffffff; /* var(--main-text-color) */
+  --second-text-color: rgba(255, 255, 255, 0.5); /* var(--second-text-color) */
 
-	--main-text-color: #ffffff; /* var(--main-text-color) */
-	--second-text-color: rgba(255, 255, 255, 0.5); /* var(--second-text-color) */
+  --accent-color: #bedbb0; /* var(--accent-color) */
+  --accent-color-hover: #9dc888;
 
-	--accent-color: #bedbb0; /* var(--accent-color) */
-	--accent-color-hover: #9dc888;
+  --main-background-color: #161616; /* var(--main-background-color) */
+  --active-background-color: #1f1f1f; /* light dark and work place */
+  --hover-background-color: #151515; /* dark */
+  --second-background-color: #121212; /* very dark var(--second-background-color)  */
 
-	--main-background-color: #161616; /* var(--main-background-color) */
-	--active-background-color: #1f1f1f; /* light dark and work place */
-	--hover-background-color: #151515; /* dark */
-	--second-background-color: #121212; /* very dark var(--second-background-color)  */
+  --color-swiper: rgba(255, 255, 255, 0.1);
 
-	--color-swiper: rgba(255, 255, 255, 0.1);
+  --board-section-high: #bedbb0; /* var(--board-section-high) */
+  --board-section-medium: #e09cb5; /* var(--board-section-medium) */
+  --board-section-low: #8fa1d0; /* var(--board-section-low) */
+  --board-section-without-priority: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* var(--board-section-without-priority) chees*/
 
-	--board-section-high: #bedbb0; /* var(--board-section-high) */
-	--board-section-medium: #e09cb5; /* var(--board-section-medium) */
-	--board-section-low: #8fa1d0; /* var(--board-section-low) */
-	--board-section-without-priority: rgba(
-		255,
-		255,
-		255,
-		0.3
-	); /* var(--board-section-without-priority) chees*/
-
-	--grey-text: rgba(255, 255, 255, 0.5);
-	--title-reg-log: #ffffff;
-	--eye-color: #ffffff;
-	--logo: #1f1f1f;
-	--logo-fill: #ffffff;
-	--board-title-wrap: rgba(255, 255, 255, 0.2);
-	--border-title: #ffffff;
+  --grey-text: rgba(255, 255, 255, 0.5);
+  --title-reg-log: #ffffff;
+  --eye-color: #ffffff;
+  --logo: #1f1f1f;
+  --logo-fill: #ffffff;
+  --board-title-wrap: rgba(255, 255, 255, 0.2);
+  --border-title: #ffffff;
+  --gray-thema: rgba(255, 255, 255, 0.8);
+  --btn-text: #161616;
+  --black: #161616;
+  --plus: #bedbb0;
+  --plus-fill-sideBar: #121212;
+  --side-text: #ffffff;
+  --input-text: #ffffff;
+  --cards-color: #121212;
+  --trash: rgba(100, 100, 100, 0.7);
+  --edit-plus: #151515;
 }
 
 .light {
@@ -50,7 +59,7 @@
   --second-background-color: #fdfdfd;
 
   --color-swiper: #e8e8e8;
-  
+
   --grey-text: rgba(69, 69, 69, 0.5);
   --title-reg-log: #9dc888;
   --eye-color: #161616;
@@ -58,6 +67,15 @@
   --logo-fill: #ffffff;
   --board-title-wrap: rgba(255, 255, 255, 0.4);
   --border-title: #161616;
+  --gray-thema: rgba(22, 22, 22, 0.8);
+  --btn-text: #161616;
+  --plus: #bedbb0;
+  --plus-fill-sideBar: #121212;
+  --side-text: #161616;
+  --input-text: #161616;
+  --cards-color: #ffffff;
+  --edit-plus: #151515;
+  --item-theme: #161616;
 }
 
 .violet {
@@ -86,7 +104,17 @@
   --logo: #ecedfd;
   --logo-fill: #5255bc;
   --board-title-wrap: rgba(255, 255, 255, 0.4);
-  --border-title: #979cea;
+  --border-title: #ffffff;
+  --gray-thema: rgba(22, 22, 22, 0.8);
+  --btn-text: #ffffff;
+  --plus: #b8bcfd;
+  --plus-fill-sideBar: #ffffff;
+  --side-text: #ffffff;
+  --input-text: #161616;
+  --cards-color: #ffffff;
+  --trash: rgba(100, 100, 100, 0.7);
+  --edit-plus: #ffffff;
+  --item-theme: #161616;
 }
 
 .dark {
@@ -101,9 +129,17 @@
 
   --hover-background-color: #151515; /* dark */
   --second-background-color: #121212;
-	--color-swiper: rgba(255, 255, 255, 0.1);
-	--title-reg-log: #ffffff;
-	--eye-color: #ffffff;
-	--logo: #1f1f1f;
-	--logo-fill: #ffffff;
+  --color-swiper: rgba(255, 255, 255, 0.1);
+  --title-reg-log: #ffffff;
+  --eye-color: #ffffff;
+  --logo: #1f1f1f;
+  --logo-fill: #ffffff;
+  --gray-thema: rgba(255, 255, 255, 0.8);
+  --btn-text: #161616;
+  --plus: #bedbb0;
+  --plus-fill-sideBar: #121212;
+  --side-text: #ffffff;
+  --input-text: #ffffff;
+  --cards-color: #121212;
+  --item-theme: rgba(255, 255, 255, 0.5);
 }

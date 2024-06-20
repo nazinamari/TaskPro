@@ -90,7 +90,7 @@
   margin-bottom: 24px;
 }
 
-input:focus {
+.input:focus {
   outline: 1px solid var(--accent-color);
   box-shadow: 0 4px 8px rgba(22, 22, 22, 0.08);
   color: var(--main-text-color);
@@ -191,7 +191,7 @@ input:focus {
 }
 
 .createBtn:hover {
-  background: #9dc888;
+  background: var(--accent-color-hover);
 }
 
 .wrapper {
