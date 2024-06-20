@@ -14,7 +14,7 @@ export const selectFilteredCards = state => {
   switch (state.cards.filterBy) {
     case 'without_priority':
       state.cards.items.map(item => {
-        if (item.priority === 'without priority') {
+        if (item.priority === 'without') {
           initialValue.push(item);
         }
       });

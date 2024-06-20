@@ -41,10 +41,7 @@ export const editCard = createAsyncThunk(
   'cards/editCard',
   async ({ cardId, data }, thunkApi) => {
     try {
-      const response = await instance.put(`/cards/${cardId}`, 
-        data,
-      );
-      location.reload()
+      const response = await instance.put(`/cards/${cardId}`, data);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

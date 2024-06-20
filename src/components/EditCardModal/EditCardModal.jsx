@@ -1,19 +1,19 @@
-import { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import Icon from "../../shared/components/Icon/Icon";
-import styles from "./EditCardModal.module.css";
-import "../../shared/styles/variables.css";
+import { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import Icon from '../../shared/components/Icon/Icon';
+import styles from './EditCardModal.module.css';
+import '../../shared/styles/variables.css';
 
 const EditCardModal = ({ card, onEditCard, onClose }) => {
   const [title, setTitle] = useState(card.title);
   const [description, setDescription] = useState(card.description);
-  const [labelColor, setLabelColor] = useState(card.labelColor || "Without");
+  const [labelColor, setLabelColor] = useState(card.labelColor || 'without');
   const [deadline, setDeadline] = useState(new Date(card.deadline));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    onEditCard({ ...card, title, description, labelColor, deadline });
+    onEditCard({ ...card, title, description, priority: labelColor, deadline });
     onClose();
   };
 
@@ -30,7 +30,7 @@ const EditCardModal = ({ card, onEditCard, onClose }) => {
             id="title"
             placeholder="Title"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={e => setTitle(e.target.value)}
             required
             autoFocus
           />
@@ -40,18 +40,18 @@ const EditCardModal = ({ card, onEditCard, onClose }) => {
             id="description"
             placeholder="Description"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={e => setDescription(e.target.value)}
             required
           />
         </div>
         <div className={styles.formGroupLabelcolor}>
           <label>Label color</label>
           <div className={styles.labelColors}>
-            {["Low", "Medium", "High", "Without"].map((color) => (
+            {['low', 'medium', 'high', 'without'].map(color => (
               <label
                 key={color}
                 className={`${styles.labelColor} ${styles[color]} ${
-                  labelColor === color ? styles.selected : ""
+                  labelColor === color ? styles.selected : ''
                 }`}
               >
                 <input
@@ -70,7 +70,7 @@ const EditCardModal = ({ card, onEditCard, onClose }) => {
           <DatePicker
             id="deadline"
             selected={deadline}
-            onChange={(date) => setDeadline(date)}
+            onChange={date => setDeadline(date)}
             required
             className={styles.datePicker}
           />

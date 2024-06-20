@@ -4,26 +4,23 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Icon from '../../shared/components/Icon/Icon';
 import styles from './AddCardModal.module.css';
 import '../../shared/styles/variables.css';
+import { useDispatch } from 'react-redux';
+import { addCard } from '../../redux/cards/operations';
 
-const AddCardModal = ({ id, onAddCard, onClose }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+const AddCardModal = ({ id, onClose }) => {
   const [labelColor, setLabelColor] = useState('without');
-  const [deadline, setDeadline] = useState(new Date());
-
+  const [dedline, setDeadline] = useState(new Date());
+  const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
-    onAddCard({
+    const newCard = {
       columnId: id,
-      title,
-      description,
+      title: e.target[0].value,
+      description: e.target[1].value,
       priority: labelColor,
-      deadline,
-    });
-    setTitle('');
-    setDescription('');
-    setLabelColor('');
-    setDeadline(new Date());
+      deadline: e.target[6].value,
+    };
+    dispatch(addCard(newCard));
     onClose();
   };
 
@@ -39,20 +36,12 @@ const AddCardModal = ({ id, onAddCard, onClose }) => {
             type="text"
             id="title"
             placeholder="Title"
-            value={title}
-            onChange={e => setTitle(e.target.value)}
             required
             autoFocus
           />
         </div>
         <div className={styles.formGroupDescription}>
-          <textarea
-            id="description"
-            placeholder="Description"
-            value={description}
-            onChange={e => setDescription(e.target.value)}
-            required
-          />
+          <textarea id="description" placeholder="Description" required />
         </div>
         <div className={styles.formGroupLabelcolor}>
           <label>Label color</label>
@@ -65,11 +54,11 @@ const AddCardModal = ({ id, onAddCard, onClose }) => {
                 }`}
               >
                 <input
+                  checked={labelColor === color}
+                  value={color}
                   type="radio"
                   name="labelColor"
-                  value={color}
-                  checked={labelColor === color}
-                  onChange={e => setLabelColor(e.target.value)}
+                  onChange={() => setLabelColor(color)}
                 />
               </label>
             ))}
@@ -80,8 +69,8 @@ const AddCardModal = ({ id, onAddCard, onClose }) => {
           <div className={styles.dateInput}>
             <DatePicker
               id="deadline"
-              selected={deadline}
-              onChange={date => setDeadline(date)}
+              selected={dedline}
+              onChange={e => setDeadline(e)}
               required
               className={styles.input}
               calendarClassName={styles.datePicker}

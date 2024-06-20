@@ -7,6 +7,7 @@
     align-items: center;
   }
   .nav {
+    min-height: 120px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -26,7 +27,7 @@
     position: relative;
   }
   .active::before {
-    content: "";
+    content: '';
     display: block;
     width: 4px;
     height: 60px;
@@ -49,7 +50,7 @@
 }
 @media (min-width: 768px) {
   .active::before {
-    content: "";
+    content: '';
     display: block;
     width: 4px;
     height: 60px;

@@ -135,19 +135,19 @@
   position: absolute;
 }
 
-.labelColor.Low {
+.labelColor.low {
   background-color: var(--board-section-low);
 }
 
-.labelColor.Medium {
+.labelColor.medium {
   background-color: var(--board-section-medium);
 }
 
-.labelColor.High {
+.labelColor.high {
   background-color: var(--board-section-high);
 }
 
-.labelColor.Without {
+.labelColor.without {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
