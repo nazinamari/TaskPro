@@ -28,7 +28,10 @@ export default function SideBar({ isSidebarOpen, toggleSidebar }) {
   return (
     <>
       {isOpenCreateModal && (
-        <NewBoardModal handleCreateModal={handleCreateModal} />
+        <NewBoardModal
+          handleCreateModal={handleCreateModal}
+          toggleSidebar={toggleSidebar}
+        />
       )}
       {isOpenHelpModal && <NeedHelpModal handleHelpModal={handleHelpModal} />}
       <div className={css.backdrop}>

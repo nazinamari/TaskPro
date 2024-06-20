@@ -65,6 +65,7 @@ export default function BoardNavigation({ toggleSidebar }) {
                 title={title}
                 id={_id}
                 isActive={_id === activeBoard}
+                toggleSidebar={toggleSidebar}
               />
             </NavLink>
           </li>
