@@ -1,9 +1,13 @@
 .team-modal {
-  color: red;
+  color: var(--accent-color);
   text-align: center;
   font-size: larger;
   font-weight: 600;
   cursor: pointer;
+  font-family: Lobster;
+  cursor: pointer;
+
+  text-decoration: underline;
 
   &:hover {
     color: greenyellow;

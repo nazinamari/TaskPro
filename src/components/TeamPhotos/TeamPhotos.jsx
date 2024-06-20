@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './TeamPhotos.module.css';
 import Modal from 'react-modal';
+import { PhotoGallery } from './PhotoGallery';
 
 export const TeamPhotos = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -20,6 +21,7 @@ export const TeamPhotos = () => {
       </span>
 
       <Modal
+        className={styles.modal}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Наша команда"
@@ -42,7 +44,9 @@ export const TeamPhotos = () => {
             maxWidth: '500px',
           },
         }}
-      ></Modal>
+      >
+        <PhotoGallery />
+      </Modal>
     </div>
   );
 };
