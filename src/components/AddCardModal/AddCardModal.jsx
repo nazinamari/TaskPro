@@ -1,35 +1,61 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Icon from '../../shared/components/Icon/Icon';
 import styles from './AddCardModal.module.css';
 import '../../shared/styles/variables.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectColumn } from '../../redux/column/selectors';
 
-const AddCardModal = ({ id, onAddCard, onClose }) => {
+const AddCardModal = ({ onAddCard }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [labelColor, setLabelColor] = useState('without');
+  const [labelColor, setLabelColor] = useState('');
   const [deadline, setDeadline] = useState(new Date());
+  const [isOpen, setIsOpen] = useState(false);
+
+  const currentColum = useSelector(selectColumn);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleClickOutside = event => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
-    onAddCard({
-      columnId: id,
-      title,
-      description,
-      priority: labelColor,
-      deadline,
-    });
+    dispatch(
+      onAddCard({
+        columnId: currentColum,
+        title: description,
+        priority: labelColor,
+        deadline,
+      }),
+    );
     setTitle('');
     setDescription('');
     setLabelColor('');
     setDeadline(new Date());
-    onClose();
+    setIsOpen(false);
   };
 
   return (
     <div className={styles.addCardForm}>
-      <button onClick={onClose} className={styles.closeButton}>
+      <button onClick={toggleDropdown} className={styles.closeButton}>
         <Icon id="icon-close" width="16" height="16" className={styles.icon} />
       </button>
       <div className={styles.title}>Add card</div>

@@ -10,11 +10,15 @@ import {
 const slice = createSlice({
   name: 'cards',
   initialState: {
-    items: [],
-    selectedCard: null,
+    card: {
+      title: null,
+      priority: null,
+      avatarURL: null,
+      deadline: null,
+    },
     loading: false,
-    error: false,
-    filterBy: 'all_priority',
+    error: null,
+    success: false,
   },
   reducers: {
     setFilter: (state, action) => {
