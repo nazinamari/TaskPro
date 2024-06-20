@@ -157,6 +157,7 @@
 
   .buttonModal:hover {
     background: var(--accent-color-hover);
+    border: none;
   }
 
   .buttonPlus:hover {

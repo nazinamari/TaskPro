@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #bedbb0;
+  background-color: var(--accent-color);
   border: none;
   border-radius: 8px;
   width: 335px;
@@ -11,7 +11,7 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
-  color: #000;
+  color: var(--side-text);
   transition: background-color 0.3s ease;
   margin-top: 14px;
 }
