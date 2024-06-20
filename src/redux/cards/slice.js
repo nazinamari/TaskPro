@@ -20,6 +20,9 @@ const slice = createSlice({
     setFilter: (state, action) => {
       state.filterBy = action.payload;
     },
+    resetCards: state => {
+      state.items = [];
+    },
   },
   extraReducers: builder =>
     builder
@@ -29,7 +32,9 @@ const slice = createSlice({
       })
       .addCase(fetchAllCards.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        action.payload.map(card => {
+          state.items.push(card);
+        });
       })
       .addCase(fetchAllCards.rejected, state => {
         state.loading = false;
@@ -67,9 +72,10 @@ const slice = createSlice({
       })
       .addCase(editCard.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = state.items.map(item =>
-          item.id === action.payload.id ? action.payload : item,
+        state.items = state.items.filter(
+          item => item._id !== action.payload._id,
         );
+        state.items.push(action.payload);
       })
       .addCase(editCard.rejected, state => {
         state.loading = false;
@@ -90,4 +96,4 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
-export const { setFilter } = slice.actions;
+export const { setFilter, resetCards } = slice.actions;

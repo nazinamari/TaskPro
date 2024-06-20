@@ -151,6 +151,6 @@
 }
 
 .without::before,
-.priorityColor.withoutpriority {
+.priorityColor.without {
   background-color: var(--trash);
 }

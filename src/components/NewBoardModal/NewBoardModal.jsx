@@ -49,9 +49,7 @@ export default function NewBoardModal({ handleCreateModal, toggleSidebar }) {
       dispatch(addBoard(newBoard))
         .unwrap()
         .then(createdBoard => {
-          console.log(createdBoard);
           navigate(`/home/${createdBoard._id}`);
-          console.log('add board');
           handleCreateModal();
         })
         .catch(error => {

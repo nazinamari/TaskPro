@@ -9,12 +9,14 @@ import {
   editColumn,
 } from '../../../src/redux/column/operations';
 import { selectAllColumns } from '../../../src/redux/column/selectors';
+import { resetCards } from '../../redux/cards/slice';
 
 export default function WorkPlace({ id }) {
   const dispatch = useDispatch();
   const columns = useSelector(selectAllColumns);
 
   useEffect(() => {
+    dispatch(resetCards());
     dispatch(fetchColumns(id));
   }, [dispatch, id]);
 

@@ -1,21 +1,19 @@
 import Icon from '../../shared/components/Icon/Icon';
 import styles from './CardTask.module.css';
 import '../../shared/styles/variables.css';
+import { useDispatch } from 'react-redux';
+import { deleteCard } from '../../redux/cards/operations';
 
-const CardTask = ({
-  title,
-  description,
-  priority,
-  deadline,
-  onRemove,
-  onEdit,
-}) => {
+export default function CardTask({ onEdit, card }) {
+  const dispatch = useDispatch();
+  const handleRemoveCard = cardId => {
+    dispatch(deleteCard(cardId));
+  };
 
-  console.log('priority:', priority);
   return (
-    <div className={`${styles.card} ${styles[priority]}`}>
-      <p className={styles.header}>{title}</p>
-      <p className={styles.description}>{description}</p>
+    <div className={`${styles.card} ${styles[card.priority]}`}>
+      <p className={styles.header}>{card.title}</p>
+      <p className={styles.description}>{card.description}</p>
       <div className={styles.separator}></div>
       <div className={styles.footer}>
         <div className={styles.containerPriorityDeadline}>
@@ -23,15 +21,15 @@ const CardTask = ({
             <span className={styles.priorityLabel}>Priority</span>
             <div className={styles.priorityContainer}>
               <span
-                className={`${styles.priorityColor} ${styles[priority]}`}
+                className={`${styles.priorityColor} ${styles[card.priority]}`}
               ></span>
-              <span className={styles.priorityText}>{priority}</span>
+              <span className={styles.priorityText}>{card.priority}</span>
             </div>
           </div>
           <div className={styles.deadline}>
             <span className={styles.deadlineLabel}>Deadline</span>
             <span className={styles.deadlineValue}>
-              {new Date(deadline)
+              {new Date(card.deadline)
                 .toLocaleDateString('en-GB')
                 .replace(/\./g, '/')}
             </span>
@@ -46,7 +44,12 @@ const CardTask = ({
               className={styles.icon}
             />
           </button>
-          <button className={styles.actionButton} onClick={onRemove}>
+          <button
+            className={styles.actionButton}
+            onClick={() => {
+              handleRemoveCard(card._id);
+            }}
+          >
             <Icon
               id="icon-trash"
               width="16"
@@ -58,6 +61,4 @@ const CardTask = ({
       </div>
     </div>
   );
-};
-
-export default CardTask;
+}

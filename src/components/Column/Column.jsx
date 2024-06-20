@@ -7,37 +7,20 @@ import AddCardBtn from '../AddCardBtn/AddCardBtn';
 import AddCardModal from '../AddCardModal/AddCardModal';
 import EditCardModal from '../EditCardModal/EditCardModal';
 import styles from './Column.module.css';
-import {
-  addCard,
-  deleteCard,
-  editCard,
-  fetchAllCards,
-} from '../../redux/cards/operations';
+import { editCard, fetchAllCards } from '../../redux/cards/operations';
 import { selectFilteredCards } from '../../redux/cards/selectors';
-import { getColumnById } from '../../redux/column/operations';
 
-const Column = ({ id, title: initialTitle, onDelete }) => {
+const Column = ({ id, title, onDelete }) => {
   const dispatch = useDispatch();
-  const [title, setTitle] = useState(initialTitle);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [currentCard, setCurrentCard] = useState(null);
 
   useEffect(() => {
     dispatch(fetchAllCards(id));
-    setTitle(initialTitle);
-  }, [dispatch, id, initialTitle]);
+  }, [dispatch, id]);
 
   const filteredCards = useSelector(selectFilteredCards);
-  const handleAddCard = newCard => {
-    dispatch(addCard(newCard));
-    dispatch(getColumnById(id));
-    setIsModalOpen(false);
-  };
-
-  const handleRemoveCard = cardId => {
-    dispatch(deleteCard(cardId));
-  };
 
   const handleEditCard = updatedCard => {
     dispatch(editCard({ cardId: updatedCard._id, data: updatedCard }));
@@ -61,18 +44,22 @@ const Column = ({ id, title: initialTitle, onDelete }) => {
     setIsEditModalOpen(false);
     setCurrentCard(null);
   };
+
   return (
     <div className={styles.column}>
       <ToDo id={id} title={title} onDelete={onDelete} />
       <div className={styles.cards}>
-        {filteredCards.map(card => (
-          <CardTask
-            key={card._id}
-            {...card}
-            onRemove={() => handleRemoveCard(card._id)}
-            onEdit={() => openEditModal(card)}
-          />
-        ))}
+        {filteredCards.map(card => {
+          if (id === card.columnId) {
+            return (
+              <CardTask
+                key={card._id}
+                card={card}
+                onEdit={() => openEditModal(card)}
+              />
+            );
+          }
+        })}
       </div>
       <AddCardBtn onClick={openModal} />
       <Modal
@@ -82,7 +69,7 @@ const Column = ({ id, title: initialTitle, onDelete }) => {
         className={styles.modal}
         overlayClassName={styles.overlay}
       >
-        <AddCardModal id={id} onAddCard={handleAddCard} onClose={closeModal} />
+        <AddCardModal id={id} onClose={closeModal} />
       </Modal>
       {currentCard && (
         <Modal
