@@ -10,7 +10,7 @@ import Background from '../../shared/components/Background/Background.jsx';
 import { useNavigate } from 'react-router-dom';
 import icons from '../../images/mini/icons.json';
 
-export default function NewBoardModal({ handleCreateModal }) {
+export default function NewBoardModal({ handleCreateModal, toggleSidebar }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -58,6 +58,11 @@ export default function NewBoardModal({ handleCreateModal }) {
           console.error('Failed to add board:', error);
         });
       reset();
+      const screenWidth = window.innerWidth;
+
+      if (screenWidth < 1024) {
+        toggleSidebar();
+      }
     }
   };
 
