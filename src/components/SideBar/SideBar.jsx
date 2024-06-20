@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import Icon from '../../shared/components/Icon/Icon';
 import NewBoardModal from '../NewBoardModal/NewBoardModal';
 import { logOut } from '../../redux/auth/operations';
+import { TeamPhotos } from '../TeamPhotos/TeamPhotos';
 
 export default function SideBar({ isSidebarOpen, toggleSidebar }) {
   const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
@@ -109,6 +110,8 @@ export default function SideBar({ isSidebarOpen, toggleSidebar }) {
             />
             Log out
           </button>
+
+          <TeamPhotos />
         </aside>
       </div>
     </>
