@@ -31,7 +31,6 @@ export const updateUserProfile = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const response = await instance.put('/users/update', userData);
-      toast.success('User update');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

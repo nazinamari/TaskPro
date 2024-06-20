@@ -210,8 +210,9 @@
   cursor: pointer;
   color: var(--main-text-color);
 }
+
 /* стили для datepicker */
-.react-datepicker {
+/* .react-datepicker {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
 }
@@ -239,4 +240,42 @@
 
 .react-datepicker__day:hover {
   background-color: var(--accent-color);
+} */
+
+.input {
+  border: none;
+  width: 70px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
+.datepicker {
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
+
+.header {
+  background-color: #333;
+  color: white;
+}
+
+.daySelected {
+  background-color: #007bff;
+  color: white;
+}
+
+.dateInput {
+  display: flex;
+  align-items: center;
+}
+
+.iconArrow {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+  cursor: pointer;
 }
