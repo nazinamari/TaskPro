@@ -59,13 +59,19 @@
     box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
     z-index: 1;
   }
+  .titleWrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+  }
 
-  .h2 {
-    font-size: 18px;
+  .titleFilter {
+    font-size: 16px;
     font-weight: 500;
     line-height: 27px;
     letter-spacing: -0.02em;
-    margin-bottom: 14px;
+    /* margin-bottom: 14px; */
   }
 
   .line {
