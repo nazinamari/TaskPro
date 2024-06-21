@@ -9,6 +9,8 @@ import EditCardModal from '../EditCardModal/EditCardModal';
 import styles from './Column.module.css';
 import { editCard, fetchAllCards } from '../../redux/cards/operations';
 import { selectFilteredCards } from '../../redux/cards/selectors';
+import ScrollColumn from '../../shared/components/ScrollContainer/ScrollColumn/ScrollColumn';
+import ScrollButtomColumn from '../../shared/components/ScrollContainer/ScrollButtomColumn/ScrollButtomColum';
 
 const Column = ({ id, title, onDelete }) => {
   const dispatch = useDispatch();
@@ -48,19 +50,23 @@ const Column = ({ id, title, onDelete }) => {
   return (
     <div className={styles.column}>
       <ToDo id={id} title={title} onDelete={onDelete} />
-      <div className={styles.cards}>
-        {filteredCards.map(card => {
-          if (id === card.columnId) {
-            return (
-              <CardTask
-                key={card._id}
-                card={card}
-                onEdit={() => openEditModal(card)}
-              />
-            );
-          }
-        })}
-      </div>
+      <ScrollColumn>
+        <ScrollButtomColumn>
+          <div className={styles.cards}>
+            {filteredCards.map(card => {
+              if (id === card.columnId) {
+                return (
+                  <CardTask
+                    key={card._id}
+                    card={card}
+                    onEdit={() => openEditModal(card)}
+                  />
+                );
+              }
+            })}
+          </div>
+        </ScrollButtomColumn>
+      </ScrollColumn>
       <AddCardBtn onClick={openModal} />
       <Modal
         isOpen={isModalOpen}

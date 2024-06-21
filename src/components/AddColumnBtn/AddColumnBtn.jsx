@@ -20,7 +20,7 @@ const AddColumnBtn = () => {
         <div className={styles.iconContainer}>
           <Icon id="icon-plus" width="16" height="16" className={styles.icon} />
         </div>
-        Add another column
+        <h3 className={styles.addColumn}>Add another column</h3>
       </button>
       <AddColumnModal isOpen={modalIsOpen} onClose={handleModalClose} />
     </>
