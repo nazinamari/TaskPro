@@ -67,13 +67,22 @@ const EditCardModal = ({ card, onEditCard, onClose }) => {
         </div>
         <div className={styles.formGroupDeadline}>
           <label htmlFor="deadline">Deadline</label>
-          <DatePicker
-            id="deadline"
-            selected={deadline}
-            onChange={date => setDeadline(date)}
-            required
-            className={styles.datePicker}
-          />
+          <div className={styles.dateInput}>
+            <DatePicker
+              id="deadline"
+              selected={deadline}
+              onChange={date => setDeadline(date)}
+              required
+              className={styles.input}
+              calendarClassName={styles.datePicker}
+            />
+            <Icon
+              id="icon-arrow-down"
+              width="18"
+              height="18"
+              className={styles.iconArrow}
+            />
+          </div>
         </div>
         <button type="submit" className={styles.addButton}>
           <div className={styles.iconContainer}>

@@ -211,32 +211,41 @@
   color: var(--main-text-color);
 }
 /* стили для datepicker */
-.react-datepicker {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
+
+.input {
+  border: none;
+  width: 70px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--accent-color);
+  cursor: pointer;
 }
 
-.react-datepicker__input-container {
-  display: block !important;
+.datepicker {
+  border-radius: 8px;
+  background-color: #f0f0f0;
 }
 
-.react-datepicker__input-container input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #333;
-  border-radius: 4px;
-  background-color: #2d2d2d;
-  color: var(--secondary-color);
+.header {
+  background-color: #333;
+  color: white;
 }
 
-.react-datepicker__day--selected {
-  background-color: var(--primary-color);
+.daySelected {
+  background-color: #007bff;
+  color: white;
 }
 
-.react-datepicker__day--keyboard-selected {
-  background-color: var(--primary-color);
+.dateInput {
+  display: flex;
+  align-items: center;
 }
 
-.react-datepicker__day:hover {
-  background-color: var(--accent-color);
+.iconArrow {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+  cursor: pointer;
 }
