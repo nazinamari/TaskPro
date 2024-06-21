@@ -8,26 +8,6 @@ import { selectBoard } from '../../redux/board/selectors';
 const AddColumnModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
   const currentBoard = useSelector(selectBoard);
-  // const bordId = currentBoard.board._id;
-
-  // console.log(bordId);
-
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   const columnTitle = e.target[0].value;
-  //   if (columnTitle.trim() === '') {
-  //     return;
-  //   }
-  //   if (currentBoard && currentBoard.board && currentBoard.board._id) {
-  //     dispatch(
-  //       addColumn({
-  //         boardId: bordId,
-  //         title: columnTitle,
-  //       }),
-  //     );
-  //     onClose();
-  //   }
-  // };
 
   return (
     currentBoard && (
@@ -47,7 +27,19 @@ const AddColumnModal = ({ isOpen, onClose }) => {
           />
         </button>
         <p className={styles.title}>Add column</p>
-        <form>
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            const columnTitle = e.target[0].value;
+            dispatch(
+              addColumn({
+                boardId: currentBoard.board._id,
+                title: columnTitle,
+              }),
+            );
+            onClose();
+          }}
+        >
           <input
             type="text"
             placeholder="Title"
