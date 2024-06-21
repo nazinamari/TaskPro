@@ -212,35 +212,6 @@
 }
 
 /* стили для datepicker */
-/* .react-datepicker {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-}
-
-.react-datepicker__input-container {
-  display: block !important;
-}
-
-.react-datepicker__input-container input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #333;
-  border-radius: 4px;
-  background-color: #2d2d2d;
-  color: var(--secondary-color);
-}
-
-.react-datepicker__day--selected {
-  background-color: var(--primary-color);
-}
-
-.react-datepicker__day--keyboard-selected {
-  background-color: var(--primary-color);
-}
-
-.react-datepicker__day:hover {
-  background-color: var(--accent-color);
-} */
 
 .input {
   border: none;
