@@ -58,10 +58,9 @@
   height: 49px;
   margin-left: 22px;
   margin-right: 20px;
-}
-
-.addButton:hover {
-  background-color: var(--accent-color);
+  &:hover {
+    background-color: var(--accent-color-hover);
+  }
 }
 
 .iconContainer {
