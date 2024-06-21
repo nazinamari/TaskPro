@@ -26,7 +26,7 @@ const AddColumnModal = ({ isOpen, onClose }) => {
             className={styles.iconClose}
           />
         </button>
-        <div className={styles.title}>Add column</div>
+        <p className={styles.title}>Add column</p>
         <form
           onSubmit={e => {
             e.preventDefault();
@@ -55,7 +55,7 @@ const AddColumnModal = ({ isOpen, onClose }) => {
                 className={styles.icon}
               />
             </div>
-            Add
+            <p>Add</p>
           </button>
         </form>
       </Modal>
