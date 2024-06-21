@@ -1,11 +1,14 @@
 .wrapperSwitch {
   position: relative;
+  height: 16px;
+  width: 16px;
 }
 
 .switchBtn {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0px;
 }
 
 .iconSwitch {

@@ -116,7 +116,7 @@
   --side-text: #ffffff;
   --input-text: #161616;
   --cards-color: #ffffff;
-  --trash: rgba(100, 100, 100, 0.7);
+  --trash: rgba(255, 255, 255, 0.7);
   --edit-plus: #ffffff;
   --item-theme: #161616;
   --plus-icon: #161616;
@@ -147,6 +147,6 @@
   --side-text: #ffffff;
   --input-text: #ffffff;
   --cards-color: #121212;
-  --item-theme: rgba(255, 255, 255, 0.5);
+  --item-theme: rgba(255, 255, 255, 0.7);
   --icon-arrow-circle: rgba(255, 255, 255, 0.5);
 }

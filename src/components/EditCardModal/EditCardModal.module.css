@@ -210,7 +210,7 @@
   cursor: pointer;
   color: var(--main-text-color);
 }
-/* стили для datepicker */
+/* стили для календаря */
 
 .input {
   border: none;
@@ -229,7 +229,7 @@
   background-color: #f0f0f0;
 }
 
-.header {
+.customCalendarHeader {
   background-color: #333;
   color: white;
 }
@@ -248,4 +248,15 @@
   fill: var(--accent-color);
   stroke: var(--accent-color);
   cursor: pointer;
+}
+
+.datePicker {
+  background-color: #312828;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.customCalendarHeader {
+  background-color: #007bff;
 }
