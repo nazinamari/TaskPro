@@ -1,46 +1,46 @@
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import clsx from "clsx";
-
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import styled from "./RegisterForm.module.css";
-import Icon from "../../shared/components/Icon/Icon";
-import { useDispatch } from "react-redux";
-import { registerUser } from "../../redux/auth/operations";
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import clsx from 'clsx';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from './RegisterForm.module.css';
+import Icon from '../../shared/components/Icon/Icon';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../redux/auth/operations';
+import toast, { Toaster } from 'react-hot-toast';
 
 const schema = yup.object().shape({
   name: yup
     .string()
     .matches(
       /^[A-Za-z0-9]+$/,
-      "Name can only contain letters, numbers, and no spaces"
+      'Name can only contain letters, numbers, and no spaces',
     )
-    .min(2, "Name must be at least 2 characters")
-    .max(32, "Name must be at most 32 characters")
-    .required("The name field is not filled"),
+    .min(2, 'Name must be at least 2 characters')
+    .max(32, 'Name must be at most 32 characters')
+    .required('The name field is not filled'),
   email: yup
     .string()
-    .email("Invalid email format")
+    .email('Invalid email format')
     .matches(
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      "Email must include one '@' and one '.' in the host part"
+      "Email must include one '@' and one '.' in the host part",
     )
-    .required("The email field is not filled"),
+    .required('The email field is not filled'),
   password: yup
     .string()
     .matches(
       /^[A-Za-z0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+$/,
-      "Password can only contain letters, numbers, and special characters"
+      'Password can only contain letters, numbers, and special characters',
     )
-    .min(8, "Password must be at least 8 characters")
-    .max(64, "Password must be at most 64 characters")
-    .required("The password field is not filled")
+    .min(8, 'Password must be at least 8 characters')
+    .max(64, 'Password must be at most 64 characters')
+    .required('The password field is not filled')
     .test(
-      "no-spaces",
-      "Password cannot contain spaces",
-      (value) => !/\s/.test(value)
+      'no-spaces',
+      'Password cannot contain spaces',
+      value => !/\s/.test(value),
     ),
 });
 
@@ -59,16 +59,23 @@ export default function RegisterForm() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema), // Додавання yupResolver для валідації
-    mode: "onBlur",
+    resolver: yupResolver(schema),
+    mode: 'onBlur',
     defaultValues: {
-      name: "",
-      email: "",
-      password: "",
+      name: '',
+      email: '',
+      password: '',
     },
   });
 
-  const onSubmit = (data) => dispatch(registerUser(data));
+  const onSubmit = async data => {
+    try {
+      await dispatch(registerUser(data)).unwrap();
+    } catch (error) {
+      const errorMessage = 'An unexpected error occurred. Please try again.';
+      toast.error(errorMessage);
+    }
+  };
 
   return (
     <section className={styled.registerContainer}>
@@ -91,7 +98,7 @@ export default function RegisterForm() {
             className={styled.registerInput}
             type="text"
             placeholder="Enter your name"
-            {...register("name")}
+            {...register('name')}
           />
           {errors.name && (
             <span className={styled.registerError}>{errors.name.message}</span>
@@ -101,7 +108,7 @@ export default function RegisterForm() {
             className={styled.registerInput}
             type="text"
             placeholder="Enter your email"
-            {...register("email")}
+            {...register('email')}
           />
           {errors.email && (
             <span className={styled.registerError}>{errors.email.message}</span>
@@ -110,9 +117,9 @@ export default function RegisterForm() {
           <div className={styled.passwordWrapper}>
             <input
               className={styled.registerInput}
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               placeholder="Confirm a password"
-              {...register("password")}
+              {...register('password')}
             />
             <span
               onClick={toggleShowPassword}
@@ -136,6 +143,8 @@ export default function RegisterForm() {
             Register Now
           </button>
         </form>
+
+        <Toaster />
       </div>
     </section>
   );
