@@ -50,13 +50,15 @@ export default function Filter() {
   return (
     <div className={css.dropdown} ref={dropdownRef}>
       <button className={css.filterBtn} onClick={toggleDropdown}>
-        <Icon
-          id="icon-filter"
-          width="16"
-          height="16"
-          className={css.filterIcon}
-        />
-        Filters
+        <div className={css.titleWrapper}>
+          <Icon
+            id="icon-filter"
+            width="24"
+            height="24"
+            className={css.filterIcon}
+          />
+          <h3 className={css.titleFilter}>Filters</h3>
+        </div>
       </button>
       {isOpen && (
         <div className={css.dropdownMenu}>
@@ -69,7 +71,7 @@ export default function Filter() {
           >
             {({ submitForm, values }) => (
               <Form className={css.formContainer}>
-                <h2 className={css.h2}>Filters</h2>
+                <h2 className={css.titleFilter}>Filters</h2>
                 <hr className={css.line} />
                 <div className={css.resetBtnWrapper}>
                   <h3 className={css.filterName}>Label color</h3>
