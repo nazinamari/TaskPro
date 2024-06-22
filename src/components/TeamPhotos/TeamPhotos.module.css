@@ -1,5 +1,5 @@
 .team-modal {
-  color: var(--accent-color);
+  color: var(--team-label);
   text-align: center;
   font-size: larger;
   font-weight: 600;
@@ -10,7 +10,7 @@
   text-decoration: underline;
 
   &:hover {
-    color: greenyellow;
+    color: var(--accent-color-hover);
   }
 }
 
