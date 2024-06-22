@@ -110,8 +110,7 @@ export default function SideBar({ isSidebarOpen, toggleSidebar }) {
             />
             Log out
           </button>
-
-          {/* <TeamPhotos /> */}
+          <TeamPhotos />
         </aside>
       </div>
     </>

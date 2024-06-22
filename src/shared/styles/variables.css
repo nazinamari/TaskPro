@@ -45,6 +45,7 @@
   --edit-plus: #151515;
   --plus-icon: #ffffff;
   --border-title2: #ffffff;
+  --team-label: #bedbb0;
 }
 
 .light {
@@ -80,6 +81,7 @@
   --item-theme: #161616;
   --plus-icon: #ffffff;
   --border-title2: #161616;
+  --team-label: #bedbb0;
 }
 
 .violet {
@@ -121,6 +123,7 @@
   --item-theme: #161616;
   --plus-icon: #161616;
   --border-title2: #161616;
+  --team-label: #b8bcfd;
 }
 
 .dark {
