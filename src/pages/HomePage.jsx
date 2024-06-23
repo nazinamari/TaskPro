@@ -1,5 +1,5 @@
 import SideBar from '../components/SideBar/SideBar';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Layout from '../shared/components/Layout/Layout';
 import MainContent from '../components/MainContent/MainContent';
 import Text from '../components/Text/Text';
@@ -15,8 +15,8 @@ export default function HomePage() {
 
   return (
     <Layout>
-      <SideBar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <MainContent toggleSidebar={toggleSidebar} content={<Text />} />
+      <SideBar />
+      <MainContent content={<Text />} />
     </Layout>
   );
 }

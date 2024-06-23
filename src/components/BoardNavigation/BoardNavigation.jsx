@@ -11,7 +11,7 @@ const makeLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.isActive);
 };
 
-export default function BoardNavigation({ toggleSidebar }) {
+export default function BoardNavigation() {
   const location = useLocation();
   const [activeBoard, setActiveBoard] = useState(null);
   const boards = useSelector(selectAllBoards);

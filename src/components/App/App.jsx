@@ -6,10 +6,11 @@ import { RestrictedRoute } from '../Routes/RestrictedRoute';
 import { Toaster } from 'react-hot-toast';
 import { PrivateRoute } from '../Routes/PrivateRoute';
 import { refreshUser } from '../../redux/user/operations.js';
-import { selectIsError } from '../../redux/auth/selectors.js';
+import { selectIsErrorAuth } from '../../redux/auth/selectors.js';
 import { handleLogOut } from '../../redux/auth/slice.js';
 import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 import { fetchBoards } from '../../redux/board/operations.js';
+import { selectIsError } from '../../redux/user/selectors.js';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage'));
@@ -24,7 +25,8 @@ const NotFoundPage = lazy(() =>
 export default function App() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isError = useSelector(selectIsError);
+  const isAuthError = useSelector(selectIsErrorAuth);
+  const isUserError = useSelector(selectIsError);
 
   useEffect(() => {
     dispatch(refreshToken());
@@ -38,11 +40,17 @@ export default function App() {
   }, [dispatch, isLoggedIn]);
 
   useEffect(() => {
-    if (isError) {
+    if (isAuthError) {
       dispatch(handleLogOut());
       console.error('An error occurred, logging out.');
     }
-  }, [isError, dispatch]);
+  }, [isAuthError, dispatch]);
+
+  useEffect(() => {
+    if (isUserError) {
+      dispatch(handleLogOut());
+    }
+  }, [dispatch, isUserError]);
 
   return (
     <div>
