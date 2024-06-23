@@ -35,10 +35,6 @@
   color: var(--main-background-color);
 }
 
-/* .iconContainer:hover {
-  stroke: red;
-} */
-
 .icon {
   stroke: var(--plus-icon);
 }
