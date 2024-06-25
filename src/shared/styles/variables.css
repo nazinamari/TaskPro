@@ -46,6 +46,7 @@
   --plus-icon: #ffffff;
   --border-title2: #ffffff;
   --team-label: #bedbb0;
+  --label: rgba(255, 255, 255, 0.5);
 }
 
 .light {
@@ -82,6 +83,7 @@
   --plus-icon: #ffffff;
   --border-title2: #161616;
   --team-label: #bedbb0;
+  --label: rgba(22, 22, 22, 0.5);
 }
 
 .violet {
@@ -124,6 +126,7 @@
   --plus-icon: #161616;
   --border-title2: #161616;
   --team-label: #b8bcfd;
+  --label: rgba(22, 22, 22, 0.5);
 }
 
 .dark {
@@ -152,4 +155,6 @@
   --cards-color: #121212;
   --item-theme: rgba(255, 255, 255, 0.5);
   --icon-arrow-circle: rgba(255, 255, 255, 0.5);
+  --trash: rgba(255, 255, 255, 0.3);
+  --label: rgba(255, 255, 255, 0.5);
 }

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import 'react-datepicker/dist/react-datepicker.css';
 import Icon from '../../shared/components/Icon/Icon';
 import styles from './AddCardModal.module.css';
 import '../../shared/styles/variables.css';

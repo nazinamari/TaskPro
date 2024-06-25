@@ -9,7 +9,7 @@
 }
 
 .iconSwitch {
-  stroke: var(--item-theme);
+  stroke: var(--label);
   transition: stroke 0.3s ease;
   fill: none;
 }
@@ -20,14 +20,19 @@
 .dropdownMenu {
   position: absolute;
   top: 150%;
-  left: -20%;
+  left: -400%;
   border: 1px solid var(--accent-color);
   border-radius: 8px;
   width: 135px;
   min-height: 86px;
   background: var(--hover-background-color);
   box-shadow: 0 4px 16px 0 rgba(17, 17, 17, 0.1);
-  z-index: 1;
+  z-index: 10;
+}
+
+.dropUp {
+  top: auto;
+  bottom: 100%;
 }
 
 .dropdownItem {

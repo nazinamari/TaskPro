@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import DatePicker from 'react-datepicker';
 import Icon from '../../shared/components/Icon/Icon';
 import styles from './EditCardModal.module.css';
 import '../../shared/styles/variables.css';
