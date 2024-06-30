@@ -10,6 +10,7 @@ import icons from '../../../images/mini/icons.json';
 import * as images from './img';
 import picData from './data/pic.json';
 import Picture from '../../../shared/components/Pic/Pic';
+import clsx from 'clsx';
 
 export default function EditBoardModal({ onClose, title }) {
   const data = picData.map(item => {
@@ -140,7 +141,7 @@ export default function EditBoardModal({ onClose, title }) {
                       checked={selectedBg === item.value}
                     />
                     <Picture
-                      className={css.bgImage}
+                      className={clsx(css.bgImage, selectedBg === item.value && css.checked)}
                       url={item.url}
                       url2x={item.url2x}
                       width={item.width}

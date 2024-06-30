@@ -227,3 +227,7 @@
     width: 302px;
   }
 }
+
+.checked {
+  outline: 4px solid red;
+}
