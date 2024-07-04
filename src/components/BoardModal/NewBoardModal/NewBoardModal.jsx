@@ -3,20 +3,30 @@ import { useForm } from 'react-hook-form';
 import Icon from '../../../shared/components/Icon/Icon.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAllBoards } from '../../../redux/board/selectors.js';
-import bgImages from '../../../images/mini/dt_1x/index.js';
 import { addBoard } from '../../../redux/board/operations.js';
 import { useEffect, useState } from 'react';
-import Background from '../../../shared/components/Background/Background.jsx';
 import { useNavigate } from 'react-router-dom';
 import icons from '../../../images/mini/icons.json';
+import * as images from '../img/index.js';
+import picData from '../data/pic.json';
+import Picture from '../../../shared/components/Pic/Pic';
+import clsx from 'clsx';
 
 export default function NewBoardModal({ handleCreateModal }) {
+  const data = picData.map(item => {
+    return {
+      ...item,
+      url: images[item.url],
+      url2x: images[item.url2x],
+    };
+  });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const boards = useSelector(selectAllBoards);
   const [selectedIcon, setSelectedIcon] = useState('icon-projects');
-  const [selectedBg, setSelectedBg] = useState('bg-1');
+  const [selectedBg, setSelectedBg] = useState('bg-0');
   const {
     register,
     handleSubmit,
@@ -116,7 +126,7 @@ export default function NewBoardModal({ handleCreateModal }) {
             </div>
             <h3 className={css.iconsTitle}>Background</h3>
             <ul className={css.bgList}>
-              {bgImages.map((imageSrc, index) => (
+              {/* {bgImages.map((imageSrc, index) => (
                 <li key={index}>
                   <label htmlFor={`bg-${index}`} className={css.iconLabel}>
                     <input
@@ -141,6 +151,31 @@ export default function NewBoardModal({ handleCreateModal }) {
                       height={imageSrc.height}
                       src={imageSrc.src}
                       alt={imageSrc.value}
+                    />
+                  </label>
+                </li>
+              ))} */}
+              {data.map((item, index) => (
+                <li key={item.id}>
+                  <label htmlFor={`bg-${index}`} className={css.bgLabel}>
+                    <input
+                      type="radio"
+                      value={item.value}
+                      id={`bg-${index}`}
+                      className={css.iconRadio}
+                      onChange={() => setSelectedBg(item.value)}
+                      checked={selectedBg === item.value}
+                    />
+                    <Picture
+                      className={clsx(
+                        css.bgImage,
+                        selectedBg === item.value && css.checked,
+                      )}
+                      url={item.url}
+                      url2x={item.url2x}
+                      width={item.width}
+                      height={item.height}
+                      alt={item.alt}
                     />
                   </label>
                 </li>

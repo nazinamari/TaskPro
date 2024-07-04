@@ -159,22 +159,9 @@
   position: absolute;
 }
 
-/* .radio:checked + .bgImage {
+.checked {
   border: 1px solid var(--main-text-color);
 }
-
-.radio:hover + .bgImage {
-  border: 1px solid var(--main-text-color);
-} */
-
-/* .radio:checked + .bgLabel {
-  border: 1px solid var(--main-text-color);
-} */
-
-/* input[type='checkbox']:checked .bgImage {
-  display: block;
-  border: 1px solid var(--main-text-color);
-} */
 
 .editBtn {
   border-radius: 8px;
@@ -226,8 +213,4 @@
   .createBtn {
     width: 302px;
   }
-}
-
-.checked {
-  outline: 4px solid red;
 }

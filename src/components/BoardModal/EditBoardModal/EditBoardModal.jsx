@@ -1,14 +1,12 @@
 import css from './EditBoardModal.module.css';
 import Icon from '../../../shared/components/Icon/Icon';
-// import bgImages from '../../images/mini/dt_1x/index';
 import { useEffect, useState } from 'react';
 import { editBoard, getBoardById } from '../../../redux/board/operations';
-// import Background from '../../shared/components/Background/Background';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBoard } from '../../../redux/board/selectors';
 import icons from '../../../images/mini/icons.json';
-import * as images from './img';
-import picData from './data/pic.json';
+import * as images from '../img';
+import picData from '../data/pic.json';
 import Picture from '../../../shared/components/Pic/Pic';
 import clsx from 'clsx';
 
@@ -141,7 +139,10 @@ export default function EditBoardModal({ onClose, title }) {
                       checked={selectedBg === item.value}
                     />
                     <Picture
-                      className={clsx(css.bgImage, selectedBg === item.value && css.checked)}
+                      className={clsx(
+                        css.bgImage,
+                        selectedBg === item.value && css.checked,
+                      )}
                       url={item.url}
                       url2x={item.url2x}
                       width={item.width}
